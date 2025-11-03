@@ -52,7 +52,7 @@ jobs:
             libgbm1 \
             libpango-1.0-0 \
             libcairo2 \
-            libasound2t64 \
+            libasound2 \
             libxshmfence1
 
       - name: 🤖 Run scraper
