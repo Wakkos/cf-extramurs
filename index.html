@@ -143,15 +143,43 @@
 
         /* Próximo Partido */
         .next-match-card {
-            background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary) / 0.85) 100%);
+            position: relative;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.9) 0%, rgba(59, 130, 246, 0.85) 100%), url('Images/bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             border: none;
             color: white;
             padding: 2rem;
+            overflow: hidden;
+        }
+
+        .next-match-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.7) 0%, rgba(59, 130, 246, 0.6) 100%);
+            z-index: 1;
+        }
+
+        .next-match-card > * {
+            position: relative;
+            z-index: 2;
         }
 
         .next-match-card.urgent {
-            background: linear-gradient(135deg, hsl(0 84.2% 60.2%) 0%, hsl(0 84.2% 50.2%) 100%);
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.9) 0%, rgba(220, 38, 38, 0.85) 100%), url('Images/bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        .next-match-card.urgent::before {
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.7) 0%, rgba(220, 38, 38, 0.6) 100%);
         }
 
         @keyframes pulse {
@@ -1085,7 +1113,7 @@
 
         <!-- Footer -->
         <div class="footer">
-            <p><strong>Última actualización:</strong> 03/11/2025 - 17:16</p>
+            <p><strong>Última actualización:</strong> 03/11/2025 - 17:45</p>
         </div>
     </div>
 
