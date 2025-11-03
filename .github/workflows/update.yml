@@ -1,0 +1,67 @@
+name: Update Calendar & Deploy
+
+on:
+  # Ejecutar todos los días a las 7:00 AM (Europe/Madrid)
+  schedule:
+    - cron: '0 6 * * *'  # 6:00 UTC = 7:00 Madrid (horario de invierno)
+
+  # Permitir ejecución manual
+  workflow_dispatch:
+
+  # Ejecutar en push a main (para testing)
+  push:
+    branches:
+      - main
+
+jobs:
+  update-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: 📦 Install dependencies
+        run: |
+          pip install -r requirements.txt
+          playwright install chromium
+          playwright install-deps chromium
+
+      - name: 🤖 Run scraper
+        run: |
+          python scraper.py
+
+      - name: 📊 Check for changes
+        id: check_changes
+        run: |
+          git diff --quiet partidos.ics data/partidos.json index.html manifest.json || echo "changes=true" >> $GITHUB_OUTPUT
+
+      - name: 💾 Commit and push changes
+        if: steps.check_changes.outputs.changes == 'true'
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+          git add partidos.ics data/partidos.json index.html manifest.json Images/
+          git commit -m "🤖 Actualización automática - $(date +'%Y-%m-%d %H:%M')"
+          git push
+
+      - name: 🚀 Deploy to GitHub Pages
+        if: steps.check_changes.outputs.changes == 'true'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
+          publish_branch: gh-pages
+          exclude_assets: '.github,templates,__pycache__,.gitignore,requirements.txt,scraper.py,data'
+
+      - name: ✅ Success notification
+        if: success()
+        run: |
+          echo "✅ Calendario actualizado y desplegado exitosamente!"
+          echo "📅 Fecha: $(date +'%Y-%m-%d %H:%M:%S')"
