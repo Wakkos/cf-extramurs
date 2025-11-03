@@ -171,15 +171,43 @@
 
         /* Próximo Partido */
         .next-match-card {
-            background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary) / 0.85) 100%);
+            position: relative;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.9) 0%, rgba(59, 130, 246, 0.85) 100%), url('Images/bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             border: none;
             color: white;
             padding: 2rem;
+            overflow: hidden;
+        }
+
+        .next-match-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.7) 0%, rgba(59, 130, 246, 0.6) 100%);
+            z-index: 1;
+        }
+
+        .next-match-card > * {
+            position: relative;
+            z-index: 2;
         }
 
         .next-match-card.urgent {
-            background: linear-gradient(135deg, hsl(0 84.2% 60.2%) 0%, hsl(0 84.2% 50.2%) 100%);
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.9) 0%, rgba(220, 38, 38, 0.85) 100%), url('Images/bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        .next-match-card.urgent::before {
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.7) 0%, rgba(220, 38, 38, 0.6) 100%);
         }
 
         @keyframes pulse {
@@ -886,11 +914,11 @@
         </div>
 
         <!-- Próximo Partido -->
-        
+
         <div class="card next-match-card">
             <div class="card-title">
                 PRÓXIMO PARTIDO · JORNADA 4
-                
+
             </div>
             <div class="next-match-content">
                 <div class="match-meta">
@@ -912,15 +940,15 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                     Campo Tramo III del Turia F-8(HA)
                 </div>
-                
+
                 <a href="https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a" class="btn-maps" target="_blank" rel="noopener">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
                     Ver en Google Maps
                 </a>
-                
+
             </div>
         </div>
-        
+
 
         <!-- Últimos Resultados -->
         <div class="card">
@@ -930,25 +958,25 @@
                     Últimos Resultados
                 </h2>
             </div>
-            
+
             <div class="streak-container">
                 <span class="streak-label">Racha</span>
                 <div class="streak-badges">
-                    
+
                     <div class="streak-badge loss">
                         L
                     </div>
-                    
+
                     <div class="streak-badge loss">
                         L
                     </div>
-                    
+
                 </div>
             </div>
-            
-            
+
+
             <div class="results-list">
-                
+
                 <div class="result-item">
                     <div class="result-badge loss">
                         L
@@ -960,7 +988,7 @@
                         <div class="result-date">2025-11-01</div>
                     </div>
                 </div>
-                
+
                 <div class="result-item">
                     <div class="result-badge loss">
                         L
@@ -972,9 +1000,9 @@
                         <div class="result-date">2025-10-25</div>
                     </div>
                 </div>
-                
+
             </div>
-            
+
         </div>
 
         <!-- Clasificación -->
@@ -985,7 +1013,7 @@
                     Clasificación del Grupo
                 </h2>
             </div>
-            
+
             <div class="table-container">
                 <table>
                     <thead>
@@ -1000,7 +1028,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        
+
                         <tr class="team-position-1">
                             <td>1</td>
                             <td>C.D. San Marcelino 'A'</td>
@@ -1010,7 +1038,7 @@
                             <td>0</td>
                             <td>0</td>
                         </tr>
-                        
+
                         <tr class="">
                             <td>2</td>
                             <td>Col. Salgui E.D.E. 'A'</td>
@@ -1020,7 +1048,7 @@
                             <td>1</td>
                             <td>0</td>
                         </tr>
-                        
+
                         <tr class="">
                             <td>3</td>
                             <td>C.D. Col. El Vedat 'A'</td>
@@ -1030,7 +1058,7 @@
                             <td>1</td>
                             <td>0</td>
                         </tr>
-                        
+
                         <tr class="">
                             <td>4</td>
                             <td>C.D. Zafranar 'A'</td>
@@ -1040,7 +1068,7 @@
                             <td>0</td>
                             <td>1</td>
                         </tr>
-                        
+
                         <tr class="">
                             <td>5</td>
                             <td>C.D. Apolo 'A'</td>
@@ -1050,7 +1078,7 @@
                             <td>0</td>
                             <td>1</td>
                         </tr>
-                        
+
                         <tr class="">
                             <td>6</td>
                             <td>C.D. Malilla 'A'</td>
@@ -1060,7 +1088,7 @@
                             <td>0</td>
                             <td>2</td>
                         </tr>
-                        
+
                         <tr class="">
                             <td>7</td>
                             <td>C.D. At. Nazaret 'A'</td>
@@ -1070,7 +1098,7 @@
                             <td>0</td>
                             <td>2</td>
                         </tr>
-                        
+
                         <tr class="">
                             <td>8</td>
                             <td>At. Ciudad Paiporta 'A'</td>
@@ -1080,7 +1108,7 @@
                             <td>0</td>
                             <td>2</td>
                         </tr>
-                        
+
                         <tr class="">
                             <td>9</td>
                             <td>Discóbolo-La Torre A.C. 'A'</td>
@@ -1090,7 +1118,7 @@
                             <td>0</td>
                             <td>3</td>
                         </tr>
-                        
+
                         <tr class="team-current">
                             <td>10</td>
                             <td>C.F. Extramurs Valencia 'B'</td>
@@ -1100,16 +1128,16 @@
                             <td>0</td>
                             <td>2</td>
                         </tr>
-                        
+
                     </tbody>
                 </table>
             </div>
-            
+
             <div class="motivational-message">
                 ¡Cada partido es una oportunidad para mejorar! 💪 La temporada recién empieza.
             </div>
-            
-            
+
+
         </div>
 
         <!-- Footer -->
