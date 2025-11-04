@@ -5,14 +5,16 @@ Extramurs Calendar Automation - Scraper
 Scrapea la web de FFCV para obtener partidos y clasificación del equipo
 """
 
+import base64
 import json
 import logging
 import re
 import time
+import yaml
 from datetime import datetime
 from pathlib import Path
 from typing import Dict, List, Optional
-from urllib.parse import quote
+from urllib.parse import quote, urlencode
 
 from bs4 import BeautifulSoup
 from dateutil import parser
@@ -27,28 +29,73 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Configuración del equipo
-TEAM_NAME = "C.F. Extramurs Valencia 'B'"
-TEAM_SHORT_NAME = "Extramurs B"
-GRUPO = "Segona FFCV Prebenjamí 2n. any València - Grup 12"
-
-# URLs de FFCV
-URL_CALENDARIO = "https://resultadosffcv.isquad.es/calendario.php?id_temp=21&id_modalidad=33345&id_competicion=29531322&id_torneo=904301187"
-URL_CLASIFICACION = "https://resultadosffcv.isquad.es/clasificacion.php?id_temp=21&id_modalidad=33345&id_competicion=29531322&id_torneo=904301187"
-
 # Paths
 BASE_DIR = Path(__file__).parent
 DATA_DIR = BASE_DIR / "data"
 TEMPLATES_DIR = BASE_DIR / "templates"
+IMAGES_DIR = BASE_DIR / "Images"
+PLANTILLA_IMAGES_DIR = IMAGES_DIR / "plantilla"
 OUTPUT_ICS = BASE_DIR / "partidos.ics"
 OUTPUT_JSON = DATA_DIR / "partidos.json"
 OUTPUT_INDEX = BASE_DIR / "index.html"
 OUTPUT_DASHBOARD = BASE_DIR / "dashboard.html"
+OUTPUT_PLANTILLA = BASE_DIR / "plantilla.html"
 
-# Constantes
-MAX_RETRIES = 3
-RETRY_DELAY = 5
-TIMEOUT = 30000  # 30 segundos
+
+def load_config() -> Dict:
+    """
+    Carga la configuración desde config.yaml
+    """
+    config_path = BASE_DIR / "config.yaml"
+
+    if not config_path.exists():
+        raise FileNotFoundError(
+            f"❌ No se encontró el archivo de configuración: {config_path}\n"
+            "Por favor, crea un archivo config.yaml basado en config.yaml.example"
+        )
+
+    with open(config_path, 'r', encoding='utf-8') as f:
+        config = yaml.safe_load(f)
+
+    logger.info(f"✓ Configuración cargada para: {config['equipo']['nombre']}")
+    return config
+
+
+def build_url(base_url: str, params: Dict) -> str:
+    """
+    Construye una URL con parámetros desde la configuración
+    """
+    query_string = urlencode(params)
+    return f"{base_url}?{query_string}"
+
+
+# Cargar configuración global
+CONFIG = load_config()
+
+# Extraer valores de configuración para fácil acceso
+TEAM_NAME = CONFIG['equipo']['nombre']
+TEAM_SHORT_NAME = CONFIG['equipo']['nombre_corto']
+GRUPO = CONFIG['equipo']['grupo']
+
+# Construir URLs dinámicamente desde config
+ids = CONFIG['ids_ffcv']
+params_base = {
+    'id_temp': ids['temporada'],
+    'id_modalidad': ids['modalidad'],
+    'id_competicion': ids['competicion'],
+    'id_torneo': ids['torneo']
+}
+
+URL_CALENDARIO = build_url(CONFIG['urls']['base_calendario'], params_base)
+URL_CLASIFICACION = build_url(CONFIG['urls']['base_clasificacion'], params_base)
+
+params_plantilla = {**params_base, 'id_equipo': ids['equipo'], 'torneo_equipo': ''}
+URL_PLANTILLA = build_url(CONFIG['urls']['base_plantilla'], params_plantilla)
+
+# Constantes de scraping desde config
+MAX_RETRIES = CONFIG['scraping']['max_reintentos']
+RETRY_DELAY = CONFIG['scraping']['delay_reintento']
+TIMEOUT = CONFIG['scraping']['timeout_pagina']
 
 
 def fetch_page_with_retry(url: str, max_retries: int = MAX_RETRIES) -> str:
@@ -181,6 +228,7 @@ def scrape_calendario(html: str) -> List[Dict]:
             # 1. Celda de equipos: tiene width: 40% y contiene 2 enlaces con nombres de equipos
             equipos_cell = None
             jornada = None
+            id_partido = None
 
             for cell in row.find_all('td'):
                 if cell.find_all('a') and len(cell.find_all('a')) >= 2:
@@ -189,11 +237,16 @@ def scrape_calendario(html: str) -> List[Dict]:
                     if len(links) >= 2:
                         equipos_cell = cell
 
-                        # Extraer jornada del href del primer link
+                        # Extraer jornada e id_partido del href del primer link
                         href = links[0].get('href', '')
                         jornada_match = re.search(r'jornada=(\d+)', href)
                         if jornada_match:
                             jornada = int(jornada_match.group(1))
+
+                        # Extraer id_partido del href
+                        id_partido_match = re.search(r'id_partido=(\d+)', href)
+                        if id_partido_match:
+                            id_partido = id_partido_match.group(1)
 
                         break
 
@@ -267,6 +320,7 @@ def scrape_calendario(html: str) -> List[Dict]:
 
             partido = {
                 'jornada': jornada,
+                'id_partido': id_partido,
                 'fecha': fecha,
                 'hora': hora,
                 'local': local,
@@ -398,6 +452,233 @@ def scrape_clasificacion(html: str) -> List[Dict]:
 
     logger.info(f"✓ Extraídos {len(clasificacion)} equipos de la clasificación")
     return clasificacion
+
+
+def scrape_plantilla(html: str) -> List[Dict]:
+    """
+    Extrae la plantilla del equipo con fotos
+    """
+    logger.info("Procesando plantilla del equipo...")
+    soup = BeautifulSoup(html, 'html.parser')
+
+    plantilla = []
+
+    # Buscar todos los jugadores
+    jugadores_cards = soup.find_all('a', class_='card_jugador')
+
+    # Crear directorio para imágenes si no existe
+    PLANTILLA_IMAGES_DIR.mkdir(parents=True, exist_ok=True)
+
+    for card in jugadores_cards:
+        try:
+            # Nombre del jugador
+            nombre_tag = card.find('h4')
+            if not nombre_tag:
+                continue
+
+            nombre = nombre_tag.get_text(strip=True).replace('<br>', ' ')
+
+            # ID del jugador
+            href = card.get('href', '')
+            id_match = re.search(r'id_jugador=(\d+)', href)
+            if not id_match:
+                continue
+
+            jugador_id = id_match.group(1)
+
+            # Foto en base64
+            img_tag = card.find('img', class_='card_imagen_jugador')
+            foto_filename = None
+
+            if img_tag and img_tag.get('src'):
+                src = img_tag['src']
+                if src.startswith('data:image'):
+                    # Extraer el base64
+                    try:
+                        # Formato: data:image/png;base64,XXXXXX
+                        header, encoded = src.split(',', 1)
+                        img_data = base64.b64decode(encoded)
+
+                        # Guardar imagen
+                        foto_filename = f"jugador_{jugador_id}.jpg"
+                        foto_path = PLANTILLA_IMAGES_DIR / foto_filename
+
+                        with open(foto_path, 'wb') as f:
+                            f.write(img_data)
+
+                        logger.debug(f"Foto guardada: {foto_filename}")
+
+                    except Exception as e:
+                        logger.warning(f"Error guardando foto de {nombre}: {str(e)}")
+
+            jugador_data = {
+                'id': jugador_id,
+                'nombre': nombre,
+                'foto': f"Images/plantilla/{foto_filename}" if foto_filename else None
+            }
+
+            plantilla.append(jugador_data)
+            logger.debug(f"Jugador extraído: {nombre}")
+
+        except Exception as e:
+            logger.warning(f"Error parseando jugador: {str(e)}")
+            continue
+
+    logger.info(f"✓ Extraídos {len(plantilla)} jugadores de la plantilla")
+    return plantilla
+
+
+def scrape_dorsales_partido(html: str) -> Dict[str, str]:
+    """
+    Extrae los dorsales de los jugadores de una página de partido
+
+    Estructura HTML:
+    <span style="font-size: 16px; color: #ffa500;">10 </span>
+    APELLIDO, NOMBRE
+
+    Returns:
+        Dict con nombre completo del jugador como key y dorsal como value
+    """
+    soup = BeautifulSoup(html, 'html.parser')
+    dorsales = {}
+
+    try:
+        # Buscar todos los spans naranjas que contienen dorsales
+        dorsal_spans = soup.find_all('span', style=lambda x: x and 'color: #ffa500' in x)
+
+        for span in dorsal_spans:
+            dorsal_text = span.get_text(strip=True)
+
+            # Verificar que es un número (dorsal)
+            if dorsal_text.isdigit():
+                dorsal = dorsal_text
+
+                # El nombre del jugador viene después del span
+                # Buscar el siguiente texto después del span
+                siguiente = span.next_sibling
+                if siguiente and isinstance(siguiente, str):
+                    nombre = siguiente.strip()
+
+                    # Limpiar el nombre (viene como "APELLIDO, NOMBRE")
+                    if nombre:
+                        dorsales[nombre] = dorsal
+                        logger.debug(f"Dorsal encontrado: {nombre} -> {dorsal}")
+
+        logger.debug(f"Total dorsales extraídos: {len(dorsales)}")
+
+    except Exception as e:
+        logger.warning(f"Error extrayendo dorsales del partido: {str(e)}")
+
+    return dorsales
+
+
+def obtener_dorsales_de_partidos(partidos: List[Dict]) -> Dict[str, str]:
+    """
+    Obtiene dorsales scrapeando las páginas de partidos jugados
+
+    Returns:
+        Dict con nombre del jugador como key y dorsal como value
+    """
+    logger.info("Obteniendo dorsales de partidos jugados...")
+
+    dorsales_acumulados = {}
+    partidos_procesados = 0
+    max_partidos = 3  # Procesar solo los últimos 3 partidos para no sobrecargar
+
+    # Filtrar solo partidos jugados (con resultado)
+    partidos_con_resultado = [p for p in partidos if p.get('resultado') and p.get('id_partido')]
+
+    # Tomar los últimos partidos
+    partidos_a_procesar = partidos_con_resultado[-max_partidos:]
+
+    for partido in partidos_a_procesar:
+        id_partido = partido.get('id_partido')
+        if not id_partido:
+            continue
+
+        try:
+            # Construir URL del partido
+            params_partido = {
+                **{k: v for k, v in zip(
+                    ['id_temp', 'id_modalidad', 'id_competicion', 'id_torneo'],
+                    [CONFIG['ids_ffcv']['temporada'], CONFIG['ids_ffcv']['modalidad'],
+                     CONFIG['ids_ffcv']['competicion'], CONFIG['ids_ffcv']['torneo']]
+                )},
+                'id_partido': id_partido,
+                'jornada': partido.get('jornada', '')
+            }
+
+            url_partido = build_url(CONFIG['urls']['base_partido'], params_partido)
+
+            logger.info(f"  Scrapeando partido {partido['local']} vs {partido['visitante']}...")
+
+            # Obtener HTML del partido
+            html_partido = fetch_page_with_retry(url_partido)
+
+            # Extraer dorsales
+            dorsales_partido = scrape_dorsales_partido(html_partido)
+
+            # Acumular dorsales (los más recientes sobrescriben los anteriores)
+            dorsales_acumulados.update(dorsales_partido)
+
+            partidos_procesados += 1
+
+            # Delay para no sobrecargar el servidor
+            time.sleep(2)
+
+        except Exception as e:
+            logger.warning(f"Error obteniendo dorsales del partido {id_partido}: {str(e)}")
+            continue
+
+    logger.info(f"✓ Dorsales obtenidos de {partidos_procesados} partidos: {len(dorsales_acumulados)} jugadores")
+    return dorsales_acumulados
+
+
+def mapear_dorsales_a_plantilla(plantilla: List[Dict], dorsales: Dict[str, str]) -> List[Dict]:
+    """
+    Mapea los dorsales extraídos de partidos a los jugadores de la plantilla
+
+    Args:
+        plantilla: Lista de jugadores de la plantilla
+        dorsales: Dict con nombre (del partido) -> dorsal
+
+    Returns:
+        plantilla actualizada con dorsales
+    """
+    logger.info("Mapeando dorsales a jugadores de la plantilla...")
+
+    dorsales_mapeados = 0
+
+    for jugador in plantilla:
+        nombre_plantilla = jugador['nombre'].upper()
+
+        # Buscar coincidencia en dorsales
+        # Los nombres en partidos vienen como "APELLIDO, NOMBRE"
+        # Los nombres en plantilla pueden venir en varios formatos
+
+        for nombre_partido, dorsal in dorsales.items():
+            nombre_partido_upper = nombre_partido.upper()
+
+            # Intentar diferentes estrategias de matching
+            # 1. Coincidencia exacta
+            if nombre_plantilla == nombre_partido_upper:
+                jugador['dorsal'] = dorsal
+                dorsales_mapeados += 1
+                logger.debug(f"Dorsal mapeado (exacto): {nombre_plantilla} -> {dorsal}")
+                break
+
+            # 2. Coincidencia por apellido (primera palabra)
+            apellido_plantilla = nombre_plantilla.split()[0] if nombre_plantilla else ""
+            apellido_partido = nombre_partido_upper.split(',')[0].strip() if ',' in nombre_partido_upper else nombre_partido_upper.split()[0]
+
+            if apellido_plantilla and apellido_partido and apellido_plantilla == apellido_partido:
+                jugador['dorsal'] = dorsal
+                dorsales_mapeados += 1
+                logger.debug(f"Dorsal mapeado (apellido): {nombre_plantilla} -> {dorsal}")
+                break
+
+    logger.info(f"✓ Dorsales mapeados: {dorsales_mapeados}/{len(plantilla)} jugadores")
+    return plantilla
 
 
 def generar_calendario_ics(partidos: List[Dict]) -> None:
@@ -533,20 +814,32 @@ def main():
 
     try:
         # 1. Obtener HTML de las páginas
-        logger.info("\n[1/6] Obteniendo páginas de FFCV...")
+        logger.info("\n[1/7] Obteniendo páginas de FFCV...")
         html_calendario = fetch_page_with_retry(URL_CALENDARIO)
         time.sleep(2)  # Delay entre requests
         html_clasificacion = fetch_page_with_retry(URL_CLASIFICACION)
+        time.sleep(2)  # Delay entre requests
+        html_plantilla = fetch_page_with_retry(URL_PLANTILLA)
 
         # 2. Scrapear datos
-        logger.info("\n[2/6] Scrapeando calendario...")
+        logger.info("\n[2/7] Scrapeando calendario...")
         partidos = scrape_calendario(html_calendario)
 
-        logger.info("\n[3/6] Scrapeando clasificación...")
+        logger.info("\n[3/7] Scrapeando clasificación...")
         clasificacion = scrape_clasificacion(html_clasificacion)
 
+        logger.info("\n[4/7] Scrapeando plantilla...")
+        plantilla = scrape_plantilla(html_plantilla)
+
+        # Obtener dorsales de partidos jugados
+        logger.info("\n[4.5/7] Obteniendo dorsales de partidos...")
+        dorsales = obtener_dorsales_de_partidos(partidos)
+
+        # Mapear dorsales a plantilla
+        plantilla = mapear_dorsales_a_plantilla(plantilla, dorsales)
+
         # 3. Preparar datos
-        logger.info("\n[4/6] Procesando datos...")
+        logger.info("\n[5/7] Procesando datos...")
 
         # Encontrar próximo partido
         proximo_partido = encontrar_proximo_partido(partidos)
@@ -608,7 +901,7 @@ def main():
         }
 
         # 4. Generar archivos
-        logger.info("\n[5/6] Generando archivos de salida...")
+        logger.info("\n[6/7] Generando archivos de salida...")
 
         # JSON
         generar_json(data)
@@ -616,8 +909,8 @@ def main():
         # Calendario ICS
         generar_calendario_ics(partidos)
 
-        # URL del calendario (ajustar según tu GitHub Pages)
-        base_url = "https://wakkos.github.io/cf-extramurs"
+        # URL del calendario desde configuración
+        base_url = CONFIG['sitio']['url_base']
         ics_url = f"{base_url}/partidos.ics"
         webcal_url = ics_url.replace("https://", "webcal://")
         google_calendar_url = generar_google_calendar_url(ics_url)
@@ -637,6 +930,9 @@ def main():
         context = {
             'equipo': TEAM_NAME,
             'grupo': GRUPO,
+            'logo': CONFIG['equipo']['logo'],
+            'background': CONFIG['equipo'].get('background', ''),
+            'temporada': CONFIG['sitio']['temporada'],
             'ultima_actualizacion': datetime.now().strftime("%d/%m/%Y - %H:%M"),
             'proximo_partido': proximo_partido,
             'partido_urgente': partido_urgente,
@@ -647,6 +943,7 @@ def main():
             'mensaje_motivacional': mensaje_motivacional,
             'total_partidos': len(partidos),
             'partidos_jugados': len(partidos_jugados),
+            'plantilla': plantilla,
             'ics_url': ics_url,
             'webcal_url': webcal_url,
             'google_calendar_url': google_calendar_url
@@ -655,16 +952,21 @@ def main():
         # Página principal (fusión de landing + dashboard)
         generar_html_desde_template('dashboard_template.html', OUTPUT_INDEX, context)
 
+        # Página de plantilla
+        generar_html_desde_template('plantilla_template.html', OUTPUT_PLANTILLA, context)
+
         # 5. Resumen final
-        logger.info("\n[6/6] Proceso completado exitosamente!")
+        logger.info("\n[7/7] Proceso completado exitosamente!")
         logger.info("=" * 60)
         logger.info(f"✓ Partidos scrapeados: {len(partidos)}")
         logger.info(f"✓ Partidos jugados: {len(partidos_jugados)}")
         logger.info(f"✓ Equipos en clasificación: {len(clasificacion)}")
+        logger.info(f"✓ Jugadores en plantilla: {len(plantilla)}")
         logger.info(f"✓ Archivos generados:")
         logger.info(f"  - {OUTPUT_JSON}")
         logger.info(f"  - {OUTPUT_ICS}")
         logger.info(f"  - {OUTPUT_INDEX}")
+        logger.info(f"  - {OUTPUT_PLANTILLA}")
         logger.info("=" * 60)
 
     except Exception as e:

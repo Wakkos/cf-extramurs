@@ -1,0 +1,593 @@
+/* Manchester City Player Cards - CSS Extraído */
+
+/* ========================================
+   TIPOGRAFÍAS
+   ======================================== */
+
+@font-face {
+    font-family: Kippax;
+    src: url(https://fonts.mancity.com/fonts/Kippax/KippaxModern-Rg.woff2) format("woff2"),
+         url(https://fonts.mancity.com/fonts/Kippax/KippaxModern-Rg.woff) format("woff");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Kippax;
+    src: url(https://fonts.mancity.com/fonts/Kippax/KippaxModern-Bd.woff2) format("woff2"),
+         url(https://fonts.mancity.com/fonts/Kippax/KippaxModern-Bd.woff) format("woff");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: KippaxCondensed;
+    src: url(https://fonts.mancity.com/fonts/Kippax/KippaxModern-CndBd.woff2) format("woff2"),
+         url(https://fonts.mancity.com/fonts/Kippax/KippaxModern-CndBd.woff) format("woff");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: KippaxCondensed;
+    src: url(https://fonts.mancity.com/fonts/Kippax/KippaxModern-CndxBd.woff2) format("woff2"),
+         url(https://fonts.mancity.com/fonts/Kippax/KippaxModern-CndxBd.woff) format("woff");
+    font-weight: 800;
+}
+
+/* ========================================
+   MEMBER CARD - Estructura Principal
+   ======================================== */
+
+.member-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #e1eff9;
+    transform: translateZ(0);
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+}
+
+.member-card {
+    width: 250px;
+}
+
+/* ========================================
+   SOMBRAS
+   ======================================== */
+
+.member-card__active-shadow,
+.member-card__regular-shadow {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    transition: opacity .2s ease-in-out;
+}
+
+.member-card__regular-shadow {
+    opacity: 1;
+    box-shadow: 0 2px 12px 0 rgba(0, 24, 56, .28);
+}
+
+@media (min-width: 768px) {
+    .member-card__regular-shadow {
+        box-shadow: 0 8px 16px 0 rgba(0, 24, 56, .3);
+    }
+}
+
+.member-card__active-shadow {
+    opacity: 0;
+    box-shadow: 0 2px 4px 0 rgba(152, 197, 233, .5);
+}
+
+@media (min-width: 768px) {
+    .member-card__active-shadow {
+        box-shadow: 0 3px 10px rgba(152, 197, 233, .749);
+    }
+}
+
+/* ========================================
+   HEADER - Imagen de fondo y foto
+   ======================================== */
+
+.member-card__header {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 168px;
+    overflow: hidden;
+    background-image: url(https://web-assets.mancity.com/dist/images/brand2526/25-26-ind-player-card-bg-mobile.jpg);
+    background-size: cover;
+    background-position: 50% 0;
+}
+
+.member-card__header:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    content: "";
+    background-size: cover;
+    background-position: 50% 0;
+    z-index: 1;
+    transition: opacity .2s ease-in-out;
+}
+
+@media (min-width: 768px) {
+    .member-card__header {
+        height: 192px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .member-card__header {
+        border-top: 1px solid #ebf4fb;
+        border-right: 1px solid #ebf4fb;
+        border-left: 1px solid #ebf4fb;
+    }
+}
+
+/* ========================================
+   BADGE - Cedido / On Loan
+   ======================================== */
+
+.member-card__on-loan-badge {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    overflow: hidden;
+    width: 39px;
+    height: 39px;
+}
+
+.member-card__on-loan-badge:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 39px solid #e6ff00;
+    border-right: 39px solid transparent;
+}
+
+.member-card__on-loan-badge .badge-text {
+    position: absolute;
+    top: 2.5px;
+    left: -6px;
+    width: 35px;
+    font-size: 9px;
+    text-transform: uppercase;
+    transform: rotate(-45deg);
+    color: #001838;
+    font-weight: 700;
+    text-align: center;
+    line-height: 9px;
+    white-space: normal;
+}
+
+@media (min-width: 768px) {
+    .member-card__on-loan-badge {
+        width: 65px;
+        height: 16px;
+        text-align: center;
+        background: #e6ff00;
+    }
+
+    .member-card__on-loan-badge:before {
+        display: none;
+    }
+
+    .member-card__on-loan-badge .badge-text {
+        position: static;
+        width: auto;
+        transform: none;
+    }
+}
+
+@media (min-width: 1280px) {
+    .member-card__on-loan-badge {
+        width: 52px;
+        height: 52px;
+    }
+
+    .member-card__on-loan-badge .badge-text {
+        top: 6px;
+        left: -2px;
+        width: 35px;
+        font-size: 11px;
+        line-height: 11px;
+    }
+
+    .member-card__on-loan-badge:before {
+        border-top-width: 52px;
+        border-right-width: 52px;
+    }
+}
+
+.member-card--is-on-loan .member-card__on-loan-badge {
+    display: block;
+}
+
+/* ========================================
+   DORSAL / SHIRT NUMBER
+   ======================================== */
+
+.member-card__shirt-number {
+    position: absolute;
+    z-index: 2;
+    top: -2px;
+    right: 0;
+    margin-right: -.07em;
+    color: #98c5e9;
+    transition: color .2s ease-in-out;
+    font-family: KippaxCondensed, sans-serif;
+    font-weight: 700;
+    font-size: 79px;
+    line-height: 80px;
+    letter-spacing: .79px;
+}
+
+.member-card__shirt-number:before {
+    content: "";
+    display: block;
+    height: 0;
+    width: 0;
+    margin-top: -.14em;
+}
+
+@media (min-width: 768px) {
+    .member-card__shirt-number {
+        font-size: 95px;
+        line-height: 96px;
+        letter-spacing: .95px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .member-card__shirt-number {
+        -webkit-text-stroke: 2px #001838;
+        color: transparent;
+    }
+
+    .member-card__shirt-number:before {
+        margin-top: -.11em;
+    }
+}
+
+/* ========================================
+   BANDERA / COUNTRY FLAG
+   ======================================== */
+
+.member-card__country-flag-wrapper {
+    position: absolute;
+    z-index: 2;
+    bottom: 8px;
+    left: 8px;
+    width: 32px;
+    height: 32px;
+    background: #fff;
+    box-shadow: 0 2px 5px 0 rgba(0, 24, 56, .6);
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .member-card__country-flag-wrapper {
+        bottom: 12px;
+        left: 12px;
+    }
+}
+
+.member-card__country-flag {
+    width: 100%;
+    height: auto;
+    font-size: 7px;
+    text-align: center;
+}
+
+/* ========================================
+   FOTO DEL JUGADOR
+   ======================================== */
+
+.member-card__photo-wrapper {
+    position: relative;
+    z-index: 2;
+    width: 160px;
+    height: 160px;
+}
+
+@media (min-width: 768px) {
+    .member-card__photo-wrapper {
+        width: 188px;
+        height: 188px;
+    }
+}
+
+.member-card__photo {
+    width: 100%;
+    height: auto;
+    transform: scale(1.01);
+}
+
+@media (min-width: 1280px) {
+    .member-card__photo {
+        width: 160px;
+        margin: 0 auto;
+        display: block;
+    }
+}
+
+.member-card__photo.failed-to-load,
+.member-card__photo.fallback-player-image {
+    display: none;
+}
+
+.member-card__photo.failed-to-load + .fallback-player-image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* ========================================
+   CONTENIDO - Nombre del jugador
+   ======================================== */
+
+.member-card__content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 9px;
+    background: #fff;
+    transition: background .2s ease-in-out;
+    flex: 1;
+}
+
+@media (min-width: 768px) {
+    .member-card__content {
+        padding: 11px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .member-card__content {
+        padding: 12px;
+        border-right: 1px solid #ebf4fb;
+        border-bottom: 1px solid #ebf4fb;
+        border-left: 1px solid #ebf4fb;
+    }
+}
+
+.member-card__full-name {
+    font-size: 28px;
+    line-height: 30px;
+    letter-spacing: .28px;
+    color: #001838;
+    text-transform: uppercase;
+    margin: 0;
+    transition: color .2s ease-in-out;
+}
+
+.member-card__full-name {
+    text-decoration: underline;
+    text-decoration-style: solid;
+    text-decoration-color: transparent;
+    transition: text-decoration-color .2s ease-in-out;
+}
+
+@media (min-width: 768px) {
+    .member-card__full-name {
+        font-size: 30px;
+        line-height: 30px;
+        letter-spacing: .3px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .member-card__full-name {
+        font-size: 33px;
+        line-height: 33px;
+        letter-spacing: .33px;
+    }
+}
+
+.member-card__name {
+    display: block;
+}
+
+.member-card__name + .member-card__name {
+    margin-top: -2px;
+}
+
+/* ========================================
+   CAPTAIN BADGE
+   ======================================== */
+
+.member-card__captain-badge {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 0;
+    overflow: hidden;
+    width: 32px;
+    height: 32px;
+}
+
+.member-card__captain-badge:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-color: transparent #001838 #001838 transparent;
+    border-style: solid;
+    border-width: 16px;
+}
+
+.member-card__captain-badge .badge-text {
+    position: absolute;
+    bottom: -1px;
+    right: 3px;
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+    font-family: KippaxCondensed, sans-serif;
+    font-weight: 700;
+    font-size: 27px;
+    line-height: 28px;
+    letter-spacing: .27px;
+}
+
+@media (min-width: 768px) {
+    .member-card__captain-badge {
+        width: 40px;
+        height: 40px;
+    }
+
+    .member-card__captain-badge .badge-text {
+        font-size: 23px;
+    }
+
+    .member-card__captain-badge:before {
+        border-width: 20px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .member-card__captain-badge {
+        width: 18px;
+        height: 20px;
+        background: #001838;
+    }
+
+    .member-card__captain-badge:before {
+        display: none;
+    }
+}
+
+.member-card--is-captain .member-card__captain-badge {
+    display: block;
+}
+
+/* ========================================
+   SQUAD LIST - Container
+   ======================================== */
+
+.squad-list__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    width: 180px;
+    margin-right: 4px;
+}
+
+.squad-list__item:first-child {
+    margin-left: 16px;
+}
+
+@media (min-width: 768px) {
+    .squad-list__item:first-child {
+        margin-left: 24px;
+    }
+}
+
+.squad-list__item:nth-last-child(2) {
+    margin-right: 16px;
+}
+
+@media (min-width: 768px) {
+    .squad-list__item:nth-last-child(2) {
+        margin-right: 24px;
+    }
+}
+
+@media (min-width: 768px) {
+    .squad-list__item {
+        width: 160px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .squad-list__item {
+        width: 216px;
+        margin-right: 8px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .squad-list__item {
+        width: 229px;
+        margin-right: 19px;
+        margin-bottom: 40px;
+    }
+
+    .squad-list__item:first-child {
+        margin-left: 0;
+    }
+
+    .squad-list__item:nth-child(4n) {
+        margin-right: 0;
+    }
+
+    .squad-list__item:nth-last-child(2) {
+        margin-right: 0;
+    }
+
+    .squad-list__item:nth-child(4n+1):nth-last-child(-n+5),
+    .squad-list__item:nth-child(4n+1):nth-last-child(-n+5) ~ .squad-list__item {
+        margin-bottom: 0;
+    }
+
+    .squad-list__item:last-child {
+        margin-right: 0;
+    }
+}
+
+.squad-list__item-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+}
+
+/* ========================================
+   ESTADOS HOVER
+   ======================================== */
+
+.squad-list__item-link:hover .member-card:before {
+    opacity: 1;
+}
+
+.squad-list__item-link:hover .member-card__regular-shadow {
+    opacity: 0;
+}
+
+.squad-list__item-link:hover .member-card__active-shadow {
+    opacity: 1;
+}
+
+.squad-list__item-link:hover .member-card__shirt-number {
+    color: #001838;
+}
+
+.squad-list__item-link:hover .member-card__content {
+    background: #001838;
+}
+
+.squad-list__item-link:hover .member-card__full-name {
+    color: #fff;
+}
+
+@media (min-width: 1280px) {
+    .squad-list__item-link:hover .member-card__captain-badge:before {
+        border-color: transparent #fff #fff transparent;
+    }
+}
