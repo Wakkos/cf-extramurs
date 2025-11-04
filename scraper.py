@@ -407,16 +407,19 @@ def generar_calendario_ics(partidos: List[Dict]) -> None:
     logger.info("Generando archivo calendario .ics...")
 
     calendar = Calendar()
+    calendar.creator = "Extramurs Calendar Bot"
 
     for partido in partidos:
         event = Event()
 
-        # Título del evento
+        # Título del evento (limpio, sin caracteres problemáticos)
         if partido.get('resultado'):
             titulo = f"{partido['local']} {partido['resultado']} {partido['visitante']}"
         else:
             titulo = f"{partido['local']} vs {partido['visitante']}"
 
+        # Limpiar título de caracteres problemáticos
+        titulo = titulo.replace('\n', ' ').replace('\r', ' ')
         event.name = titulo
 
         # Fecha y hora
@@ -430,19 +433,28 @@ def generar_calendario_ics(partidos: List[Dict]) -> None:
                 logger.warning(f"No se pudo parsear fecha/hora: {fecha_str}")
                 continue
 
-        # Descripción con campo
-        descripcion = f"Campo: {partido.get('campo', 'Por determinar')}"
+        # Descripción simplificada (sin URLs largas que puedan causar problemas)
+        campo = partido.get('campo', 'Por determinar')
+        descripcion = f"Campo: {campo}"
+
+        # Añadir jornada si existe
+        if partido.get('jornada'):
+            descripcion = f"Jornada {partido['jornada']}\n{descripcion}"
+
+        # URL de Maps como campo separado (más compatible)
         if partido.get('maps_url'):
-            descripcion += f"\nMaps: {partido['maps_url']}"
+            event.url = partido['maps_url']
+
         event.description = descripcion
 
-        # Ubicación
-        event.location = partido.get('campo', '')
+        # Ubicación (limpiar caracteres problemáticos)
+        ubicacion = campo.replace('\n', ' ').replace('\r', ' ')
+        event.location = ubicacion
 
         calendar.events.add(event)
 
-    # Guardar archivo
-    with open(OUTPUT_ICS, 'w', encoding='utf-8') as f:
+    # Guardar archivo con encoding UTF-8 + BOM para mejor compatibilidad
+    with open(OUTPUT_ICS, 'w', encoding='utf-8-sig') as f:
         f.write(str(calendar))
 
     logger.info(f"✓ Calendario guardado en {OUTPUT_ICS} ({len(calendar.events)} eventos)")
