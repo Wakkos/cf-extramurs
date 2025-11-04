@@ -21,6 +21,9 @@ from dateutil import parser
 from ics import Calendar, Event
 from jinja2 import Environment, FileSystemLoader
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeout
+from PIL import Image
+import io
+import requests
 
 # Configuración de logging
 logging.basicConfig(
@@ -454,6 +457,92 @@ def scrape_clasificacion(html: str) -> List[Dict]:
     return clasificacion
 
 
+def process_player_image(img_data: bytes, jugador_nombre: str) -> bytes:
+    """
+    Procesa la imagen del jugador: quita fondo y hace upscaling
+
+    Args:
+        img_data: Bytes de la imagen original
+        jugador_nombre: Nombre del jugador (para logs)
+
+    Returns:
+        Bytes de la imagen procesada
+    """
+    try:
+        # Verificar si el procesamiento está habilitado
+        if not CONFIG.get('image_processing', {}).get('enabled', False):
+            return img_data
+
+        logger.debug(f"Procesando imagen de {jugador_nombre}...")
+
+        # Cargar imagen original
+        img = Image.open(io.BytesIO(img_data))
+        original_size = img.size
+        logger.debug(f"  Tamaño original: {original_size}")
+
+        # 1. BACKGROUND REMOVAL usando remove.bg API
+        if CONFIG['image_processing'].get('remove_background', False):
+            api_key = CONFIG['image_processing'].get('removebg_api_key')
+            if api_key:
+                logger.debug(f"  Quitando fondo con remove.bg API...")
+                try:
+                    # Convertir imagen a base64 para la API
+                    img_b64 = base64.b64encode(img_data).decode('utf-8')
+
+                    # Llamar a remove.bg API
+                    response = requests.post(
+                        'https://api.remove.bg/v1.0/removebg',
+                        headers={'X-Api-Key': api_key},
+                        data={
+                            'image_file_b64': img_b64,
+                            'size': 'auto'
+                        },
+                        timeout=30
+                    )
+
+                    if response.status_code == 200:
+                        # Cargar imagen sin fondo
+                        img = Image.open(io.BytesIO(response.content))
+                        logger.debug(f"  ✓ Fondo removido con remove.bg")
+                    else:
+                        logger.warning(f"  ⚠️  Error en remove.bg API: {response.status_code} - {response.text[:100]}")
+
+                except Exception as e:
+                    logger.warning(f"  ⚠️  Error llamando remove.bg API: {str(e)}")
+            else:
+                logger.debug(f"  ⊘ Background removal solicitado pero no hay API key configurada")
+
+        # 2. UPSCALING
+        if CONFIG['image_processing'].get('upscale', False):
+            upscale_factor = CONFIG['image_processing'].get('upscale_factor', 2)
+            new_size = (
+                int(img.width * upscale_factor),
+                int(img.height * upscale_factor)
+            )
+            logger.debug(f"  Upscaling {upscale_factor}x: {img.size} → {new_size}")
+            # Usar LANCZOS para mejor calidad
+            img = img.resize(new_size, Image.Resampling.LANCZOS)
+            logger.debug(f"  ✓ Upscaling completado")
+
+        # 3. GUARDAR A BYTES
+        output_format = CONFIG['image_processing'].get('output_format', 'PNG')
+        output = io.BytesIO()
+        img.save(output, format=output_format)
+        processed_data = output.getvalue()
+
+        size_before = len(img_data) / 1024
+        size_after = len(processed_data) / 1024
+        logger.debug(f"  Tamaño: {size_before:.1f}KB → {size_after:.1f}KB")
+        logger.info(f"✓ Imagen procesada: {jugador_nombre}")
+
+        return processed_data
+
+    except Exception as e:
+        logger.warning(f"Error procesando imagen de {jugador_nombre}: {str(e)}")
+        logger.warning(f"Usando imagen original sin procesar")
+        return img_data
+
+
 def scrape_plantilla(html: str) -> List[Dict]:
     """
     Extrae la plantilla del equipo con fotos
@@ -488,9 +577,13 @@ def scrape_plantilla(html: str) -> List[Dict]:
 
             # Foto en base64
             img_tag = card.find('img', class_='card_imagen_jugador')
-            foto_filename = None
+            foto_filename = f"jugador_{jugador_id}.png"
+            foto_path = PLANTILLA_IMAGES_DIR / foto_filename
 
-            if img_tag and img_tag.get('src'):
+            # Verificar si la imagen ya existe (ya procesada con remove.bg)
+            if foto_path.exists():
+                logger.debug(f"✓ Imagen ya existe (sin re-procesar): {foto_filename}")
+            elif img_tag and img_tag.get('src'):
                 src = img_tag['src']
                 if src.startswith('data:image'):
                     # Extraer el base64
@@ -499,17 +592,20 @@ def scrape_plantilla(html: str) -> List[Dict]:
                         header, encoded = src.split(',', 1)
                         img_data = base64.b64decode(encoded)
 
-                        # Guardar imagen
-                        foto_filename = f"jugador_{jugador_id}.jpg"
-                        foto_path = PLANTILLA_IMAGES_DIR / foto_filename
+                        # Procesar imagen (remove background + upscale)
+                        processed_data = process_player_image(img_data, nombre)
 
+                        # Guardar imagen (PNG para transparencia)
                         with open(foto_path, 'wb') as f:
-                            f.write(img_data)
+                            f.write(processed_data)
 
                         logger.debug(f"Foto guardada: {foto_filename}")
 
                     except Exception as e:
                         logger.warning(f"Error guardando foto de {nombre}: {str(e)}")
+                        foto_filename = None
+            else:
+                foto_filename = None
 
             jugador_data = {
                 'id': jugador_id,

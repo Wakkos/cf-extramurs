@@ -56,7 +56,7 @@
             margin: 0;
             font: normal 14px Kippax, sans-serif;
             color: #001838;
-            background: #f8f9fa;
+            background: #fff;
         }
 
         /* ========================================
@@ -194,6 +194,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            max-width: 250px;
         }
 
         .squad-list__item-link {
@@ -206,7 +207,7 @@
         .member-card {
             position: relative;
             width: 100%;
-            background: #e1eff9;
+            background: #e1eff9 url('https://web-assets.mancity.com/dist/images/brand2526/25-26-ind-player-card-bg-mobile.jpg') center center / cover no-repeat;
             transform: translateZ(0);
             display: flex;
             flex-direction: column;
@@ -238,13 +239,10 @@
         .member-card__header {
             position: relative;
             display: flex;
-            align-items: flex-end;
+            align-items: center;
             justify-content: center;
-            height: 192px;
+            height: 300px;
             overflow: hidden;
-            background: linear-gradient(135deg, #e1eff9 0%, #b8daf3 100%);
-            background-size: cover;
-            background-position: 50% 0;
             border-top: 1px solid #ebf4fb;
             border-right: 1px solid #ebf4fb;
             border-left: 1px solid #ebf4fb;
@@ -293,7 +291,7 @@
             width: 131%;
             height: 131%;
             object-fit: cover;
-            object-position: -7px -19px;
+            object-position: -5px -14px;
         }
 
         /* PHOTO */
@@ -326,6 +324,7 @@
         }
 
         .member-card__full-name {
+            font-family: KippaxCondensed, sans-serif;
             font-size: 30px;
             line-height: 30px;
             letter-spacing: .3px;
@@ -334,6 +333,12 @@
             margin: 0;
             font-weight: 700;
             transition: color .2s ease-in-out;
+            /* Limitar a 2 líneas exactas */
+            height: 60px; /* 30px × 2 líneas */
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .member-card__name {

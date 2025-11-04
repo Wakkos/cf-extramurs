@@ -84,3 +84,24 @@ scraping:
 
   # Tiempo de espera adicional después de cargar (milisegundos)
   espera_contenido: 3000
+
+# Procesamiento de Imágenes
+# ==========================
+
+image_processing:
+  # Activar procesamiento de imágenes
+  enabled: true
+
+  # Quitar fondo de las fotos (background removal)
+  remove_background: true
+
+  # API Key de remove.bg (https://remove.bg)
+  # IMPORTANTE: No commitear esta key en repositorios públicos
+  removebg_api_key: "N1NUscZ4a6E6DDFkgkbPC4DS"
+
+  # Upscaling de imágenes
+  upscale: true
+  upscale_factor: 2  # 2x el tamaño original
+
+  # Formato de salida
+  output_format: "PNG"  # PNG para transparencia

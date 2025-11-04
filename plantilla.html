@@ -56,7 +56,7 @@
             margin: 0;
             font: normal 14px Kippax, sans-serif;
             color: #001838;
-            background: #f8f9fa;
+            background: #fff;
         }
 
         /* ========================================
@@ -194,6 +194,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            max-width: 250px;
         }
 
         .squad-list__item-link {
@@ -206,7 +207,7 @@
         .member-card {
             position: relative;
             width: 100%;
-            background: #e1eff9;
+            background: #e1eff9 url('https://web-assets.mancity.com/dist/images/brand2526/25-26-ind-player-card-bg-mobile.jpg') center center / cover no-repeat;
             transform: translateZ(0);
             display: flex;
             flex-direction: column;
@@ -238,13 +239,10 @@
         .member-card__header {
             position: relative;
             display: flex;
-            align-items: flex-end;
+            align-items: center;
             justify-content: center;
-            height: 192px;
+            height: 300px;
             overflow: hidden;
-            background: linear-gradient(135deg, #e1eff9 0%, #b8daf3 100%);
-            background-size: cover;
-            background-position: 50% 0;
             border-top: 1px solid #ebf4fb;
             border-right: 1px solid #ebf4fb;
             border-left: 1px solid #ebf4fb;
@@ -293,7 +291,7 @@
             width: 131%;
             height: 131%;
             object-fit: cover;
-            object-position: -7px -19px;
+            object-position: -5px -14px;
         }
 
         /* PHOTO */
@@ -326,6 +324,7 @@
         }
 
         .member-card__full-name {
+            font-family: KippaxCondensed, sans-serif;
             font-size: 30px;
             line-height: 30px;
             letter-spacing: .3px;
@@ -334,6 +333,12 @@
             margin: 0;
             font-weight: 700;
             transition: color .2s ease-in-out;
+            /* Limitar a 2 líneas exactas */
+            height: 60px; /* 30px × 2 líneas */
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .member-card__name {
@@ -491,7 +496,7 @@
 
                             <div class="member-card__photo-wrapper">
                                 
-                                <img class="member-card__photo" src="Images/plantilla/jugador_904066317.jpg" alt="CARRASCO LARGO, OLIVER" title="CARRASCO LARGO, OLIVER">
+                                <img class="member-card__photo" src="Images/plantilla/jugador_904066317.png" alt="CARRASCO LARGO, OLIVER" title="CARRASCO LARGO, OLIVER">
                                 
                             </div>
 
@@ -526,7 +531,7 @@
 
                             <div class="member-card__photo-wrapper">
                                 
-                                <img class="member-card__photo" src="Images/plantilla/jugador_903599737.jpg" alt="CORBELLI , BOWIE CAS" title="CORBELLI , BOWIE CAS">
+                                <img class="member-card__photo" src="Images/plantilla/jugador_903599737.png" alt="CORBELLI , BOWIE CAS" title="CORBELLI , BOWIE CAS">
                                 
                             </div>
 
@@ -560,7 +565,7 @@
 
                             <div class="member-card__photo-wrapper">
                                 
-                                <img class="member-card__photo" src="Images/plantilla/jugador_29532187.jpg" alt="EXPOSITO VILLAESCUSA, JOAQUIM" title="EXPOSITO VILLAESCUSA, JOAQUIM">
+                                <img class="member-card__photo" src="Images/plantilla/jugador_29532187.png" alt="EXPOSITO VILLAESCUSA, JOAQUIM" title="EXPOSITO VILLAESCUSA, JOAQUIM">
                                 
                             </div>
 
@@ -595,7 +600,7 @@
 
                             <div class="member-card__photo-wrapper">
                                 
-                                <img class="member-card__photo" src="Images/plantilla/jugador_901542903.jpg" alt="HANDA KAUR, RAJNOOR SINGH" title="HANDA KAUR, RAJNOOR SINGH">
+                                <img class="member-card__photo" src="Images/plantilla/jugador_901542903.png" alt="HANDA KAUR, RAJNOOR SINGH" title="HANDA KAUR, RAJNOOR SINGH">
                                 
                             </div>
 
@@ -629,7 +634,7 @@
 
                             <div class="member-card__photo-wrapper">
                                 
-                                <img class="member-card__photo" src="Images/plantilla/jugador_903649773.jpg" alt="HU , HANHENG" title="HU , HANHENG">
+                                <img class="member-card__photo" src="Images/plantilla/jugador_903649773.png" alt="HU , HANHENG" title="HU , HANHENG">
                                 
                             </div>
 
@@ -664,7 +669,7 @@
 
                             <div class="member-card__photo-wrapper">
                                 
-                                <img class="member-card__photo" src="Images/plantilla/jugador_29576244.jpg" alt="ILVAY ROJAS, AMAIA LEONOR" title="ILVAY ROJAS, AMAIA LEONOR">
+                                <img class="member-card__photo" src="Images/plantilla/jugador_29576244.png" alt="ILVAY ROJAS, AMAIA LEONOR" title="ILVAY ROJAS, AMAIA LEONOR">
                                 
                             </div>
 
@@ -698,7 +703,7 @@
 
                             <div class="member-card__photo-wrapper">
                                 
-                                <img class="member-card__photo" src="Images/plantilla/jugador_30952635.jpg" alt="NOGUES MARTINEZ, LOGAN" title="NOGUES MARTINEZ, LOGAN">
+                                <img class="member-card__photo" src="Images/plantilla/jugador_30952635.png" alt="NOGUES MARTINEZ, LOGAN" title="NOGUES MARTINEZ, LOGAN">
                                 
                             </div>
 
@@ -733,7 +738,7 @@
 
                             <div class="member-card__photo-wrapper">
                                 
-                                <img class="member-card__photo" src="Images/plantilla/jugador_29576616.jpg" alt="PEÑA CABALLERO, JACOBO" title="PEÑA CABALLERO, JACOBO">
+                                <img class="member-card__photo" src="Images/plantilla/jugador_29576616.png" alt="PEÑA CABALLERO, JACOBO" title="PEÑA CABALLERO, JACOBO">
                                 
                             </div>
 
@@ -768,7 +773,7 @@
 
                             <div class="member-card__photo-wrapper">
                                 
-                                <img class="member-card__photo" src="Images/plantilla/jugador_29576462.jpg" alt="PEÑA CABALLERO, JOAQUÍN" title="PEÑA CABALLERO, JOAQUÍN">
+                                <img class="member-card__photo" src="Images/plantilla/jugador_29576462.png" alt="PEÑA CABALLERO, JOAQUÍN" title="PEÑA CABALLERO, JOAQUÍN">
                                 
                             </div>
 
@@ -803,7 +808,7 @@
 
                             <div class="member-card__photo-wrapper">
                                 
-                                <img class="member-card__photo" src="Images/plantilla/jugador_29548934.jpg" alt="QUILIS ALBEROLA, DANIEL" title="QUILIS ALBEROLA, DANIEL">
+                                <img class="member-card__photo" src="Images/plantilla/jugador_29548934.png" alt="QUILIS ALBEROLA, DANIEL" title="QUILIS ALBEROLA, DANIEL">
                                 
                             </div>
 
@@ -838,7 +843,7 @@
 
                             <div class="member-card__photo-wrapper">
                                 
-                                <img class="member-card__photo" src="Images/plantilla/jugador_29797344.jpg" alt="RODRIGUEZ DOMINGUEZ, MANUEL" title="RODRIGUEZ DOMINGUEZ, MANUEL">
+                                <img class="member-card__photo" src="Images/plantilla/jugador_29797344.png" alt="RODRIGUEZ DOMINGUEZ, MANUEL" title="RODRIGUEZ DOMINGUEZ, MANUEL">
                                 
                             </div>
 
@@ -873,7 +878,7 @@
 
                             <div class="member-card__photo-wrapper">
                                 
-                                <img class="member-card__photo" src="Images/plantilla/jugador_27538253.jpg" alt="ROMERO ALCALDE, GABRIEL" title="ROMERO ALCALDE, GABRIEL">
+                                <img class="member-card__photo" src="Images/plantilla/jugador_27538253.png" alt="ROMERO ALCALDE, GABRIEL" title="ROMERO ALCALDE, GABRIEL">
                                 
                             </div>
 
@@ -908,7 +913,7 @@
 
                             <div class="member-card__photo-wrapper">
                                 
-                                <img class="member-card__photo" src="Images/plantilla/jugador_27537864.jpg" alt="ROMERO ALCALDE, PABLO" title="ROMERO ALCALDE, PABLO">
+                                <img class="member-card__photo" src="Images/plantilla/jugador_27537864.png" alt="ROMERO ALCALDE, PABLO" title="ROMERO ALCALDE, PABLO">
                                 
                             </div>
 
@@ -943,7 +948,7 @@
 
                             <div class="member-card__photo-wrapper">
                                 
-                                <img class="member-card__photo" src="Images/plantilla/jugador_29709203.jpg" alt="RUIZ MARTINEZ, HUGO" title="RUIZ MARTINEZ, HUGO">
+                                <img class="member-card__photo" src="Images/plantilla/jugador_29709203.png" alt="RUIZ MARTINEZ, HUGO" title="RUIZ MARTINEZ, HUGO">
                                 
                             </div>
 
@@ -973,7 +978,7 @@
 
         <!-- Footer -->
         <div class="footer">
-            <p><strong>Última actualización:</strong> 04/11/2025 - 14:07</p>
+            <p><strong>Última actualización:</strong> 04/11/2025 - 15:51</p>
         </div>
     </div>
 </body>
