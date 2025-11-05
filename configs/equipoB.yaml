@@ -1,0 +1,111 @@
+# Configuración del Equipo
+# ======================
+# Este archivo contiene toda la información específica del equipo.
+# Para crear una web para otro equipo, simplemente clona este repositorio
+# y actualiza los valores en este archivo.
+
+equipo:
+  # Nombre completo del equipo
+  nombre: "C.F. Extramurs Valencia 'B'"
+
+  # Nombre corto para usar en títulos compactos
+  nombre_corto: "Extramurs B"
+
+  # Grupo/categoría
+  grupo: "Segona FFCV Prebenjamí 2n. any València - Grup 12"
+
+  # Logo del equipo (ruta relativa desde la raíz del proyecto)
+  logo: "Images/extramurs.jpg"
+
+  # Imagen de fondo para el header (opcional)
+  background: "Images/bg-prebenjamin-b.jpg"
+
+# IDs de la FFCV
+# ==============
+# Estos IDs se encuentran en las URLs de la página de la FFCV
+# Ejemplo URL: https://resultadosffcv.isquad.es/calendario.php?id_temp=21&id_modalidad=33345&id_competicion=29531322&id_torneo=904301187
+#
+# Para encontrar los IDs de otro equipo:
+# 1. Ve a la página del calendario de ese equipo en resultadosffcv.isquad.es
+# 2. Copia la URL completa
+# 3. Extrae los valores de los parámetros:
+#    - id_temp = temporada
+#    - id_modalidad = modalidad
+#    - id_competicion = competicion
+#    - id_torneo = torneo
+# 4. Para id_equipo, ve a la página de plantilla del equipo y copia el valor de ese parámetro
+
+ids_ffcv:
+  temporada: 21
+  modalidad: 33345
+  competicion: 29531322
+  torneo: 904301187
+  equipo: 900436323
+
+# URLs Base de la FFCV
+# ====================
+# Normalmente no necesitas cambiar esto, solo los IDs arriba
+
+urls:
+  base_calendario: "https://resultadosffcv.isquad.es/calendario.php"
+  base_clasificacion: "https://resultadosffcv.isquad.es/clasificacion.php"
+  base_plantilla: "https://resultadosffcv.isquad.es/equipo_plantilla.php"
+  base_partido: "https://resultadosffcv.isquad.es/partido.php"
+
+# Configuración del Sitio Web
+# ============================
+
+sitio:
+  # URL base donde se desplegará el sitio (para enlaces del calendario)
+  # Formato: https://TU-USUARIO.github.io/TU-REPO
+  url_base: "https://wakkos.github.io/cf-extramurs"
+
+  # Título de la página
+  titulo: "C.F. Extramurs Valencia 'B' - Calendario y Resultados"
+
+  # Descripción para SEO
+  descripcion: "Calendario, resultados y clasificación del C.F. Extramurs Valencia 'B' - Temporada 2024-2025"
+
+  # Temporada actual
+  temporada: "2024-2025"
+
+  # Directorios de salida
+  output_dir: "equipo-b"
+  images_dir: "Images/plantilla-b"
+
+# Configuración de Scraping
+# ==========================
+
+scraping:
+  # Reintentos en caso de error
+  max_reintentos: 3
+
+  # Tiempo de espera entre reintentos (segundos)
+  delay_reintento: 5
+
+  # Timeout para cargar páginas (milisegundos)
+  timeout_pagina: 30000
+
+  # Tiempo de espera adicional después de cargar (milisegundos)
+  espera_contenido: 3000
+
+# Procesamiento de Imágenes
+# ==========================
+
+image_processing:
+  # Activar procesamiento de imágenes
+  enabled: true
+
+  # Quitar fondo de las fotos (background removal)
+  remove_background: true
+
+  # API Key de remove.bg (https://remove.bg)
+  # IMPORTANTE: No commitear esta key en repositorios públicos
+  removebg_api_key: "N1NUscZ4a6E6DDFkgkbPC4DS"
+
+  # Upscaling de imágenes
+  upscale: true
+  upscale_factor: 2  # 2x el tamaño original
+
+  # Formato de salida
+  output_format: "PNG"  # PNG para transparencia

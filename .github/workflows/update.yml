@@ -67,14 +67,14 @@ jobs:
       - name: 📊 Check for changes
         id: check_changes
         run: |
-          git diff --quiet partidos.ics data/partidos.json index.html plantilla.html manifest.json Images/ || echo "changes=true" >> $GITHUB_OUTPUT
+          git diff --quiet index.html equipo-a/ equipo-b/ data/ Images/ manifest.json || echo "changes=true" >> $GITHUB_OUTPUT
 
       - name: 💾 Commit and push changes
         if: steps.check_changes.outputs.changes == 'true'
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
-          git add partidos.ics data/partidos.json index.html plantilla.html manifest.json Images/
+          git add index.html equipo-a/ equipo-b/ data/ Images/ manifest.json
           git commit -m "🤖 Actualización automática - $(date +'%Y-%m-%d %H:%M')"
           git push
 
@@ -85,7 +85,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./
           publish_branch: gh-pages
-          exclude_assets: '.github,templates,__pycache__,.gitignore,requirements.txt,scraper.py,data'
+          exclude_assets: '.github,templates,configs,__pycache__,.gitignore,requirements.txt,scraper.py,data,debug*.py,debug*.html,manchester.css,config.yaml,config_equipoA.yaml'
 
       - name: ✅ Success notification
         if: success()

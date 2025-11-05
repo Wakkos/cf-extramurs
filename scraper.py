@@ -45,16 +45,13 @@ OUTPUT_DASHBOARD = BASE_DIR / "dashboard.html"
 OUTPUT_PLANTILLA = BASE_DIR / "plantilla.html"
 
 
-def load_config() -> Dict:
+def load_config(config_path: Path) -> Dict:
     """
-    Carga la configuración desde config.yaml
+    Carga la configuración desde un archivo YAML
     """
-    config_path = BASE_DIR / "config.yaml"
-
     if not config_path.exists():
         raise FileNotFoundError(
-            f"❌ No se encontró el archivo de configuración: {config_path}\n"
-            "Por favor, crea un archivo config.yaml basado en config.yaml.example"
+            f"❌ No se encontró el archivo de configuración: {config_path}"
         )
 
     with open(config_path, 'r', encoding='utf-8') as f:
@@ -62,6 +59,33 @@ def load_config() -> Dict:
 
     logger.info(f"✓ Configuración cargada para: {config['equipo']['nombre']}")
     return config
+
+
+def load_all_configs() -> List[Dict]:
+    """
+    Carga todas las configuraciones desde el directorio configs/
+    """
+    configs_dir = BASE_DIR / "configs"
+
+    if not configs_dir.exists():
+        # Fallback a config.yaml si no existe configs/
+        logger.warning("⚠️  Directorio configs/ no encontrado, usando config.yaml")
+        return [load_config(BASE_DIR / "config.yaml")]
+
+    configs = []
+    config_files = sorted(configs_dir.glob("*.yaml"))
+
+    if not config_files:
+        raise FileNotFoundError(
+            f"❌ No se encontraron archivos de configuración en {configs_dir}"
+        )
+
+    for config_file in config_files:
+        logger.info(f"📄 Cargando configuración: {config_file.name}")
+        config = load_config(config_file)
+        configs.append(config)
+
+    return configs
 
 
 def build_url(base_url: str, params: Dict) -> str:
@@ -72,36 +96,66 @@ def build_url(base_url: str, params: Dict) -> str:
     return f"{base_url}?{query_string}"
 
 
-# Cargar configuración global
-CONFIG = load_config()
-
-# Extraer valores de configuración para fácil acceso
-TEAM_NAME = CONFIG['equipo']['nombre']
-TEAM_SHORT_NAME = CONFIG['equipo']['nombre_corto']
-GRUPO = CONFIG['equipo']['grupo']
-
-# Construir URLs dinámicamente desde config
-ids = CONFIG['ids_ffcv']
-params_base = {
-    'id_temp': ids['temporada'],
-    'id_modalidad': ids['modalidad'],
-    'id_competicion': ids['competicion'],
-    'id_torneo': ids['torneo']
-}
-
-URL_CALENDARIO = build_url(CONFIG['urls']['base_calendario'], params_base)
-URL_CLASIFICACION = build_url(CONFIG['urls']['base_clasificacion'], params_base)
-
-params_plantilla = {**params_base, 'id_equipo': ids['equipo'], 'torneo_equipo': ''}
-URL_PLANTILLA = build_url(CONFIG['urls']['base_plantilla'], params_plantilla)
-
-# Constantes de scraping desde config
-MAX_RETRIES = CONFIG['scraping']['max_reintentos']
-RETRY_DELAY = CONFIG['scraping']['delay_reintento']
-TIMEOUT = CONFIG['scraping']['timeout_pagina']
+# NOTA: Variables globales - se inicializan dinámicamente por equipo en setup_globals()
+CONFIG = None
+TEAM_NAME = None
+TEAM_SHORT_NAME = None
+GRUPO = None
+URL_CALENDARIO = None
+URL_CLASIFICACION = None
+URL_PLANTILLA = None
+PLANTILLA_IMAGES_DIR = None
+OUTPUT_ICS = None
+OUTPUT_JSON = None
+OUTPUT_INDEX = None
+OUTPUT_PLANTILLA = None
 
 
-def fetch_page_with_retry(url: str, max_retries: int = MAX_RETRIES) -> str:
+def setup_globals(config: Dict):
+    """
+    Inicializa variables globales para un equipo específico
+    """
+    global CONFIG, TEAM_NAME, TEAM_SHORT_NAME, GRUPO
+    global URL_CALENDARIO, URL_CLASIFICACION, URL_PLANTILLA
+    global PLANTILLA_IMAGES_DIR, OUTPUT_ICS, OUTPUT_JSON, OUTPUT_INDEX, OUTPUT_PLANTILLA
+
+    CONFIG = config
+    TEAM_NAME = config['equipo']['nombre']
+    TEAM_SHORT_NAME = config['equipo']['nombre_corto']
+    GRUPO = config['equipo']['grupo']
+
+    # Directorios de salida
+    output_dir = BASE_DIR / config['sitio']['output_dir']
+    images_dir = BASE_DIR / config['sitio']['images_dir']
+
+    # Crear directorios si no existen
+    output_dir.mkdir(parents=True, exist_ok=True)
+    images_dir.mkdir(parents=True, exist_ok=True)
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+
+    PLANTILLA_IMAGES_DIR = images_dir
+    OUTPUT_ICS = output_dir / "partidos.ics"
+    OUTPUT_JSON = DATA_DIR / f"{config['equipo']['nombre_corto'].lower().replace(' ', '')}.json"
+    OUTPUT_INDEX = output_dir / "index.html"
+    OUTPUT_PLANTILLA = output_dir / "plantilla.html"
+
+    # Construir URLs dinámicamente desde config
+    ids = config['ids_ffcv']
+    params_base = {
+        'id_temp': ids['temporada'],
+        'id_modalidad': ids['modalidad'],
+        'id_competicion': ids['competicion'],
+        'id_torneo': ids['torneo']
+    }
+
+    URL_CALENDARIO = build_url(config['urls']['base_calendario'], params_base)
+    URL_CLASIFICACION = build_url(config['urls']['base_clasificacion'], params_base)
+
+    params_plantilla = {**params_base, 'id_equipo': ids['equipo'], 'torneo_equipo': ''}
+    URL_PLANTILLA = build_url(config['urls']['base_plantilla'], params_plantilla)
+
+
+def fetch_page_with_retry(url: str, max_retries: int = 3) -> str:
     """
     Obtiene el HTML de una página usando Playwright con reintentos
     """
@@ -114,7 +168,7 @@ def fetch_page_with_retry(url: str, max_retries: int = MAX_RETRIES) -> str:
                 page = browser.new_page()
 
                 # Navegar a la página
-                page.goto(url, timeout=TIMEOUT, wait_until="networkidle")
+                page.goto(url, timeout=30000, wait_until="networkidle")
 
                 # Esperar un poco para asegurar que todo cargue
                 page.wait_for_timeout(2000)
@@ -129,14 +183,14 @@ def fetch_page_with_retry(url: str, max_retries: int = MAX_RETRIES) -> str:
         except PlaywrightTimeout:
             logger.warning(f"Timeout en intento {attempt}")
             if attempt < max_retries:
-                logger.info(f"Esperando {RETRY_DELAY} segundos antes de reintentar...")
-                time.sleep(RETRY_DELAY)
+                logger.info(f"Esperando 5 segundos antes de reintentar...")
+                time.sleep(5)
             else:
                 raise Exception(f"No se pudo obtener la página después de {max_retries} intentos")
         except Exception as e:
             logger.error(f"Error en intento {attempt}: {str(e)}")
             if attempt < max_retries:
-                time.sleep(RETRY_DELAY)
+                time.sleep(5)
             else:
                 raise
 
@@ -607,10 +661,14 @@ def scrape_plantilla(html: str) -> List[Dict]:
             else:
                 foto_filename = None
 
+            # Construir path relativo desde output_dir hacia images_dir
+            # Ejemplo: equipo-a/plantilla.html -> ../Images/plantilla-a/
+            images_relative_path = f"../{CONFIG['sitio']['images_dir']}"
+
             jugador_data = {
                 'id': jugador_id,
                 'nombre': nombre,
-                'foto': f"Images/plantilla/{foto_filename}" if foto_filename else None
+                'foto': f"{images_relative_path}/{foto_filename}" if foto_filename else None
             }
 
             plantilla.append(jugador_data)
@@ -900,13 +958,10 @@ def encontrar_proximo_partido(partidos: List[Dict]) -> Optional[Dict]:
     return None
 
 
-def main():
+def process_team():
     """
-    Función principal del scraper
+    Procesa un equipo individual (usa variables globales inicializadas por setup_globals)
     """
-    logger.info("=" * 60)
-    logger.info("Iniciando Extramurs Calendar Automation Scraper")
-    logger.info("=" * 60)
 
     try:
         # 1. Obtener HTML de las páginas
@@ -1022,12 +1077,12 @@ def main():
             except ValueError:
                 pass
 
-        # Context para templates
+        # Context para templates (con rutas relativas desde output_dir)
         context = {
             'equipo': TEAM_NAME,
             'grupo': GRUPO,
-            'logo': CONFIG['equipo']['logo'],
-            'background': CONFIG['equipo'].get('background', ''),
+            'logo': f"../{CONFIG['equipo']['logo']}" if CONFIG['equipo']['logo'] else '',
+            'background': f"../{CONFIG['equipo']['background']}" if CONFIG['equipo'].get('background') else '',
             'temporada': CONFIG['sitio']['temporada'],
             'ultima_actualizacion': datetime.now().strftime("%d/%m/%Y - %H:%M"),
             'proximo_partido': proximo_partido,
@@ -1063,6 +1118,41 @@ def main():
         logger.info(f"  - {OUTPUT_ICS}")
         logger.info(f"  - {OUTPUT_INDEX}")
         logger.info(f"  - {OUTPUT_PLANTILLA}")
+        logger.info("=" * 60)
+
+    except Exception as e:
+        logger.error(f"\n❌ Error crítico: {str(e)}", exc_info=True)
+        raise
+
+
+def main():
+    """
+    Función principal - procesa todos los equipos configurados
+    """
+    logger.info("=" * 60)
+    logger.info("🏆 Extramurs Calendar Automation - Multi-Team Scraper")
+    logger.info("=" * 60)
+
+    try:
+        # Cargar todas las configuraciones
+        configs = load_all_configs()
+        logger.info(f"\n📋 {len(configs)} equipo(s) configurado(s)\n")
+
+        # Procesar cada equipo
+        for idx, config in enumerate(configs, 1):
+            equipo_nombre = config['equipo']['nombre']
+            logger.info("=" * 60)
+            logger.info(f"⚽ Procesando {idx}/{len(configs)}: {equipo_nombre}")
+            logger.info("=" * 60)
+
+            # Inicializar variables globales para este equipo
+            setup_globals(config)
+
+            # Procesar el equipo
+            process_team()
+
+        logger.info("\n" + "=" * 60)
+        logger.info(f"✅ Todos los equipos procesados exitosamente ({len(configs)} equipos)")
         logger.info("=" * 60)
 
     except Exception as e:

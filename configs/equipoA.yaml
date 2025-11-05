@@ -1,0 +1,45 @@
+# Configuración del Equipo A
+# ======================
+
+equipo:
+  nombre: "C.F. Extramurs Valencia 'A'"
+  nombre_corto: "Extramurs A"
+  grupo: "Segona FFCV Prebenjamí 2n. any València - Grup 5"
+  logo: "Images/extramurs.jpg"
+  background: "Images/bg-prebenjamin-a.jpg"
+
+ids_ffcv:
+  temporada: 21
+  modalidad: 33345
+  competicion: 29531322
+  torneo: 904300744
+  equipo: 27293
+
+urls:
+  base_calendario: "https://resultadosffcv.isquad.es/calendario.php"
+  base_clasificacion: "https://resultadosffcv.isquad.es/clasificacion.php"
+  base_plantilla: "https://resultadosffcv.isquad.es/equipo_plantilla.php"
+  base_partido: "https://resultadosffcv.isquad.es/partido.php"
+
+sitio:
+  url_base: "https://wakkos.github.io/cf-extramurs"
+  titulo: "C.F. Extramurs Valencia 'A' - Calendario y Resultados"
+  descripcion: "Calendario, resultados y clasificación del C.F. Extramurs Valencia 'A' - Temporada 2024-2025"
+  temporada: "2024-2025"
+  # Directorios de salida
+  output_dir: "equipo-a"
+  images_dir: "Images/plantilla-a"
+
+scraping:
+  max_reintentos: 3
+  delay_reintento: 5
+  timeout_pagina: 30000
+  espera_contenido: 3000
+
+image_processing:
+  enabled: true
+  remove_background: true
+  removebg_api_key: "N1NUscZ4a6E6DDFkgkbPC4DS"
+  upscale: true
+  upscale_factor: 2
+  output_format: "PNG"
