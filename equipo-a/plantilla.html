@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C.F. Extramurs Valencia 'A' - Plantilla del Equipo</title>
+    <meta name="description" content="Plantilla del C.F. Extramurs Valencia 'A' temporada 2024-2025">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>⚽</text></svg>">
+
+    <!-- OpenGraph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="C.F. Extramurs Valencia 'A' - Plantilla">
+    <meta property="og:description" content="Conoce a los jugadores del C.F. Extramurs Valencia 'A'">
+    <meta property="og:site_name" content="C.F. Extramurs Valencia 'A'">
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#001838">
+
+    <style>
+        /* Manchester City Player Cards - Inline CSS */
+
+        /* ========================================
+           RESET & BASICS
+           ======================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* ========================================
+           TIPOGRAFÍAS
+           ======================================== */
+        @font-face {
+            font-family: Kippax;
+            src: url(https://fonts.mancity.com/fonts/Kippax/KippaxModern-Rg.woff2) format("woff2");
+            font-weight: 400;
+        }
+
+        @font-face {
+            font-family: Kippax;
+            src: url(https://fonts.mancity.com/fonts/Kippax/KippaxModern-Bd.woff2) format("woff2");
+            font-weight: 700;
+        }
+
+        @font-face {
+            font-family: KippaxCondensed;
+            src: url(https://fonts.mancity.com/fonts/Kippax/KippaxModern-CndBd.woff2) format("woff2");
+            font-weight: 700;
+        }
+
+        body {
+            margin: 0;
+            font: normal 14px Kippax, sans-serif;
+            color: #001838;
+            background: #fff;
+        }
+
+        /* ========================================
+           HEADER CUSTOM (mantiene tu diseño)
+           ======================================== */
+        .container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .header {
+            position: relative;
+            background: url('../Images/bg-prebenjamin-a.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border: 1px solid #e1eff9;
+            border-radius: 0.5rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 30%, rgba(37, 0, 0, 0.01) 100%);
+            z-index: 1;
+        }
+
+        .header > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .header-logo {
+            width: 200px;
+            height: auto;
+            object-fit: contain;
+            background: white;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .header-content {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .header-content h1 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.25rem;
+            letter-spacing: -0.025em;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-content p {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.95);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: white;
+            letter-spacing: 0.025em;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.625rem 1.25rem;
+            background: white;
+            color: #001838;
+            border: 1px solid #e1eff9;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.875rem;
+            transition: all 150ms ease;
+        }
+
+        .btn:hover {
+            background: #001838;
+            border-color: #001838;
+            color: white;
+        }
+
+        .btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* ========================================
+           MANCHESTER CITY CARDS
+           ======================================== */
+
+        .squad-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+            list-style: none;
+        }
+
+        .squad-list__item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 250px;
+        }
+
+        .squad-list__item-link {
+            display: block;
+            width: 100%;
+            text-decoration: none;
+        }
+
+        /* MEMBER CARD */
+        .member-card {
+            position: relative;
+            width: 100%;
+            background: #e1eff9 url('https://web-assets.mancity.com/dist/images/brand2526/25-26-ind-player-card-bg-mobile.jpg') center center / cover no-repeat;
+            transform: translateZ(0);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .member-card__regular-shadow,
+        .member-card__active-shadow {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            transition: opacity .2s ease-in-out;
+        }
+
+        .member-card__regular-shadow {
+            opacity: 1;
+            box-shadow: 0 8px 16px 0 rgba(0, 24, 56, .3);
+        }
+
+        .member-card__active-shadow {
+            opacity: 0;
+            box-shadow: 0 3px 10px rgba(152, 197, 233, .749);
+        }
+
+        /* HEADER */
+        .member-card__header {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 300px;
+            overflow: hidden;
+            border-top: 1px solid #ebf4fb;
+            border-right: 1px solid #ebf4fb;
+            border-left: 1px solid #ebf4fb;
+        }
+
+        /* SHIRT NUMBER / DORSAL */
+        .member-card__shirt-number {
+            position: absolute;
+            z-index: 2;
+            top: -2px;
+            right: 0;
+            margin-right: -.07em;
+            color: transparent;
+            -webkit-text-stroke: 2px #001838;
+            transition: color .2s ease-in-out;
+            font-family: KippaxCondensed, sans-serif;
+            font-weight: 700;
+            font-size: 95px;
+            line-height: 96px;
+            letter-spacing: .95px;
+        }
+
+        .member-card__shirt-number:before {
+            content: "";
+            display: block;
+            height: 0;
+            width: 0;
+            margin-top: -.11em;
+        }
+
+        /* COUNTRY FLAG */
+        .member-card__country-flag-wrapper {
+            position: absolute;
+            z-index: 2;
+            bottom: 12px;
+            left: 12px;
+            width: 32px;
+            height: 32px;
+            background: #fff;
+            box-shadow: 0 2px 5px 0 rgba(0, 24, 56, .6);
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .member-card__country-flag {
+            width: 131%;
+            height: 131%;
+            object-fit: cover;
+            object-position: -5px -14px;
+        }
+
+        /* PHOTO */
+        .member-card__photo-wrapper {
+            position: relative;
+            z-index: 2;
+            width: 188px;
+            height: 188px;
+        }
+
+        .member-card__photo {
+            width: 100%;
+            height: auto;
+            transform: scale(1.01);
+        }
+
+        /* CONTENT / NOMBRE */
+        .member-card__content {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 12px;
+            background: #fff;
+            transition: background .2s ease-in-out;
+            flex: 1;
+            border-right: 1px solid #ebf4fb;
+            border-bottom: 1px solid #ebf4fb;
+            border-left: 1px solid #ebf4fb;
+        }
+
+        .member-card__full-name {
+            font-family: KippaxCondensed, sans-serif;
+            font-size: 30px;
+            line-height: 30px;
+            letter-spacing: .3px;
+            color: #001838;
+            text-transform: uppercase;
+            margin: 0;
+            font-weight: 700;
+            transition: color .2s ease-in-out;
+            /* Limitar a 2 líneas exactas */
+            height: 60px; /* 30px × 2 líneas */
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .member-card__name {
+            display: block;
+        }
+
+        .member-card__name + .member-card__name {
+            margin-top: -2px;
+        }
+
+        /* HOVER EFFECTS */
+        .squad-list__item-link:hover .member-card__regular-shadow {
+            opacity: 0;
+        }
+
+        .squad-list__item-link:hover .member-card__active-shadow {
+            opacity: 1;
+        }
+
+        .squad-list__item-link:hover .member-card__shirt-number {
+            color: #001838;
+        }
+
+        .squad-list__item-link:hover .member-card__content {
+            background: #001838;
+        }
+
+        .squad-list__item-link:hover .member-card__full-name {
+            color: #fff;
+        }
+
+        /* SIN DORSAL */
+        .member-card__shirt-number--placeholder {
+            opacity: 0.2;
+        }
+
+        /* ========================================
+           FOOTER
+           ======================================== */
+        .footer {
+            background: white;
+            border: 1px solid #e1eff9;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .footer p {
+            font-size: 0.875rem;
+            color: #666;
+        }
+
+        /* ========================================
+           EMPTY STATE
+           ======================================== */
+        .empty-state {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: #666;
+        }
+
+        .empty-state svg {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        /* ========================================
+           RESPONSIVE
+           ======================================== */
+        @media (max-width: 768px) {
+            .header {
+                text-align: center;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .header-logo {
+                width: 150px;
+            }
+
+            .header-content h1 {
+                font-size: 1.5rem;
+            }
+
+            .squad-list {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .member-card__header {
+                height: 168px;
+            }
+
+            .member-card__photo-wrapper {
+                width: 160px;
+                height: 160px;
+            }
+
+            .member-card__shirt-number {
+                font-size: 79px;
+                line-height: 80px;
+                letter-spacing: .79px;
+            }
+
+            .member-card__shirt-number:before {
+                margin-top: -.14em;
+            }
+
+            .member-card__content {
+                padding: 9px;
+            }
+
+            .member-card__full-name {
+                font-size: 28px;
+                line-height: 30px;
+                letter-spacing: .28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <img src="../Images/extramurs.jpg" alt="C.F. Extramurs Valencia 'A'" class="header-logo">
+            <div class="header-content">
+                <h1>Plantilla del Equipo</h1>
+                <p>C.F. Extramurs Valencia 'A' - Segona FFCV Prebenjamí 2n. any València - Grup 5</p>
+            </div>
+            <div class="header-badge">TEMPORADA 2024-2025</div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav">
+            <a href="index.html" class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                Volver al Inicio
+            </a>
+        </div>
+
+        <!-- Squad List - Plantilla -->
+        
+        <ul class="squad-list">
+            
+            <li class="squad-list__item">
+                <a class="squad-list__item-link" href="#902654318">
+                    <article class="member-card" aria-label="AGUAYO ARAUJO, IAN DAMIAN">
+                        <div class="member-card__header">
+                            
+                            <span class="member-card__shirt-number">1</span>
+                            
+
+                            <div class="member-card__photo-wrapper">
+                                
+                                <img class="member-card__photo" src="../Images/plantilla-a/jugador_902654318.png" alt="AGUAYO ARAUJO, IAN DAMIAN" title="AGUAYO ARAUJO, IAN DAMIAN">
+                                
+                            </div>
+
+                            <div class="member-card__country-flag-wrapper">
+                                <img class="member-card__country-flag" src="../Images/extramurs.jpg" alt="C.F. Extramurs Valencia 'A'" title="C.F. Extramurs Valencia 'A'">
+                            </div>
+                        </div>
+
+                        <div class="member-card__content">
+                            <h3 class="member-card__full-name">
+                                
+                                
+                                <span class="member-card__name">AGUAYO ARAUJO, IAN DAMIAN</span>
+                                
+                            </h3>
+                        </div>
+
+                        <div class="member-card__regular-shadow"></div>
+                        <div class="member-card__active-shadow"></div>
+                    </article>
+                </a>
+            </li>
+            
+            <li class="squad-list__item">
+                <a class="squad-list__item-link" href="#901096218">
+                    <article class="member-card" aria-label="ALAMO MARTIN, LUCAS">
+                        <div class="member-card__header">
+                            
+                            <span class="member-card__shirt-number">3</span>
+                            
+
+                            <div class="member-card__photo-wrapper">
+                                
+                                <img class="member-card__photo" src="../Images/plantilla-a/jugador_901096218.png" alt="ALAMO MARTIN, LUCAS" title="ALAMO MARTIN, LUCAS">
+                                
+                            </div>
+
+                            <div class="member-card__country-flag-wrapper">
+                                <img class="member-card__country-flag" src="../Images/extramurs.jpg" alt="C.F. Extramurs Valencia 'A'" title="C.F. Extramurs Valencia 'A'">
+                            </div>
+                        </div>
+
+                        <div class="member-card__content">
+                            <h3 class="member-card__full-name">
+                                
+                                
+                                <span class="member-card__name">ALAMO MARTIN,</span>
+                                <span class="member-card__name">LUCAS</span>
+                                
+                            </h3>
+                        </div>
+
+                        <div class="member-card__regular-shadow"></div>
+                        <div class="member-card__active-shadow"></div>
+                    </article>
+                </a>
+            </li>
+            
+            <li class="squad-list__item">
+                <a class="squad-list__item-link" href="#901120782">
+                    <article class="member-card" aria-label="BALAGUER SARRIO, HUGO">
+                        <div class="member-card__header">
+                            
+                            <span class="member-card__shirt-number">9</span>
+                            
+
+                            <div class="member-card__photo-wrapper">
+                                
+                                <img class="member-card__photo" src="../Images/plantilla-a/jugador_901120782.png" alt="BALAGUER SARRIO, HUGO" title="BALAGUER SARRIO, HUGO">
+                                
+                            </div>
+
+                            <div class="member-card__country-flag-wrapper">
+                                <img class="member-card__country-flag" src="../Images/extramurs.jpg" alt="C.F. Extramurs Valencia 'A'" title="C.F. Extramurs Valencia 'A'">
+                            </div>
+                        </div>
+
+                        <div class="member-card__content">
+                            <h3 class="member-card__full-name">
+                                
+                                
+                                <span class="member-card__name">BALAGUER SARRIO,</span>
+                                <span class="member-card__name">HUGO</span>
+                                
+                            </h3>
+                        </div>
+
+                        <div class="member-card__regular-shadow"></div>
+                        <div class="member-card__active-shadow"></div>
+                    </article>
+                </a>
+            </li>
+            
+            <li class="squad-list__item">
+                <a class="squad-list__item-link" href="#901054450">
+                    <article class="member-card" aria-label="GARCIA MUÑOZ, HUGO">
+                        <div class="member-card__header">
+                            
+                            <span class="member-card__shirt-number">15</span>
+                            
+
+                            <div class="member-card__photo-wrapper">
+                                
+                                <img class="member-card__photo" src="../Images/plantilla-a/jugador_901054450.png" alt="GARCIA MUÑOZ, HUGO" title="GARCIA MUÑOZ, HUGO">
+                                
+                            </div>
+
+                            <div class="member-card__country-flag-wrapper">
+                                <img class="member-card__country-flag" src="../Images/extramurs.jpg" alt="C.F. Extramurs Valencia 'A'" title="C.F. Extramurs Valencia 'A'">
+                            </div>
+                        </div>
+
+                        <div class="member-card__content">
+                            <h3 class="member-card__full-name">
+                                
+                                
+                                <span class="member-card__name">GARCIA MUÑOZ,</span>
+                                <span class="member-card__name">HUGO</span>
+                                
+                            </h3>
+                        </div>
+
+                        <div class="member-card__regular-shadow"></div>
+                        <div class="member-card__active-shadow"></div>
+                    </article>
+                </a>
+            </li>
+            
+            <li class="squad-list__item">
+                <a class="squad-list__item-link" href="#901101399">
+                    <article class="member-card" aria-label="GUILLEM VIZCAINO, PEDRO">
+                        <div class="member-card__header">
+                            
+                            <span class="member-card__shirt-number">5</span>
+                            
+
+                            <div class="member-card__photo-wrapper">
+                                
+                                <img class="member-card__photo" src="../Images/plantilla-a/jugador_901101399.png" alt="GUILLEM VIZCAINO, PEDRO" title="GUILLEM VIZCAINO, PEDRO">
+                                
+                            </div>
+
+                            <div class="member-card__country-flag-wrapper">
+                                <img class="member-card__country-flag" src="../Images/extramurs.jpg" alt="C.F. Extramurs Valencia 'A'" title="C.F. Extramurs Valencia 'A'">
+                            </div>
+                        </div>
+
+                        <div class="member-card__content">
+                            <h3 class="member-card__full-name">
+                                
+                                
+                                <span class="member-card__name">GUILLEM VIZCAINO,</span>
+                                <span class="member-card__name">PEDRO</span>
+                                
+                            </h3>
+                        </div>
+
+                        <div class="member-card__regular-shadow"></div>
+                        <div class="member-card__active-shadow"></div>
+                    </article>
+                </a>
+            </li>
+            
+            <li class="squad-list__item">
+                <a class="squad-list__item-link" href="#903611115">
+                    <article class="member-card" aria-label="HERVAS TEBAR, ALEJANDRO">
+                        <div class="member-card__header">
+                            
+                            <span class="member-card__shirt-number">30</span>
+                            
+
+                            <div class="member-card__photo-wrapper">
+                                
+                                <img class="member-card__photo" src="../Images/plantilla-a/jugador_903611115.png" alt="HERVAS TEBAR, ALEJANDRO" title="HERVAS TEBAR, ALEJANDRO">
+                                
+                            </div>
+
+                            <div class="member-card__country-flag-wrapper">
+                                <img class="member-card__country-flag" src="../Images/extramurs.jpg" alt="C.F. Extramurs Valencia 'A'" title="C.F. Extramurs Valencia 'A'">
+                            </div>
+                        </div>
+
+                        <div class="member-card__content">
+                            <h3 class="member-card__full-name">
+                                
+                                
+                                <span class="member-card__name">HERVAS TEBAR,</span>
+                                <span class="member-card__name">ALEJANDRO</span>
+                                
+                            </h3>
+                        </div>
+
+                        <div class="member-card__regular-shadow"></div>
+                        <div class="member-card__active-shadow"></div>
+                    </article>
+                </a>
+            </li>
+            
+            <li class="squad-list__item">
+                <a class="squad-list__item-link" href="#901097677">
+                    <article class="member-card" aria-label="MIGUEL PEREZ, ALVARO">
+                        <div class="member-card__header">
+                            
+                            <span class="member-card__shirt-number">6</span>
+                            
+
+                            <div class="member-card__photo-wrapper">
+                                
+                                <img class="member-card__photo" src="../Images/plantilla-a/jugador_901097677.png" alt="MIGUEL PEREZ, ALVARO" title="MIGUEL PEREZ, ALVARO">
+                                
+                            </div>
+
+                            <div class="member-card__country-flag-wrapper">
+                                <img class="member-card__country-flag" src="../Images/extramurs.jpg" alt="C.F. Extramurs Valencia 'A'" title="C.F. Extramurs Valencia 'A'">
+                            </div>
+                        </div>
+
+                        <div class="member-card__content">
+                            <h3 class="member-card__full-name">
+                                
+                                
+                                <span class="member-card__name">MIGUEL PEREZ,</span>
+                                <span class="member-card__name">ALVARO</span>
+                                
+                            </h3>
+                        </div>
+
+                        <div class="member-card__regular-shadow"></div>
+                        <div class="member-card__active-shadow"></div>
+                    </article>
+                </a>
+            </li>
+            
+            <li class="squad-list__item">
+                <a class="squad-list__item-link" href="#901095701">
+                    <article class="member-card" aria-label="MIGUEZ COLLADO, DAVID">
+                        <div class="member-card__header">
+                            
+                            <span class="member-card__shirt-number">2</span>
+                            
+
+                            <div class="member-card__photo-wrapper">
+                                
+                                <img class="member-card__photo" src="../Images/plantilla-a/jugador_901095701.png" alt="MIGUEZ COLLADO, DAVID" title="MIGUEZ COLLADO, DAVID">
+                                
+                            </div>
+
+                            <div class="member-card__country-flag-wrapper">
+                                <img class="member-card__country-flag" src="../Images/extramurs.jpg" alt="C.F. Extramurs Valencia 'A'" title="C.F. Extramurs Valencia 'A'">
+                            </div>
+                        </div>
+
+                        <div class="member-card__content">
+                            <h3 class="member-card__full-name">
+                                
+                                
+                                <span class="member-card__name">MIGUEZ COLLADO,</span>
+                                <span class="member-card__name">DAVID</span>
+                                
+                            </h3>
+                        </div>
+
+                        <div class="member-card__regular-shadow"></div>
+                        <div class="member-card__active-shadow"></div>
+                    </article>
+                </a>
+            </li>
+            
+            <li class="squad-list__item">
+                <a class="squad-list__item-link" href="#901073153">
+                    <article class="member-card" aria-label="PARDO MONTALVÁ, LUCAS">
+                        <div class="member-card__header">
+                            
+                            <span class="member-card__shirt-number">7</span>
+                            
+
+                            <div class="member-card__photo-wrapper">
+                                
+                                <img class="member-card__photo" src="../Images/plantilla-a/jugador_901073153.png" alt="PARDO MONTALVÁ, LUCAS" title="PARDO MONTALVÁ, LUCAS">
+                                
+                            </div>
+
+                            <div class="member-card__country-flag-wrapper">
+                                <img class="member-card__country-flag" src="../Images/extramurs.jpg" alt="C.F. Extramurs Valencia 'A'" title="C.F. Extramurs Valencia 'A'">
+                            </div>
+                        </div>
+
+                        <div class="member-card__content">
+                            <h3 class="member-card__full-name">
+                                
+                                
+                                <span class="member-card__name">PARDO MONTALVÁ,</span>
+                                <span class="member-card__name">LUCAS</span>
+                                
+                            </h3>
+                        </div>
+
+                        <div class="member-card__regular-shadow"></div>
+                        <div class="member-card__active-shadow"></div>
+                    </article>
+                </a>
+            </li>
+            
+            <li class="squad-list__item">
+                <a class="squad-list__item-link" href="#902950679">
+                    <article class="member-card" aria-label="PELLEGRINO , LUCIO">
+                        <div class="member-card__header">
+                            
+                            <span class="member-card__shirt-number member-card__shirt-number--placeholder">?</span>
+                            
+
+                            <div class="member-card__photo-wrapper">
+                                
+                                <img class="member-card__photo" src="../Images/plantilla-a/jugador_902950679.png" alt="PELLEGRINO , LUCIO" title="PELLEGRINO , LUCIO">
+                                
+                            </div>
+
+                            <div class="member-card__country-flag-wrapper">
+                                <img class="member-card__country-flag" src="../Images/extramurs.jpg" alt="C.F. Extramurs Valencia 'A'" title="C.F. Extramurs Valencia 'A'">
+                            </div>
+                        </div>
+
+                        <div class="member-card__content">
+                            <h3 class="member-card__full-name">
+                                
+                                
+                                <span class="member-card__name">PELLEGRINO ,</span>
+                                <span class="member-card__name">LUCIO</span>
+                                
+                            </h3>
+                        </div>
+
+                        <div class="member-card__regular-shadow"></div>
+                        <div class="member-card__active-shadow"></div>
+                    </article>
+                </a>
+            </li>
+            
+            <li class="squad-list__item">
+                <a class="squad-list__item-link" href="#902996540">
+                    <article class="member-card" aria-label="PEREZ FOSATI, ALVARO">
+                        <div class="member-card__header">
+                            
+                            <span class="member-card__shirt-number">11</span>
+                            
+
+                            <div class="member-card__photo-wrapper">
+                                
+                                <img class="member-card__photo" src="../Images/plantilla-a/jugador_902996540.png" alt="PEREZ FOSATI, ALVARO" title="PEREZ FOSATI, ALVARO">
+                                
+                            </div>
+
+                            <div class="member-card__country-flag-wrapper">
+                                <img class="member-card__country-flag" src="../Images/extramurs.jpg" alt="C.F. Extramurs Valencia 'A'" title="C.F. Extramurs Valencia 'A'">
+                            </div>
+                        </div>
+
+                        <div class="member-card__content">
+                            <h3 class="member-card__full-name">
+                                
+                                
+                                <span class="member-card__name">PEREZ FOSATI,</span>
+                                <span class="member-card__name">ALVARO</span>
+                                
+                            </h3>
+                        </div>
+
+                        <div class="member-card__regular-shadow"></div>
+                        <div class="member-card__active-shadow"></div>
+                    </article>
+                </a>
+            </li>
+            
+            <li class="squad-list__item">
+                <a class="squad-list__item-link" href="#901593409">
+                    <article class="member-card" aria-label="LUCAS">
+                        <div class="member-card__header">
+                            
+                            <span class="member-card__shirt-number">14</span>
+                            
+
+                            <div class="member-card__photo-wrapper">
+                                
+                                <img class="member-card__photo" src="../Images/plantilla-a/jugador_901593409.png" alt="LUCAS" title="LUCAS">
+                                
+                            </div>
+
+                            <div class="member-card__country-flag-wrapper">
+                                <img class="member-card__country-flag" src="../Images/extramurs.jpg" alt="C.F. Extramurs Valencia 'A'" title="C.F. Extramurs Valencia 'A'">
+                            </div>
+                        </div>
+
+                        <div class="member-card__content">
+                            <h3 class="member-card__full-name">
+                                
+                                
+                                <span class="member-card__name">LUCAS</span>
+                                
+                            </h3>
+                        </div>
+
+                        <div class="member-card__regular-shadow"></div>
+                        <div class="member-card__active-shadow"></div>
+                    </article>
+                </a>
+            </li>
+            
+            <li class="squad-list__item">
+                <a class="squad-list__item-link" href="#903580303">
+                    <article class="member-card" aria-label="SASTRE FELTRER, BRUNO">
+                        <div class="member-card__header">
+                            
+                            <span class="member-card__shirt-number">8</span>
+                            
+
+                            <div class="member-card__photo-wrapper">
+                                
+                                <img class="member-card__photo" src="../Images/plantilla-a/jugador_903580303.png" alt="SASTRE FELTRER, BRUNO" title="SASTRE FELTRER, BRUNO">
+                                
+                            </div>
+
+                            <div class="member-card__country-flag-wrapper">
+                                <img class="member-card__country-flag" src="../Images/extramurs.jpg" alt="C.F. Extramurs Valencia 'A'" title="C.F. Extramurs Valencia 'A'">
+                            </div>
+                        </div>
+
+                        <div class="member-card__content">
+                            <h3 class="member-card__full-name">
+                                
+                                
+                                <span class="member-card__name">SASTRE FELTRER,</span>
+                                <span class="member-card__name">BRUNO</span>
+                                
+                            </h3>
+                        </div>
+
+                        <div class="member-card__regular-shadow"></div>
+                        <div class="member-card__active-shadow"></div>
+                    </article>
+                </a>
+            </li>
+            
+        </ul>
+        
+
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>Última actualización:</strong> 05/11/2025 - 00:28</p>
+        </div>
+    </div>
+</body>
+</html>

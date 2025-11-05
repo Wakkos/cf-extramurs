@@ -3,24 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C.F. Extramurs Valencia 'B' - Calendario de Partidos</title>
-    <meta name="description" content="Calendario, estadísticas, resultados y clasificación del C.F. Extramurs Valencia 'B'. Actualización automática diaria.">
+    <title>C.F. Extramurs Valencia</title>
+    <meta name="description" content="Club de Fútbol Extramurs Valencia - Equipos Prebenjamín">
 
     <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>⚽</text></svg>">
 
     <!-- OpenGraph / Social Media -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="C.F. Extramurs Valencia 'B' - Calendario de Partidos">
-    <meta property="og:description" content="Calendario, estadísticas y clasificación del equipo prebenjamín. Suscríbete para recibir actualizaciones automáticas.">
-    <meta property="og:site_name" content="C.F. Extramurs Valencia 'B'">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="C.F. Extramurs Valencia 'B' - Calendario de Partidos">
-    <meta name="twitter:description" content="Calendario con sincronización automática, estadísticas y clasificación del equipo">
+    <meta property="og:title" content="C.F. Extramurs Valencia">
+    <meta property="og:description" content="Club de Fútbol Extramurs Valencia - Equipos Prebenjamín">
 
     <!-- PWA -->
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#3b82f6">
+    <meta name="theme-color" content="#001838">
+
     <style>
         * {
             margin: 0;
@@ -28,1104 +25,136 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --background: 0 0% 100%;
-            --foreground: 222.2 84% 4.9%;
-            --card: 0 0% 100%;
-            --card-foreground: 222.2 84% 4.9%;
-            --primary: 221.2 83.2% 53.3%;
-            --primary-foreground: 210 40% 98%;
-            --secondary: 210 40% 96.1%;
-            --secondary-foreground: 222.2 47.4% 11.2%;
-            --muted: 210 40% 96.1%;
-            --muted-foreground: 215.4 16.3% 46.9%;
-            --accent: 210 40% 96.1%;
-            --accent-foreground: 222.2 47.4% 11.2%;
-            --border: 214.3 31.8% 91.4%;
-            --ring: 221.2 83.2% 53.3%;
-            --success: 142.1 76.2% 36.3%;
-            --error: 0 84.2% 60.2%;
-            --radius: 0.5rem;
-        }
-
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.5;
-            color: hsl(var(--foreground));
-            background: hsl(var(--secondary));
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
         }
 
         .container {
-            max-width: 1100px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-
-        /* Header */
-        .header {
-            position: relative;
-            background: url('Images/bg.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            border: 1px solid hsl(var(--border));
-            border-radius: var(--radius);
-            padding: 2rem;
-            margin-bottom: 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            overflow: hidden;
-        }
-
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 30%, rgba(37, 0, 0, 0.01) 100%);
-            z-index: 1;
-        }
-
-        .header > * {
-            position: relative;
-            z-index: 2;
-        }
-
-        .header-logo {
-            width: 200px;
-            height: auto;
-            object-fit: contain;
             background: white;
-            padding: 0.5rem;
-            border-radius: var(--radius);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            border-radius: 1rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 100%;
+            padding: 3rem 2rem;
+            text-align: center;
         }
 
-        .header-content {
-            flex: 1;
-            min-width: 200px;
+        .logo-container {
+            margin-bottom: 2rem;
         }
 
-        .header-content h1 {
-            font-size: 1.875rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 0.25rem;
-            letter-spacing: -0.025em;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        .logo {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+            margin: 0 auto;
+            display: block;
+            border-radius: 50%;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
-        .header-content p {
-            font-size: 0.875rem;
-            color: rgba(255, 255, 255, 0.95);
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        h1 {
+            color: #333;
+            margin-bottom: 0.5rem;
+            font-size: 1.8rem;
         }
 
-        .header-badge {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background: rgba(255, 255, 255, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: var(--radius);
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: white;
-            letter-spacing: 0.025em;
-            backdrop-filter: blur(10px);
+        .subtitle {
+            color: #666;
+            margin-bottom: 2.5rem;
+            font-size: 0.95rem;
         }
 
-        /* Cards */
-        .card {
-            background: hsl(var(--card));
-            border: 1px solid hsl(var(--border));
-            border-radius: var(--radius);
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .card-header {
-            margin-bottom: 1.25rem;
-        }
-
-        .card-title {
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: hsl(var(--foreground));
-            margin-bottom: 0.25rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .card-title svg {
-            width: 20px;
-            height: 20px;
-        }
-
-        /* Próximo Partido */
-        .next-match-card {
-            background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary) / 0.85) 100%);
-            border: none;
-            color: white;
-            padding: 2rem;
-        }
-
-        .next-match-card.urgent {
-            background: linear-gradient(135deg, hsl(0 84.2% 60.2%) 0%, hsl(0 84.2% 50.2%) 100%);
-            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.95;
-            }
-        }
-
-        .next-match-card .card-title {
-            color: white;
-            font-size: 0.875rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            opacity: 0.95;
-            letter-spacing: 0.05em;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .badge-urgent {
-            display: inline-block;
-            padding: 0.25rem 0.625rem;
-            background: rgba(255, 255, 255, 0.25);
-            border-radius: 9999px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-        }
-
-        .next-match-content {
+        .teams-grid {
             display: grid;
             gap: 1rem;
+            margin-bottom: 2rem;
         }
 
-        .match-meta {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            font-size: 0.875rem;
+        .team-link {
+            display: block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 6px rgba(102, 126, 234, 0.3);
+        }
+
+        .team-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .team-link:active {
+            transform: translateY(0);
+        }
+
+        .team-name {
+            font-size: 1.3rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .team-category {
+            font-size: 0.9rem;
             opacity: 0.9;
         }
 
-        .match-meta-item {
-            display: flex;
-            align-items: center;
-            gap: 0.375rem;
-        }
-
-        .match-teams {
-            font-size: 1.75rem;
-            font-weight: 700;
-            line-height: 1.2;
-            margin: 0.5rem 0;
-        }
-
-        .match-venue {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.875rem;
-            opacity: 0.85;
-        }
-
-        .btn-maps {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-top: 1rem;
-            padding: 0.625rem 1.25rem;
-            background: white;
-            color: hsl(var(--primary));
-            border-radius: var(--radius);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.875rem;
-            transition: all 150ms ease;
-        }
-
-        .btn-maps:hover {
-            background: hsl(var(--secondary));
-            transform: translateY(-1px);
-        }
-
-        /* Results List */
-        .results-list {
-            display: grid;
-            gap: 0.75rem;
-        }
-
-        .result-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem;
-            background: hsl(var(--secondary));
-            border: 1px solid hsl(var(--border));
-            border-radius: var(--radius);
-            transition: all 150ms ease;
-        }
-
-        .result-item:hover {
-            border-color: hsl(var(--foreground) / 0.2);
-        }
-
-        .result-badge {
-            flex-shrink: 0;
-            width: 40px;
-            height: 40px;
-            border-radius: var(--radius);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 0.875rem;
-        }
-
-        .result-badge.win {
-            background: hsl(var(--success) / 0.1);
-            color: hsl(var(--success));
-        }
-
-        .result-badge.loss {
-            background: hsl(var(--error) / 0.1);
-            color: hsl(var(--error));
-        }
-
-        .result-badge.draw {
-            background: hsl(var(--muted));
-            color: hsl(var(--muted-foreground));
-        }
-
-        .result-content {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .result-match {
-            font-weight: 500;
-            font-size: 0.875rem;
-            color: hsl(var(--foreground));
-            margin-bottom: 0.125rem;
-        }
-
-        .result-score {
-            font-weight: 700;
-            color: hsl(var(--primary));
-        }
-
-        .result-date {
-            font-size: 0.75rem;
-            color: hsl(var(--muted-foreground));
-        }
-
-        /* Table */
-        .table-container {
-            overflow-x: auto;
-            border: 1px solid hsl(var(--border));
-            border-radius: var(--radius);
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.875rem;
-        }
-
-        thead {
-            background: hsl(var(--muted));
-        }
-
-        thead th {
-            padding: 0.75rem 1rem;
-            text-align: left;
-            font-weight: 600;
-            color: hsl(var(--muted-foreground));
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            letter-spacing: 0.05em;
-            border-bottom: 1px solid hsl(var(--border));
-        }
-
-        thead th:first-child {
-            text-align: center;
-            width: 60px;
-        }
-
-        thead th:not(:first-child):not(:nth-child(2)) {
-            text-align: center;
-        }
-
-        tbody tr {
-            border-bottom: 1px solid hsl(var(--border));
-            transition: background 150ms ease;
-        }
-
-        tbody tr:hover {
-            background: hsl(var(--accent));
-        }
-
-        tbody tr:last-child {
-            border-bottom: none;
-        }
-
-        tbody td {
-            padding: 1rem;
-            color: hsl(var(--foreground));
-        }
-
-        tbody td:first-child {
-            text-align: center;
-            font-weight: 600;
-            color: hsl(var(--muted-foreground));
-        }
-
-        tbody td:not(:first-child):not(:nth-child(2)) {
-            text-align: center;
-        }
-
-        tbody td:nth-child(2) {
-            font-weight: 500;
-        }
-
-        .team-current {
-            background: hsl(var(--primary) / 0.05) !important;
-            font-weight: 600 !important;
-        }
-
-        .team-current td:nth-child(2) {
-            color: hsl(var(--primary));
-        }
-
-        .team-position-1 td:first-child {
-            color: hsl(var(--success));
-        }
-
-        /* Footer */
         .footer {
-            background: hsl(var(--card));
-            border: 1px solid hsl(var(--border));
-            border-radius: var(--radius);
-            padding: 1.5rem;
-            text-align: center;
+            color: #999;
+            font-size: 0.85rem;
             margin-top: 2rem;
         }
 
-        .footer p {
-            font-size: 0.875rem;
-            color: hsl(var(--muted-foreground));
-            margin-bottom: 0.5rem;
-        }
-
-        .btn-back {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-top: 1rem;
-            padding: 0.625rem 1.25rem;
-            background: hsl(var(--primary));
-            color: hsl(var(--primary-foreground));
-            border-radius: var(--radius);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.875rem;
-            transition: all 150ms ease;
-        }
-
-        .btn-back:hover {
-            background: hsl(var(--primary) / 0.9);
-        }
-
-        /* No data state */
-        .empty-state {
-            text-align: center;
-            padding: 3rem 1rem;
-            color: hsl(var(--muted-foreground));
-        }
-
-        .empty-state svg {
-            width: 48px;
-            height: 48px;
-            margin-bottom: 1rem;
-            opacity: 0.5;
-        }
-
-        /* Racha visual */
-        .streak-container {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-            padding: 0.75rem 1rem;
-            background: hsl(var(--muted));
-            border-radius: var(--radius);
-        }
-
-        .streak-label {
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: hsl(var(--muted-foreground));
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .streak-badges {
-            display: flex;
-            gap: 0.375rem;
-        }
-
-        .streak-badge {
-            width: 32px;
-            height: 32px;
-            border-radius: var(--radius);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 0.75rem;
-            border: 1px solid transparent;
-        }
-
-        .streak-badge.win {
-            background: hsl(var(--success) / 0.15);
-            color: hsl(var(--success));
-            border-color: hsl(var(--success) / 0.3);
-        }
-
-        .streak-badge.loss {
-            background: hsl(var(--error) / 0.15);
-            color: hsl(var(--error));
-            border-color: hsl(var(--error) / 0.3);
-        }
-
-        .streak-badge.draw {
-            background: hsl(var(--muted));
-            color: hsl(var(--muted-foreground));
-            border-color: hsl(var(--border));
-        }
-
-        /* Mensaje motivacional */
-        .motivational-message {
-            background: linear-gradient(135deg, hsl(var(--success) / 0.1) 0%, hsl(var(--primary) / 0.1) 100%);
-            border: 1px solid hsl(var(--success) / 0.2);
-            border-radius: var(--radius);
-            padding: 1rem;
-            margin-top: 1rem;
-            text-align: center;
-            font-weight: 500;
-            color: hsl(var(--foreground));
-        }
-
-        /* Stats */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .stat-card {
-            background: hsl(var(--card));
-            border: 1px solid hsl(var(--border));
-            border-radius: var(--radius);
-            padding: 1.5rem;
-            text-align: center;
-            transition: all 150ms ease;
-        }
-
-        .stat-card:hover {
-            border-color: hsl(var(--primary) / 0.4);
-            transform: translateY(-2px);
-        }
-
-        .stat-value {
-            font-size: 2.25rem;
-            font-weight: 700;
-            color: hsl(var(--primary));
-            margin-bottom: 0.25rem;
-            line-height: 1;
-        }
-
-        .stat-label {
-            font-size: 0.875rem;
-            color: hsl(var(--muted-foreground));
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        /* Subscription Section */
-        .subscription-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 0.75rem;
-            margin-bottom: 1rem;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1rem;
-            background: hsl(var(--card));
-            color: hsl(var(--foreground));
-            border: 1px solid hsl(var(--border));
-            border-radius: var(--radius);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.875rem;
-            transition: all 150ms ease;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background: hsl(var(--accent));
-            border-color: hsl(var(--primary));
-            color: hsl(var(--primary));
-        }
-
-        .btn-primary {
-            background: hsl(var(--primary));
-            color: hsl(var(--primary-foreground));
-            border-color: hsl(var(--primary));
-        }
-
-        .btn-primary:hover {
-            background: hsl(var(--primary) / 0.9);
-        }
-
-        .btn svg {
-            width: 16px;
-            height: 16px;
-        }
-
-        /* Collapsible Instructions */
-        .collapsible-trigger {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0.75rem 1rem;
-            background: hsl(var(--muted));
-            border: 1px solid hsl(var(--border));
-            border-radius: var(--radius);
-            font-weight: 500;
-            font-size: 0.875rem;
-            color: hsl(var(--foreground));
-            cursor: pointer;
-            transition: all 150ms ease;
-            margin-top: 1rem;
-        }
-
-        .collapsible-trigger:hover {
-            background: hsl(var(--accent));
-        }
-
-        .collapsible-trigger svg {
-            transition: transform 200ms ease;
-        }
-
-        .collapsible-trigger.active svg {
-            transform: rotate(180deg);
-        }
-
-        .collapsible-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 300ms ease;
-        }
-
-        .collapsible-content.active {
-            max-height: 1000px;
-        }
-
-        .collapsible-inner {
-            padding: 1rem;
-            border: 1px solid hsl(var(--border));
-            border-top: none;
-            border-radius: 0 0 var(--radius) var(--radius);
-            background: hsl(var(--card));
-        }
-
-        .collapsible-inner h4 {
-            font-size: 0.875rem;
-            font-weight: 600;
-            margin: 1rem 0 0.5rem 0;
-            color: hsl(var(--foreground));
-        }
-
-        .collapsible-inner h4:first-child {
-            margin-top: 0;
-        }
-
-        .collapsible-inner ol {
-            margin-left: 1.25rem;
-            font-size: 0.8125rem;
-            color: hsl(var(--muted-foreground));
-        }
-
-        .collapsible-inner li {
-            margin: 0.25rem 0;
-        }
-
-        .card-description {
-            font-size: 0.875rem;
-            color: hsl(var(--muted-foreground));
-            margin-top: 0.25rem;
-        }
-
-        /* Match teams typography improvement */
-        .match-teams {
-            font-size: 1.75rem;
-            font-weight: 700;
-            line-height: 1.2;
-            margin: 0.5rem 0;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-        }
-
-        .team-home {
-            color: white;
-            font-weight: 800;
-        }
-
-        .match-vs {
-            font-size: 1rem;
-            font-weight: 500;
-            opacity: 0.7;
-            color: white;
-        }
-
-        .team-away {
-            font-weight: 600;
-            opacity: 0.95;
-            color: white;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .stats {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 0.5rem;
+        @media (max-width: 480px) {
+            .container {
+                padding: 2rem 1.5rem;
             }
 
-            .stat-card {
-                padding: 1rem;
-            }
-
-            .stat-value {
-                font-size: 1.75rem;
-            }
-
-            .stat-label {
-                font-size: 0.75rem;
-            }
-
-            .subscription-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .header {
-                text-align: center;
-                flex-direction: column;
-                justify-content: center;
-            }
-
-            .header-logo {
-                width: 150px;
-                padding: 0.375rem;
-            }
-
-            .header-content h1 {
+            h1 {
                 font-size: 1.5rem;
             }
 
-            .match-teams {
-                font-size: 1.375rem;
-            }
-
-            .result-item {
-                padding: 0.75rem;
-            }
-
-            table {
-                font-size: 0.8125rem;
-            }
-
-            thead th,
-            tbody td {
-                padding: 0.625rem 0.5rem;
-            }
-
-            thead th {
-                font-size: 0.6875rem;
+            .logo {
+                width: 120px;
+                height: 120px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
-        <div class="header">
-            <img src="Images/extramurs.jpg" alt="C.F. Extramurs Valencia 'B'" class="header-logo">
-            <div class="header-content">
-                <h1>C.F. Extramurs Valencia 'B'</h1>
-                <p>Segona FFCV Prebenjamí 2n. any València - Grup 12</p>
-            </div>
-            <div class="header-badge">TEMPORADA 2024-2025</div>
+        <div class="logo-container">
+            <img src="Images/extramurs.jpg" alt="C.F. Extramurs Valencia" class="logo">
         </div>
 
-        <!-- Suscripción al Calendario -->
-        <div class="card">
-            <div class="card-header">
-                <h2 class="card-title">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                    Suscríbete al Calendario
-                </h2>
-                <p class="card-description">
-                    Sincroniza automáticamente todos los partidos con tu calendario. Se actualiza automáticamente.
-                </p>
-            </div>
+        <h1>C.F. Extramurs Valencia</h1>
+        <p class="subtitle">Selecciona tu equipo</p>
 
-            <div class="subscription-grid">
-                <a href="https://calendar.google.com/calendar/r?cid=https%3A//wakkos.github.io/cf-extramurs/partidos.ics" class="btn" target="_blank" rel="noopener">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                    Google Calendar
-                </a>
+        <div class="teams-grid">
+            <a href="equipo-a/index.html" class="team-link">
+                <div class="team-name">Prebenjamín A</div>
+                <div class="team-category">Segona FFCV - Grup 5</div>
+            </a>
 
-                <a href="webcal://wakkos.github.io/cf-extramurs/partidos.ics" class="btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                    iPhone / iPad / Mac
-                </a>
-
-                <a href="webcal://wakkos.github.io/cf-extramurs/partidos.ics" class="btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                    Outlook / Outlook.com
-                </a>
-
-                <a href="https://wakkos.github.io/cf-extramurs/partidos.ics" download class="btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                    Descargar archivo .ics
-                </a>
-            </div>
-
-            <!-- Collapsible Instructions -->
-            <button class="collapsible-trigger" onclick="toggleInstructions()">
-                <span>Ver instrucciones de instalación</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-            </button>
-            <div class="collapsible-content" id="instructions">
-                <div class="collapsible-inner">
-                    <h4>iPhone / iPad / Mac</h4>
-                    <ol>
-                        <li>Toca el botón "iPhone / iPad / Mac"</li>
-                        <li>Acepta cuando te pregunte si quieres suscribirte</li>
-                        <li>Los partidos aparecerán automáticamente en Calendario</li>
-                    </ol>
-
-                    <h4>Google Calendar</h4>
-                    <ol>
-                        <li>Haz clic en "Google Calendar"</li>
-                        <li>Confirma que quieres añadir el calendario</li>
-                        <li>Se sincronizará automáticamente</li>
-                    </ol>
-
-                    <h4>Outlook</h4>
-                    <ol>
-                        <li>Descarga el archivo .ics</li>
-                        <li>Abre Outlook → Archivo → Importar/Exportar</li>
-                        <li>Selecciona "Importar un archivo iCalendar (.ics)"</li>
-                    </ol>
-
-                    <h4>Android</h4>
-                    <ol>
-                        <li>Descarga el archivo .ics</li>
-                        <li>Abre Google Calendar en el navegador</li>
-                        <li>Ve a Configuración → Importar y exportar → Importar</li>
-                    </ol>
-                </div>
-            </div>
+            <a href="equipo-b/index.html" class="team-link">
+                <div class="team-name">Prebenjamín B</div>
+                <div class="team-category">Segona FFCV - Grup 12</div>
+            </a>
         </div>
 
-        <!-- Stats -->
-        <div class="stats">
-            <div class="stat-card">
-                <div class="stat-value">9</div>
-                <div class="stat-label">Partidos</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value">2</div>
-                <div class="stat-label">Jugados</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value">7</div>
-                <div class="stat-label">Pendientes</div>
-            </div>
-        </div>
-
-        <!-- Próximo Partido -->
-        
-        <div class="card next-match-card">
-            <div class="card-title">
-                PRÓXIMO PARTIDO · JORNADA 4
-                
-            </div>
-            <div class="next-match-content">
-                <div class="match-meta">
-                    <div class="match-meta-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                        2025-11-08
-                    </div>
-                    <div class="match-meta-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                        11:15
-                    </div>
-                </div>
-                <div class="match-teams">
-                    <span class="team-home">C.F. Extramurs Valencia 'B'</span>
-                    <span class="match-vs">vs</span>
-                    <span class="team-away">C.D. At. Nazaret 'A'</span>
-                </div>
-                <div class="match-venue">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                    Campo Tramo III del Turia F-8(HA)
-                </div>
-                
-                <a href="https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a" class="btn-maps" target="_blank" rel="noopener">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
-                    Ver en Google Maps
-                </a>
-                
-            </div>
-        </div>
-        
-
-        <!-- Últimos Resultados -->
-        <div class="card">
-            <div class="card-header">
-                <h2 class="card-title">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-                    Últimos Resultados
-                </h2>
-            </div>
-            
-            <div class="streak-container">
-                <span class="streak-label">Racha</span>
-                <div class="streak-badges">
-                    
-                    <div class="streak-badge loss">
-                        L
-                    </div>
-                    
-                    <div class="streak-badge loss">
-                        L
-                    </div>
-                    
-                </div>
-            </div>
-            
-            
-            <div class="results-list">
-                
-                <div class="result-item">
-                    <div class="result-badge loss">
-                        L
-                    </div>
-                    <div class="result-content">
-                        <div class="result-match">
-                            C.D. San Marcelino 'A' <span class="result-score">18-0</span> C.F. Extramurs Valencia 'B'
-                        </div>
-                        <div class="result-date">2025-11-01</div>
-                    </div>
-                </div>
-                
-                <div class="result-item">
-                    <div class="result-badge loss">
-                        L
-                    </div>
-                    <div class="result-content">
-                        <div class="result-match">
-                            C.F. Extramurs Valencia 'B' <span class="result-score">0-11</span> C.D. Apolo 'A'
-                        </div>
-                        <div class="result-date">2025-10-25</div>
-                    </div>
-                </div>
-                
-            </div>
-            
-        </div>
-
-        <!-- Clasificación -->
-        <div class="card">
-            <div class="card-header">
-                <h2 class="card-title">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
-                    Clasificación del Grupo
-                </h2>
-            </div>
-            
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Pos</th>
-                            <th>Equipo</th>
-                            <th>Pts</th>
-                            <th>PJ</th>
-                            <th>PG</th>
-                            <th>PE</th>
-                            <th>PP</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        
-                        <tr class="team-position-1">
-                            <td>1</td>
-                            <td>C.D. San Marcelino 'A'</td>
-                            <td><strong>9</strong></td>
-                            <td>3</td>
-                            <td>3</td>
-                            <td>0</td>
-                            <td>0</td>
-                        </tr>
-                        
-                        <tr class="">
-                            <td>2</td>
-                            <td>Col. Salgui E.D.E. 'A'</td>
-                            <td><strong>7</strong></td>
-                            <td>3</td>
-                            <td>2</td>
-                            <td>1</td>
-                            <td>0</td>
-                        </tr>
-                        
-                        <tr class="">
-                            <td>3</td>
-                            <td>C.D. Col. El Vedat 'A'</td>
-                            <td><strong>7</strong></td>
-                            <td>3</td>
-                            <td>2</td>
-                            <td>1</td>
-                            <td>0</td>
-                        </tr>
-                        
-                        <tr class="">
-                            <td>4</td>
-                            <td>C.D. Zafranar 'A'</td>
-                            <td><strong>6</strong></td>
-                            <td>3</td>
-                            <td>2</td>
-                            <td>0</td>
-                            <td>1</td>
-                        </tr>
-                        
-                        <tr class="">
-                            <td>5</td>
-                            <td>C.D. Apolo 'A'</td>
-                            <td><strong>6</strong></td>
-                            <td>3</td>
-                            <td>2</td>
-                            <td>0</td>
-                            <td>1</td>
-                        </tr>
-                        
-                        <tr class="">
-                            <td>6</td>
-                            <td>C.D. Malilla 'A'</td>
-                            <td><strong>3</strong></td>
-                            <td>3</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>2</td>
-                        </tr>
-                        
-                        <tr class="">
-                            <td>7</td>
-                            <td>C.D. At. Nazaret 'A'</td>
-                            <td><strong>3</strong></td>
-                            <td>3</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>2</td>
-                        </tr>
-                        
-                        <tr class="">
-                            <td>8</td>
-                            <td>At. Ciudad Paiporta 'A'</td>
-                            <td><strong>0</strong></td>
-                            <td>2</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>2</td>
-                        </tr>
-                        
-                        <tr class="">
-                            <td>9</td>
-                            <td>Discóbolo-La Torre A.C. 'A'</td>
-                            <td><strong>0</strong></td>
-                            <td>3</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>3</td>
-                        </tr>
-                        
-                        <tr class="team-current">
-                            <td>10</td>
-                            <td>C.F. Extramurs Valencia 'B'</td>
-                            <td><strong>0</strong></td>
-                            <td>2</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>2</td>
-                        </tr>
-                        
-                    </tbody>
-                </table>
-            </div>
-            
-            <div class="motivational-message">
-                ¡Cada partido es una oportunidad para mejorar! 💪 La temporada recién empieza.
-            </div>
-            
-            
-        </div>
-
-        <!-- Footer -->
         <div class="footer">
-            <p><strong>Última actualización:</strong> 04/11/2025 - 06:25</p>
+            Temporada 2024-2025
         </div>
     </div>
-
-    <script>
-        function toggleInstructions() {
-            const trigger = document.querySelector('.collapsible-trigger');
-            const content = document.getElementById('instructions');
-
-            trigger.classList.toggle('active');
-            content.classList.toggle('active');
-        }
-    </script>
 </body>
 </html>

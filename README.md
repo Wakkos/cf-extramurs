@@ -1,341 +1,339 @@
-# ⚽ Extramurs Calendar Automation
+# ⚽ Calendario FFCV - Sistema Multi-Equipo
 
-Sistema automatizado de gestión de partidos de fútbol prebenjamín que scrapea la web de la FFCV (Federación de Fútbol de la Comunidad Valenciana) y genera:
+Sistema automatizado para generar calendarios, resultados y estadísticas de equipos de la FFCV (Federación de Fútbol de la Comunidad Valenciana).
 
-- 📅 **Calendario .ics** sincronizable con Google Calendar, iPhone, Outlook, etc.
-- 🌐 **Landing page** con botones de suscripción al calendario
-- 📊 **Dashboard** con estadísticas, resultados y clasificación del equipo
-- 🤖 **Actualización automática diaria** mediante GitHub Actions
+## 🎯 Características
 
-## 🔗 Enlaces Rápidos
+- **📅 Calendario ICS**: Genera archivos `.ics` compatibles con Google Calendar, iPhone, Outlook
+- **🌐 Landing Page**: Página web profesional con calendario, resultados y clasificación
+- **👥 Plantilla del Equipo**: Galería de fotos de los jugadores
+- **🤖 Actualización Automática**: GitHub Actions ejecuta el scraper diariamente
+- **📊 Estadísticas**: Racha de resultados, clasificación, próximos partidos
+- **🔧 Multi-Equipo**: Sistema completamente configurable para cualquier equipo mediante `config.yaml`
 
-- **Calendario**: [https://wakkos.github.io/extramurs-calendar-automation/](https://wakkos.github.io/extramurs-calendar-automation/)
-- **Dashboard**: [https://wakkos.github.io/extramurs-calendar-automation/dashboard.html](https://wakkos.github.io/extramurs-calendar-automation/dashboard.html)
+## 🚀 Configuración para un Nuevo Equipo
 
-## 📋 Información del Equipo
+Este sistema está diseñado para ser **fácilmente replicable** para cualquier equipo de la FFCV. Solo necesitas actualizar el archivo `config.yaml`.
 
-- **Equipo**: C.F. Extramurs Valencia 'B'
-- **Categoría**: Prebenjamín (Segona FFCV)
-- **Grupo**: Segona FFCV Prebenjamí 2n. any València - Grup 12
-- **Temporada**: 2024-2025
+### Paso 1: Clonar el Repositorio
 
-## 🚀 Características
-
-### ✨ Para Familias
-- **Sincronización automática**: Añade el calendario a tu móvil y recibe actualizaciones automáticas
-- **Multiplataforma**: Compatible con Google Calendar, iPhone, Android, Outlook
-- **Dashboard en tiempo real**: Consulta resultados, próximo partido y clasificación actualizada diariamente
-- **Sin instalación**: Todo funciona desde el navegador
-
-### 🛠️ Técnicas
-- **Web Scraping con Playwright**: Navega la web de FFCV que bloquea requests simples
-- **Generación de .ics**: Crea archivos de calendario estándar
-- **Templates Jinja2**: Genera HTML dinámico desde plantillas
-- **GitHub Actions**: Automatización completa sin servidor propio
-- **GitHub Pages**: Hosting gratuito y confiable
-
-## 📂 Estructura del Proyecto
-
-```
-extramurs-calendar-automation/
-├── scraper.py              # Script principal de scraping
-├── partidos.ics            # Calendario generado (auto-generado)
-├── index.html              # Landing page (auto-generado)
-├── dashboard.html          # Dashboard con estadísticas (auto-generado)
-├── requirements.txt        # Dependencias Python
-├── README.md              # Esta documentación
-├── .gitignore             # Archivos ignorados por git
-├── .github/
-│   └── workflows/
-│       └── update.yml     # GitHub Action para actualización diaria
-├── templates/
-│   ├── index_template.html      # Template Jinja2 para landing
-│   └── dashboard_template.html  # Template Jinja2 para dashboard
-└── data/
-    └── partidos.json      # Datos scrapeados en JSON (auto-generado)
-```
-
-## 🔧 Instalación Local
-
-### Requisitos Previos
-- Python 3.11 o superior
-- Git
-
-### Pasos de Instalación
-
-1. **Clonar el repositorio**
 ```bash
-git clone https://github.com/Wakkos/extramurs-calendar-automation.git
-cd extramurs-calendar-automation
+# Clona este repositorio
+git clone https://github.com/Wakkos/cf-extramurs.git nombre-de-tu-equipo
+cd nombre-de-tu-equipo
+
+# Crea tu propio repositorio en GitHub y vincula
+git remote set-url origin git@github.com:TU-USUARIO/TU-REPO.git
 ```
 
-2. **Crear entorno virtual (recomendado)**
-```bash
-python -m venv venv
-source venv/bin/activate  # En Windows: venv\Scripts\activate
+### Paso 2: Obtener los IDs de la FFCV
+
+1. Ve a la página del calendario de tu equipo en [resultadosffcv.isquad.es](https://resultadosffcv.isquad.es)
+2. Navega al calendario de tu equipo
+3. Copia la URL completa, que se verá así:
+
+```
+https://resultadosffcv.isquad.es/calendario.php?id_temp=21&id_modalidad=33345&id_competicion=29531322&id_torneo=904301187
 ```
 
-3. **Instalar dependencias**
+4. Extrae los valores de cada parámetro:
+   - `id_temp` = **21** (temporada)
+   - `id_modalidad` = **33345** (modalidad)
+   - `id_competicion` = **29531322** (competición)
+   - `id_torneo` = **904301187** (torneo)
+
+5. Para obtener el `id_equipo`, ve a la página de plantilla del equipo y copia el parámetro `id_equipo` de la URL:
+
+```
+https://resultadosffcv.isquad.es/equipo_plantilla.php?id_temp=21&id_modalidad=33345&id_competicion=29531322&id_equipo=900436323&id_torneo=904301187
+```
+
+   - `id_equipo` = **900436323**
+
+### Paso 3: Configurar `config.yaml`
+
+Edita el archivo `config.yaml` con los datos de tu equipo:
+
+```yaml
+equipo:
+  nombre: "Tu Equipo - Nombre Completo"
+  nombre_corto: "Tu Equipo"
+  grupo: "Tu Grupo / Categoría"
+  logo: "Images/tu-logo.jpg"  # Coloca tu logo en la carpeta Images/
+  background: "Images/bg.jpg"  # Opcional: imagen de fondo
+
+ids_ffcv:
+  temporada: 21           # Del paso 2
+  modalidad: 33345        # Del paso 2
+  competicion: 29531322   # Del paso 2
+  torneo: 904301187       # Del paso 2
+  equipo: 900436323       # Del paso 2
+
+sitio:
+  url_base: "https://TU-USUARIO.github.io/TU-REPO"
+  titulo: "Tu Equipo - Calendario y Resultados"
+  descripcion: "Calendario, resultados y clasificación de Tu Equipo - Temporada 2024-2025"
+  temporada: "2024-2025"
+```
+
+### Paso 4: Añadir Logo e Imágenes
+
+1. Coloca el logo de tu equipo en `Images/tu-logo.jpg`
+2. (Opcional) Añade una imagen de fondo en `Images/bg.jpg`
+3. Actualiza las rutas en `config.yaml`
+
+### Paso 5: Probar Localmente
+
 ```bash
+# Instala las dependencias
 pip install -r requirements.txt
-```
-
-4. **Instalar browsers de Playwright**
-```bash
 playwright install chromium
-```
 
-5. **Ejecutar el scraper**
-```bash
+# Ejecuta el scraper
 python scraper.py
 ```
 
-## 🤖 Funcionamiento del Scraper
+Si todo funciona correctamente, verás:
+- `partidos.ics` - Archivo de calendario
+- `index.html` - Página principal
+- `plantilla.html` - Página de plantilla
+- `data/partidos.json` - Datos estructurados
 
-El scraper realiza los siguientes pasos:
+### Paso 6: Publicar en GitHub
 
-1. **Conexión a FFCV**: Usa Playwright para navegar las páginas oficiales de FFCV
-2. **Extracción de datos**:
-   - Calendario de partidos (fechas, equipos, campos)
-   - Resultados de partidos jugados
-   - Clasificación del grupo
-3. **Procesamiento**:
-   - Parsea fechas en español
-   - Identifica próximo partido
-   - Calcula últimos 5 resultados
-4. **Generación de archivos**:
-   - `data/partidos.json`: Datos estructurados
-   - `partidos.ics`: Calendario en formato iCalendar
-   - `index.html`: Landing page desde template
-   - `dashboard.html`: Dashboard desde template
-
-### Manejo de Errores
-
-- **Reintentos automáticos**: 3 intentos con delay de 5 segundos
-- **Logging detallado**: Información de progreso en cada paso
-- **Protección de datos**: No sobrescribe archivos si hay errores
-
-## ⚙️ Configuración de GitHub Actions
-
-El proyecto incluye un workflow de GitHub Actions que se ejecuta:
-
-- **Diariamente** a las 7:00 AM (Europe/Madrid)
-- **Manualmente** desde la pestaña Actions en GitHub
-- **En cada push** a la rama `main` (para testing)
-
-### Pasos del Workflow
-
-1. Checkout del repositorio
-2. Instalar Python 3.11
-3. Instalar dependencias y Playwright
-4. Ejecutar scraper
-5. Verificar si hay cambios
-6. Hacer commit y push de archivos actualizados
-7. Desplegar a GitHub Pages
-
-### Activar GitHub Actions
-
-1. Ve a tu repositorio en GitHub
-2. Navega a **Settings** > **Actions** > **General**
-3. En "Workflow permissions", selecciona **Read and write permissions**
-4. Habilita **Allow GitHub Actions to create and approve pull requests**
-5. Guarda los cambios
-
-## 🌐 Deploy en GitHub Pages
-
-### Primera Configuración
-
-1. **Crear repositorio en GitHub**:
-   - Nombre: `extramurs-calendar-automation`
-   - Visibilidad: Público (necesario para GitHub Pages gratuito)
-
-2. **Push del proyecto**:
 ```bash
-git init
+# Añade los archivos
 git add .
-git commit -m "🎉 Inicio del proyecto Extramurs Calendar Automation"
-git branch -M main
-git remote add origin https://github.com/Wakkos/extramurs-calendar-automation.git
+git commit -m "Configuración inicial para [nombre de tu equipo]"
 git push -u origin main
 ```
 
-3. **Configurar GitHub Pages**:
-   - Ve a **Settings** > **Pages**
-   - En "Source", selecciona **Deploy from a branch**
-   - Branch: `gh-pages` (se creará automáticamente)
-   - Carpeta: `/ (root)`
-   - Guarda los cambios
+### Paso 7: Configurar GitHub Actions
 
-4. **Ejecutar el Action por primera vez**:
-   - Ve a la pestaña **Actions**
-   - Selecciona el workflow "Update Calendar & Deploy"
-   - Haz clic en "Run workflow"
-   - Espera a que termine (2-3 minutos)
+1. Ve a tu repositorio en GitHub
+2. **Settings** → **Actions** → **General**
+3. En "Workflow permissions", selecciona:
+   - ✅ **Read and write permissions**
+   - ✅ **Allow GitHub Actions to create and approve pull requests**
+4. Guarda los cambios
 
-5. **Verificar el sitio**:
-   - Navega a: `https://wakkos.github.io/extramurs-calendar-automation/`
-   - Deberías ver la landing page con los botones de suscripción
+### Paso 8: Activar GitHub Pages
 
-### Actualización de URLs
+1. Ve a **Settings** → **Pages**
+2. En "Source", selecciona:
+   - Branch: `gh-pages`
+   - Folder: `/ (root)`
+3. Guarda los cambios
+4. Espera unos minutos y tu sitio estará disponible en:
+   ```
+   https://TU-USUARIO.github.io/TU-REPO
+   ```
 
-**IMPORTANTE**: Después del primer deploy, actualiza las URLs en `scraper.py`:
+## 📁 Estructura del Proyecto
 
-```python
-# En scraper.py, línea ~270
-base_url = "https://TU-USUARIO.github.io/TU-REPO"
+```
+extramurs/
+├── config.yaml              # ⚙️ CONFIGURACIÓN DEL EQUIPO (editar aquí)
+├── scraper.py               # Script principal de scraping
+├── requirements.txt         # Dependencias de Python
+├── partidos.ics            # Calendario generado (auto)
+├── index.html              # Página principal (auto)
+├── plantilla.html          # Página de plantilla (auto)
+├── manifest.json           # Manifest PWA
+├── data/
+│   └── partidos.json       # Datos estructurados (auto)
+├── Images/
+│   ├── extramurs.jpg       # Logo del equipo
+│   ├── bg.jpg              # Imagen de fondo
+│   └── plantilla/          # Fotos de jugadores (auto)
+├── templates/
+│   ├── dashboard_template.html    # Template de la página principal
+│   └── plantilla_template.html    # Template de la plantilla
+└── .github/workflows/
+    └── update.yml          # Workflow de GitHub Actions
 ```
 
-Reemplaza con tu URL real de GitHub Pages y haz push de los cambios.
+## 🔄 Actualización Automática
+
+El sistema se actualiza automáticamente todos los días a las **7:00 AM (hora de Madrid)** mediante GitHub Actions.
+
+También puedes ejecutar manualmente:
+1. Ve a **Actions** en tu repositorio de GitHub
+2. Selecciona "Update Calendar & Deploy"
+3. Haz clic en "Run workflow"
+
+## 🛠️ Desarrollo
+
+### Comandos Útiles
+
+```bash
+# Ejecutar el scraper
+python scraper.py
+
+# Debug: guardar HTML para análisis
+python debug_scraper.py
+
+# Ver logs del scraper
+python scraper.py 2>&1 | tee scraper.log
+```
+
+### Modificar Plantillas
+
+Las plantillas usan [Jinja2](https://jinja.palletsprojects.com/):
+
+- `templates/dashboard_template.html` → Página principal
+- `templates/plantilla_template.html` → Página de plantilla
+
+Después de modificar, ejecuta `python scraper.py` para regenerar el HTML.
+
+## 📝 Configuración del `config.yaml`
+
+El archivo `config.yaml` contiene toda la configuración específica del equipo:
+
+```yaml
+# Información del equipo
+equipo:
+  nombre: "C.F. Extramurs Valencia 'B'"
+  nombre_corto: "Extramurs B"
+  grupo: "Segona FFCV Prebenjamí 2n. any València - Grup 12"
+  logo: "Images/extramurs.jpg"
+  background: "Images/bg.jpg"
+
+# IDs extraídos de las URLs de FFCV
+ids_ffcv:
+  temporada: 21
+  modalidad: 33345
+  competicion: 29531322
+  torneo: 904301187
+  equipo: 900436323
+
+# URLs base de FFCV (normalmente no necesitas cambiar esto)
+urls:
+  base_calendario: "https://resultadosffcv.isquad.es/calendario.php"
+  base_clasificacion: "https://resultadosffcv.isquad.es/clasificacion.php"
+  base_plantilla: "https://resultadosffcv.isquad.es/equipo_plantilla.php"
+  base_partido: "https://resultadosffcv.isquad.es/partido.php"
+
+# Configuración del sitio web
+sitio:
+  url_base: "https://wakkos.github.io/cf-extramurs"
+  titulo: "C.F. Extramurs Valencia 'B' - Calendario y Resultados"
+  descripcion: "Calendario, resultados y clasificación del C.F. Extramurs Valencia 'B'"
+  temporada: "2024-2025"
+
+# Configuración de scraping (valores por defecto recomendados)
+scraping:
+  max_reintentos: 3
+  delay_reintento: 5
+  timeout_pagina: 30000
+  espera_contenido: 3000
+```
+
+## 📝 Configuración Avanzada
+
+### Cambiar la Frecuencia de Actualización
+
+Edita `.github/workflows/update.yml` línea 6:
+
+```yaml
+schedule:
+  - cron: '0 6 * * *'  # 6:00 UTC = 7:00 AM Madrid
+```
+
+Generador de cron: [crontab.guru](https://crontab.guru/)
+
+### Personalizar Estilos
+
+Los templates usan un sistema de diseño basado en variables CSS (shadcn/ui):
+
+```css
+:root {
+    --primary: 221.2 83.2% 53.3%;
+    --secondary: 210 40% 96.1%;
+    /* ... más variables */
+}
+```
+
+Modifica las variables en los archivos `*_template.html`.
 
 ## 📱 Uso del Calendario
 
 ### Para Familias
 
-1. **Accede a la página**: [https://wakkos.github.io/extramurs-calendar-automation/](https://wakkos.github.io/extramurs-calendar-automation/)
-
-2. **Elige tu plataforma**:
+1. Accede a la página de tu equipo
+2. Elige tu plataforma:
    - **iPhone/iPad/Mac**: Toca el botón correspondiente y acepta la suscripción
    - **Google Calendar**: Haz clic en el botón y confirma
    - **Android**: Descarga el .ics e impórtalo en Google Calendar
    - **Outlook**: Descarga el .ics y sigue las instrucciones
+3. Los partidos se sincronizarán automáticamente cada día
 
-3. **Disfruta**: Los partidos se sincronizarán automáticamente cada día
+## ❓ Solución de Problemas
 
-### Ver Dashboard
+### Error: "No se encontró el archivo de configuración"
 
-- Navega a [https://wakkos.github.io/extramurs-calendar-automation/dashboard.html](https://wakkos.github.io/extramurs-calendar-automation/dashboard.html)
-- Consulta el próximo partido, últimos resultados y clasificación actualizada
+Asegúrate de que `config.yaml` existe en la raíz del proyecto.
+
+### Error: "Permission denied to github-actions[bot]"
+
+1. Ve a **Settings** → **Actions** → **General**
+2. Activa "Read and write permissions"
+
+### La página no se actualiza en GitHub Pages
+
+1. Ve a **Actions** y verifica que el workflow se ejecutó correctamente
+2. Comprueba que hay cambios en los archivos (si no hay cambios, no se despliega)
+3. Espera 2-3 minutos para que GitHub Pages se actualice
+
+### El scraper falla al obtener datos
+
+1. Verifica que las URLs de la FFCV sean correctas
+2. Comprueba que los IDs en `config.yaml` sean correctos
+3. Ejecuta `python debug_scraper.py` para ver el HTML raw
+4. Revisa los logs del scraper para identificar el error específico
+
+### GitHub Actions falla en Ubuntu
+
+Si ves errores relacionados con dependencias del sistema, el workflow ya está configurado para usar Ubuntu 22.04 e instalar manualmente las dependencias de Playwright.
 
 ## 🔄 Actualización para Nueva Temporada
 
 Cuando empiece una nueva temporada:
 
-1. Obtén las nuevas URLs de FFCV para el equipo
-2. Actualiza en `scraper.py`:
-```python
-URL_CALENDARIO = "https://resultadosffcv.isquad.es/calendario.php?id_temp=XX&..."
-URL_PARTIDOS = "https://resultadosffcv.isquad.es/total_partidos.php?id_temp=XX&..."
-GRUPO = "Segona FFCV Prebenjamí 2n. any València - Grup XX"
-```
-3. Haz commit y push de los cambios
-4. El Action se ejecutará automáticamente
-
-## 🛠️ Personalización
-
-### Cambiar Colores
-
-Edita los templates en `templates/`:
-- `index_template.html`: Landing page
-- `dashboard_template.html`: Dashboard
-
-Los colores están definidos en las secciones `<style>`.
-
-### Cambiar Frecuencia de Actualización
-
-Edita `.github/workflows/update.yml`:
+1. Ve a la página de la FFCV y obtén las nuevas URLs
+2. Actualiza los IDs en `config.yaml`:
 ```yaml
-schedule:
-  - cron: '0 6 * * *'  # Formato: minuto hora día mes día_semana
+ids_ffcv:
+  temporada: 22  # Nueva temporada
+  # ... otros IDs según corresponda
 ```
-
-Ejemplos:
-- `0 6 * * *`: Diario a las 6:00 UTC
-- `0 6,18 * * *`: Dos veces al día (6:00 y 18:00 UTC)
-- `0 6 * * 1-5`: Solo días laborables
-
-### Ajustar Selectores CSS
-
-Si la web de FFCV cambia, actualiza los selectores en `scraper.py`:
-- Función `scrape_calendario()`: Línea ~150
-- Función `scrape_clasificacion()`: Línea ~200
-
-## 📊 Datos Generados
-
-### partidos.json
-
-Estructura del archivo JSON:
-```json
-{
-  "equipo": "C.F. Extramurs Valencia 'B'",
-  "grupo": "Segona FFCV Prebenjamí 2n. any València - Grup 12",
-  "ultima_actualizacion": "2025-11-02T14:30:00",
-  "proximo_partido": {
-    "fecha": "2025-11-09",
-    "hora": "10:00",
-    "local": "C.F. Extramurs Valencia 'B'",
-    "visitante": "Rival",
-    "campo": "Campo Futbol San Marcelino F-8 Campo 4",
-    "maps_url": null
-  },
-  "ultimos_resultados": [...],
-  "clasificacion": [...],
-  "todos_partidos": [...]
-}
+3. Actualiza la temporada en:
+```yaml
+sitio:
+  temporada: "2025-2026"
 ```
+4. Haz commit y push de los cambios
+5. El Action se ejecutará automáticamente
 
-## ⚠️ Consideraciones Importantes
+## 🤝 Contribuir
 
-1. **Scraping Ético**:
-   - El scraper respeta los tiempos de carga (delays de 2-3 segundos)
-   - Solo scrapea datos públicos de partidos
-   - No extrae información personal de jugadores
-
-2. **Limitaciones de FFCV**:
-   - La web bloquea algunos user-agents (por eso usamos Playwright)
-   - La estructura HTML puede cambiar sin aviso
-   - En caso de error, el scraper mantiene los datos anteriores
-
-3. **Rate Limiting**:
-   - El Action se ejecuta una vez al día
-   - Evita ejecutar el scraper manualmente muchas veces
-
-4. **Privacidad**:
-   - Solo se publican datos de partidos (equipos, resultados, clasificación)
-   - No se incluyen nombres de jugadores ni datos personales
-
-## 🐛 Troubleshooting
-
-### El scraper falla localmente
-
-1. Verifica que Playwright esté instalado:
-```bash
-playwright install chromium
-```
-
-2. Verifica las URLs de FFCV (pueden haber cambiado)
-
-3. Revisa los logs para identificar el error específico
-
-### GitHub Actions falla
-
-1. Verifica que tienes permisos de escritura activados (Settings > Actions)
-2. Revisa los logs del Action en la pestaña Actions
-3. Verifica que las URLs en `scraper.py` sean correctas
-
-### Los calendarios no se sincronizan
-
-1. Verifica que la URL del calendario sea accesible públicamente
-2. Asegúrate de haber configurado GitHub Pages correctamente
-3. Espera unos minutos, algunos clientes de calendario tardan en sincronizar
-
-## 🙏 Créditos
-
-- **Inspiración**: [ICM-Comedor](https://github.com/Wakkos/ICM-Comedor) por [@Wakkos](https://github.com/Wakkos)
-- **Datos**: [Federación de Fútbol de la Comunidad Valenciana (FFCV)](https://resultadosffcv.isquad.es/)
-- **Tecnologías**: Playwright, BeautifulSoup, Python, GitHub Actions, GitHub Pages
+¿Encontraste un bug o tienes una mejora? ¡Abre un issue o pull request!
 
 ## 📄 Licencia
 
-Este proyecto es de código abierto y está disponible bajo la Licencia MIT.
+MIT License - Úsalo libremente para tu equipo
 
-## 💬 Contacto
+## 🙏 Créditos
 
-Para dudas o sugerencias:
-- Abre un [Issue](https://github.com/Wakkos/extramurs-calendar-automation/issues)
-- Pull Requests son bienvenidos
+- **Scraping**: Playwright + BeautifulSoup4
+- **Calendario**: ics library
+- **Templates**: Jinja2
+- **Diseño**: Inspirado en shadcn/ui
+- **Automatización**: GitHub Actions
+- **Datos**: [Federación de Fútbol de la Comunidad Valenciana (FFCV)](https://resultadosffcv.isquad.es/)
 
 ---
 
-**Hecho con ❤️ para las familias del C.F. Extramurs Valencia 'B'**
+**¿Necesitas ayuda?** Abre un [issue](https://github.com/Wakkos/cf-extramurs/issues) en GitHub.
 
-⚽ ¡Vamos Extramurs! ⚽
+**Hecho con ❤️ para las familias del C.F. Extramurs Valencia 'B'**
