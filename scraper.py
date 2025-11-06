@@ -889,8 +889,22 @@ def generar_calendario_ics(partidos: List[Dict]) -> None:
         calendar.events.add(event)
 
     # Guardar archivo con encoding UTF-8 + BOM para mejor compatibilidad
+    calendar_content = str(calendar)
+
+    # Añadir el nombre del calendario (X-WR-CALNAME) después del PRODID
+    calendar_name = f"{TEAM_NAME} - {GRUPO.split(' - ')[0]}"
+    calendar_lines = calendar_content.split('\n')
+
+    # Insertar X-WR-CALNAME después de PRODID
+    for i, line in enumerate(calendar_lines):
+        if line.startswith('PRODID:'):
+            calendar_lines.insert(i + 1, f'X-WR-CALNAME:{calendar_name}')
+            break
+
+    calendar_content = '\n'.join(calendar_lines)
+
     with open(OUTPUT_ICS, 'w', encoding='utf-8-sig') as f:
-        f.write(str(calendar))
+        f.write(calendar_content)
 
     logger.info(f"✓ Calendario guardado en {OUTPUT_ICS} ({len(calendar.events)} eventos)")
 
