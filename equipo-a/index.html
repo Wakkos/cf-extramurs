@@ -21,6 +21,16 @@
     <!-- PWA -->
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#3b82f6">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-93NCJK32YZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-93NCJK32YZ');
+    </script>
+
     <style>
         * {
             margin: 0;
@@ -724,8 +734,253 @@
             color: white;
         }
 
+        /* Calendar Styles */
+        .calendar-container {
+            margin-top: 1rem;
+        }
+
+        .calendar-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            padding: 0 0.5rem;
+        }
+
+        .calendar-header h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: hsl(var(--foreground));
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .calendar-nav-btn {
+            background: hsl(var(--secondary));
+            border: 1px solid hsl(var(--border));
+            border-radius: var(--radius);
+            padding: 0.5rem;
+            cursor: pointer;
+            transition: all 150ms ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: hsl(var(--foreground));
+        }
+
+        .calendar-nav-btn:hover {
+            background: hsl(var(--accent));
+            border-color: hsl(var(--primary));
+        }
+
+        .calendar-nav-btn svg {
+            display: block;
+        }
+
+        .calendar-weekdays {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            padding: 0 0.5rem;
+        }
+
+        .calendar-weekdays div {
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: hsl(var(--muted-foreground));
+            padding: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .calendar-days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.5rem;
+            padding: 0 0.5rem;
+        }
+
+        .calendar-day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+            border-radius: var(--radius);
+            background: hsl(var(--card));
+            border: 1px solid hsl(var(--border));
+            position: relative;
+            transition: all 150ms ease;
+            font-weight: 500;
+        }
+
+        .calendar-day.empty {
+            background: transparent;
+            border: none;
+        }
+
+        .calendar-day.other-month {
+            color: hsl(var(--muted-foreground));
+            opacity: 0.3;
+        }
+
+        .calendar-day.today {
+            border-color: hsl(var(--primary));
+            border-width: 2px;
+            font-weight: 600;
+        }
+
+        .calendar-day.has-match {
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .calendar-day.has-match:hover {
+            transform: scale(1.05);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .calendar-day.match-upcoming {
+            background: hsl(var(--primary) / 0.15);
+            border-color: hsl(var(--primary));
+            color: hsl(var(--primary));
+        }
+
+        .calendar-day.match-victory {
+            background: hsl(var(--success) / 0.15);
+            border-color: hsl(var(--success));
+            color: hsl(var(--success));
+        }
+
+        .calendar-day.match-defeat {
+            background: hsl(var(--error) / 0.15);
+            border-color: hsl(var(--error));
+            color: hsl(var(--error));
+        }
+
+        .match-details {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: hsl(var(--secondary));
+            border: 1px solid hsl(var(--border));
+            border-radius: var(--radius);
+            position: relative;
+        }
+
+        .match-details-content {
+            position: relative;
+        }
+
+        .close-details-btn {
+            position: absolute;
+            top: -0.5rem;
+            right: -0.5rem;
+            background: hsl(var(--card));
+            border: 1px solid hsl(var(--border));
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            line-height: 1;
+            cursor: pointer;
+            transition: all 150ms ease;
+            color: hsl(var(--muted-foreground));
+        }
+
+        .close-details-btn:hover {
+            background: hsl(var(--error));
+            border-color: hsl(var(--error));
+            color: white;
+        }
+
+        .match-detail-header {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: hsl(var(--muted-foreground));
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .match-detail-teams {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: hsl(var(--foreground));
+            margin-bottom: 0.75rem;
+        }
+
+        .match-detail-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: hsl(var(--muted-foreground));
+        }
+
+        .match-detail-info strong {
+            color: hsl(var(--foreground));
+        }
+
+        .calendar-legend {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: hsl(var(--secondary));
+            border-radius: var(--radius);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: hsl(var(--muted-foreground));
+        }
+
+        .legend-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: var(--radius);
+            border: 2px solid;
+        }
+
+        .legend-upcoming {
+            background: hsl(var(--primary) / 0.15);
+            border-color: hsl(var(--primary));
+        }
+
+        .legend-victory {
+            background: hsl(var(--success) / 0.15);
+            border-color: hsl(var(--success));
+        }
+
+        .legend-defeat {
+            background: hsl(var(--error) / 0.15);
+            border-color: hsl(var(--error));
+        }
+
+        /* Card max width - para calendario */
+        .card-max-width {
+            max-width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
+            .card-max-width {
+                max-width: 100%;
+            }
+
             .stats {
                 grid-template-columns: repeat(3, 1fr);
                 gap: 0.5rem;
@@ -794,7 +1049,13 @@
                 <h1>C.F. Extramurs Valencia 'A'</h1>
                 <p>Segona FFCV Prebenjamí 2n. any València - Grup 5</p>
             </div>
-            <div class="header-badge">TEMPORADA 2024-2025</div>
+            <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 0.75rem;">
+                <div class="header-badge">TEMPORADA 2025-2026</div>
+                <a href="plantilla.html" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    Ver Plantilla
+                </a>
+            </div>
         </div>
 
         <!-- Suscripción al Calendario -->
@@ -810,22 +1071,22 @@
             </div>
 
             <div class="subscription-grid">
-                <a href="https://calendar.google.com/calendar/r?cid=https%3A//wakkos.github.io/cf-extramurs/partidos.ics" class="btn" target="_blank" rel="noopener">
+                <a href="https://calendar.google.com/calendar/r?cid=https%3A//wakkos.github.io/cf-extramurs/partidos.ics" class="btn" target="_blank" rel="noopener" onclick="gtag('event', 'calendar_click', {'calendar_type': 'google', 'page': 'dashboard'});">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                     Google Calendar
                 </a>
 
-                <a href="webcal://wakkos.github.io/cf-extramurs/partidos.ics" class="btn">
+                <a href="webcal://wakkos.github.io/cf-extramurs/partidos.ics" class="btn" onclick="gtag('event', 'calendar_click', {'calendar_type': 'apple', 'page': 'dashboard'});">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                     iPhone / iPad / Mac
                 </a>
 
-                <a href="webcal://wakkos.github.io/cf-extramurs/partidos.ics" class="btn">
+                <a href="webcal://wakkos.github.io/cf-extramurs/partidos.ics" class="btn" onclick="gtag('event', 'calendar_click', {'calendar_type': 'outlook', 'page': 'dashboard'});">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                     Outlook / Outlook.com
                 </a>
 
-                <a href="https://wakkos.github.io/cf-extramurs/partidos.ics" download class="btn">
+                <a href="https://wakkos.github.io/cf-extramurs/partidos.ics" download class="btn" onclick="gtag('event', 'calendar_click', {'calendar_type': 'download', 'page': 'dashboard'});">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                     Descargar archivo .ics
                 </a>
@@ -885,11 +1146,61 @@
             </div>
         </div>
 
-        <!-- Plantilla Link -->
-        <a href="plantilla.html" class="btn btn-primary" style="width: 100%; margin-bottom: 1.5rem; justify-content: center;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            Ver Plantilla del Equipo
-        </a>
+        <!-- Calendario Interactivo -->
+        <div class="card card-max-width">
+            <div class="card-header">
+                <h2 class="card-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    Calendario de Partidos
+                </h2>
+            </div>
+
+            <div class="calendar-container">
+                <div class="calendar-header">
+                    <button id="prev-month" class="calendar-nav-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                    </button>
+                    <h3 id="calendar-month-year"></h3>
+                    <button id="next-month" class="calendar-nav-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                    </button>
+                </div>
+
+                <div class="calendar-weekdays">
+                    <div>L</div>
+                    <div>M</div>
+                    <div>X</div>
+                    <div>J</div>
+                    <div>V</div>
+                    <div>S</div>
+                    <div>D</div>
+                </div>
+
+                <div id="calendar-days" class="calendar-days"></div>
+
+                <div id="match-details" class="match-details" style="display: none;">
+                    <div class="match-details-content">
+                        <button id="close-details" class="close-details-btn">×</button>
+                        <div id="match-info"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="calendar-legend">
+                <div class="legend-item">
+                    <span class="legend-dot legend-upcoming"></span>
+                    <span>Próximo partido</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-dot legend-victory"></span>
+                    <span>Victoria</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-dot legend-defeat"></span>
+                    <span>Derrota</span>
+                </div>
+            </div>
+        </div>
 
         <!-- Próximo Partido -->
         
@@ -919,9 +1230,9 @@
                     Ciudad Dptva. Valencia CF F-8 Campo 1(HA)
                 </div>
                 
-                <a href="https://www.google.com/maps/search/?api=1&query=Ciudad%20Dptva.%20Valencia%20CF%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a" class="btn-maps" target="_blank" rel="noopener">
+                <a href="https://www.google.com/maps/search/?api=1&query=Ciudad%20Dptva.%20Valencia%20CF%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a" class="btn-maps" target="_blank" rel="noopener" onclick="gtag('event', 'map_click', {'field_name': 'Ciudad Dptva. Valencia CF F-8 Campo 1(HA)', 'page': 'dashboard'});">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
-                    Ver en Google Maps
+                    Cómo llegar al campo
                 </a>
                 
             </div>
@@ -1122,7 +1433,7 @@
 
         <!-- Footer -->
         <div class="footer">
-            <p><strong>Última actualización:</strong> 10/11/2025 - 06:28</p>
+            <p><strong>Última actualización:</strong> 10/11/2025 - 14:41</p>
         </div>
     </div>
 
@@ -1134,6 +1445,180 @@
             trigger.classList.toggle('active');
             content.classList.toggle('active');
         }
+
+        // Calendario Interactivo
+        (function() {
+            // Datos de partidos desde el template
+            const matchesData = [{"campo": "Campo Tramo III del Turia F-8(HA)", "es_local": true, "fecha": "2025-11-02", "hora": "12:45", "id_partido": "26418847", "jornada": 1, "local": "C.F. Extramurs Valencia \u0027A\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": "14-0", "victoria": true, "visitante": "C.D. Serranos Valencia \u0027C\u0027"}, {"campo": "Polideportivo Mpal. de Rocafort F-8 Campo 2(HA)", "es_local": false, "fecha": "2025-10-25", "hora": "11:00", "id_partido": "26418853", "jornada": 2, "local": "U.D. Rocafort C.F. \u0027A\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Polideportivo%20Mpal.%20de%20Rocafort%20F-8%20Campo%202%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": "7-1", "victoria": false, "visitante": "C.F. Extramurs Valencia \u0027A\u0027"}, {"campo": "", "es_local": true, "fecha": null, "hora": "", "id_partido": "26418858", "jornada": 3, "local": "C.F. Extramurs Valencia \u0027A\u0027", "maps_url": null, "resultado": null, "victoria": null, "visitante": "Equipo Fuera (No asignado)"}, {"campo": "Campo de F\u00fatbol Mpal. de Beniferri F-8 Campo 1(HA)", "es_local": false, "fecha": "2025-11-08", "hora": "15:30", "id_partido": "26418864", "jornada": 4, "local": "C.F. Inter San Jos\u00e9 Valencia \u0027C\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20de%20F%C3%BAtbol%20Mpal.%20de%20Beniferri%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": "3-2", "victoria": false, "visitante": "C.F. Extramurs Valencia \u0027A\u0027"}, {"campo": "Ciudad Dptva. Valencia CF F-8 Campo 1(HA)", "es_local": false, "fecha": "2025-11-15", "hora": "10:45", "id_partido": "26418869", "jornada": 5, "local": "C.F. Fundaci\u00f3 VCF \u0027B\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Ciudad%20Dptva.%20Valencia%20CF%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": null, "victoria": null, "visitante": "C.F. Extramurs Valencia \u0027A\u0027"}, {"campo": "Campo Tramo III del Turia F-8(HA)", "es_local": true, "fecha": "2025-11-22", "hora": "12:30", "id_partido": "26418874", "jornada": 6, "local": "C.F. Extramurs Valencia \u0027A\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": null, "victoria": null, "visitante": "Godella C.F. \u0027A\u0027"}, {"campo": "Polideportivo Mas de Tous F-8 Campo 1 Pobla Vallbona(HA)", "es_local": false, "fecha": "2025-11-29", "hora": "09:30", "id_partido": "26418878", "jornada": 7, "local": "Atl\u00e8tic Vallbonense \u0027A\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Polideportivo%20Mas%20de%20Tous%20F-8%20Campo%201%20Pobla%20Vallbona%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": null, "victoria": null, "visitante": "C.F. Extramurs Valencia \u0027A\u0027"}, {"campo": "Campo Tramo III del Turia F-8(HA)", "es_local": true, "fecha": "2025-12-13", "hora": "12:30", "id_partido": "26418883", "jornada": 8, "local": "C.F. Extramurs Valencia \u0027A\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": null, "victoria": null, "visitante": "C.F.U.D. Benicalap \u0027A\u0027"}, {"campo": "Polideportivo Escuelas San Jose F-8 Campo 3(HA)", "es_local": false, "fecha": "2025-12-20", "hora": "11:45", "id_partido": "26418887", "jornada": 9, "local": "C.D. Jesuitas Valencia-S. F\u00fatbol \u0027A\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Polideportivo%20Escuelas%20San%20Jose%20F-8%20Campo%203%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": null, "victoria": null, "visitante": "C.F. Extramurs Valencia \u0027A\u0027"}];
+
+            // Estado del calendario
+            let currentMonth = new Date().getMonth();
+            let currentYear = new Date().getFullYear();
+
+            const monthNames = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+                               'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+
+            // Elementos del DOM
+            const calendarDays = document.getElementById('calendar-days');
+            const monthYearDisplay = document.getElementById('calendar-month-year');
+            const prevMonthBtn = document.getElementById('prev-month');
+            const nextMonthBtn = document.getElementById('next-month');
+            const matchDetails = document.getElementById('match-details');
+            const matchInfo = document.getElementById('match-info');
+            const closeDetailsBtn = document.getElementById('close-details');
+
+            // Convertir fechas de partidos a objetos Date
+            const matches = matchesData.map(m => ({
+                ...m,
+                dateObj: new Date(m.fecha + 'T00:00:00')
+            }));
+
+            // Renderizar calendario
+            function renderCalendar() {
+                const firstDay = new Date(currentYear, currentMonth, 1);
+                const lastDay = new Date(currentYear, currentMonth + 1, 0);
+                const prevLastDay = new Date(currentYear, currentMonth, 0);
+
+                // Calcular días a mostrar
+                const firstDayOfWeek = (firstDay.getDay() + 6) % 7; // Lunes = 0
+                const daysInMonth = lastDay.getDate();
+                const daysInPrevMonth = prevLastDay.getDate();
+
+                // Actualizar header
+                monthYearDisplay.textContent = `${monthNames[currentMonth]} ${currentYear}`;
+
+                // Limpiar días
+                calendarDays.innerHTML = '';
+
+                // Días del mes anterior
+                for (let i = firstDayOfWeek - 1; i >= 0; i--) {
+                    const day = daysInPrevMonth - i;
+                    const dayEl = createDayElement(day, true, currentMonth - 1);
+                    calendarDays.appendChild(dayEl);
+                }
+
+                // Días del mes actual
+                const today = new Date();
+                for (let day = 1; day <= daysInMonth; day++) {
+                    const date = new Date(currentYear, currentMonth, day);
+                    const isToday = date.toDateString() === today.toDateString();
+                    const dayEl = createDayElement(day, false, currentMonth, isToday, date);
+                    calendarDays.appendChild(dayEl);
+                }
+
+                // Días del siguiente mes
+                const remainingCells = 42 - calendarDays.children.length;
+                for (let day = 1; day <= remainingCells; day++) {
+                    const dayEl = createDayElement(day, true, currentMonth + 1);
+                    calendarDays.appendChild(dayEl);
+                }
+            }
+
+            // Crear elemento de día
+            function createDayElement(day, isOtherMonth, month, isToday = false, date = null) {
+                const dayEl = document.createElement('div');
+                dayEl.className = 'calendar-day';
+                dayEl.textContent = day;
+
+                if (isOtherMonth) {
+                    dayEl.classList.add('other-month');
+                }
+
+                if (isToday) {
+                    dayEl.classList.add('today');
+                }
+
+                // Buscar partido en esta fecha
+                if (date) {
+                    const match = matches.find(m =>
+                        m.dateObj.toDateString() === date.toDateString()
+                    );
+
+                    if (match) {
+                        dayEl.classList.add('has-match');
+
+                        // Determinar estado del partido
+                        if (match.resultado) {
+                            if (match.victoria) {
+                                dayEl.classList.add('match-victory');
+                            } else {
+                                dayEl.classList.add('match-defeat');
+                            }
+                        } else {
+                            dayEl.classList.add('match-upcoming');
+                        }
+
+                        // Click handler
+                        dayEl.addEventListener('click', () => showMatchDetails(match));
+                    }
+                }
+
+                return dayEl;
+            }
+
+            // Mostrar detalles del partido
+            function showMatchDetails(match) {
+                const resultText = match.resultado
+                    ? `<strong>Resultado:</strong> ${match.resultado}`
+                    : '<strong>Partido pendiente</strong>';
+
+                matchInfo.innerHTML = `
+                    <div class="match-detail-header">JORNADA ${match.jornada || '-'}</div>
+                    <div class="match-detail-teams">${match.local} vs ${match.visitante}</div>
+                    <div class="match-detail-info">
+                        <div><strong>Fecha:</strong> ${formatDate(match.fecha)} a las ${match.hora}</div>
+                        <div><strong>Campo:</strong> ${match.campo}</div>
+                        <div>${resultText}</div>
+                        ${match.maps_url ? `<div style="margin-top: 1rem;">
+                            <a href="${match.maps_url}" target="_blank" rel="noopener"
+                               onclick="gtag('event', 'map_click', {'field_name': '${match.campo}', 'page': 'dashboard', 'source': 'calendar'});"
+                               style="display: inline-flex; align-items: center; gap: 0.5rem; color: hsl(var(--primary)); text-decoration: none; font-weight: 600;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
+                                Cómo llegar al campo
+                            </a>
+                        </div>` : ''}
+                    </div>
+                `;
+
+                matchDetails.style.display = 'block';
+                matchDetails.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+
+            // Formatear fecha
+            function formatDate(dateStr) {
+                const date = new Date(dateStr + 'T00:00:00');
+                const days = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+                return `${days[date.getDay()]}, ${date.getDate()} de ${monthNames[date.getMonth()]}`;
+            }
+
+            // Event listeners
+            prevMonthBtn.addEventListener('click', () => {
+                currentMonth--;
+                if (currentMonth < 0) {
+                    currentMonth = 11;
+                    currentYear--;
+                }
+                renderCalendar();
+                matchDetails.style.display = 'none';
+            });
+
+            nextMonthBtn.addEventListener('click', () => {
+                currentMonth++;
+                if (currentMonth > 11) {
+                    currentMonth = 0;
+                    currentYear++;
+                }
+                renderCalendar();
+                matchDetails.style.display = 'none';
+            });
+
+            closeDetailsBtn.addEventListener('click', () => {
+                matchDetails.style.display = 'none';
+            });
+
+            // Renderizar al cargar
+            renderCalendar();
+        })();
     </script>
 </body>
 </html>
