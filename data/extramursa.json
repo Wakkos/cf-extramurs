@@ -1,7 +1,7 @@
 {
   "equipo": "C.F. Extramurs Valencia 'A'",
   "grupo": "Segona FFCV Prebenjamí 2n. any València - Grup 5",
-  "ultima_actualizacion": "2025-11-09T06:23:31.740497",
+  "ultima_actualizacion": "2025-11-10T06:28:08.774202",
   "proximo_partido": {
     "jornada": 5,
     "id_partido": "26418869",
@@ -16,6 +16,19 @@
     "maps_url": "https://www.google.com/maps/search/?api=1&query=Ciudad%20Dptva.%20Valencia%20CF%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
   },
   "ultimos_resultados": [
+    {
+      "jornada": 4,
+      "id_partido": "26418864",
+      "fecha": "2025-11-08",
+      "hora": "15:30",
+      "local": "C.F. Inter San José Valencia 'C'",
+      "visitante": "C.F. Extramurs Valencia 'A'",
+      "campo": "Campo de Fútbol Mpal. de Beniferri F-8 Campo 1(HA)",
+      "resultado": "3-2",
+      "es_local": false,
+      "victoria": false,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20de%20F%C3%BAtbol%20Mpal.%20de%20Beniferri%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
+    },
     {
       "jornada": 1,
       "id_partido": "26418847",
@@ -82,16 +95,16 @@
     },
     {
       "posicion": 5,
-      "equipo": "C.F. Inter San José Valencia 'C'",
-      "puntos": 3,
-      "pj": 3,
-      "pg": 1,
+      "equipo": "C.F.U.D. Benicalap 'A'",
+      "puntos": 6,
+      "pj": 4,
+      "pg": 2,
       "pe": 0,
       "pp": 2
     },
     {
       "posicion": 6,
-      "equipo": "C.F.U.D. Benicalap 'A'",
+      "equipo": "C.F. Inter San José Valencia 'C'",
       "puntos": 3,
       "pj": 3,
       "pg": 1,
@@ -120,10 +133,10 @@
       "posicion": 9,
       "equipo": "C.D. Serranos Valencia 'C'",
       "puntos": 0,
-      "pj": 3,
+      "pj": 4,
       "pg": 0,
       "pe": 0,
-      "pp": 3
+      "pp": 4
     }
   ],
   "todos_partidos": [
@@ -174,9 +187,9 @@
       "local": "C.F. Inter San José Valencia 'C'",
       "visitante": "C.F. Extramurs Valencia 'A'",
       "campo": "Campo de Fútbol Mpal. de Beniferri F-8 Campo 1(HA)",
-      "resultado": null,
+      "resultado": "3-2",
       "es_local": false,
-      "victoria": null,
+      "victoria": false,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20de%20F%C3%BAtbol%20Mpal.%20de%20Beniferri%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
     },
     {
