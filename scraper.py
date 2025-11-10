@@ -1108,6 +1108,7 @@ def process_team():
             'mensaje_motivacional': mensaje_motivacional,
             'total_partidos': len(partidos),
             'partidos_jugados': len(partidos_jugados),
+            'todos_partidos': partidos,  # Para el calendario interactivo
             'plantilla': plantilla,
             'ics_url': ics_url,
             'webcal_url': webcal_url,
