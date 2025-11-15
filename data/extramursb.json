@@ -1,21 +1,34 @@
 {
   "equipo": "C.F. Extramurs Valencia 'B'",
   "grupo": "Segona FFCV Prebenjamí 2n. any València - Grup 12",
-  "ultima_actualizacion": "2025-11-14T06:27:15.240022",
+  "ultima_actualizacion": "2025-11-15T06:24:22.438675",
   "proximo_partido": {
-    "jornada": 5,
-    "id_partido": "26419180",
-    "fecha": "2025-11-14",
-    "hora": "19:00",
-    "local": "Discóbolo-La Torre A.C. 'A'",
+    "jornada": 1,
+    "id_partido": "26419162",
+    "fecha": "2025-11-21",
+    "hora": "18:30",
+    "local": "At. Ciudad Paiporta 'A'",
     "visitante": "C.F. Extramurs Valencia 'B'",
-    "campo": "Campo Futbol Mpal. La Torre-Faitanar F-8 Campo 1 (Valencia )(HA)",
+    "campo": "Campo de Fútbol Mpal. El Terrer F-8 Campo 1(HA)",
     "resultado": null,
     "es_local": false,
     "victoria": null,
-    "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Futbol%20Mpal.%20La%20Torre-Faitanar%20F-8%20Campo%201%20%28Valencia%20%29%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20de%20F%C3%BAtbol%20Mpal.%20El%20Terrer%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
   },
   "ultimos_resultados": [
+    {
+      "jornada": 5,
+      "id_partido": "26419180",
+      "fecha": "2025-11-14",
+      "hora": "19:00",
+      "local": "Discóbolo-La Torre A.C. 'A'",
+      "visitante": "C.F. Extramurs Valencia 'B'",
+      "campo": "Campo Futbol Mpal. La Torre-Faitanar F-8 Campo 1 (Valencia )(HA)",
+      "resultado": "4-4",
+      "es_local": false,
+      "victoria": false,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Futbol%20Mpal.%20La%20Torre-Faitanar%20F-8%20Campo%201%20%28Valencia%20%29%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
+    },
     {
       "jornada": 4,
       "id_partido": "26419176",
@@ -122,30 +135,30 @@
     },
     {
       "posicion": 8,
+      "equipo": "C.F. Extramurs Valencia 'B'",
+      "puntos": 1,
+      "pj": 4,
+      "pg": 0,
+      "pe": 1,
+      "pp": 3
+    },
+    {
+      "posicion": 9,
+      "equipo": "Discóbolo-La Torre A.C. 'A'",
+      "puntos": 1,
+      "pj": 5,
+      "pg": 0,
+      "pe": 1,
+      "pp": 4
+    },
+    {
+      "posicion": 10,
       "equipo": "At. Ciudad Paiporta 'A'",
       "puntos": 0,
       "pj": 3,
       "pg": 0,
       "pe": 0,
       "pp": 3
-    },
-    {
-      "posicion": 9,
-      "equipo": "C.F. Extramurs Valencia 'B'",
-      "puntos": 0,
-      "pj": 3,
-      "pg": 0,
-      "pe": 0,
-      "pp": 3
-    },
-    {
-      "posicion": 10,
-      "equipo": "Discóbolo-La Torre A.C. 'A'",
-      "puntos": 0,
-      "pj": 4,
-      "pg": 0,
-      "pe": 0,
-      "pp": 4
     }
   ],
   "todos_partidos": [
@@ -209,9 +222,9 @@
       "local": "Discóbolo-La Torre A.C. 'A'",
       "visitante": "C.F. Extramurs Valencia 'B'",
       "campo": "Campo Futbol Mpal. La Torre-Faitanar F-8 Campo 1 (Valencia )(HA)",
-      "resultado": null,
+      "resultado": "4-4",
       "es_local": false,
-      "victoria": null,
+      "victoria": false,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Futbol%20Mpal.%20La%20Torre-Faitanar%20F-8%20Campo%201%20%28Valencia%20%29%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
     },
     {
