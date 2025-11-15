@@ -365,15 +365,20 @@ def scrape_calendario(html: str) -> List[Dict]:
             # Determinar si es local o visitante
             es_local = TEAM_NAME in local or TEAM_SHORT_NAME in local
 
-            # Determinar victoria/derrota si hay resultado
+            # Determinar victoria/empate/derrota si hay resultado
             victoria = None
             if resultado:
                 goles = resultado.split('-')
                 if len(goles) == 2:
-                    if es_local:
-                        victoria = int(goles[0]) > int(goles[1])
+                    goles_favor = int(goles[0]) if es_local else int(goles[1])
+                    goles_contra = int(goles[1]) if es_local else int(goles[0])
+
+                    if goles_favor > goles_contra:
+                        victoria = True  # Victoria
+                    elif goles_favor == goles_contra:
+                        victoria = None  # Empate
                     else:
-                        victoria = int(goles[1]) > int(goles[0])
+                        victoria = False  # Derrota
 
             partido = {
                 'jornada': jornada,

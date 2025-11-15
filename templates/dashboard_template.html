@@ -861,6 +861,12 @@
             color: hsl(var(--error));
         }
 
+        .calendar-day.match-draw {
+            background: hsl(var(--muted));
+            border-color: hsl(var(--muted-foreground));
+            color: hsl(var(--muted-foreground));
+        }
+
         .match-details {
             margin-top: 1.5rem;
             padding: 1.5rem;
@@ -966,6 +972,11 @@
         .legend-defeat {
             background: hsl(var(--error) / 0.15);
             border-color: hsl(var(--error));
+        }
+
+        .legend-draw {
+            background: hsl(var(--muted));
+            border-color: hsl(var(--muted-foreground));
         }
 
         /* Card max width - para calendario */
@@ -1196,6 +1207,10 @@
                     <span>Victoria</span>
                 </div>
                 <div class="legend-item">
+                    <span class="legend-dot legend-draw"></span>
+                    <span>Empate</span>
+                </div>
+                <div class="legend-item">
                     <span class="legend-dot legend-defeat"></span>
                     <span>Derrota</span>
                 </div>
@@ -1263,8 +1278,8 @@
             <div class="results-list">
                 {% for partido in ultimos_resultados %}
                 <div class="result-item">
-                    <div class="result-badge {% if partido.victoria %}win{% else %}loss{% endif %}">
-                        {% if partido.victoria %}W{% else %}L{% endif %}
+                    <div class="result-badge {% if partido.victoria == True %}win{% elif partido.victoria == None %}draw{% else %}loss{% endif %}">
+                        {% if partido.victoria == True %}W{% elif partido.victoria == None %}D{% else %}L{% endif %}
                     </div>
                     <div class="result-content">
                         <div class="result-match">
@@ -1441,8 +1456,10 @@
 
                         // Determinar estado del partido
                         if (match.resultado) {
-                            if (match.victoria) {
+                            if (match.victoria === true) {
                                 dayEl.classList.add('match-victory');
+                            } else if (match.victoria === null) {
+                                dayEl.classList.add('match-draw');
                             } else {
                                 dayEl.classList.add('match-defeat');
                             }
