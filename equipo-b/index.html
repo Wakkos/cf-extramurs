@@ -861,6 +861,12 @@
             color: hsl(var(--error));
         }
 
+        .calendar-day.match-draw {
+            background: hsl(var(--muted));
+            border-color: hsl(var(--muted-foreground));
+            color: hsl(var(--muted-foreground));
+        }
+
         .match-details {
             margin-top: 1.5rem;
             padding: 1.5rem;
@@ -966,6 +972,11 @@
         .legend-defeat {
             background: hsl(var(--error) / 0.15);
             border-color: hsl(var(--error));
+        }
+
+        .legend-draw {
+            background: hsl(var(--muted));
+            border-color: hsl(var(--muted-foreground));
         }
 
         /* Card max width - para calendario */
@@ -1196,6 +1207,10 @@
                     <span>Victoria</span>
                 </div>
                 <div class="legend-item">
+                    <span class="legend-dot legend-draw"></span>
+                    <span>Empate</span>
+                </div>
+                <div class="legend-item">
                     <span class="legend-dot legend-defeat"></span>
                     <span>Derrota</span>
                 </div>
@@ -1264,8 +1279,8 @@
                         L
                     </div>
                     
-                    <div class="streak-badge loss">
-                        L
+                    <div class="streak-badge draw">
+                        D
                     </div>
                     
                 </div>
@@ -1275,8 +1290,8 @@
             <div class="results-list">
                 
                 <div class="result-item">
-                    <div class="result-badge loss">
-                        L
+                    <div class="result-badge draw">
+                        D
                     </div>
                     <div class="result-content">
                         <div class="result-match">
@@ -1362,17 +1377,17 @@
                         
                         <tr class="">
                             <td>2</td>
-                            <td>Col. Salgui E.D.E. 'A'</td>
-                            <td><strong>10</strong></td>
+                            <td>C.D. Col. El Vedat 'A'</td>
+                            <td><strong>13</strong></td>
+                            <td>5</td>
                             <td>4</td>
-                            <td>3</td>
                             <td>1</td>
                             <td>0</td>
                         </tr>
                         
                         <tr class="">
                             <td>3</td>
-                            <td>C.D. Col. El Vedat 'A'</td>
+                            <td>Col. Salgui E.D.E. 'A'</td>
                             <td><strong>10</strong></td>
                             <td>4</td>
                             <td>3</td>
@@ -1383,9 +1398,9 @@
                         <tr class="">
                             <td>4</td>
                             <td>C.D. Malilla 'A'</td>
-                            <td><strong>6</strong></td>
-                            <td>4</td>
-                            <td>2</td>
+                            <td><strong>9</strong></td>
+                            <td>5</td>
+                            <td>3</td>
                             <td>0</td>
                             <td>2</td>
                         </tr>
@@ -1393,9 +1408,9 @@
                         <tr class="">
                             <td>5</td>
                             <td>C.D. Zafranar 'A'</td>
-                            <td><strong>6</strong></td>
-                            <td>4</td>
-                            <td>2</td>
+                            <td><strong>9</strong></td>
+                            <td>5</td>
+                            <td>3</td>
                             <td>0</td>
                             <td>2</td>
                         </tr>
@@ -1404,20 +1419,20 @@
                             <td>6</td>
                             <td>C.D. Apolo 'A'</td>
                             <td><strong>6</strong></td>
-                            <td>4</td>
+                            <td>5</td>
                             <td>2</td>
                             <td>0</td>
-                            <td>2</td>
+                            <td>3</td>
                         </tr>
                         
                         <tr class="">
                             <td>7</td>
                             <td>C.D. At. Nazaret 'A'</td>
                             <td><strong>6</strong></td>
-                            <td>4</td>
+                            <td>5</td>
                             <td>2</td>
                             <td>0</td>
-                            <td>2</td>
+                            <td>3</td>
                         </tr>
                         
                         <tr class="team-current">
@@ -1444,10 +1459,10 @@
                             <td>10</td>
                             <td>At. Ciudad Paiporta 'A'</td>
                             <td><strong>0</strong></td>
-                            <td>3</td>
+                            <td>4</td>
                             <td>0</td>
                             <td>0</td>
-                            <td>3</td>
+                            <td>4</td>
                         </tr>
                         
                     </tbody>
@@ -1459,7 +1474,7 @@
 
         <!-- Footer -->
         <div class="footer">
-            <p><strong>Última actualización:</strong> 15/11/2025 - 06:24</p>
+            <p><strong>Última actualización:</strong> 15/11/2025 - 23:08</p>
         </div>
     </div>
 
@@ -1475,7 +1490,7 @@
         // Calendario Interactivo
         (function() {
             // Datos de partidos desde el template
-            const matchesData = [{"campo": "Campo de F\u00fatbol Mpal. El Terrer F-8 Campo 1(HA)", "es_local": false, "fecha": "2025-11-21", "hora": "18:30", "id_partido": "26419162", "jornada": 1, "local": "At. Ciudad Paiporta \u0027A\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20de%20F%C3%BAtbol%20Mpal.%20El%20Terrer%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": null, "victoria": null, "visitante": "C.F. Extramurs Valencia \u0027B\u0027"}, {"campo": "Campo Tramo III del Turia F-8(HA)", "es_local": true, "fecha": "2025-10-25", "hora": "11:15", "id_partido": "26419167", "jornada": 2, "local": "C.F. Extramurs Valencia \u0027B\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": "0-11", "victoria": false, "visitante": "C.D. Apolo \u0027A\u0027"}, {"campo": "Campo Futbol San Marcelino F-8 Campo 4(HA)", "es_local": false, "fecha": "2025-11-01", "hora": "11:15", "id_partido": "26419171", "jornada": 3, "local": "C.D. San Marcelino \u0027A\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Futbol%20San%20Marcelino%20F-8%20Campo%204%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": "18-0", "victoria": false, "visitante": "C.F. Extramurs Valencia \u0027B\u0027"}, {"campo": "Campo Tramo III del Turia F-8(HA)", "es_local": true, "fecha": "2025-11-08", "hora": "11:15", "id_partido": "26419176", "jornada": 4, "local": "C.F. Extramurs Valencia \u0027B\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": "0-3", "victoria": false, "visitante": "C.D. At. Nazaret \u0027A\u0027"}, {"campo": "Campo Futbol Mpal. La Torre-Faitanar F-8 Campo 1 (Valencia )(HA)", "es_local": false, "fecha": "2025-11-14", "hora": "19:00", "id_partido": "26419180", "jornada": 5, "local": "Disc\u00f3bolo-La Torre A.C. \u0027A\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Futbol%20Mpal.%20La%20Torre-Faitanar%20F-8%20Campo%201%20%28Valencia%20%29%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": "4-4", "victoria": false, "visitante": "C.F. Extramurs Valencia \u0027B\u0027"}, {"campo": "Campo Tramo III del Turia F-8(HA)", "es_local": true, "fecha": "2025-11-23", "hora": "12:45", "id_partido": "26419185", "jornada": 6, "local": "C.F. Extramurs Valencia \u0027B\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": null, "victoria": null, "visitante": "C.D. Malilla \u0027A\u0027"}, {"campo": "Campo Tramo III del Turia F-8(HA)", "es_local": true, "fecha": "2025-11-30", "hora": "12:45", "id_partido": "26419190", "jornada": 7, "local": "C.F. Extramurs Valencia \u0027B\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": null, "victoria": null, "visitante": "C.D. Zafranar \u0027A\u0027"}, {"campo": "Campo Futbol San Marcelino F-8 Campo 4(HA)", "es_local": false, "fecha": "2025-12-14", "hora": "09:00", "id_partido": "26419196", "jornada": 8, "local": "Col. Salgui E.D.E. \u0027A\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Futbol%20San%20Marcelino%20F-8%20Campo%204%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": null, "victoria": null, "visitante": "C.F. Extramurs Valencia \u0027B\u0027"}, {"campo": "Campo Tramo III del Turia F-8(HA)", "es_local": true, "fecha": "2025-12-21", "hora": "12:45", "id_partido": "26419201", "jornada": 9, "local": "C.F. Extramurs Valencia \u0027B\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": null, "victoria": null, "visitante": "C.D. Col. El Vedat \u0027A\u0027"}];
+            const matchesData = [{"campo": "Campo de F\u00fatbol Mpal. El Terrer F-8 Campo 1(HA)", "es_local": false, "fecha": "2025-11-21", "hora": "18:30", "id_partido": "26419162", "jornada": 1, "local": "At. Ciudad Paiporta \u0027A\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20de%20F%C3%BAtbol%20Mpal.%20El%20Terrer%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": null, "victoria": null, "visitante": "C.F. Extramurs Valencia \u0027B\u0027"}, {"campo": "Campo Tramo III del Turia F-8(HA)", "es_local": true, "fecha": "2025-10-25", "hora": "11:15", "id_partido": "26419167", "jornada": 2, "local": "C.F. Extramurs Valencia \u0027B\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": "0-11", "victoria": false, "visitante": "C.D. Apolo \u0027A\u0027"}, {"campo": "Campo Futbol San Marcelino F-8 Campo 4(HA)", "es_local": false, "fecha": "2025-11-01", "hora": "11:15", "id_partido": "26419171", "jornada": 3, "local": "C.D. San Marcelino \u0027A\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Futbol%20San%20Marcelino%20F-8%20Campo%204%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": "18-0", "victoria": false, "visitante": "C.F. Extramurs Valencia \u0027B\u0027"}, {"campo": "Campo Tramo III del Turia F-8(HA)", "es_local": true, "fecha": "2025-11-08", "hora": "11:15", "id_partido": "26419176", "jornada": 4, "local": "C.F. Extramurs Valencia \u0027B\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": "0-3", "victoria": false, "visitante": "C.D. At. Nazaret \u0027A\u0027"}, {"campo": "Campo Futbol Mpal. La Torre-Faitanar F-8 Campo 1 (Valencia )(HA)", "es_local": false, "fecha": "2025-11-14", "hora": "19:00", "id_partido": "26419180", "jornada": 5, "local": "Disc\u00f3bolo-La Torre A.C. \u0027A\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Futbol%20Mpal.%20La%20Torre-Faitanar%20F-8%20Campo%201%20%28Valencia%20%29%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": "4-4", "victoria": null, "visitante": "C.F. Extramurs Valencia \u0027B\u0027"}, {"campo": "Campo Tramo III del Turia F-8(HA)", "es_local": true, "fecha": "2025-11-23", "hora": "12:45", "id_partido": "26419185", "jornada": 6, "local": "C.F. Extramurs Valencia \u0027B\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": null, "victoria": null, "visitante": "C.D. Malilla \u0027A\u0027"}, {"campo": "Campo Tramo III del Turia F-8(HA)", "es_local": true, "fecha": "2025-11-30", "hora": "12:45", "id_partido": "26419190", "jornada": 7, "local": "C.F. Extramurs Valencia \u0027B\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": null, "victoria": null, "visitante": "C.D. Zafranar \u0027A\u0027"}, {"campo": "Campo Futbol San Marcelino F-8 Campo 4(HA)", "es_local": false, "fecha": "2025-12-14", "hora": "09:00", "id_partido": "26419196", "jornada": 8, "local": "Col. Salgui E.D.E. \u0027A\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Futbol%20San%20Marcelino%20F-8%20Campo%204%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": null, "victoria": null, "visitante": "C.F. Extramurs Valencia \u0027B\u0027"}, {"campo": "Campo Tramo III del Turia F-8(HA)", "es_local": true, "fecha": "2025-12-21", "hora": "12:45", "id_partido": "26419201", "jornada": 9, "local": "C.F. Extramurs Valencia \u0027B\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": null, "victoria": null, "visitante": "C.D. Col. El Vedat \u0027A\u0027"}];
 
             // Estado del calendario
             let currentMonth = new Date().getMonth();
@@ -1565,8 +1580,10 @@
 
                         // Determinar estado del partido
                         if (match.resultado) {
-                            if (match.victoria) {
+                            if (match.victoria === true) {
                                 dayEl.classList.add('match-victory');
+                            } else if (match.victoria === null) {
+                                dayEl.classList.add('match-draw');
                             } else {
                                 dayEl.classList.add('match-defeat');
                             }
