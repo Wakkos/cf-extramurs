@@ -1,12 +1,12 @@
 {
   "equipo": "C.F. Extramurs Valencia 'A'",
   "grupo": "Segona FFCV Prebenjamí 2n. any València - Grup 5",
-  "ultima_actualizacion": "2025-11-16T06:24:11.751926",
+  "ultima_actualizacion": "2025-11-17T06:27:11.762146",
   "proximo_partido": {
     "jornada": 6,
     "id_partido": "26418874",
-    "fecha": "2025-11-22",
-    "hora": "12:30",
+    "fecha": "2025-11-23",
+    "hora": "10:15",
     "local": "C.F. Extramurs Valencia 'A'",
     "visitante": "Godella C.F. 'A'",
     "campo": "Campo Tramo III del Turia F-8(HA)",
@@ -16,6 +16,19 @@
     "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
   },
   "ultimos_resultados": [
+    {
+      "jornada": 5,
+      "id_partido": "26418869",
+      "fecha": "2025-11-15",
+      "hora": "10:45",
+      "local": "C.F. Fundació VCF 'B'",
+      "visitante": "C.F. Extramurs Valencia 'A'",
+      "campo": "Ciudad Dptva. Valencia CF F-8 Campo 1(HA)",
+      "resultado": "1-1",
+      "es_local": false,
+      "victoria": null,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Ciudad%20Dptva.%20Valencia%20CF%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
+    },
     {
       "jornada": 4,
       "id_partido": "26418864",
@@ -86,30 +99,30 @@
     },
     {
       "posicion": 4,
-      "equipo": "Godella C.F. 'A'",
+      "equipo": "C.F. Inter San José Valencia 'C'",
       "puntos": 6,
-      "pj": 3,
+      "pj": 4,
       "pg": 2,
       "pe": 0,
-      "pp": 1
+      "pp": 2
     },
     {
       "posicion": 5,
+      "equipo": "Godella C.F. 'A'",
+      "puntos": 6,
+      "pj": 4,
+      "pg": 2,
+      "pe": 0,
+      "pp": 2
+    },
+    {
+      "posicion": 6,
       "equipo": "C.F.U.D. Benicalap 'A'",
       "puntos": 6,
       "pj": 5,
       "pg": 2,
       "pe": 0,
       "pp": 3
-    },
-    {
-      "posicion": 6,
-      "equipo": "C.F. Inter San José Valencia 'C'",
-      "puntos": 3,
-      "pj": 3,
-      "pg": 1,
-      "pe": 0,
-      "pp": 2
     },
     {
       "posicion": 7,
@@ -200,7 +213,7 @@
       "local": "C.F. Fundació VCF 'B'",
       "visitante": "C.F. Extramurs Valencia 'A'",
       "campo": "Ciudad Dptva. Valencia CF F-8 Campo 1(HA)",
-      "resultado": null,
+      "resultado": "1-1",
       "es_local": false,
       "victoria": null,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Ciudad%20Dptva.%20Valencia%20CF%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
@@ -208,8 +221,8 @@
     {
       "jornada": 6,
       "id_partido": "26418874",
-      "fecha": "2025-11-22",
-      "hora": "12:30",
+      "fecha": "2025-11-23",
+      "hora": "10:15",
       "local": "C.F. Extramurs Valencia 'A'",
       "visitante": "Godella C.F. 'A'",
       "campo": "Campo Tramo III del Turia F-8(HA)",
