@@ -3,13 +3,22 @@ VERSION:2.0
 PRODID:Extramurs Calendar Bot
 X-WR-CALNAME:C.F. Extramurs Valencia 'B' - Segona FFCV Prebenjamí 2n. any València
 BEGIN:VEVENT
-DESCRIPTION:Jornada 9\nCampo: Campo Tramo III del Turia F-8(HA)
+DESCRIPTION:Jornada 2\nCampo: Campo Tramo III del Turia F-8(HA)
 DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-8(HA)
-DTSTART:20251221T124500Z
-SUMMARY:C.F. Extramurs Valencia 'B' vs C.D. Col. El Vedat 'A'
-UID:390e9d4e-489d-4a33-acda-348e80cf516c@390e.org
+DTSTART:20251025T111500Z
+SUMMARY:C.F. Extramurs Valencia 'B' 0-11 C.D. Apolo 'A'
+UID:d7df412f-811a-4fa6-8342-9693156a1a84@d7df.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 1\nCampo: Campo de Fútbol Mpal. El Terrer F-8 Campo 1 Paiporta(HA)
+DURATION:PT1H
+LOCATION:Campo de Fútbol Mpal. El Terrer F-8 Campo 1 Paiporta(HA)
+DTSTART:20251121T183000Z
+SUMMARY:At. Ciudad Paiporta 'A' 3-1 C.F. Extramurs Valencia 'B'
+UID:aef448d2-df05-483f-a0d1-1998e2a04fca@aef4.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20de%20F%C3%BAtbol%20Mpal.%20El%20Terrer%20F-8%20Campo%201%20Paiporta%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Jornada 5\nCampo: Campo Futbol Mpal. La Torre-Faitanar F-8 Campo 1 (Valencia )(HA)
@@ -17,7 +26,7 @@ DURATION:PT1H
 LOCATION:Campo Futbol Mpal. La Torre-Faitanar F-8 Campo 1 (Valencia )(HA)
 DTSTART:20251114T190000Z
 SUMMARY:Discóbolo-La Torre A.C. 'A' 4-4 C.F. Extramurs Valencia 'B'
-UID:8805da74-6826-4740-a361-d07336126be4@8805.org
+UID:41ae430d-3726-47fc-b8d9-42a90a864561@41ae.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Futbol%20Mpal.%20La%20Torre-Faitanar%20F-8%20Campo%201%20%28Valencia%20%29%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
@@ -26,25 +35,7 @@ DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-8(HA)
 DTSTART:20251130T124500Z
 SUMMARY:C.F. Extramurs Valencia 'B' vs C.D. Zafranar 'A'
-UID:a329c37a-7b66-47a8-b88a-b0034e279280@a329.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 3\nCampo: Campo Futbol San Marcelino F-8 Campo 4(HA)
-DURATION:PT1H
-LOCATION:Campo Futbol San Marcelino F-8 Campo 4(HA)
-DTSTART:20251101T111500Z
-SUMMARY:C.D. San Marcelino 'A' 18-0 C.F. Extramurs Valencia 'B'
-UID:6cdf1edc-1fc5-4815-84dc-04c956d1aab4@6cdf.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Futbol%20San%20Marcelino%20F-8%20Campo%204%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 2\nCampo: Campo Tramo III del Turia F-8(HA)
-DURATION:PT1H
-LOCATION:Campo Tramo III del Turia F-8(HA)
-DTSTART:20251025T111500Z
-SUMMARY:C.F. Extramurs Valencia 'B' 0-11 C.D. Apolo 'A'
-UID:c0fdc047-8139-493c-9d6d-54e69e977875@c0fd.org
+UID:854d8591-5ec4-4132-8ec0-eeb0499ba686@854d.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
@@ -53,26 +44,8 @@ DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-8(HA)
 DTSTART:20251122T133000Z
 SUMMARY:C.F. Extramurs Valencia 'B' 0-11 C.D. Malilla 'A'
-UID:d7158b59-ca49-4c11-961a-1f680814268a@d715.org
+UID:817a856d-9272-4794-95c5-3781f1595b62@817a.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 8\nCampo: Campo Futbol San Marcelino F-8 Campo 4(HA)
-DURATION:PT1H
-LOCATION:Campo Futbol San Marcelino F-8 Campo 4(HA)
-DTSTART:20251214T090000Z
-SUMMARY:Col. Salgui E.D.E. 'A' vs C.F. Extramurs Valencia 'B'
-UID:a676a910-086d-427c-9662-00b3b7c1a4b4@a676.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Futbol%20San%20Marcelino%20F-8%20Campo%204%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 1\nCampo: Campo de Fútbol Mpal. El Terrer F-8 Campo 1 Paiporta(HA)
-DURATION:PT1H
-LOCATION:Campo de Fútbol Mpal. El Terrer F-8 Campo 1 Paiporta(HA)
-DTSTART:20251121T183000Z
-SUMMARY:At. Ciudad Paiporta 'A' 3-1 C.F. Extramurs Valencia 'B'
-UID:535b6864-3b62-4dde-be42-ee155cafca0e@535b.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20de%20F%C3%BAtbol%20Mpal.%20El%20Terrer%20F-8%20Campo%201%20Paiporta%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Jornada 4\nCampo: Campo Tramo III del Turia F-8(HA)
@@ -80,7 +53,34 @@ DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-8(HA)
 DTSTART:20251108T111500Z
 SUMMARY:C.F. Extramurs Valencia 'B' 0-3 C.D. At. Nazaret 'A'
-UID:b9535ff6-0030-4462-ab7d-35dc3ec9d026@b953.org
+UID:5554df50-26a5-46d0-bdd9-436be56c223b@5554.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 9\nCampo: Campo Tramo III del Turia F-8(HA)
+DURATION:PT1H
+LOCATION:Campo Tramo III del Turia F-8(HA)
+DTSTART:20251221T124500Z
+SUMMARY:C.F. Extramurs Valencia 'B' vs C.D. Col. El Vedat 'A'
+UID:c0a30aa1-4285-45fb-adda-9531c00778e6@c0a3.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 3\nCampo: Campo Futbol San Marcelino F-8 Campo 4(HA)
+DURATION:PT1H
+LOCATION:Campo Futbol San Marcelino F-8 Campo 4(HA)
+DTSTART:20251101T111500Z
+SUMMARY:C.D. San Marcelino 'A' 18-0 C.F. Extramurs Valencia 'B'
+UID:9a3c9623-07e6-41a6-9fa5-e2a3646f077f@9a3c.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Futbol%20San%20Marcelino%20F-8%20Campo%204%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 8\nCampo: Campo Futbol San Marcelino F-8 Campo 4(HA)
+DURATION:PT1H
+LOCATION:Campo Futbol San Marcelino F-8 Campo 4(HA)
+DTSTART:20251214T090000Z
+SUMMARY:Col. Salgui E.D.E. 'A' vs C.F. Extramurs Valencia 'B'
+UID:de342005-3b39-49e2-8ca6-1d90982587e4@de34.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Futbol%20San%20Marcelino%20F-8%20Campo%204%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 END:VCALENDAR
