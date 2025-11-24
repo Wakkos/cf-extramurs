@@ -1081,7 +1081,8 @@ def process_team():
 
         # URL del calendario desde configuración
         base_url = CONFIG['sitio']['url_base']
-        ics_url = f"{base_url}/partidos.ics"
+        output_subdir = CONFIG['sitio']['output_dir']
+        ics_url = f"{base_url}/{output_subdir}/partidos.ics"
         webcal_url = ics_url.replace("https://", "webcal://")
         google_calendar_url = generar_google_calendar_url(ics_url)
 
