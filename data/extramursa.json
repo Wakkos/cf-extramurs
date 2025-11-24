@@ -1,21 +1,34 @@
 {
   "equipo": "C.F. Extramurs Valencia 'A'",
   "grupo": "Segona FFCV Prebenjamí 2n. any València - Grup 5",
-  "ultima_actualizacion": "2025-11-23T06:24:15.741264",
+  "ultima_actualizacion": "2025-11-24T06:27:27.359120",
   "proximo_partido": {
-    "jornada": 6,
-    "id_partido": "26418874",
-    "fecha": "2025-11-23",
-    "hora": "10:15",
-    "local": "C.F. Extramurs Valencia 'A'",
-    "visitante": "Godella C.F. 'A'",
-    "campo": "Campo Tramo III del Turia F-8(HA)",
+    "jornada": 7,
+    "id_partido": "26418878",
+    "fecha": "2025-11-29",
+    "hora": "09:30",
+    "local": "Atlètic Vallbonense 'A'",
+    "visitante": "C.F. Extramurs Valencia 'A'",
+    "campo": "Polideportivo Mas de Tous F-8 Campo 1 Pobla Vallbona(HA)",
     "resultado": null,
-    "es_local": true,
+    "es_local": false,
     "victoria": null,
-    "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mas%20de%20Tous%20F-8%20Campo%201%20Pobla%20Vallbona%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
   },
   "ultimos_resultados": [
+    {
+      "jornada": 6,
+      "id_partido": "26418874",
+      "fecha": "2025-11-23",
+      "hora": "10:15",
+      "local": "C.F. Extramurs Valencia 'A'",
+      "visitante": "Godella C.F. 'A'",
+      "campo": "Campo Tramo III del Turia F-8(HA)",
+      "resultado": "5-3",
+      "es_local": true,
+      "victoria": true,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
+    },
     {
       "jornada": 5,
       "id_partido": "26418869",
@@ -73,9 +86,9 @@
     {
       "posicion": 1,
       "equipo": "U.D. Rocafort C.F. 'A'",
-      "puntos": 15,
-      "pj": 5,
-      "pg": 5,
+      "puntos": 18,
+      "pj": 6,
+      "pg": 6,
       "pe": 0,
       "pp": 0
     },
@@ -99,24 +112,15 @@
     },
     {
       "posicion": 4,
-      "equipo": "Godella C.F. 'A'",
-      "puntos": 6,
-      "pj": 4,
+      "equipo": "C.F. Extramurs Valencia 'A'",
+      "puntos": 7,
+      "pj": 5,
       "pg": 2,
-      "pe": 0,
+      "pe": 1,
       "pp": 2
     },
     {
       "posicion": 5,
-      "equipo": "C.F.U.D. Benicalap 'A'",
-      "puntos": 6,
-      "pj": 5,
-      "pg": 2,
-      "pe": 0,
-      "pp": 3
-    },
-    {
-      "posicion": 6,
       "equipo": "C.F. Inter San José Valencia 'C'",
       "puntos": 6,
       "pj": 5,
@@ -125,22 +129,31 @@
       "pp": 3
     },
     {
+      "posicion": 6,
+      "equipo": "C.F.U.D. Benicalap 'A'",
+      "puntos": 6,
+      "pj": 5,
+      "pg": 2,
+      "pe": 0,
+      "pp": 3
+    },
+    {
       "posicion": 7,
-      "equipo": "C.F. Extramurs Valencia 'A'",
-      "puntos": 4,
-      "pj": 4,
-      "pg": 1,
-      "pe": 1,
-      "pp": 2
+      "equipo": "Godella C.F. 'A'",
+      "puntos": 6,
+      "pj": 5,
+      "pg": 2,
+      "pe": 0,
+      "pp": 3
     },
     {
       "posicion": 8,
       "equipo": "C.D. Jesuitas Valencia-S. Fútbol 'A'",
       "puntos": 3,
-      "pj": 5,
+      "pj": 6,
       "pg": 1,
       "pe": 0,
-      "pp": 4
+      "pp": 5
     },
     {
       "posicion": 9,
@@ -226,9 +239,9 @@
       "local": "C.F. Extramurs Valencia 'A'",
       "visitante": "Godella C.F. 'A'",
       "campo": "Campo Tramo III del Turia F-8(HA)",
-      "resultado": null,
+      "resultado": "5-3",
       "es_local": true,
-      "victoria": null,
+      "victoria": true,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
     },
     {

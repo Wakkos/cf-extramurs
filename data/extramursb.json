@@ -1,7 +1,7 @@
 {
   "equipo": "C.F. Extramurs Valencia 'B'",
   "grupo": "Segona FFCV Prebenjamí 2n. any València - Grup 12",
-  "ultima_actualizacion": "2025-11-23T06:25:02.047953",
+  "ultima_actualizacion": "2025-11-24T06:28:13.625843",
   "proximo_partido": {
     "jornada": 7,
     "id_partido": "26419190",
@@ -16,6 +16,32 @@
     "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
   },
   "ultimos_resultados": [
+    {
+      "jornada": 6,
+      "id_partido": "26419185",
+      "fecha": "2025-11-22",
+      "hora": "13:30",
+      "local": "C.F. Extramurs Valencia 'B'",
+      "visitante": "C.D. Malilla 'A'",
+      "campo": "Campo Tramo III del Turia F-8(HA)",
+      "resultado": "0-11",
+      "es_local": true,
+      "victoria": false,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
+    },
+    {
+      "jornada": 1,
+      "id_partido": "26419162",
+      "fecha": "2025-11-21",
+      "hora": "18:30",
+      "local": "At. Ciudad Paiporta 'A'",
+      "visitante": "C.F. Extramurs Valencia 'B'",
+      "campo": "Campo de Fútbol Mpal. El Terrer F-8 Campo 1 Paiporta(HA)",
+      "resultado": "3-1",
+      "es_local": false,
+      "victoria": false,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20de%20F%C3%BAtbol%20Mpal.%20El%20Terrer%20F-8%20Campo%201%20Paiporta%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
+    },
     {
       "jornada": 5,
       "id_partido": "26419180",
@@ -54,19 +80,6 @@
       "es_local": false,
       "victoria": false,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Futbol%20San%20Marcelino%20F-8%20Campo%204%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
-    },
-    {
-      "jornada": 2,
-      "id_partido": "26419167",
-      "fecha": "2025-10-25",
-      "hora": "11:15",
-      "local": "C.F. Extramurs Valencia 'B'",
-      "visitante": "C.D. Apolo 'A'",
-      "campo": "Campo Tramo III del Turia F-8(HA)",
-      "resultado": "0-11",
-      "es_local": true,
-      "victoria": false,
-      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
     }
   ],
   "clasificacion": [
@@ -82,10 +95,10 @@
     {
       "posicion": 2,
       "equipo": "Col. Salgui E.D.E. 'A'",
-      "puntos": 13,
-      "pj": 5,
+      "puntos": 14,
+      "pj": 6,
       "pg": 4,
-      "pe": 1,
+      "pe": 2,
       "pp": 0
     },
     {
@@ -109,51 +122,51 @@
     {
       "posicion": 5,
       "equipo": "C.D. Zafranar 'A'",
-      "puntos": 9,
-      "pj": 5,
-      "pg": 3,
+      "puntos": 12,
+      "pj": 6,
+      "pg": 4,
       "pe": 0,
       "pp": 2
     },
     {
       "posicion": 6,
       "equipo": "C.D. Apolo 'A'",
-      "puntos": 6,
-      "pj": 5,
-      "pg": 2,
+      "puntos": 9,
+      "pj": 6,
+      "pg": 3,
       "pe": 0,
       "pp": 3
     },
     {
       "posicion": 7,
       "equipo": "C.D. At. Nazaret 'A'",
-      "puntos": 6,
-      "pj": 5,
+      "puntos": 7,
+      "pj": 6,
       "pg": 2,
-      "pe": 0,
+      "pe": 1,
       "pp": 3
     },
     {
       "posicion": 8,
       "equipo": "At. Ciudad Paiporta 'A'",
       "puntos": 3,
-      "pj": 5,
+      "pj": 6,
       "pg": 1,
       "pe": 0,
-      "pp": 4
+      "pp": 5
     },
     {
       "posicion": 9,
-      "equipo": "Discóbolo-La Torre A.C. 'A'",
+      "equipo": "C.F. Extramurs Valencia 'B'",
       "puntos": 1,
-      "pj": 5,
+      "pj": 6,
       "pg": 0,
       "pe": 1,
-      "pp": 4
+      "pp": 5
     },
     {
       "posicion": 10,
-      "equipo": "C.F. Extramurs Valencia 'B'",
+      "equipo": "Discóbolo-La Torre A.C. 'A'",
       "puntos": 1,
       "pj": 6,
       "pg": 0,
@@ -170,9 +183,9 @@
       "local": "At. Ciudad Paiporta 'A'",
       "visitante": "C.F. Extramurs Valencia 'B'",
       "campo": "Campo de Fútbol Mpal. El Terrer F-8 Campo 1 Paiporta(HA)",
-      "resultado": null,
+      "resultado": "3-1",
       "es_local": false,
-      "victoria": null,
+      "victoria": false,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20de%20F%C3%BAtbol%20Mpal.%20El%20Terrer%20F-8%20Campo%201%20Paiporta%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
     },
     {
@@ -235,9 +248,9 @@
       "local": "C.F. Extramurs Valencia 'B'",
       "visitante": "C.D. Malilla 'A'",
       "campo": "Campo Tramo III del Turia F-8(HA)",
-      "resultado": null,
+      "resultado": "0-11",
       "es_local": true,
-      "victoria": null,
+      "victoria": false,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
     },
     {
