@@ -1,7 +1,7 @@
 {
   "equipo": "C.F. Extramurs Valencia 'A'",
   "grupo": "Segona FFCV Prebenjamí 2n. any València - Grup 5",
-  "ultima_actualizacion": "2025-11-30T06:26:00.731922",
+  "ultima_actualizacion": "2025-12-01T06:29:04.804866",
   "proximo_partido": {
     "jornada": 8,
     "id_partido": "26418883",
@@ -16,6 +16,19 @@
     "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
   },
   "ultimos_resultados": [
+    {
+      "jornada": 7,
+      "id_partido": "26418878",
+      "fecha": "2025-11-29",
+      "hora": "11:00",
+      "local": "Atlètic Vallbonense 'A'",
+      "visitante": "C.F. Extramurs Valencia 'A'",
+      "campo": "Polideportivo Mas de Tous F-8 Campo 3 Pobla Vallbona(HA)",
+      "resultado": "7-1",
+      "es_local": false,
+      "victoria": false,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mas%20de%20Tous%20F-8%20Campo%203%20Pobla%20Vallbona%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
+    },
     {
       "jornada": 6,
       "id_partido": "26418874",
@@ -67,19 +80,6 @@
       "es_local": true,
       "victoria": true,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
-    },
-    {
-      "jornada": 2,
-      "id_partido": "26418853",
-      "fecha": "2025-10-25",
-      "hora": "11:00",
-      "local": "U.D. Rocafort C.F. 'A'",
-      "visitante": "C.F. Extramurs Valencia 'A'",
-      "campo": "Polideportivo Mpal. de Rocafort F-8 Campo 2(HA)",
-      "resultado": "7-1",
-      "es_local": false,
-      "victoria": false,
-      "maps_url": "https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20de%20Rocafort%20F-8%20Campo%202%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
     }
   ],
   "clasificacion": [
@@ -252,9 +252,9 @@
       "local": "Atlètic Vallbonense 'A'",
       "visitante": "C.F. Extramurs Valencia 'A'",
       "campo": "Polideportivo Mas de Tous F-8 Campo 3 Pobla Vallbona(HA)",
-      "resultado": null,
+      "resultado": "7-1",
       "es_local": false,
-      "victoria": null,
+      "victoria": false,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mas%20de%20Tous%20F-8%20Campo%203%20Pobla%20Vallbona%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
     },
     {
