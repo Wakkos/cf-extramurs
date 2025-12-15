@@ -1,12 +1,12 @@
 {
   "equipo": "C.F. Extramurs Valencia 'B'",
   "grupo": "Segona FFCV Prebenjamí 2n. any València - Grup 12",
-  "ultima_actualizacion": "2025-12-14T06:26:42.847885",
+  "ultima_actualizacion": "2025-12-15T06:31:49.470685",
   "proximo_partido": {
     "jornada": 9,
     "id_partido": "26419201",
     "fecha": "2025-12-21",
-    "hora": "12:45",
+    "hora": "12:30",
     "local": "C.F. Extramurs Valencia 'B'",
     "visitante": "C.D. Col. El Vedat 'A'",
     "campo": "Campo Tramo III del Turia F-8(HA)",
@@ -16,6 +16,19 @@
     "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
   },
   "ultimos_resultados": [
+    {
+      "jornada": 8,
+      "id_partido": "26419196",
+      "fecha": "2025-12-13",
+      "hora": "12:45",
+      "local": "Col. Salgui E.D.E. 'A'",
+      "visitante": "C.F. Extramurs Valencia 'B'",
+      "campo": "Campo Futbol San Marcelino F-8 Campo 3(HA)",
+      "resultado": "16-0",
+      "es_local": false,
+      "victoria": false,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Futbol%20San%20Marcelino%20F-8%20Campo%203%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
+    },
     {
       "jornada": 7,
       "id_partido": "26419190",
@@ -67,19 +80,6 @@
       "es_local": false,
       "victoria": null,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Futbol%20Mpal.%20La%20Torre-Faitanar%20F-8%20Campo%201%20%28Valencia%20%29%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
-    },
-    {
-      "jornada": 4,
-      "id_partido": "26419176",
-      "fecha": "2025-11-08",
-      "hora": "11:15",
-      "local": "C.F. Extramurs Valencia 'B'",
-      "visitante": "C.D. At. Nazaret 'A'",
-      "campo": "Campo Tramo III del Turia F-8(HA)",
-      "resultado": "0-3",
-      "es_local": true,
-      "victoria": false,
-      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
     }
   ],
   "clasificacion": [
@@ -274,16 +274,16 @@
       "local": "Col. Salgui E.D.E. 'A'",
       "visitante": "C.F. Extramurs Valencia 'B'",
       "campo": "Campo Futbol San Marcelino F-8 Campo 3(HA)",
-      "resultado": null,
+      "resultado": "16-0",
       "es_local": false,
-      "victoria": null,
+      "victoria": false,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Futbol%20San%20Marcelino%20F-8%20Campo%203%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
     },
     {
       "jornada": 9,
       "id_partido": "26419201",
       "fecha": "2025-12-21",
-      "hora": "12:45",
+      "hora": "12:30",
       "local": "C.F. Extramurs Valencia 'B'",
       "visitante": "C.D. Col. El Vedat 'A'",
       "campo": "Campo Tramo III del Turia F-8(HA)",
