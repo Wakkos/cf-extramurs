@@ -1233,10 +1233,6 @@
                 <span class="streak-label">Racha</span>
                 <div class="streak-badges">
                     
-                    <div class="streak-badge loss">
-                        L
-                    </div>
-                    
                     <div class="streak-badge draw">
                         D
                     </div>
@@ -1253,11 +1249,27 @@
                         W
                     </div>
                     
+                    <div class="streak-badge win">
+                        W
+                    </div>
+                    
                 </div>
             </div>
             
             
             <div class="results-list">
+                
+                <div class="result-item">
+                    <div class="result-badge win">
+                        W
+                    </div>
+                    <div class="result-content">
+                        <div class="result-match">
+                            C.D. Jesuitas Valencia-S. Fútbol 'A' <span class="result-score">2-8</span> C.F. Extramurs Valencia 'A'
+                        </div>
+                        <div class="result-date">2025-12-20</div>
+                    </div>
+                </div>
                 
                 <div class="result-item">
                     <div class="result-badge win">
@@ -1304,18 +1316,6 @@
                             C.F. Fundació VCF 'B' <span class="result-score">1-1</span> C.F. Extramurs Valencia 'A'
                         </div>
                         <div class="result-date">2025-11-15</div>
-                    </div>
-                </div>
-                
-                <div class="result-item">
-                    <div class="result-badge loss">
-                        L
-                    </div>
-                    <div class="result-content">
-                        <div class="result-match">
-                            C.F. Inter San José Valencia 'C' <span class="result-score">3-2</span> C.F. Extramurs Valencia 'A'
-                        </div>
-                        <div class="result-date">2025-11-08</div>
                     </div>
                 </div>
                 
@@ -1446,7 +1446,7 @@
 
         <!-- Footer -->
         <div class="footer">
-            <p><strong>Última actualización:</strong> 21/12/2025 - 06:26</p>
+            <p><strong>Última actualización:</strong> 22/12/2025 - 06:30</p>
         </div>
     </div>
 
@@ -1462,7 +1462,7 @@
         // Calendario Interactivo
         (function() {
             // Datos de partidos desde el template
-            const matchesData = [{"campo": "Campo Tramo III del Turia F-8(HA)", "es_local": true, "fecha": "2025-11-02", "hora": "12:45", "id_partido": "26418847", "jornada": 1, "local": "C.F. Extramurs Valencia \u0027A\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": "14-0", "victoria": true, "visitante": "C.D. Serranos Valencia \u0027C\u0027"}, {"campo": "Polideportivo Mpal. de Rocafort F-8 Campo 2(HA)", "es_local": false, "fecha": "2025-10-25", "hora": "11:00", "id_partido": "26418853", "jornada": 2, "local": "U.D. Rocafort C.F. \u0027A\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Polideportivo%20Mpal.%20de%20Rocafort%20F-8%20Campo%202%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": "7-1", "victoria": false, "visitante": "C.F. Extramurs Valencia \u0027A\u0027"}, {"campo": "", "es_local": true, "fecha": null, "hora": "", "id_partido": "26418858", "jornada": 3, "local": "C.F. Extramurs Valencia \u0027A\u0027", "maps_url": null, "resultado": null, "victoria": null, "visitante": "Equipo Fuera (No asignado)"}, {"campo": "Campo de F\u00fatbol Mpal. de Beniferri F-8 Campo 1(HA)", "es_local": false, "fecha": "2025-11-08", "hora": "15:30", "id_partido": "26418864", "jornada": 4, "local": "C.F. Inter San Jos\u00e9 Valencia \u0027C\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20de%20F%C3%BAtbol%20Mpal.%20de%20Beniferri%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": "3-2", "victoria": false, "visitante": "C.F. Extramurs Valencia \u0027A\u0027"}, {"campo": "Ciudad Dptva. Valencia CF F-8 Campo 1(HA)", "es_local": false, "fecha": "2025-11-15", "hora": "10:45", "id_partido": "26418869", "jornada": 5, "local": "C.F. Fundaci\u00f3 VCF \u0027B\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Ciudad%20Dptva.%20Valencia%20CF%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": "1-1", "victoria": null, "visitante": "C.F. Extramurs Valencia \u0027A\u0027"}, {"campo": "Campo Tramo III del Turia F-8(HA)", "es_local": true, "fecha": "2025-11-23", "hora": "10:15", "id_partido": "26418874", "jornada": 6, "local": "C.F. Extramurs Valencia \u0027A\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": "5-3", "victoria": true, "visitante": "Godella C.F. \u0027A\u0027"}, {"campo": "Polideportivo Mas de Tous F-8 Campo 3 Pobla Vallbona(HA)", "es_local": false, "fecha": "2025-11-29", "hora": "11:00", "id_partido": "26418878", "jornada": 7, "local": "Atl\u00e8tic Vallbonense \u0027A\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Polideportivo%20Mas%20de%20Tous%20F-8%20Campo%203%20Pobla%20Vallbona%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": "7-1", "victoria": false, "visitante": "C.F. Extramurs Valencia \u0027A\u0027"}, {"campo": "Campo Tramo III del Turia F-8(HA)", "es_local": true, "fecha": "2025-12-13", "hora": "13:30", "id_partido": "26418883", "jornada": 8, "local": "C.F. Extramurs Valencia \u0027A\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": "3-2", "victoria": true, "visitante": "C.F.U.D. Benicalap \u0027A\u0027"}, {"campo": "Polideportivo Escuelas San Jose F-8 Campo 3(HA)", "es_local": false, "fecha": "2025-12-20", "hora": "12:00", "id_partido": "26418887", "jornada": 9, "local": "C.D. Jesuitas Valencia-S. F\u00fatbol \u0027A\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Polideportivo%20Escuelas%20San%20Jose%20F-8%20Campo%203%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": null, "victoria": null, "visitante": "C.F. Extramurs Valencia \u0027A\u0027"}];
+            const matchesData = [{"campo": "Campo Tramo III del Turia F-8(HA)", "es_local": true, "fecha": "2025-11-02", "hora": "12:45", "id_partido": "26418847", "jornada": 1, "local": "C.F. Extramurs Valencia \u0027A\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": "14-0", "victoria": true, "visitante": "C.D. Serranos Valencia \u0027C\u0027"}, {"campo": "Polideportivo Mpal. de Rocafort F-8 Campo 2(HA)", "es_local": false, "fecha": "2025-10-25", "hora": "11:00", "id_partido": "26418853", "jornada": 2, "local": "U.D. Rocafort C.F. \u0027A\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Polideportivo%20Mpal.%20de%20Rocafort%20F-8%20Campo%202%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": "7-1", "victoria": false, "visitante": "C.F. Extramurs Valencia \u0027A\u0027"}, {"campo": "", "es_local": true, "fecha": null, "hora": "", "id_partido": "26418858", "jornada": 3, "local": "C.F. Extramurs Valencia \u0027A\u0027", "maps_url": null, "resultado": null, "victoria": null, "visitante": "Equipo Fuera (No asignado)"}, {"campo": "Campo de F\u00fatbol Mpal. de Beniferri F-8 Campo 1(HA)", "es_local": false, "fecha": "2025-11-08", "hora": "15:30", "id_partido": "26418864", "jornada": 4, "local": "C.F. Inter San Jos\u00e9 Valencia \u0027C\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20de%20F%C3%BAtbol%20Mpal.%20de%20Beniferri%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": "3-2", "victoria": false, "visitante": "C.F. Extramurs Valencia \u0027A\u0027"}, {"campo": "Ciudad Dptva. Valencia CF F-8 Campo 1(HA)", "es_local": false, "fecha": "2025-11-15", "hora": "10:45", "id_partido": "26418869", "jornada": 5, "local": "C.F. Fundaci\u00f3 VCF \u0027B\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Ciudad%20Dptva.%20Valencia%20CF%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": "1-1", "victoria": null, "visitante": "C.F. Extramurs Valencia \u0027A\u0027"}, {"campo": "Campo Tramo III del Turia F-8(HA)", "es_local": true, "fecha": "2025-11-23", "hora": "10:15", "id_partido": "26418874", "jornada": 6, "local": "C.F. Extramurs Valencia \u0027A\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": "5-3", "victoria": true, "visitante": "Godella C.F. \u0027A\u0027"}, {"campo": "Polideportivo Mas de Tous F-8 Campo 3 Pobla Vallbona(HA)", "es_local": false, "fecha": "2025-11-29", "hora": "11:00", "id_partido": "26418878", "jornada": 7, "local": "Atl\u00e8tic Vallbonense \u0027A\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Polideportivo%20Mas%20de%20Tous%20F-8%20Campo%203%20Pobla%20Vallbona%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": "7-1", "victoria": false, "visitante": "C.F. Extramurs Valencia \u0027A\u0027"}, {"campo": "Campo Tramo III del Turia F-8(HA)", "es_local": true, "fecha": "2025-12-13", "hora": "13:30", "id_partido": "26418883", "jornada": 8, "local": "C.F. Extramurs Valencia \u0027A\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": "3-2", "victoria": true, "visitante": "C.F.U.D. Benicalap \u0027A\u0027"}, {"campo": "Polideportivo Escuelas San Jose F-8 Campo 3(HA)", "es_local": false, "fecha": "2025-12-20", "hora": "12:00", "id_partido": "26418887", "jornada": 9, "local": "C.D. Jesuitas Valencia-S. F\u00fatbol \u0027A\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Polideportivo%20Escuelas%20San%20Jose%20F-8%20Campo%203%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": "2-8", "victoria": true, "visitante": "C.F. Extramurs Valencia \u0027A\u0027"}];
 
             // Estado del calendario
             let currentMonth = new Date().getMonth();
