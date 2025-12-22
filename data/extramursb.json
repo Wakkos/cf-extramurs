@@ -1,21 +1,22 @@
 {
   "equipo": "C.F. Extramurs Valencia 'B'",
   "grupo": "Segona FFCV Prebenjamí 2n. any València - Grup 12",
-  "ultima_actualizacion": "2025-12-21T06:27:10.341728",
-  "proximo_partido": {
-    "jornada": 9,
-    "id_partido": "26419201",
-    "fecha": "2025-12-21",
-    "hora": "12:30",
-    "local": "C.F. Extramurs Valencia 'B'",
-    "visitante": "C.D. Col. El Vedat 'A'",
-    "campo": "Campo Tramo III del Turia F-8(HA)",
-    "resultado": null,
-    "es_local": true,
-    "victoria": null,
-    "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
-  },
+  "ultima_actualizacion": "2025-12-22T06:31:09.277693",
+  "proximo_partido": null,
   "ultimos_resultados": [
+    {
+      "jornada": 9,
+      "id_partido": "26419201",
+      "fecha": "2025-12-21",
+      "hora": "12:30",
+      "local": "C.F. Extramurs Valencia 'B'",
+      "visitante": "C.D. Col. El Vedat 'A'",
+      "campo": "Campo Tramo III del Turia F-8(HA)",
+      "resultado": "1-20",
+      "es_local": true,
+      "victoria": false,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
+    },
     {
       "jornada": 8,
       "id_partido": "26419196",
@@ -67,65 +68,52 @@
       "es_local": false,
       "victoria": false,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20de%20F%C3%BAtbol%20Mpal.%20El%20Terrer%20F-8%20Campo%201%20Paiporta%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
-    },
-    {
-      "jornada": 5,
-      "id_partido": "26419180",
-      "fecha": "2025-11-14",
-      "hora": "19:00",
-      "local": "Discóbolo-La Torre A.C. 'A'",
-      "visitante": "C.F. Extramurs Valencia 'B'",
-      "campo": "Campo Futbol Mpal. La Torre-Faitanar F-8 Campo 1 (Valencia )(HA)",
-      "resultado": "4-4",
-      "es_local": false,
-      "victoria": null,
-      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Futbol%20Mpal.%20La%20Torre-Faitanar%20F-8%20Campo%201%20%28Valencia%20%29%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
     }
   ],
   "clasificacion": [
     {
       "posicion": 1,
       "equipo": "C.D. Col. El Vedat 'A'",
-      "puntos": 22,
-      "pj": 8,
-      "pg": 7,
+      "puntos": 25,
+      "pj": 9,
+      "pg": 8,
       "pe": 1,
       "pp": 0
     },
     {
       "posicion": 2,
       "equipo": "Col. Salgui E.D.E. 'A'",
-      "puntos": 20,
-      "pj": 8,
+      "puntos": 21,
+      "pj": 9,
       "pg": 6,
-      "pe": 2,
+      "pe": 3,
       "pp": 0
     },
     {
       "posicion": 3,
       "equipo": "C.D. San Marcelino 'A'",
-      "puntos": 18,
-      "pj": 8,
+      "puntos": 19,
+      "pj": 9,
       "pg": 6,
-      "pe": 0,
+      "pe": 1,
       "pp": 2
     },
     {
       "posicion": 4,
       "equipo": "C.D. Zafranar 'A'",
-      "puntos": 15,
-      "pj": 7,
+      "puntos": 16,
+      "pj": 8,
       "pg": 5,
-      "pe": 0,
+      "pe": 1,
       "pp": 2
     },
     {
       "posicion": 5,
       "equipo": "C.D. Malilla 'A'",
-      "puntos": 15,
-      "pj": 7,
+      "puntos": 16,
+      "pj": 8,
       "pg": 5,
-      "pe": 0,
+      "pe": 1,
       "pp": 2
     },
     {
@@ -157,16 +145,16 @@
     },
     {
       "posicion": 9,
-      "equipo": "C.F. Extramurs Valencia 'B'",
+      "equipo": "Discóbolo-La Torre A.C. 'A'",
       "puntos": 1,
-      "pj": 8,
+      "pj": 9,
       "pg": 0,
       "pe": 1,
-      "pp": 7
+      "pp": 8
     },
     {
       "posicion": 10,
-      "equipo": "Discóbolo-La Torre A.C. 'A'",
+      "equipo": "C.F. Extramurs Valencia 'B'",
       "puntos": 1,
       "pj": 9,
       "pg": 0,
@@ -287,9 +275,9 @@
       "local": "C.F. Extramurs Valencia 'B'",
       "visitante": "C.D. Col. El Vedat 'A'",
       "campo": "Campo Tramo III del Turia F-8(HA)",
-      "resultado": null,
+      "resultado": "1-20",
       "es_local": true,
-      "victoria": null,
+      "victoria": false,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
     }
   ]

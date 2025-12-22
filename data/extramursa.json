@@ -1,9 +1,22 @@
 {
   "equipo": "C.F. Extramurs Valencia 'A'",
   "grupo": "Segona FFCV Prebenjamí 2n. any València - Grup 5",
-  "ultima_actualizacion": "2025-12-21T06:26:21.505501",
+  "ultima_actualizacion": "2025-12-22T06:30:23.106087",
   "proximo_partido": null,
   "ultimos_resultados": [
+    {
+      "jornada": 9,
+      "id_partido": "26418887",
+      "fecha": "2025-12-20",
+      "hora": "12:00",
+      "local": "C.D. Jesuitas Valencia-S. Fútbol 'A'",
+      "visitante": "C.F. Extramurs Valencia 'A'",
+      "campo": "Polideportivo Escuelas San Jose F-8 Campo 3(HA)",
+      "resultado": "2-8",
+      "es_local": false,
+      "victoria": true,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Polideportivo%20Escuelas%20San%20Jose%20F-8%20Campo%203%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
+    },
     {
       "jornada": 8,
       "id_partido": "26418883",
@@ -55,19 +68,6 @@
       "es_local": false,
       "victoria": null,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Ciudad%20Dptva.%20Valencia%20CF%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
-    },
-    {
-      "jornada": 4,
-      "id_partido": "26418864",
-      "fecha": "2025-11-08",
-      "hora": "15:30",
-      "local": "C.F. Inter San José Valencia 'C'",
-      "visitante": "C.F. Extramurs Valencia 'A'",
-      "campo": "Campo de Fútbol Mpal. de Beniferri F-8 Campo 1(HA)",
-      "resultado": "3-2",
-      "es_local": false,
-      "victoria": false,
-      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20de%20F%C3%BAtbol%20Mpal.%20de%20Beniferri%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
     }
   ],
   "clasificacion": [
@@ -266,9 +266,9 @@
       "local": "C.D. Jesuitas Valencia-S. Fútbol 'A'",
       "visitante": "C.F. Extramurs Valencia 'A'",
       "campo": "Polideportivo Escuelas San Jose F-8 Campo 3(HA)",
-      "resultado": null,
+      "resultado": "2-8",
       "es_local": false,
-      "victoria": null,
+      "victoria": true,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Polideportivo%20Escuelas%20San%20Jose%20F-8%20Campo%203%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
     }
   ]
