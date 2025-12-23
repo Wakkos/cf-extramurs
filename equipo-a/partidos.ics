@@ -3,71 +3,12 @@ VERSION:2.0
 PRODID:Extramurs Calendar Bot
 X-WR-CALNAME:C.F. Extramurs Valencia 'A' - Segona FFCV Prebenjamí 2n. any València
 BEGIN:VEVENT
-DESCRIPTION:Jornada 9\nCampo: Polideportivo Escuelas San Jose F-8 Campo 3(HA)
-DURATION:PT1H
-LOCATION:Polideportivo Escuelas San Jose F-8 Campo 3(HA)
-DTSTART:20251220T120000Z
-SUMMARY:C.D. Jesuitas Valencia-S. Fútbol 'A' 2-8 C.F. Extramurs Valencia 'A'
-UID:29778baa-676b-45fc-b3ae-52738ff54c87@2977.org
-URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Escuelas%20San%20Jose%20F-8%20Campo%203%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 4\nCampo: Campo de Fútbol Mpal. de Beniferri F-8 Campo 1(HA)
-DURATION:PT1H
-LOCATION:Campo de Fútbol Mpal. de Beniferri F-8 Campo 1(HA)
-DTSTART:20251108T153000Z
-SUMMARY:C.F. Inter San José Valencia 'C' 3-2 C.F. Extramurs Valencia 'A'
-UID:4e89211e-757c-42a3-a623-03bbb0bd2b6e@4e89.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20de%20F%C3%BAtbol%20Mpal.%20de%20Beniferri%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 5\nCampo: Ciudad Dptva. Valencia CF F-8 Campo 1(HA)
-DURATION:PT1H
-LOCATION:Ciudad Dptva. Valencia CF F-8 Campo 1(HA)
-DTSTART:20251115T104500Z
-SUMMARY:C.F. Fundació VCF 'B' 1-1 C.F. Extramurs Valencia 'A'
-UID:6c6d9779-3052-450b-b9ee-56442a7df7c2@6c6d.org
-URL:https://www.google.com/maps/search/?api=1&query=Ciudad%20Dptva.%20Valencia%20CF%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 2\nCampo: Polideportivo Mpal. de Rocafort F-8 Campo 2(HA)
-DURATION:PT1H
-LOCATION:Polideportivo Mpal. de Rocafort F-8 Campo 2(HA)
-DTSTART:20251025T110000Z
-SUMMARY:U.D. Rocafort C.F. 'A' 7-1 C.F. Extramurs Valencia 'A'
-UID:1d84c965-f57d-40f7-98da-6598e038e158@1d84.org
-URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20de%20Rocafort%20F-8%20Campo%202%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 8\nCampo: Campo Tramo III del Turia F-8(HA)
-DURATION:PT1H
-LOCATION:Campo Tramo III del Turia F-8(HA)
-DTSTART:20251213T133000Z
-SUMMARY:C.F. Extramurs Valencia 'A' 3-2 C.F.U.D. Benicalap 'A'
-UID:de53d964-eec8-417c-8d41-f52d6061659b@de53.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 1\nCampo: Campo Tramo III del Turia F-8(HA)
-DURATION:PT1H
-LOCATION:Campo Tramo III del Turia F-8(HA)
-DTSTART:20251102T124500Z
-SUMMARY:C.F. Extramurs Valencia 'A' 14-0 C.D. Serranos Valencia 'C'
-UID:5bb14582-d08a-4123-8077-eac6d3fa29b5@5bb1.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 3\nCampo: 
-SUMMARY:C.F. Extramurs Valencia 'A' vs Equipo Fuera (No asignado)
-UID:d102f423-7862-4eae-a6c7-c2ce5fe88d68@d102.org
-END:VEVENT
-BEGIN:VEVENT
 DESCRIPTION:Jornada 6\nCampo: Campo Tramo III del Turia F-8(HA)
 DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-8(HA)
 DTSTART:20251123T101500Z
 SUMMARY:C.F. Extramurs Valencia 'A' 5-3 Godella C.F. 'A'
-UID:597d968b-958f-4bda-aabb-501d8bd829f1@597d.org
+UID:30c84043-a93b-45cb-88f2-bba7c938bb42@30c8.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
@@ -76,7 +17,66 @@ DURATION:PT1H
 LOCATION:Polideportivo Mas de Tous F-8 Campo 3 Pobla Vallbona(HA)
 DTSTART:20251129T110000Z
 SUMMARY:Atlètic Vallbonense 'A' 7-1 C.F. Extramurs Valencia 'A'
-UID:e01cd604-2041-496e-8e1b-ab6dbe08463e@e01c.org
+UID:e1c1ff9d-c9b8-4281-9895-5b48abe560b2@e1c1.org
 URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mas%20de%20Tous%20F-8%20Campo%203%20Pobla%20Vallbona%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 9\nCampo: Polideportivo Escuelas San Jose F-8 Campo 3(HA)
+DURATION:PT1H
+LOCATION:Polideportivo Escuelas San Jose F-8 Campo 3(HA)
+DTSTART:20251220T120000Z
+SUMMARY:C.D. Jesuitas Valencia-S. Fútbol 'A' 2-8 C.F. Extramurs Valencia 'A'
+UID:8cf620ab-9ea5-47ee-9ad9-2ef41ac477c9@8cf6.org
+URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Escuelas%20San%20Jose%20F-8%20Campo%203%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 1\nCampo: Campo Tramo III del Turia F-8(HA)
+DURATION:PT1H
+LOCATION:Campo Tramo III del Turia F-8(HA)
+DTSTART:20251102T124500Z
+SUMMARY:C.F. Extramurs Valencia 'A' 14-0 C.D. Serranos Valencia 'C'
+UID:7596f38d-4f19-49ea-8b8f-31fdf2cab7e6@7596.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 4\nCampo: Campo de Fútbol Mpal. de Beniferri F-8 Campo 1(HA)
+DURATION:PT1H
+LOCATION:Campo de Fútbol Mpal. de Beniferri F-8 Campo 1(HA)
+DTSTART:20251108T153000Z
+SUMMARY:C.F. Inter San José Valencia 'C' 3-2 C.F. Extramurs Valencia 'A'
+UID:b950a909-d593-4110-bd5d-6fdeecdbb63d@b950.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20de%20F%C3%BAtbol%20Mpal.%20de%20Beniferri%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 3\nCampo: 
+SUMMARY:C.F. Extramurs Valencia 'A' vs Equipo Fuera (No asignado)
+UID:87307ac3-c4b0-456c-9053-c1ca4af70090@8730.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 8\nCampo: Campo Tramo III del Turia F-8(HA)
+DURATION:PT1H
+LOCATION:Campo Tramo III del Turia F-8(HA)
+DTSTART:20251213T133000Z
+SUMMARY:C.F. Extramurs Valencia 'A' 3-2 C.F.U.D. Benicalap 'A'
+UID:ade56f8a-e510-4ded-9105-6f585d1fe7db@ade5.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 5\nCampo: Ciudad Dptva. Valencia CF F-8 Campo 1(HA)
+DURATION:PT1H
+LOCATION:Ciudad Dptva. Valencia CF F-8 Campo 1(HA)
+DTSTART:20251115T104500Z
+SUMMARY:C.F. Fundació VCF 'B' 1-1 C.F. Extramurs Valencia 'A'
+UID:f84a7030-3e09-4b72-81f2-0d2ea7a03332@f84a.org
+URL:https://www.google.com/maps/search/?api=1&query=Ciudad%20Dptva.%20Valencia%20CF%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 2\nCampo: Polideportivo Mpal. de Rocafort F-8 Campo 2(HA)
+DURATION:PT1H
+LOCATION:Polideportivo Mpal. de Rocafort F-8 Campo 2(HA)
+DTSTART:20251025T110000Z
+SUMMARY:U.D. Rocafort C.F. 'A' 7-1 C.F. Extramurs Valencia 'A'
+UID:01e09663-9c6b-4f0c-9cf5-56157b4e4ee9@01e0.org
+URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20de%20Rocafort%20F-8%20Campo%202%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 END:VCALENDAR
