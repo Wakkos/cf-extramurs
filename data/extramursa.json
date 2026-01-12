@@ -1,21 +1,35 @@
 {
   "equipo": "C.F. Extramurs Valencia 'A'",
   "grupo": "Lliga Regular Grup 6",
-  "ultima_actualizacion": "2026-01-11T06:27:09.257362",
+  "ultima_actualizacion": "2026-01-12T06:31:59.282736",
   "proximo_partido": {
-    "jornada": 1,
-    "id_partido": "26450734",
-    "fecha": "2026-01-11",
-    "hora": "09:30",
-    "local": "Atlètic Vallbonense 'A'",
-    "visitante": "C.F. Extramurs Valencia 'A'",
-    "campo": "Polideportivo Mpal. Salvador Marti F-8 Campo 1 Pobla Vallbona(HA)",
+    "jornada": 2,
+    "id_partido": "26450739",
+    "fecha": "2026-01-17",
+    "hora": "12:30",
+    "local": "C.F. Extramurs Valencia 'A'",
+    "visitante": "Vilamarxant C.F.",
+    "campo": "Campo Tramo III del Turia F-8(HA)",
     "resultado": null,
-    "es_local": false,
+    "es_local": true,
     "victoria": null,
-    "maps_url": "https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20Salvador%20Marti%20F-8%20Campo%201%20Pobla%20Vallbona%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
   },
-  "ultimos_resultados": [],
+  "ultimos_resultados": [
+    {
+      "jornada": 1,
+      "id_partido": "26450734",
+      "fecha": "2026-01-11",
+      "hora": "09:30",
+      "local": "Atlètic Vallbonense 'A'",
+      "visitante": "C.F. Extramurs Valencia 'A'",
+      "campo": "Polideportivo Mpal. Salvador Marti F-8 Campo 1 Pobla Vallbona(HA)",
+      "resultado": "1-0",
+      "es_local": false,
+      "victoria": false,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20Salvador%20Marti%20F-8%20Campo%201%20Pobla%20Vallbona%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
+    }
+  ],
   "clasificacion": [
     {
       "posicion": 1,
@@ -37,7 +51,7 @@
     },
     {
       "posicion": 3,
-      "equipo": "Los Silos C.F. - Promises Valencia 'A'",
+      "equipo": "Atlètic Vallbonense 'A'",
       "puntos": 3,
       "pj": 1,
       "pg": 1,
@@ -46,39 +60,39 @@
     },
     {
       "posicion": 4,
-      "equipo": "Atlètic Vallbonense 'A'",
-      "puntos": 0,
-      "pj": 0,
-      "pg": 0,
+      "equipo": "S.F.A.C. San Antonio Benagéber 'A'",
+      "puntos": 3,
+      "pj": 1,
+      "pg": 1,
       "pe": 0,
       "pp": 0
     },
     {
       "posicion": 5,
-      "equipo": "C.F. Històrics de València 'C'",
-      "puntos": 0,
-      "pj": 0,
-      "pg": 0,
+      "equipo": "Los Silos C.F. - Promises Valencia 'A'",
+      "puntos": 3,
+      "pj": 1,
+      "pg": 1,
       "pe": 0,
       "pp": 0
     },
     {
       "posicion": 6,
-      "equipo": "S.F.A.C. San Antonio Benagéber 'A'",
+      "equipo": "C.F. Històrics de València 'C'",
       "puntos": 0,
-      "pj": 0,
+      "pj": 1,
       "pg": 0,
       "pe": 0,
-      "pp": 0
+      "pp": 1
     },
     {
       "posicion": 7,
       "equipo": "C.F. Extramurs Valencia 'A'",
       "puntos": 0,
-      "pj": 0,
+      "pj": 1,
       "pg": 0,
       "pe": 0,
-      "pp": 0
+      "pp": 1
     },
     {
       "posicion": 8,
@@ -117,9 +131,9 @@
       "local": "Atlètic Vallbonense 'A'",
       "visitante": "C.F. Extramurs Valencia 'A'",
       "campo": "Polideportivo Mpal. Salvador Marti F-8 Campo 1 Pobla Vallbona(HA)",
-      "resultado": null,
+      "resultado": "1-0",
       "es_local": false,
-      "victoria": null,
+      "victoria": false,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20Salvador%20Marti%20F-8%20Campo%201%20Pobla%20Vallbona%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
     },
     {
