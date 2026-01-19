@@ -1,14 +1,14 @@
 {
   "equipo": "C.F. Extramurs Valencia 'A'",
   "grupo": "Lliga Regular Grup 6",
-  "ultima_actualizacion": "2026-01-18T06:27:01.053970",
+  "ultima_actualizacion": "2026-01-19T06:34:02.053362",
   "proximo_partido": {
-    "jornada": 2,
-    "id_partido": "26450739",
-    "fecha": "2026-01-18",
+    "jornada": 3,
+    "id_partido": "26450744",
+    "fecha": "2026-01-25",
     "hora": "10:15",
     "local": "C.F. Extramurs Valencia 'A'",
-    "visitante": "Vilamarxant C.F.",
+    "visitante": "C.F. Cracks 'B'",
     "campo": "Campo Tramo III del Turia F-8(HA)",
     "resultado": null,
     "es_local": true,
@@ -16,6 +16,19 @@
     "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
   },
   "ultimos_resultados": [
+    {
+      "jornada": 2,
+      "id_partido": "26450739",
+      "fecha": "2026-01-18",
+      "hora": "10:15",
+      "local": "C.F. Extramurs Valencia 'A'",
+      "visitante": "Vilamarxant C.F.",
+      "campo": "Campo Tramo III del Turia F-8(HA)",
+      "resultado": "6-7",
+      "es_local": true,
+      "victoria": false,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
+    },
     {
       "jornada": 1,
       "id_partido": "26450734",
@@ -78,16 +91,16 @@
     },
     {
       "posicion": 6,
-      "equipo": "C.F. Extramurs Valencia 'A'",
-      "puntos": 0,
-      "pj": 1,
-      "pg": 0,
+      "equipo": "Vilamarxant C.F.",
+      "puntos": 3,
+      "pj": 2,
+      "pg": 1,
       "pe": 0,
       "pp": 1
     },
     {
       "posicion": 7,
-      "equipo": "C.F. Torre Levante 'A'",
+      "equipo": "C.F. Extramurs Valencia 'A'",
       "puntos": 0,
       "pj": 2,
       "pg": 0,
@@ -96,12 +109,12 @@
     },
     {
       "posicion": 8,
-      "equipo": "Vilamarxant C.F.",
+      "equipo": "C.F. Torre Levante 'A'",
       "puntos": 0,
-      "pj": 1,
+      "pj": 2,
       "pg": 0,
       "pe": 0,
-      "pp": 1
+      "pp": 2
     },
     {
       "posicion": 9,
@@ -144,9 +157,9 @@
       "local": "C.F. Extramurs Valencia 'A'",
       "visitante": "Vilamarxant C.F.",
       "campo": "Campo Tramo III del Turia F-8(HA)",
-      "resultado": null,
+      "resultado": "6-7",
       "es_local": true,
-      "victoria": null,
+      "victoria": false,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
     },
     {
