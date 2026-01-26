@@ -1,12 +1,12 @@
 {
   "equipo": "C.F. Extramurs Valencia 'B'",
   "grupo": "Lliga Regular Grup 12",
-  "ultima_actualizacion": "2026-01-25T06:28:42.109961",
+  "ultima_actualizacion": "2026-01-26T06:34:22.006958",
   "proximo_partido": {
     "jornada": 4,
     "id_partido": "26451290",
-    "fecha": "2026-02-01",
-    "hora": "10:00",
+    "fecha": "2026-01-30",
+    "hora": "18:30",
     "local": "INTER CHIVA C.F. 'A'",
     "visitante": "C.F. Extramurs Valencia 'B'",
     "campo": "Campo Mpal. La Murta Chiva F-8 Campo 1(HA)",
@@ -16,6 +16,19 @@
     "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Mpal.%20La%20Murta%20Chiva%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
   },
   "ultimos_resultados": [
+    {
+      "jornada": 3,
+      "id_partido": "26451284",
+      "fecha": "2026-01-24",
+      "hora": "13:30",
+      "local": "C.F. Extramurs Valencia 'B'",
+      "visitante": "Discóbolo-La Torre A.C. 'A'",
+      "campo": "Campo Tramo III del Turia F-8(HA)",
+      "resultado": "2-6",
+      "es_local": true,
+      "victoria": false,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
+    },
     {
       "jornada": 2,
       "id_partido": "26451279",
@@ -47,9 +60,9 @@
     {
       "posicion": 1,
       "equipo": "INTER CHIVA C.F. 'A'",
-      "puntos": 6,
-      "pj": 2,
-      "pg": 2,
+      "puntos": 9,
+      "pj": 3,
+      "pg": 3,
       "pe": 0,
       "pp": 0
     },
@@ -120,10 +133,10 @@
       "posicion": 9,
       "equipo": "C.D. Malilla 'B'",
       "puntos": 0,
-      "pj": 2,
+      "pj": 3,
       "pg": 0,
       "pe": 0,
-      "pp": 2
+      "pp": 3
     }
   ],
   "todos_partidos": [
@@ -161,16 +174,16 @@
       "local": "C.F. Extramurs Valencia 'B'",
       "visitante": "Discóbolo-La Torre A.C. 'A'",
       "campo": "Campo Tramo III del Turia F-8(HA)",
-      "resultado": null,
+      "resultado": "2-6",
       "es_local": true,
-      "victoria": null,
+      "victoria": false,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
     },
     {
       "jornada": 4,
       "id_partido": "26451290",
-      "fecha": "2026-02-01",
-      "hora": "10:00",
+      "fecha": "2026-01-30",
+      "hora": "18:30",
       "local": "INTER CHIVA C.F. 'A'",
       "visitante": "C.F. Extramurs Valencia 'B'",
       "campo": "Campo Mpal. La Murta Chiva F-8 Campo 1(HA)",
