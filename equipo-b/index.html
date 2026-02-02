@@ -1279,11 +1279,27 @@
                         L
                     </div>
                     
+                    <div class="streak-badge loss">
+                        L
+                    </div>
+                    
                 </div>
             </div>
             
             
             <div class="results-list">
+                
+                <div class="result-item">
+                    <div class="result-badge loss">
+                        L
+                    </div>
+                    <div class="result-content">
+                        <div class="result-match">
+                            INTER CHIVA C.F. 'A' <span class="result-score">8-1</span> C.F. Extramurs Valencia 'B'
+                        </div>
+                        <div class="result-date">2026-01-30</div>
+                    </div>
+                </div>
                 
                 <div class="result-item">
                     <div class="result-badge loss">
@@ -1373,25 +1389,25 @@
                             <td>3</td>
                             <td>Discóbolo-La Torre A.C. 'A'</td>
                             <td><strong>6</strong></td>
-                            <td>3</td>
+                            <td>4</td>
                             <td>2</td>
                             <td>0</td>
-                            <td>1</td>
+                            <td>2</td>
                         </tr>
                         
                         <tr class="">
                             <td>4</td>
-                            <td>At. Ciudad Paiporta 'A'</td>
-                            <td><strong>3</strong></td>
+                            <td>U.D. Aldaia C.F. 'B'</td>
+                            <td><strong>6</strong></td>
+                            <td>4</td>
                             <td>2</td>
-                            <td>1</td>
                             <td>0</td>
-                            <td>1</td>
+                            <td>2</td>
                         </tr>
                         
                         <tr class="">
                             <td>5</td>
-                            <td>Evangélico C.F. 'A'</td>
+                            <td>Deportivo La Rambleta C.F.</td>
                             <td><strong>4</strong></td>
                             <td>3</td>
                             <td>1</td>
@@ -1401,7 +1417,17 @@
                         
                         <tr class="">
                             <td>6</td>
-                            <td>U.D. Aldaia C.F. 'B'</td>
+                            <td>Evangélico C.F. 'A'</td>
+                            <td><strong>4</strong></td>
+                            <td>3</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                        </tr>
+                        
+                        <tr class="">
+                            <td>7</td>
+                            <td>At. Ciudad Paiporta 'A'</td>
                             <td><strong>3</strong></td>
                             <td>3</td>
                             <td>1</td>
@@ -1410,23 +1436,13 @@
                         </tr>
                         
                         <tr class="team-current">
-                            <td>7</td>
+                            <td>8</td>
                             <td>C.F. Extramurs Valencia 'B'</td>
                             <td><strong>4</strong></td>
                             <td>4</td>
                             <td>1</td>
                             <td>1</td>
                             <td>2</td>
-                        </tr>
-                        
-                        <tr class="">
-                            <td>8</td>
-                            <td>Deportivo La Rambleta C.F.</td>
-                            <td><strong>1</strong></td>
-                            <td>2</td>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>1</td>
                         </tr>
                         
                         <tr class="">
@@ -1448,7 +1464,7 @@
 
         <!-- Footer -->
         <div class="footer">
-            <p><strong>Última actualización:</strong> 01/02/2026 - 06:45</p>
+            <p><strong>Última actualización:</strong> 02/02/2026 - 06:59</p>
         </div>
     </div>
 
@@ -1464,7 +1480,7 @@
         // Calendario Interactivo
         (function() {
             // Datos de partidos desde el template
-            const matchesData = [{"campo": "Campo de Futbol Mpal. Malilla F-8 Campo n\u00ba 3 Anexo(HA)", "es_local": false, "fecha": "2026-01-11", "hora": "12:00", "id_partido": "26451274", "jornada": 1, "local": "C.D. Malilla \u0027B\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20de%20Futbol%20Mpal.%20Malilla%20F-8%20Campo%20n%C2%BA%203%20Anexo%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": "2-3", "victoria": true, "visitante": "C.F. Extramurs Valencia \u0027B\u0027"}, {"campo": "Campo Tramo III del Turia F-8(HA)", "es_local": true, "fecha": "2026-01-18", "hora": "11:30", "id_partido": "26451279", "jornada": 2, "local": "C.F. Extramurs Valencia \u0027B\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": "3-3", "victoria": null, "visitante": "Deportivo La Rambleta C.F."}, {"campo": "Campo Tramo III del Turia F-8(HA)", "es_local": true, "fecha": "2026-01-24", "hora": "13:30", "id_partido": "26451284", "jornada": 3, "local": "C.F. Extramurs Valencia \u0027B\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": "2-6", "victoria": false, "visitante": "Disc\u00f3bolo-La Torre A.C. \u0027A\u0027"}, {"campo": "Campo Mpal. La Murta Chiva F-8 Campo 1(HA)", "es_local": false, "fecha": "2026-01-30", "hora": "19:00", "id_partido": "26451290", "jornada": 4, "local": "INTER CHIVA C.F. \u0027A\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Mpal.%20La%20Murta%20Chiva%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": null, "victoria": null, "visitante": "C.F. Extramurs Valencia \u0027B\u0027"}, {"campo": "Campo Tramo III del Turia F-8(HA)", "es_local": true, "fecha": "2026-02-08", "hora": "12:45", "id_partido": "26451295", "jornada": 5, "local": "C.F. Extramurs Valencia \u0027B\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": null, "victoria": null, "visitante": "U.D. Fonteta \u0027A\u0027"}, {"campo": "Campo de F\u00fatbol Mpal. El Terrer F-8 Campo 1 Paiporta(HA)", "es_local": false, "fecha": "2026-02-14", "hora": "09:00", "id_partido": "26451301", "jornada": 6, "local": "At. Ciudad Paiporta \u0027A\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20de%20F%C3%BAtbol%20Mpal.%20El%20Terrer%20F-8%20Campo%201%20Paiporta%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": null, "victoria": null, "visitante": "C.F. Extramurs Valencia \u0027B\u0027"}, {"campo": "", "es_local": true, "fecha": null, "hora": "", "id_partido": "26451306", "jornada": 7, "local": "C.F. Extramurs Valencia \u0027B\u0027", "maps_url": null, "resultado": null, "victoria": null, "visitante": "Equipo Fuera (No asignado)"}, {"campo": "Campo Futbol Nova Vida C.T.C F-8 Campo 1 Torrent(HA)", "es_local": false, "fecha": "2026-02-27", "hora": "18:30", "id_partido": "26451312", "jornada": 8, "local": "Evang\u00e9lico C.F. \u0027A\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Futbol%20Nova%20Vida%20C.T.C%20F-8%20Campo%201%20Torrent%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": null, "victoria": null, "visitante": "C.F. Extramurs Valencia \u0027B\u0027"}, {"campo": "Campo Tramo III del Turia F-8(HA)", "es_local": true, "fecha": "2026-03-08", "hora": "12:45", "id_partido": "26451317", "jornada": 9, "local": "C.F. Extramurs Valencia \u0027B\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": null, "victoria": null, "visitante": "U.D. Aldaia C.F. \u0027B\u0027"}, {"campo": "Campo Tramo III del Turia F-8(HA)", "es_local": true, "fecha": "2026-03-15", "hora": "12:45", "id_partido": "26451319", "jornada": 10, "local": "C.F. Extramurs Valencia \u0027B\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": null, "victoria": null, "visitante": "C.D. Malilla \u0027B\u0027"}, {"campo": "Camp de Futbol Mpal. Tres Creus F-8 Campo 1(HA)", "es_local": false, "fecha": "2026-03-28", "hora": "10:00", "id_partido": "26451324", "jornada": 11, "local": "Deportivo La Rambleta C.F.", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Camp%20de%20Futbol%20Mpal.%20Tres%20Creus%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": null, "victoria": null, "visitante": "C.F. Extramurs Valencia \u0027B\u0027"}, {"campo": "Campo Futbol Mpal. La Torre-Faitanar F-8 Campo 1 (Valencia )(HA)", "es_local": false, "fecha": "2026-04-11", "hora": "09:00", "id_partido": "26451329", "jornada": 12, "local": "Disc\u00f3bolo-La Torre A.C. \u0027A\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Futbol%20Mpal.%20La%20Torre-Faitanar%20F-8%20Campo%201%20%28Valencia%20%29%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": null, "victoria": null, "visitante": "C.F. Extramurs Valencia \u0027B\u0027"}, {"campo": "Campo Tramo III del Turia F-8(HA)", "es_local": true, "fecha": "2026-04-19", "hora": "12:45", "id_partido": "26451335", "jornada": 13, "local": "C.F. Extramurs Valencia \u0027B\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": null, "victoria": null, "visitante": "INTER CHIVA C.F. \u0027A\u0027"}, {"campo": "Polideportivo Mpal. Quatre Carreres F-8 Campo 1(HA)", "es_local": false, "fecha": "2026-04-25", "hora": "11:00", "id_partido": "26451340", "jornada": 14, "local": "U.D. Fonteta \u0027A\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Polideportivo%20Mpal.%20Quatre%20Carreres%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": null, "victoria": null, "visitante": "C.F. Extramurs Valencia \u0027B\u0027"}, {"campo": "Campo Tramo III del Turia F-8(HA)", "es_local": true, "fecha": "2026-05-10", "hora": "12:45", "id_partido": "26451346", "jornada": 15, "local": "C.F. Extramurs Valencia \u0027B\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": null, "victoria": null, "visitante": "At. Ciudad Paiporta \u0027A\u0027"}, {"campo": "", "es_local": false, "fecha": null, "hora": "", "id_partido": "26451351", "jornada": 16, "local": "Equipo Casa (No asignado)", "maps_url": null, "resultado": null, "victoria": null, "visitante": "C.F. Extramurs Valencia \u0027B\u0027"}, {"campo": "Campo Tramo III del Turia F-8(HA)", "es_local": true, "fecha": "2026-05-24", "hora": "12:45", "id_partido": "26451357", "jornada": 17, "local": "C.F. Extramurs Valencia \u0027B\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": null, "victoria": null, "visitante": "Evang\u00e9lico C.F. \u0027A\u0027"}, {"campo": "Polideportivo Mpal. de Aldaia F-8 Campo 2(HA)", "es_local": false, "fecha": "2026-05-30", "hora": "15:00", "id_partido": "26451362", "jornada": 18, "local": "U.D. Aldaia C.F. \u0027B\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Polideportivo%20Mpal.%20de%20Aldaia%20F-8%20Campo%202%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": null, "victoria": null, "visitante": "C.F. Extramurs Valencia \u0027B\u0027"}];
+            const matchesData = [{"campo": "Campo de Futbol Mpal. Malilla F-8 Campo n\u00ba 3 Anexo(HA)", "es_local": false, "fecha": "2026-01-11", "hora": "12:00", "id_partido": "26451274", "jornada": 1, "local": "C.D. Malilla \u0027B\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20de%20Futbol%20Mpal.%20Malilla%20F-8%20Campo%20n%C2%BA%203%20Anexo%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": "2-3", "victoria": true, "visitante": "C.F. Extramurs Valencia \u0027B\u0027"}, {"campo": "Campo Tramo III del Turia F-8(HA)", "es_local": true, "fecha": "2026-01-18", "hora": "11:30", "id_partido": "26451279", "jornada": 2, "local": "C.F. Extramurs Valencia \u0027B\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": "3-3", "victoria": null, "visitante": "Deportivo La Rambleta C.F."}, {"campo": "Campo Tramo III del Turia F-8(HA)", "es_local": true, "fecha": "2026-01-24", "hora": "13:30", "id_partido": "26451284", "jornada": 3, "local": "C.F. Extramurs Valencia \u0027B\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": "2-6", "victoria": false, "visitante": "Disc\u00f3bolo-La Torre A.C. \u0027A\u0027"}, {"campo": "Campo Mpal. La Murta Chiva F-8 Campo 1(HA)", "es_local": false, "fecha": "2026-01-30", "hora": "19:00", "id_partido": "26451290", "jornada": 4, "local": "INTER CHIVA C.F. \u0027A\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Mpal.%20La%20Murta%20Chiva%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": "8-1", "victoria": false, "visitante": "C.F. Extramurs Valencia \u0027B\u0027"}, {"campo": "Campo Tramo III del Turia F-8(HA)", "es_local": true, "fecha": "2026-02-08", "hora": "12:45", "id_partido": "26451295", "jornada": 5, "local": "C.F. Extramurs Valencia \u0027B\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": null, "victoria": null, "visitante": "U.D. Fonteta \u0027A\u0027"}, {"campo": "Campo de F\u00fatbol Mpal. El Terrer F-8 Campo 1 Paiporta(HA)", "es_local": false, "fecha": "2026-02-14", "hora": "09:00", "id_partido": "26451301", "jornada": 6, "local": "At. Ciudad Paiporta \u0027A\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20de%20F%C3%BAtbol%20Mpal.%20El%20Terrer%20F-8%20Campo%201%20Paiporta%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": null, "victoria": null, "visitante": "C.F. Extramurs Valencia \u0027B\u0027"}, {"campo": "", "es_local": true, "fecha": null, "hora": "", "id_partido": "26451306", "jornada": 7, "local": "C.F. Extramurs Valencia \u0027B\u0027", "maps_url": null, "resultado": null, "victoria": null, "visitante": "Equipo Fuera (No asignado)"}, {"campo": "Campo Futbol Nova Vida C.T.C F-8 Campo 1 Torrent(HA)", "es_local": false, "fecha": "2026-02-27", "hora": "18:30", "id_partido": "26451312", "jornada": 8, "local": "Evang\u00e9lico C.F. \u0027A\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Futbol%20Nova%20Vida%20C.T.C%20F-8%20Campo%201%20Torrent%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": null, "victoria": null, "visitante": "C.F. Extramurs Valencia \u0027B\u0027"}, {"campo": "Campo Tramo III del Turia F-8(HA)", "es_local": true, "fecha": "2026-03-08", "hora": "12:45", "id_partido": "26451317", "jornada": 9, "local": "C.F. Extramurs Valencia \u0027B\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": null, "victoria": null, "visitante": "U.D. Aldaia C.F. \u0027B\u0027"}, {"campo": "Campo Tramo III del Turia F-8(HA)", "es_local": true, "fecha": "2026-03-15", "hora": "12:45", "id_partido": "26451319", "jornada": 10, "local": "C.F. Extramurs Valencia \u0027B\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": null, "victoria": null, "visitante": "C.D. Malilla \u0027B\u0027"}, {"campo": "Camp de Futbol Mpal. Tres Creus F-8 Campo 1(HA)", "es_local": false, "fecha": "2026-03-28", "hora": "10:00", "id_partido": "26451324", "jornada": 11, "local": "Deportivo La Rambleta C.F.", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Camp%20de%20Futbol%20Mpal.%20Tres%20Creus%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": null, "victoria": null, "visitante": "C.F. Extramurs Valencia \u0027B\u0027"}, {"campo": "Campo Futbol Mpal. La Torre-Faitanar F-8 Campo 1 (Valencia )(HA)", "es_local": false, "fecha": "2026-04-11", "hora": "09:00", "id_partido": "26451329", "jornada": 12, "local": "Disc\u00f3bolo-La Torre A.C. \u0027A\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Futbol%20Mpal.%20La%20Torre-Faitanar%20F-8%20Campo%201%20%28Valencia%20%29%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": null, "victoria": null, "visitante": "C.F. Extramurs Valencia \u0027B\u0027"}, {"campo": "Campo Tramo III del Turia F-8(HA)", "es_local": true, "fecha": "2026-04-19", "hora": "12:45", "id_partido": "26451335", "jornada": 13, "local": "C.F. Extramurs Valencia \u0027B\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": null, "victoria": null, "visitante": "INTER CHIVA C.F. \u0027A\u0027"}, {"campo": "Polideportivo Mpal. Quatre Carreres F-8 Campo 1(HA)", "es_local": false, "fecha": "2026-04-25", "hora": "11:00", "id_partido": "26451340", "jornada": 14, "local": "U.D. Fonteta \u0027A\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Polideportivo%20Mpal.%20Quatre%20Carreres%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": null, "victoria": null, "visitante": "C.F. Extramurs Valencia \u0027B\u0027"}, {"campo": "Campo Tramo III del Turia F-8(HA)", "es_local": true, "fecha": "2026-05-10", "hora": "12:45", "id_partido": "26451346", "jornada": 15, "local": "C.F. Extramurs Valencia \u0027B\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": null, "victoria": null, "visitante": "At. Ciudad Paiporta \u0027A\u0027"}, {"campo": "", "es_local": false, "fecha": null, "hora": "", "id_partido": "26451351", "jornada": 16, "local": "Equipo Casa (No asignado)", "maps_url": null, "resultado": null, "victoria": null, "visitante": "C.F. Extramurs Valencia \u0027B\u0027"}, {"campo": "Campo Tramo III del Turia F-8(HA)", "es_local": true, "fecha": "2026-05-24", "hora": "12:45", "id_partido": "26451357", "jornada": 17, "local": "C.F. Extramurs Valencia \u0027B\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": null, "victoria": null, "visitante": "Evang\u00e9lico C.F. \u0027A\u0027"}, {"campo": "Polideportivo Mpal. de Aldaia F-8 Campo 2(HA)", "es_local": false, "fecha": "2026-05-30", "hora": "15:00", "id_partido": "26451362", "jornada": 18, "local": "U.D. Aldaia C.F. \u0027B\u0027", "maps_url": "https://www.google.com/maps/search/?api=1\u0026query=Polideportivo%20Mpal.%20de%20Aldaia%20F-8%20Campo%202%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a", "resultado": null, "victoria": null, "visitante": "C.F. Extramurs Valencia \u0027B\u0027"}];
 
             // Estado del calendario
             let currentMonth = new Date().getMonth();

@@ -1,7 +1,7 @@
 {
   "equipo": "C.F. Extramurs Valencia 'B'",
   "grupo": "Lliga Regular Grup 12",
-  "ultima_actualizacion": "2026-02-01T06:45:12.050028",
+  "ultima_actualizacion": "2026-02-02T06:59:56.607018",
   "proximo_partido": {
     "jornada": 5,
     "id_partido": "26451295",
@@ -16,6 +16,19 @@
     "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
   },
   "ultimos_resultados": [
+    {
+      "jornada": 4,
+      "id_partido": "26451290",
+      "fecha": "2026-01-30",
+      "hora": "19:00",
+      "local": "INTER CHIVA C.F. 'A'",
+      "visitante": "C.F. Extramurs Valencia 'B'",
+      "campo": "Campo Mpal. La Murta Chiva F-8 Campo 1(HA)",
+      "resultado": "8-1",
+      "es_local": false,
+      "victoria": false,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Mpal.%20La%20Murta%20Chiva%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
+    },
     {
       "jornada": 3,
       "id_partido": "26451284",
@@ -79,23 +92,23 @@
       "posicion": 3,
       "equipo": "Discóbolo-La Torre A.C. 'A'",
       "puntos": 6,
-      "pj": 3,
+      "pj": 4,
       "pg": 2,
       "pe": 0,
-      "pp": 1
+      "pp": 2
     },
     {
       "posicion": 4,
-      "equipo": "At. Ciudad Paiporta 'A'",
-      "puntos": 3,
-      "pj": 2,
-      "pg": 1,
+      "equipo": "U.D. Aldaia C.F. 'B'",
+      "puntos": 6,
+      "pj": 4,
+      "pg": 2,
       "pe": 0,
-      "pp": 1
+      "pp": 2
     },
     {
       "posicion": 5,
-      "equipo": "Evangélico C.F. 'A'",
+      "equipo": "Deportivo La Rambleta C.F.",
       "puntos": 4,
       "pj": 3,
       "pg": 1,
@@ -104,7 +117,16 @@
     },
     {
       "posicion": 6,
-      "equipo": "U.D. Aldaia C.F. 'B'",
+      "equipo": "Evangélico C.F. 'A'",
+      "puntos": 4,
+      "pj": 3,
+      "pg": 1,
+      "pe": 1,
+      "pp": 1
+    },
+    {
+      "posicion": 7,
+      "equipo": "At. Ciudad Paiporta 'A'",
       "puntos": 3,
       "pj": 3,
       "pg": 1,
@@ -112,22 +134,13 @@
       "pp": 2
     },
     {
-      "posicion": 7,
+      "posicion": 8,
       "equipo": "C.F. Extramurs Valencia 'B'",
       "puntos": 4,
       "pj": 4,
       "pg": 1,
       "pe": 1,
       "pp": 2
-    },
-    {
-      "posicion": 8,
-      "equipo": "Deportivo La Rambleta C.F.",
-      "puntos": 1,
-      "pj": 2,
-      "pg": 0,
-      "pe": 1,
-      "pp": 1
     },
     {
       "posicion": 9,
@@ -187,9 +200,9 @@
       "local": "INTER CHIVA C.F. 'A'",
       "visitante": "C.F. Extramurs Valencia 'B'",
       "campo": "Campo Mpal. La Murta Chiva F-8 Campo 1(HA)",
-      "resultado": null,
+      "resultado": "8-1",
       "es_local": false,
-      "victoria": null,
+      "victoria": false,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Mpal.%20La%20Murta%20Chiva%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
     },
     {
