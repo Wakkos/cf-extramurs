@@ -1,7 +1,7 @@
 {
   "equipo": "C.F. Extramurs Valencia 'A'",
   "grupo": "Lliga Regular Grup 6",
-  "ultima_actualizacion": "2026-02-08T06:44:58.449603",
+  "ultima_actualizacion": "2026-02-09T07:01:14.196966",
   "proximo_partido": {
     "jornada": 6,
     "id_partido": "26450761",
@@ -16,6 +16,19 @@
     "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20de%20F%C3%BAtbol%20Mpal.%20de%20Beniferri%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
   },
   "ultimos_resultados": [
+    {
+      "jornada": 5,
+      "id_partido": "26450755",
+      "fecha": "2026-02-07",
+      "hora": "17:30",
+      "local": "C.F. Extramurs Valencia 'A'",
+      "visitante": "S.F.A.C. San Antonio Benagéber 'A'",
+      "campo": "Campo Tramo III del Turia F-8(HA)",
+      "resultado": "5-1",
+      "es_local": true,
+      "victoria": true,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
+    },
     {
       "jornada": 4,
       "id_partido": "26450750",
@@ -91,10 +104,10 @@
     {
       "posicion": 3,
       "equipo": "Vilamarxant C.F.",
-      "puntos": 9,
-      "pj": 4,
+      "puntos": 10,
+      "pj": 5,
       "pg": 3,
-      "pe": 0,
+      "pe": 1,
       "pp": 1
     },
     {
@@ -136,10 +149,10 @@
     {
       "posicion": 8,
       "equipo": "C.F. Torre Levante 'A'",
-      "puntos": 3,
-      "pj": 4,
+      "puntos": 4,
+      "pj": 5,
       "pg": 1,
-      "pe": 0,
+      "pe": 1,
       "pp": 3
     },
     {
@@ -222,9 +235,9 @@
       "local": "C.F. Extramurs Valencia 'A'",
       "visitante": "S.F.A.C. San Antonio Benagéber 'A'",
       "campo": "Campo Tramo III del Turia F-8(HA)",
-      "resultado": null,
+      "resultado": "5-1",
       "es_local": true,
-      "victoria": null,
+      "victoria": true,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
     },
     {

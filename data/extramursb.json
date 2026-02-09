@@ -1,7 +1,7 @@
 {
   "equipo": "C.F. Extramurs Valencia 'B'",
   "grupo": "Lliga Regular Grup 12",
-  "ultima_actualizacion": "2026-02-08T06:45:43.712074",
+  "ultima_actualizacion": "2026-02-09T07:01:59.112380",
   "proximo_partido": {
     "jornada": 6,
     "id_partido": "26451301",
@@ -16,6 +16,19 @@
     "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20de%20F%C3%BAtbol%20Mpal.%20El%20Terrer%20F-8%20Campo%201%20Paiporta%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
   },
   "ultimos_resultados": [
+    {
+      "jornada": 5,
+      "id_partido": "26451295",
+      "fecha": "2026-02-07",
+      "hora": "13:30",
+      "local": "C.F. Extramurs Valencia 'B'",
+      "visitante": "U.D. Fonteta 'A'",
+      "campo": "Campo Tramo III del Turia F-8(HA)",
+      "resultado": "2-13",
+      "es_local": true,
+      "victoria": false,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
+    },
     {
       "jornada": 4,
       "id_partido": "26451290",
@@ -213,9 +226,9 @@
       "local": "C.F. Extramurs Valencia 'B'",
       "visitante": "U.D. Fonteta 'A'",
       "campo": "Campo Tramo III del Turia F-8(HA)",
-      "resultado": null,
+      "resultado": "2-13",
       "es_local": true,
-      "victoria": null,
+      "victoria": false,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
     },
     {
