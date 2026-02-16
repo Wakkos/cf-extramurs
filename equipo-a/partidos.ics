@@ -3,67 +3,22 @@ VERSION:2.0
 PRODID:Extramurs Calendar Bot
 X-WR-CALNAME:C.F. Extramurs Valencia 'A' - Lliga Regular Grup 6
 BEGIN:VEVENT
-DESCRIPTION:Jornada 12\nCampo: Instalaciones Cracks F-8 Campo 4(HA)
-DURATION:PT1H
-LOCATION:Instalaciones Cracks F-8 Campo 4(HA)
-DTSTART:20260411T113000Z
-SUMMARY:C.F. Cracks 'B' vs C.F. Extramurs Valencia 'A'
-UID:cd7f03cc-0805-4ce6-89dc-4ce917578778@cd7f.org
-URL:https://www.google.com/maps/search/?api=1&query=Instalaciones%20Cracks%20F-8%20Campo%204%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 8\nCampo: Campo Torre Levante-Orriols F-8 Campo 1(HA)
-DURATION:PT1H
-LOCATION:Campo Torre Levante-Orriols F-8 Campo 1(HA)
-DTSTART:20260301T113000Z
-SUMMARY:C.F. Torre Levante 'A' vs C.F. Extramurs Valencia 'A'
-UID:969f78bf-ae50-43c9-bcdd-cf06ed18e180@969f.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Torre%20Levante-Orriols%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 16\nCampo: Poliesportiu Mpal. Marxalenes-Saïdia F-8 Campo 1(HA)
-DURATION:PT1H
-LOCATION:Poliesportiu Mpal. Marxalenes-Saïdia F-8 Campo 1(HA)
-DTSTART:20260517T101500Z
-SUMMARY:C.F. Històrics de València 'C' vs C.F. Extramurs Valencia 'A'
-UID:1a0b6682-ab2a-48cc-aea0-b2b8fe9a3aa8@1a0b.org
-URL:https://www.google.com/maps/search/?api=1&query=Poliesportiu%20Mpal.%20Marxalenes-Sa%C3%AFdia%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 7\nCampo: Campo Tramo III del Turia F-8(HA)
-DURATION:PT1H
-LOCATION:Campo Tramo III del Turia F-8(HA)
-DTSTART:20260221T123000Z
-SUMMARY:C.F. Extramurs Valencia 'A' vs C.F. Històrics de València 'C'
-UID:b79bfcb1-26ec-45b2-be2c-8b408ad1bd0e@b79b.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 1\nCampo: Polideportivo Mpal. Salvador Marti F-8 Campo 1 Pobla Vallbona(HA)
-DURATION:PT1H
-LOCATION:Polideportivo Mpal. Salvador Marti F-8 Campo 1 Pobla Vallbona(HA)
-DTSTART:20260111T093000Z
-SUMMARY:Atlètic Vallbonense 'A' 1-0 C.F. Extramurs Valencia 'A'
-UID:3712b814-95fb-4222-adb9-7ed68f34ab72@3712.org
-URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20Salvador%20Marti%20F-8%20Campo%201%20Pobla%20Vallbona%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 10\nCampo: Campo Tramo III del Turia F-8(HA)
-DURATION:PT1H
-LOCATION:Campo Tramo III del Turia F-8(HA)
-DTSTART:20260314T123000Z
-SUMMARY:C.F. Extramurs Valencia 'A' vs Atlètic Vallbonense 'A'
-UID:80bacf13-75dc-4c50-b7fe-cbe5c35f051a@80ba.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
 DESCRIPTION:Jornada 11\nCampo: Campo Mpal. Germans Albiol F-8 Campo 1 Vilamarxant(HA)
 DURATION:PT1H
 LOCATION:Campo Mpal. Germans Albiol F-8 Campo 1 Vilamarxant(HA)
 DTSTART:20260328T090000Z
 SUMMARY:Vilamarxant C.F. vs C.F. Extramurs Valencia 'A'
-UID:0cfebc05-69ff-432b-ae29-ee78252ad8f8@0cfe.org
+UID:f6bd0bd6-d01b-43bb-bb0a-325a42f6bb9e@f6bd.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Mpal.%20Germans%20Albiol%20F-8%20Campo%201%20Vilamarxant%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 12\nCampo: Instalaciones Cracks F-8 Campo 4(HA)
+DURATION:PT1H
+LOCATION:Instalaciones Cracks F-8 Campo 4(HA)
+DTSTART:20260411T113000Z
+SUMMARY:C.F. Cracks 'B' vs C.F. Extramurs Valencia 'A'
+UID:5130a78f-bf8e-4f41-abc6-43c6563e5dba@5130.org
+URL:https://www.google.com/maps/search/?api=1&query=Instalaciones%20Cracks%20F-8%20Campo%204%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Jornada 15\nCampo: Campo Tramo III del Turia F-8(HA)
@@ -71,8 +26,44 @@ DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-8(HA)
 DTSTART:20260509T123000Z
 SUMMARY:C.F. Extramurs Valencia 'A' vs C.F. Inter San José Valencia 'C'
-UID:a6a92bc1-6183-4a00-bd6d-32db41c8faf5@a6a9.org
+UID:73832482-6bfe-483c-b16b-0bb0a470bb42@7383.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 5\nCampo: Campo Tramo III del Turia F-8(HA)
+DURATION:PT1H
+LOCATION:Campo Tramo III del Turia F-8(HA)
+DTSTART:20260207T173000Z
+SUMMARY:C.F. Extramurs Valencia 'A' 5-1 S.F.A.C. San Antonio Benagéber 'A'
+UID:11e2992c-2ae9-4f6f-801f-a43112561d0b@11e2.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 6\nCampo: Campo de Fútbol Mpal. de Beniferri F-8 Campo 1(HA)
+DURATION:PT1H
+LOCATION:Campo de Fútbol Mpal. de Beniferri F-8 Campo 1(HA)
+DTSTART:20260214T110000Z
+SUMMARY:C.F. Inter San José Valencia 'C' vs C.F. Extramurs Valencia 'A'
+UID:2f7a3f35-9bb3-4d60-9611-58c3cd1960e4@2f7a.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20de%20F%C3%BAtbol%20Mpal.%20de%20Beniferri%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 10\nCampo: Campo Tramo III del Turia F-8(HA)
+DURATION:PT1H
+LOCATION:Campo Tramo III del Turia F-8(HA)
+DTSTART:20260314T123000Z
+SUMMARY:C.F. Extramurs Valencia 'A' vs Atlètic Vallbonense 'A'
+UID:d6e90e8a-26c8-46b7-bd13-65a4b1dac352@d6e9.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 16\nCampo: Poliesportiu Mpal. Marxalenes-Saïdia F-8 Campo 1(HA)
+DURATION:PT1H
+LOCATION:Poliesportiu Mpal. Marxalenes-Saïdia F-8 Campo 1(HA)
+DTSTART:20260517T101500Z
+SUMMARY:C.F. Històrics de València 'C' vs C.F. Extramurs Valencia 'A'
+UID:82877306-ade7-41ec-8271-6d073f297726@8287.org
+URL:https://www.google.com/maps/search/?api=1&query=Poliesportiu%20Mpal.%20Marxalenes-Sa%C3%AFdia%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Jornada 3\nCampo: Campo Tramo III del Turia F-8(HA)
@@ -80,25 +71,16 @@ DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-8(HA)
 DTSTART:20260124T111500Z
 SUMMARY:C.F. Extramurs Valencia 'A' 5-3 C.F. Cracks 'B'
-UID:df5bdd18-64d2-4083-94f6-30bc980ff3b7@df5b.org
+UID:4c0d503e-7bef-46a6-9e40-a1d1bb31d387@4c0d.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
-DESCRIPTION:Jornada 14\nCampo: Campo de Fútbol Mpal. San Ant. de Benageber I F-8 Campo 1(HA)
-DURATION:PT1H
-LOCATION:Campo de Fútbol Mpal. San Ant. de Benageber I F-8 Campo 1(HA)
-DTSTART:20260425T110000Z
-SUMMARY:S.F.A.C. San Antonio Benagéber 'A' vs C.F. Extramurs Valencia 'A'
-UID:380f87dc-9b0e-4324-81ac-93e3d2a24503@380f.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20de%20F%C3%BAtbol%20Mpal.%20San%20Ant.%20de%20Benageber%20I%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 17\nCampo: Campo Tramo III del Turia F-8(HA)
+DESCRIPTION:Jornada 13\nCampo: Campo Tramo III del Turia F-8(HA)
 DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-8(HA)
-DTSTART:20260523T123000Z
-SUMMARY:C.F. Extramurs Valencia 'A' vs C.F. Torre Levante 'A'
-UID:28a14647-df4a-4fef-adfa-310df48ed51a@28a1.org
+DTSTART:20260418T123000Z
+SUMMARY:C.F. Extramurs Valencia 'A' vs Los Silos C.F. - Promises Valencia 'A'
+UID:d40fa3f8-9611-4edb-844b-a96b236c828a@d40f.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
@@ -107,26 +89,26 @@ DURATION:PT1H
 LOCATION:Campo Las Oliveras F-8 Burjassot(T)
 DTSTART:20260131T101500Z
 SUMMARY:Los Silos C.F. - Promises Valencia 'A' 2-4 C.F. Extramurs Valencia 'A'
-UID:dab23889-6983-4933-99a8-37d21005fa12@dab2.org
+UID:d6a8b3d6-57a1-4794-bd96-99b3b0b674bd@d6a8.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Las%20Oliveras%20F-8%20Burjassot%28T%29%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
-DESCRIPTION:Jornada 6\nCampo: Campo de Fútbol Mpal. de Beniferri F-8 Campo 1(HA)
-DURATION:PT1H
-LOCATION:Campo de Fútbol Mpal. de Beniferri F-8 Campo 1(HA)
-DTSTART:20260214T110000Z
-SUMMARY:C.F. Inter San José Valencia 'C' vs C.F. Extramurs Valencia 'A'
-UID:da4d6a90-070c-425c-b001-83d1c2ddcd7b@da4d.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20de%20F%C3%BAtbol%20Mpal.%20de%20Beniferri%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 5\nCampo: Campo Tramo III del Turia F-8(HA)
+DESCRIPTION:Jornada 17\nCampo: Campo Tramo III del Turia F-8(HA)
 DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-8(HA)
-DTSTART:20260207T173000Z
-SUMMARY:C.F. Extramurs Valencia 'A' 5-1 S.F.A.C. San Antonio Benagéber 'A'
-UID:e826bcbf-7447-49b9-afe4-0329471eacd9@e826.org
+DTSTART:20260523T123000Z
+SUMMARY:C.F. Extramurs Valencia 'A' vs C.F. Torre Levante 'A'
+UID:6122f600-4285-4749-a7c7-63d73d46d861@6122.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 14\nCampo: Campo de Fútbol Mpal. San Ant. de Benageber I F-8 Campo 1(HA)
+DURATION:PT1H
+LOCATION:Campo de Fútbol Mpal. San Ant. de Benageber I F-8 Campo 1(HA)
+DTSTART:20260425T110000Z
+SUMMARY:S.F.A.C. San Antonio Benagéber 'A' vs C.F. Extramurs Valencia 'A'
+UID:1e7459e6-8abc-4434-8bcc-91b8ee54a7f5@1e74.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20de%20F%C3%BAtbol%20Mpal.%20San%20Ant.%20de%20Benageber%20I%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Jornada 18\nCampo: Estadio Gerardo Salvador F-8 Campo 1 Paterna(HA)
@@ -134,17 +116,35 @@ DURATION:PT1H
 LOCATION:Estadio Gerardo Salvador F-8 Campo 1 Paterna(HA)
 DTSTART:20260529T190000Z
 SUMMARY:Paterna C.F. 'A' vs C.F. Extramurs Valencia 'A'
-UID:5cb48e63-63dd-403a-bec5-93be611651e2@5cb4.org
+UID:50b9c9b7-9169-43b4-ab74-32e22a6c94e9@50b9.org
 URL:https://www.google.com/maps/search/?api=1&query=Estadio%20Gerardo%20Salvador%20F-8%20Campo%201%20Paterna%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
-DESCRIPTION:Jornada 13\nCampo: Campo Tramo III del Turia F-8(HA)
+DESCRIPTION:Jornada 7\nCampo: Campo Tramo III del Turia F-8(HA)
 DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-8(HA)
-DTSTART:20260418T123000Z
-SUMMARY:C.F. Extramurs Valencia 'A' vs Los Silos C.F. - Promises Valencia 'A'
-UID:40f367e0-391c-42e3-9ec1-98e5a2f7ffdf@40f3.org
+DTSTART:20260221T123000Z
+SUMMARY:C.F. Extramurs Valencia 'A' vs C.F. Històrics de València 'C'
+UID:7db1e4d3-9f01-4a11-a629-5bf25c25bf78@7db1.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 1\nCampo: Polideportivo Mpal. Salvador Marti F-8 Campo 1 Pobla Vallbona(HA)
+DURATION:PT1H
+LOCATION:Polideportivo Mpal. Salvador Marti F-8 Campo 1 Pobla Vallbona(HA)
+DTSTART:20260111T093000Z
+SUMMARY:Atlètic Vallbonense 'A' 1-0 C.F. Extramurs Valencia 'A'
+UID:7fe5b46d-980c-4211-a00c-4e977c61ceb3@7fe5.org
+URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20Salvador%20Marti%20F-8%20Campo%201%20Pobla%20Vallbona%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 8\nCampo: Campo Torre Levante-Orriols F-8 Campo 1(HA)
+DURATION:PT1H
+LOCATION:Campo Torre Levante-Orriols F-8 Campo 1(HA)
+DTSTART:20260301T113000Z
+SUMMARY:C.F. Torre Levante 'A' vs C.F. Extramurs Valencia 'A'
+UID:c6d7a441-e17b-45b4-bb0e-5bd50c3e4537@c6d7.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Torre%20Levante-Orriols%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Jornada 9\nCampo: Campo Tramo III del Turia F-8(HA)
@@ -152,7 +152,7 @@ DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-8(HA)
 DTSTART:20260307T123000Z
 SUMMARY:C.F. Extramurs Valencia 'A' vs Paterna C.F. 'A'
-UID:08ce63bb-4243-40f0-9e03-1aa2d78d6b79@08ce.org
+UID:72f3d866-ce3b-4b81-b18d-cf025f146dd9@72f3.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
@@ -161,7 +161,7 @@ DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-8(HA)
 DTSTART:20260118T101500Z
 SUMMARY:C.F. Extramurs Valencia 'A' 6-7 Vilamarxant C.F.
-UID:e68fb551-187b-4845-b108-200948677ad9@e68f.org
+UID:5b4754f3-3ccc-431a-b2ee-2920b49e1dde@5b47.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 END:VCALENDAR
