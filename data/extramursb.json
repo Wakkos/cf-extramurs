@@ -1,21 +1,34 @@
 {
   "equipo": "C.F. Extramurs Valencia 'B'",
   "grupo": "Lliga Regular Grup 12",
-  "ultima_actualizacion": "2026-02-15T06:48:11.360276",
+  "ultima_actualizacion": "2026-02-16T07:00:11.055520",
   "proximo_partido": {
-    "jornada": 6,
-    "id_partido": "26451301",
-    "fecha": "2026-02-15",
-    "hora": "10:00",
-    "local": "At. Ciudad Paiporta 'A'",
+    "jornada": 8,
+    "id_partido": "26451312",
+    "fecha": "2026-02-27",
+    "hora": "18:30",
+    "local": "Evangélico C.F. 'A'",
     "visitante": "C.F. Extramurs Valencia 'B'",
-    "campo": "Campo de Fútbol Mpal. El Terrer F-8 Campo 1 Paiporta(HA)",
+    "campo": "Campo Futbol Nova Vida C.T.C F-8 Campo 1 Torrent(HA)",
     "resultado": null,
     "es_local": false,
     "victoria": null,
-    "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20de%20F%C3%BAtbol%20Mpal.%20El%20Terrer%20F-8%20Campo%201%20Paiporta%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Futbol%20Nova%20Vida%20C.T.C%20F-8%20Campo%201%20Torrent%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
   },
   "ultimos_resultados": [
+    {
+      "jornada": 6,
+      "id_partido": "26451301",
+      "fecha": "2026-02-15",
+      "hora": "10:00",
+      "local": "At. Ciudad Paiporta 'A'",
+      "visitante": "C.F. Extramurs Valencia 'B'",
+      "campo": "Campo de Fútbol Mpal. El Terrer F-8 Campo 1 Paiporta(HA)",
+      "resultado": "7-2",
+      "es_local": false,
+      "victoria": false,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20de%20F%C3%BAtbol%20Mpal.%20El%20Terrer%20F-8%20Campo%201%20Paiporta%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
+    },
     {
       "jornada": 5,
       "id_partido": "26451295",
@@ -67,19 +80,6 @@
       "es_local": true,
       "victoria": null,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
-    },
-    {
-      "jornada": 1,
-      "id_partido": "26451274",
-      "fecha": "2026-01-11",
-      "hora": "12:00",
-      "local": "C.D. Malilla 'B'",
-      "visitante": "C.F. Extramurs Valencia 'B'",
-      "campo": "Campo de Futbol Mpal. Malilla F-8 Campo nº 3 Anexo(HA)",
-      "resultado": "2-3",
-      "es_local": false,
-      "victoria": true,
-      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20de%20Futbol%20Mpal.%20Malilla%20F-8%20Campo%20n%C2%BA%203%20Anexo%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
     }
   ],
   "clasificacion": [
@@ -103,16 +103,16 @@
     },
     {
       "posicion": 3,
-      "equipo": "Deportivo La Rambleta C.F.",
-      "puntos": 7,
-      "pj": 4,
-      "pg": 2,
+      "equipo": "At. Ciudad Paiporta 'A'",
+      "puntos": 10,
+      "pj": 5,
+      "pg": 3,
       "pe": 1,
       "pp": 1
     },
     {
       "posicion": 4,
-      "equipo": "At. Ciudad Paiporta 'A'",
+      "equipo": "Deportivo La Rambleta C.F.",
       "puntos": 7,
       "pj": 4,
       "pg": 2,
@@ -150,10 +150,10 @@
       "posicion": 8,
       "equipo": "C.F. Extramurs Valencia 'B'",
       "puntos": 4,
-      "pj": 5,
+      "pj": 6,
       "pg": 1,
       "pe": 1,
-      "pp": 3
+      "pp": 4
     },
     {
       "posicion": 9,
@@ -239,9 +239,9 @@
       "local": "At. Ciudad Paiporta 'A'",
       "visitante": "C.F. Extramurs Valencia 'B'",
       "campo": "Campo de Fútbol Mpal. El Terrer F-8 Campo 1 Paiporta(HA)",
-      "resultado": null,
+      "resultado": "7-2",
       "es_local": false,
-      "victoria": null,
+      "victoria": false,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20de%20F%C3%BAtbol%20Mpal.%20El%20Terrer%20F-8%20Campo%201%20Paiporta%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
     },
     {
