@@ -1,7 +1,7 @@
 {
   "equipo": "C.F. Extramurs Valencia 'A'",
   "grupo": "Lliga Regular Grup 6",
-  "ultima_actualizacion": "2026-02-22T06:42:49.960011",
+  "ultima_actualizacion": "2026-02-23T07:00:46.995006",
   "proximo_partido": {
     "jornada": 6,
     "id_partido": "26459064",
@@ -16,6 +16,19 @@
     "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20de%20F%C3%BAtbol%20Mpal.%20de%20Beniferri%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
   },
   "ultimos_resultados": [
+    {
+      "jornada": 7,
+      "id_partido": "26450766",
+      "fecha": "2026-02-21",
+      "hora": "12:20",
+      "local": "C.F. Extramurs Valencia 'A'",
+      "visitante": "C.F. Històrics de València 'C'",
+      "campo": "Campo Tramo III del Turia F-8(HA)",
+      "resultado": "10-1",
+      "es_local": true,
+      "victoria": true,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
+    },
     {
       "jornada": 5,
       "id_partido": "26450755",
@@ -67,19 +80,6 @@
       "es_local": true,
       "victoria": false,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
-    },
-    {
-      "jornada": 1,
-      "id_partido": "26450734",
-      "fecha": "2026-01-11",
-      "hora": "09:30",
-      "local": "Atlètic Vallbonense 'A'",
-      "visitante": "C.F. Extramurs Valencia 'A'",
-      "campo": "Polideportivo Mpal. Salvador Marti F-8 Campo 1 Pobla Vallbona(HA)",
-      "resultado": "1-0",
-      "es_local": false,
-      "victoria": false,
-      "maps_url": "https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20Salvador%20Marti%20F-8%20Campo%201%20Pobla%20Vallbona%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
     }
   ],
   "clasificacion": [
@@ -261,9 +261,9 @@
       "local": "C.F. Extramurs Valencia 'A'",
       "visitante": "C.F. Històrics de València 'C'",
       "campo": "Campo Tramo III del Turia F-8(HA)",
-      "resultado": null,
+      "resultado": "10-1",
       "es_local": true,
-      "victoria": null,
+      "victoria": true,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
     },
     {
