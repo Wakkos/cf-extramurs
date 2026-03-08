@@ -1,14 +1,14 @@
 {
   "equipo": "C.F. Extramurs Valencia 'B'",
   "grupo": "Lliga Regular Grup 12",
-  "ultima_actualizacion": "2026-03-07T06:36:45.317724",
+  "ultima_actualizacion": "2026-03-08T06:39:36.897421",
   "proximo_partido": {
-    "jornada": 9,
-    "id_partido": "26451317",
-    "fecha": "2026-03-07",
+    "jornada": 10,
+    "id_partido": "26451319",
+    "fecha": "2026-03-14",
     "hora": "13:30",
     "local": "C.F. Extramurs Valencia 'B'",
-    "visitante": "U.D. Aldaia C.F. 'B'",
+    "visitante": "C.D. Malilla 'B'",
     "campo": "Campo Tramo III del Turia F-8(HA)",
     "resultado": null,
     "es_local": true,
@@ -96,13 +96,22 @@
       "posicion": 2,
       "equipo": "Deportivo La Rambleta C.F.",
       "puntos": 13,
-      "pj": 6,
+      "pj": 7,
       "pg": 4,
       "pe": 1,
-      "pp": 1
+      "pp": 2
     },
     {
       "posicion": 3,
+      "equipo": "Discóbolo-La Torre A.C. 'A'",
+      "puntos": 12,
+      "pj": 7,
+      "pg": 4,
+      "pe": 0,
+      "pp": 3
+    },
+    {
+      "posicion": 4,
       "equipo": "U.D. Fonteta 'A'",
       "puntos": 10,
       "pj": 6,
@@ -111,25 +120,7 @@
       "pp": 2
     },
     {
-      "posicion": 4,
-      "equipo": "Discóbolo-La Torre A.C. 'A'",
-      "puntos": 9,
-      "pj": 6,
-      "pg": 3,
-      "pe": 0,
-      "pp": 3
-    },
-    {
       "posicion": 5,
-      "equipo": "Evangélico C.F. 'A'",
-      "puntos": 10,
-      "pj": 7,
-      "pg": 3,
-      "pe": 1,
-      "pp": 3
-    },
-    {
-      "posicion": 6,
       "equipo": "At. Ciudad Paiporta 'A'",
       "puntos": 10,
       "pj": 7,
@@ -138,20 +129,29 @@
       "pp": 3
     },
     {
+      "posicion": 6,
+      "equipo": "Evangélico C.F. 'A'",
+      "puntos": 10,
+      "pj": 8,
+      "pg": 3,
+      "pe": 1,
+      "pp": 4
+    },
+    {
       "posicion": 7,
       "equipo": "U.D. Aldaia C.F. 'B'",
-      "puntos": 6,
-      "pj": 7,
-      "pg": 2,
+      "puntos": 9,
+      "pj": 8,
+      "pg": 3,
       "pe": 0,
       "pp": 5
     },
     {
       "posicion": 8,
       "equipo": "C.D. Malilla 'B'",
-      "puntos": 4,
-      "pj": 7,
-      "pg": 1,
+      "puntos": 7,
+      "pj": 8,
+      "pg": 2,
       "pe": 1,
       "pp": 5
     },
@@ -159,10 +159,10 @@
       "posicion": 9,
       "equipo": "C.F. Extramurs Valencia 'B'",
       "puntos": 4,
-      "pj": 7,
+      "pj": 8,
       "pg": 1,
       "pe": 1,
-      "pp": 5
+      "pp": 6
     }
   ],
   "todos_partidos": [
