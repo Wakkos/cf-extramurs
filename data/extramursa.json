@@ -1,14 +1,14 @@
 {
   "equipo": "C.F. Extramurs Valencia 'A'",
   "grupo": "Lliga Regular Grup 6",
-  "ultima_actualizacion": "2026-03-08T06:38:52.803809",
+  "ultima_actualizacion": "2026-03-09T06:58:05.826492",
   "proximo_partido": {
-    "jornada": 9,
-    "id_partido": "26450777",
-    "fecha": "2026-03-08",
-    "hora": "12:45",
+    "jornada": 10,
+    "id_partido": "26450779",
+    "fecha": "2026-03-14",
+    "hora": "17:00",
     "local": "C.F. Extramurs Valencia 'A'",
-    "visitante": "Paterna C.F. 'A'",
+    "visitante": "Atlètic Vallbonense 'A'",
     "campo": "Campo Tramo III del Turia F-8(HA)",
     "resultado": null,
     "es_local": true,
@@ -16,6 +16,19 @@
     "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
   },
   "ultimos_resultados": [
+    {
+      "jornada": 9,
+      "id_partido": "26450777",
+      "fecha": "2026-03-08",
+      "hora": "12:45",
+      "local": "C.F. Extramurs Valencia 'A'",
+      "visitante": "Paterna C.F. 'A'",
+      "campo": "Campo Tramo III del Turia F-8(HA)",
+      "resultado": "7-0",
+      "es_local": true,
+      "victoria": true,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
+    },
     {
       "jornada": 8,
       "id_partido": "26450772",
@@ -67,19 +80,6 @@
       "es_local": true,
       "victoria": true,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
-    },
-    {
-      "jornada": 4,
-      "id_partido": "26450750",
-      "fecha": "2026-01-31",
-      "hora": "10:15",
-      "local": "Los Silos C.F. - Promises Valencia 'A'",
-      "visitante": "C.F. Extramurs Valencia 'A'",
-      "campo": "Campo Las Oliveras F-8 Burjassot(T)",
-      "resultado": "2-4",
-      "es_local": false,
-      "victoria": true,
-      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Las%20Oliveras%20F-8%20Burjassot%28T%29%2C%20Valencia%2C%20Espa%C3%B1a"
     }
   ],
   "clasificacion": [
@@ -104,9 +104,9 @@
     {
       "posicion": 3,
       "equipo": "C.F. Extramurs Valencia 'A'",
-      "puntos": 18,
-      "pj": 8,
-      "pg": 6,
+      "puntos": 21,
+      "pj": 9,
+      "pg": 7,
       "pe": 0,
       "pp": 2
     },
@@ -139,16 +139,16 @@
     },
     {
       "posicion": 7,
-      "equipo": "Paterna C.F. 'A'",
+      "equipo": "C.F. Cracks 'B'",
       "puntos": 6,
-      "pj": 7,
+      "pj": 8,
       "pg": 2,
       "pe": 0,
-      "pp": 5
+      "pp": 6
     },
     {
       "posicion": 8,
-      "equipo": "C.F. Cracks 'B'",
+      "equipo": "Paterna C.F. 'A'",
       "puntos": 6,
       "pj": 8,
       "pg": 2,
@@ -287,9 +287,9 @@
       "local": "C.F. Extramurs Valencia 'A'",
       "visitante": "Paterna C.F. 'A'",
       "campo": "Campo Tramo III del Turia F-8(HA)",
-      "resultado": null,
+      "resultado": "7-0",
       "es_local": true,
-      "victoria": null,
+      "victoria": true,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
     },
     {
