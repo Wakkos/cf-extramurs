@@ -1,19 +1,19 @@
 {
   "equipo": "C.F. Extramurs Valencia 'A'",
   "grupo": "Lliga Regular Grup 6",
-  "ultima_actualizacion": "2026-03-14T06:41:06.671388",
+  "ultima_actualizacion": "2026-03-15T06:52:58.384809",
   "proximo_partido": {
-    "jornada": 10,
-    "id_partido": "26450779",
-    "fecha": "2026-03-14",
-    "hora": "17:00",
-    "local": "C.F. Extramurs Valencia 'A'",
-    "visitante": "Atlètic Vallbonense 'A'",
-    "campo": "Campo Tramo III del Turia F-8(HA)",
+    "jornada": 11,
+    "id_partido": "26450784",
+    "fecha": "2026-03-28",
+    "hora": "09:00",
+    "local": "Vilamarxant C.F.",
+    "visitante": "C.F. Extramurs Valencia 'A'",
+    "campo": "Campo Mpal. Germans Albiol F-8 Campo 1 Vilamarxant(HA)",
     "resultado": null,
-    "es_local": true,
+    "es_local": false,
     "victoria": null,
-    "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Mpal.%20Germans%20Albiol%20F-8%20Campo%201%20Vilamarxant%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
   },
   "ultimos_resultados": [
     {
@@ -86,24 +86,15 @@
     {
       "posicion": 1,
       "equipo": "Atlètic Vallbonense 'A'",
-      "puntos": 24,
-      "pj": 8,
+      "puntos": 25,
+      "pj": 9,
       "pg": 8,
-      "pe": 0,
+      "pe": 1,
       "pp": 0
     },
     {
       "posicion": 2,
       "equipo": "C.F. Inter San José Valencia 'C'",
-      "puntos": 21,
-      "pj": 8,
-      "pg": 7,
-      "pe": 0,
-      "pp": 1
-    },
-    {
-      "posicion": 3,
-      "equipo": "C.F. Extramurs Valencia 'A'",
       "puntos": 21,
       "pj": 9,
       "pg": 7,
@@ -111,26 +102,44 @@
       "pp": 2
     },
     {
+      "posicion": 3,
+      "equipo": "C.F. Extramurs Valencia 'A'",
+      "puntos": 22,
+      "pj": 10,
+      "pg": 7,
+      "pe": 1,
+      "pp": 2
+    },
+    {
       "posicion": 4,
       "equipo": "Los Silos C.F. - Promises Valencia 'A'",
-      "puntos": 18,
-      "pj": 9,
+      "puntos": 19,
+      "pj": 10,
       "pg": 6,
-      "pe": 0,
+      "pe": 1,
       "pp": 3
     },
     {
       "posicion": 5,
       "equipo": "Vilamarxant C.F.",
-      "puntos": 16,
-      "pj": 9,
-      "pg": 5,
+      "puntos": 19,
+      "pj": 10,
+      "pg": 6,
       "pe": 1,
       "pp": 3
     },
     {
       "posicion": 6,
       "equipo": "S.F.A.C. San Antonio Benagéber 'A'",
+      "puntos": 12,
+      "pj": 10,
+      "pg": 4,
+      "pe": 0,
+      "pp": 6
+    },
+    {
+      "posicion": 7,
+      "equipo": "C.F. Cracks 'B'",
       "puntos": 9,
       "pj": 9,
       "pg": 3,
@@ -138,40 +147,31 @@
       "pp": 6
     },
     {
-      "posicion": 7,
-      "equipo": "C.F. Torre Levante 'A'",
-      "puntos": 7,
-      "pj": 8,
-      "pg": 2,
-      "pe": 1,
-      "pp": 5
-    },
-    {
       "posicion": 8,
-      "equipo": "C.F. Cracks 'B'",
-      "puntos": 6,
-      "pj": 8,
+      "equipo": "C.F. Torre Levante 'A'",
+      "puntos": 8,
+      "pj": 9,
       "pg": 2,
-      "pe": 0,
-      "pp": 6
+      "pe": 2,
+      "pp": 5
     },
     {
       "posicion": 9,
       "equipo": "Paterna C.F. 'A'",
       "puntos": 6,
-      "pj": 9,
+      "pj": 10,
       "pg": 2,
       "pe": 0,
-      "pp": 7
+      "pp": 8
     },
     {
       "posicion": 10,
       "equipo": "C.F. Històrics de València 'C'",
       "puntos": 0,
-      "pj": 9,
+      "pj": 10,
       "pg": 0,
       "pe": 0,
-      "pp": 9
+      "pp": 10
     }
   ],
   "todos_partidos": [
