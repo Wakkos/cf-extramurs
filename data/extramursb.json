@@ -1,7 +1,7 @@
 {
   "equipo": "C.F. Extramurs Valencia 'B'",
   "grupo": "Lliga Regular Grup 12",
-  "ultima_actualizacion": "2026-03-15T06:53:44.875021",
+  "ultima_actualizacion": "2026-03-16T07:13:04.606996",
   "proximo_partido": {
     "jornada": 11,
     "id_partido": "26451324",
@@ -16,6 +16,19 @@
     "maps_url": "https://www.google.com/maps/search/?api=1&query=Camp%20de%20Futbol%20Mpal.%20Tres%20Creus%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
   },
   "ultimos_resultados": [
+    {
+      "jornada": 10,
+      "id_partido": "26451319",
+      "fecha": "2026-03-14",
+      "hora": "13:30",
+      "local": "C.F. Extramurs Valencia 'B'",
+      "visitante": "C.D. Malilla 'B'",
+      "campo": "Campo Tramo III del Turia F-8(HA)",
+      "resultado": "4-2",
+      "es_local": true,
+      "victoria": true,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
+    },
     {
       "jornada": 9,
       "id_partido": "26451317",
@@ -67,43 +80,30 @@
       "es_local": true,
       "victoria": false,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
-    },
-    {
-      "jornada": 4,
-      "id_partido": "26451290",
-      "fecha": "2026-01-30",
-      "hora": "19:00",
-      "local": "INTER CHIVA C.F. 'A'",
-      "visitante": "C.F. Extramurs Valencia 'B'",
-      "campo": "Campo Mpal. La Murta Chiva F-8 Campo 1(HA)",
-      "resultado": "8-1",
-      "es_local": false,
-      "victoria": false,
-      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Mpal.%20La%20Murta%20Chiva%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
     }
   ],
   "clasificacion": [
     {
       "posicion": 1,
       "equipo": "INTER CHIVA C.F. 'A'",
-      "puntos": 21,
-      "pj": 7,
-      "pg": 7,
+      "puntos": 24,
+      "pj": 8,
+      "pg": 8,
       "pe": 0,
       "pp": 0
     },
     {
       "posicion": 2,
-      "equipo": "U.D. Fonteta 'A'",
-      "puntos": 13,
-      "pj": 7,
-      "pg": 4,
+      "equipo": "Deportivo La Rambleta C.F.",
+      "puntos": 16,
+      "pj": 8,
+      "pg": 5,
       "pe": 1,
       "pp": 2
     },
     {
       "posicion": 3,
-      "equipo": "Deportivo La Rambleta C.F.",
+      "equipo": "U.D. Fonteta 'A'",
       "puntos": 13,
       "pj": 7,
       "pg": 4,
@@ -132,19 +132,19 @@
       "posicion": 6,
       "equipo": "Evangélico C.F. 'A'",
       "puntos": 10,
-      "pj": 8,
+      "pj": 9,
       "pg": 3,
       "pe": 1,
-      "pp": 4
+      "pp": 5
     },
     {
       "posicion": 7,
       "equipo": "At. Ciudad Paiporta 'A'",
       "puntos": 10,
-      "pj": 8,
+      "pj": 9,
       "pg": 3,
       "pe": 1,
-      "pp": 4
+      "pp": 5
     },
     {
       "posicion": 8,
@@ -291,9 +291,9 @@
       "local": "C.F. Extramurs Valencia 'B'",
       "visitante": "C.D. Malilla 'B'",
       "campo": "Campo Tramo III del Turia F-8(HA)",
-      "resultado": null,
+      "resultado": "4-2",
       "es_local": true,
-      "victoria": null,
+      "victoria": true,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
     },
     {
