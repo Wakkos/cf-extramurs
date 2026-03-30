@@ -1,7 +1,7 @@
 {
   "equipo": "C.F. Extramurs Valencia 'B'",
   "grupo": "Lliga Regular Grup 12",
-  "ultima_actualizacion": "2026-03-29T07:00:13.223268",
+  "ultima_actualizacion": "2026-03-30T07:24:04.373085",
   "proximo_partido": {
     "jornada": 12,
     "id_partido": "26451329",
@@ -16,6 +16,19 @@
     "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Futbol%20Mpal.%20La%20Torre-Faitanar%20F-8%20Campo%201%20%28Valencia%20%29%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
   },
   "ultimos_resultados": [
+    {
+      "jornada": 11,
+      "id_partido": "26451324",
+      "fecha": "2026-03-27",
+      "hora": "18:32",
+      "local": "Deportivo La Rambleta C.F.",
+      "visitante": "C.F. Extramurs Valencia 'B'",
+      "campo": "Camp de Futbol Mpal. Tres Creus F-8 Campo 1(HA)",
+      "resultado": "5-0",
+      "es_local": false,
+      "victoria": false,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Camp%20de%20Futbol%20Mpal.%20Tres%20Creus%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
+    },
     {
       "jornada": 10,
       "id_partido": "26451319",
@@ -67,19 +80,6 @@
       "es_local": false,
       "victoria": false,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20de%20F%C3%BAtbol%20Mpal.%20El%20Terrer%20F-8%20Campo%201%20Paiporta%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
-    },
-    {
-      "jornada": 5,
-      "id_partido": "26451295",
-      "fecha": "2026-02-07",
-      "hora": "13:30",
-      "local": "C.F. Extramurs Valencia 'B'",
-      "visitante": "U.D. Fonteta 'A'",
-      "campo": "Campo Tramo III del Turia F-8(HA)",
-      "resultado": "2-13",
-      "es_local": true,
-      "victoria": false,
-      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
     }
   ],
   "clasificacion": [
@@ -113,9 +113,9 @@
     {
       "posicion": 4,
       "equipo": "Discóbolo-La Torre A.C. 'A'",
-      "puntos": 12,
-      "pj": 9,
-      "pg": 4,
+      "puntos": 15,
+      "pj": 10,
+      "pg": 5,
       "pe": 0,
       "pp": 5
     },
@@ -148,16 +148,16 @@
     },
     {
       "posicion": 8,
-      "equipo": "C.D. Malilla 'B'",
+      "equipo": "C.F. Extramurs Valencia 'B'",
       "puntos": 7,
-      "pj": 9,
+      "pj": 10,
       "pg": 2,
       "pe": 1,
-      "pp": 6
+      "pp": 7
     },
     {
       "posicion": 9,
-      "equipo": "C.F. Extramurs Valencia 'B'",
+      "equipo": "C.D. Malilla 'B'",
       "puntos": 7,
       "pj": 10,
       "pg": 2,
@@ -300,13 +300,13 @@
       "jornada": 11,
       "id_partido": "26451324",
       "fecha": "2026-03-27",
-      "hora": "18:30",
+      "hora": "18:32",
       "local": "Deportivo La Rambleta C.F.",
       "visitante": "C.F. Extramurs Valencia 'B'",
       "campo": "Camp de Futbol Mpal. Tres Creus F-8 Campo 1(HA)",
-      "resultado": null,
+      "resultado": "5-0",
       "es_local": false,
-      "victoria": null,
+      "victoria": false,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Camp%20de%20Futbol%20Mpal.%20Tres%20Creus%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
     },
     {
