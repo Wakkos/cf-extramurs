@@ -1,21 +1,34 @@
 {
   "equipo": "C.F. Extramurs Valencia 'A'",
   "grupo": "Lliga Regular Grup 6",
-  "ultima_actualizacion": "2026-04-12T07:09:34.798724",
+  "ultima_actualizacion": "2026-04-13T07:57:52.133768",
   "proximo_partido": {
-    "jornada": 12,
-    "id_partido": "26450789",
-    "fecha": "2026-04-12",
-    "hora": "10:00",
-    "local": "C.F. Cracks 'B'",
-    "visitante": "C.F. Extramurs Valencia 'A'",
-    "campo": "Instalaciones Cracks F-8 Campo 4(HA)",
+    "jornada": 13,
+    "id_partido": "26450795",
+    "fecha": "2026-04-18",
+    "hora": "12:30",
+    "local": "C.F. Extramurs Valencia 'A'",
+    "visitante": "Los Silos C.F. - Promises Valencia 'A'",
+    "campo": "Campo Tramo III del Turia F-8(HA)",
     "resultado": null,
-    "es_local": false,
+    "es_local": true,
     "victoria": null,
-    "maps_url": "https://www.google.com/maps/search/?api=1&query=Instalaciones%20Cracks%20F-8%20Campo%204%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
   },
   "ultimos_resultados": [
+    {
+      "jornada": 12,
+      "id_partido": "26450789",
+      "fecha": "2026-04-12",
+      "hora": "10:00",
+      "local": "C.F. Cracks 'B'",
+      "visitante": "C.F. Extramurs Valencia 'A'",
+      "campo": "Instalaciones Cracks F-8 Campo 4(HA)",
+      "resultado": "4-2",
+      "es_local": false,
+      "victoria": false,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Instalaciones%20Cracks%20F-8%20Campo%204%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
+    },
     {
       "jornada": 11,
       "id_partido": "26450784",
@@ -67,19 +80,6 @@
       "es_local": false,
       "victoria": true,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Torre%20Levante-Orriols%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
-    },
-    {
-      "jornada": 6,
-      "id_partido": "26459064",
-      "fecha": "2026-02-24",
-      "hora": "18:00",
-      "local": "C.F. Inter San José Valencia 'C'",
-      "visitante": "C.F. Extramurs Valencia 'A'",
-      "campo": "Campo de Fútbol Mpal. de Beniferri F-8 Campo 1(HA)",
-      "resultado": "1-3",
-      "es_local": false,
-      "victoria": true,
-      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20de%20F%C3%BAtbol%20Mpal.%20de%20Beniferri%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
     }
   ],
   "clasificacion": [
@@ -94,15 +94,6 @@
     },
     {
       "posicion": 2,
-      "equipo": "C.F. Extramurs Valencia 'A'",
-      "puntos": 25,
-      "pj": 11,
-      "pg": 8,
-      "pe": 1,
-      "pp": 2
-    },
-    {
-      "posicion": 3,
       "equipo": "C.F. Inter San José Valencia 'C'",
       "puntos": 27,
       "pj": 12,
@@ -111,17 +102,26 @@
       "pp": 3
     },
     {
+      "posicion": 3,
+      "equipo": "C.F. Extramurs Valencia 'A'",
+      "puntos": 25,
+      "pj": 12,
+      "pg": 8,
+      "pe": 1,
+      "pp": 3
+    },
+    {
       "posicion": 4,
-      "equipo": "Los Silos C.F. - Promises Valencia 'A'",
-      "puntos": 19,
-      "pj": 11,
-      "pg": 6,
+      "equipo": "Vilamarxant C.F.",
+      "puntos": 22,
+      "pj": 12,
+      "pg": 7,
       "pe": 1,
       "pp": 4
     },
     {
       "posicion": 5,
-      "equipo": "Vilamarxant C.F.",
+      "equipo": "Los Silos C.F. - Promises Valencia 'A'",
       "puntos": 19,
       "pj": 11,
       "pg": 6,
@@ -131,9 +131,9 @@
     {
       "posicion": 6,
       "equipo": "C.F. Cracks 'B'",
-      "puntos": 15,
-      "pj": 11,
-      "pg": 5,
+      "puntos": 18,
+      "pj": 12,
+      "pg": 6,
       "pe": 0,
       "pp": 6
     },
@@ -168,10 +168,10 @@
       "posicion": 10,
       "equipo": "C.F. Històrics de València 'C'",
       "puntos": 0,
-      "pj": 11,
+      "pj": 12,
       "pg": 0,
       "pe": 0,
-      "pp": 11
+      "pp": 12
     }
   ],
   "todos_partidos": [
@@ -326,9 +326,9 @@
       "local": "C.F. Cracks 'B'",
       "visitante": "C.F. Extramurs Valencia 'A'",
       "campo": "Instalaciones Cracks F-8 Campo 4(HA)",
-      "resultado": null,
+      "resultado": "4-2",
       "es_local": false,
-      "victoria": null,
+      "victoria": false,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Instalaciones%20Cracks%20F-8%20Campo%204%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
     },
     {
