@@ -1,21 +1,34 @@
 {
   "equipo": "C.F. Extramurs Valencia 'B'",
   "grupo": "Lliga Regular Grup 12",
-  "ultima_actualizacion": "2026-04-13T07:58:43.368597",
+  "ultima_actualizacion": "2026-04-14T07:27:00.870809",
   "proximo_partido": {
-    "jornada": 12,
-    "id_partido": "26451329",
-    "fecha": "2026-04-13",
-    "hora": "17:00",
-    "local": "Discóbolo-La Torre A.C. 'A'",
-    "visitante": "C.F. Extramurs Valencia 'B'",
-    "campo": "Campo Futbol Mpal. La Torre-Faitanar F-8 Campo 1 (Valencia )(HA)",
+    "jornada": 13,
+    "id_partido": "26451335",
+    "fecha": "2026-04-19",
+    "hora": "10:15",
+    "local": "C.F. Extramurs Valencia 'B'",
+    "visitante": "INTER CHIVA C.F. 'A'",
+    "campo": "Campo Tramo III del Turia F-8(HA)",
     "resultado": null,
-    "es_local": false,
+    "es_local": true,
     "victoria": null,
-    "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Futbol%20Mpal.%20La%20Torre-Faitanar%20F-8%20Campo%201%20%28Valencia%20%29%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
   },
   "ultimos_resultados": [
+    {
+      "jornada": 12,
+      "id_partido": "26451329",
+      "fecha": "2026-04-13",
+      "hora": "17:00",
+      "local": "Discóbolo-La Torre A.C. 'A'",
+      "visitante": "C.F. Extramurs Valencia 'B'",
+      "campo": "Campo Futbol Mpal. La Torre-Faitanar F-8 Campo 1 (Valencia )(HA)",
+      "resultado": "5-3",
+      "es_local": false,
+      "victoria": false,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Futbol%20Mpal.%20La%20Torre-Faitanar%20F-8%20Campo%201%20%28Valencia%20%29%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
+    },
     {
       "jornada": 11,
       "id_partido": "26451324",
@@ -67,19 +80,6 @@
       "es_local": false,
       "victoria": false,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Futbol%20Nova%20Vida%20C.T.C%20F-8%20Campo%201%20Torrent%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
-    },
-    {
-      "jornada": 6,
-      "id_partido": "26451301",
-      "fecha": "2026-02-15",
-      "hora": "10:00",
-      "local": "At. Ciudad Paiporta 'A'",
-      "visitante": "C.F. Extramurs Valencia 'B'",
-      "campo": "Campo de Fútbol Mpal. El Terrer F-8 Campo 1 Paiporta(HA)",
-      "resultado": "7-2",
-      "es_local": false,
-      "victoria": false,
-      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20de%20F%C3%BAtbol%20Mpal.%20El%20Terrer%20F-8%20Campo%201%20Paiporta%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
     }
   ],
   "clasificacion": [
@@ -103,21 +103,21 @@
     },
     {
       "posicion": 3,
+      "equipo": "Discóbolo-La Torre A.C. 'A'",
+      "puntos": 18,
+      "pj": 11,
+      "pg": 6,
+      "pe": 0,
+      "pp": 5
+    },
+    {
+      "posicion": 4,
       "equipo": "U.D. Fonteta 'A'",
       "puntos": 16,
       "pj": 10,
       "pg": 5,
       "pe": 1,
       "pp": 4
-    },
-    {
-      "posicion": 4,
-      "equipo": "Discóbolo-La Torre A.C. 'A'",
-      "puntos": 15,
-      "pj": 10,
-      "pg": 5,
-      "pe": 0,
-      "pp": 5
     },
     {
       "posicion": 5,
@@ -150,10 +150,10 @@
       "posicion": 8,
       "equipo": "C.F. Extramurs Valencia 'B'",
       "puntos": 7,
-      "pj": 10,
+      "pj": 11,
       "pg": 2,
       "pe": 1,
-      "pp": 7
+      "pp": 8
     },
     {
       "posicion": 9,
@@ -317,16 +317,16 @@
       "local": "Discóbolo-La Torre A.C. 'A'",
       "visitante": "C.F. Extramurs Valencia 'B'",
       "campo": "Campo Futbol Mpal. La Torre-Faitanar F-8 Campo 1 (Valencia )(HA)",
-      "resultado": null,
+      "resultado": "5-3",
       "es_local": false,
-      "victoria": null,
+      "victoria": false,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Futbol%20Mpal.%20La%20Torre-Faitanar%20F-8%20Campo%201%20%28Valencia%20%29%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
     },
     {
       "jornada": 13,
       "id_partido": "26451335",
       "fecha": "2026-04-19",
-      "hora": "12:45",
+      "hora": "10:15",
       "local": "C.F. Extramurs Valencia 'B'",
       "visitante": "INTER CHIVA C.F. 'A'",
       "campo": "Campo Tramo III del Turia F-8(HA)",
