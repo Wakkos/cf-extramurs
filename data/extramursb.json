@@ -1,21 +1,34 @@
 {
   "equipo": "C.F. Extramurs Valencia 'B'",
   "grupo": "Lliga Regular Grup 12",
-  "ultima_actualizacion": "2026-04-19T07:15:48.070492",
+  "ultima_actualizacion": "2026-04-20T08:02:17.963242",
   "proximo_partido": {
-    "jornada": 13,
-    "id_partido": "26451335",
-    "fecha": "2026-04-19",
-    "hora": "10:15",
-    "local": "C.F. Extramurs Valencia 'B'",
-    "visitante": "INTER CHIVA C.F. 'A'",
-    "campo": "Campo Tramo III del Turia F-8(HA)",
+    "jornada": 14,
+    "id_partido": "26451340",
+    "fecha": "2026-04-25",
+    "hora": "11:00",
+    "local": "U.D. Fonteta 'A'",
+    "visitante": "C.F. Extramurs Valencia 'B'",
+    "campo": "Polideportivo Mpal. Quatre Carreres F-8 Campo 1(HA)",
     "resultado": null,
-    "es_local": true,
+    "es_local": false,
     "victoria": null,
-    "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20Quatre%20Carreres%20F-8%20Campo%201%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
   },
   "ultimos_resultados": [
+    {
+      "jornada": 13,
+      "id_partido": "26451335",
+      "fecha": "2026-04-19",
+      "hora": "10:15",
+      "local": "C.F. Extramurs Valencia 'B'",
+      "visitante": "INTER CHIVA C.F. 'A'",
+      "campo": "Campo Tramo III del Turia F-8(HA)",
+      "resultado": "4-9",
+      "es_local": true,
+      "victoria": false,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
+    },
     {
       "jornada": 12,
       "id_partido": "26451329",
@@ -67,57 +80,44 @@
       "es_local": true,
       "victoria": false,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
-    },
-    {
-      "jornada": 8,
-      "id_partido": "26451312",
-      "fecha": "2026-02-27",
-      "hora": "18:30",
-      "local": "Evangélico C.F. 'A'",
-      "visitante": "C.F. Extramurs Valencia 'B'",
-      "campo": "Campo Futbol Nova Vida C.T.C F-8 Campo 1 Torrent(HA)",
-      "resultado": "10-3",
-      "es_local": false,
-      "victoria": false,
-      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Futbol%20Nova%20Vida%20C.T.C%20F-8%20Campo%201%20Torrent%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
     }
   ],
   "clasificacion": [
     {
       "posicion": 1,
       "equipo": "INTER CHIVA C.F. 'A'",
-      "puntos": 28,
-      "pj": 11,
-      "pg": 9,
+      "puntos": 31,
+      "pj": 12,
+      "pg": 10,
       "pe": 1,
       "pp": 1
     },
     {
       "posicion": 2,
       "equipo": "Deportivo La Rambleta C.F.",
-      "puntos": 22,
-      "pj": 10,
-      "pg": 7,
+      "puntos": 25,
+      "pj": 11,
+      "pg": 8,
       "pe": 1,
       "pp": 2
     },
     {
       "posicion": 3,
-      "equipo": "Discóbolo-La Torre A.C. 'A'",
-      "puntos": 18,
-      "pj": 11,
-      "pg": 6,
-      "pe": 0,
-      "pp": 5
-    },
-    {
-      "posicion": 4,
       "equipo": "U.D. Aldaia C.F. 'B'",
       "puntos": 19,
       "pj": 12,
       "pg": 6,
       "pe": 1,
       "pp": 5
+    },
+    {
+      "posicion": 4,
+      "equipo": "Discóbolo-La Torre A.C. 'A'",
+      "puntos": 18,
+      "pj": 12,
+      "pg": 6,
+      "pe": 0,
+      "pp": 6
     },
     {
       "posicion": 5,
@@ -159,10 +159,10 @@
       "posicion": 9,
       "equipo": "C.F. Extramurs Valencia 'B'",
       "puntos": 7,
-      "pj": 11,
+      "pj": 12,
       "pg": 2,
       "pe": 1,
-      "pp": 8
+      "pp": 9
     }
   ],
   "todos_partidos": [
@@ -330,9 +330,9 @@
       "local": "C.F. Extramurs Valencia 'B'",
       "visitante": "INTER CHIVA C.F. 'A'",
       "campo": "Campo Tramo III del Turia F-8(HA)",
-      "resultado": null,
+      "resultado": "4-9",
       "es_local": true,
-      "victoria": null,
+      "victoria": false,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
     },
     {
