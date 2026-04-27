@@ -1,21 +1,34 @@
 {
   "equipo": "C.F. Extramurs Valencia 'B'",
   "grupo": "Lliga Regular Grup 12",
-  "ultima_actualizacion": "2026-04-26T07:25:14.215794",
+  "ultima_actualizacion": "2026-04-27T08:17:06.362421",
   "proximo_partido": {
-    "jornada": 14,
-    "id_partido": "26451340",
-    "fecha": "2026-04-26",
-    "hora": "12:00",
-    "local": "U.D. Fonteta 'A'",
-    "visitante": "C.F. Extramurs Valencia 'B'",
-    "campo": "Polideportivo Mpal. Quatre Carreres F-8 Campo 2(HA)",
+    "jornada": 15,
+    "id_partido": "26451346",
+    "fecha": "2026-05-10",
+    "hora": "12:45",
+    "local": "C.F. Extramurs Valencia 'B'",
+    "visitante": "At. Ciudad Paiporta 'A'",
+    "campo": "Campo Tramo III del Turia F-8(HA)",
     "resultado": null,
-    "es_local": false,
+    "es_local": true,
     "victoria": null,
-    "maps_url": "https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20Quatre%20Carreres%20F-8%20Campo%202%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
   },
   "ultimos_resultados": [
+    {
+      "jornada": 14,
+      "id_partido": "26451340",
+      "fecha": "2026-04-26",
+      "hora": "12:05",
+      "local": "U.D. Fonteta 'A'",
+      "visitante": "C.F. Extramurs Valencia 'B'",
+      "campo": "Polideportivo Mpal. Quatre Carreres F-8 Campo 2(HA)",
+      "resultado": "10-3",
+      "es_local": false,
+      "victoria": false,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20Quatre%20Carreres%20F-8%20Campo%202%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
+    },
     {
       "jornada": 13,
       "id_partido": "26451335",
@@ -67,28 +80,15 @@
       "es_local": true,
       "victoria": true,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
-    },
-    {
-      "jornada": 9,
-      "id_partido": "26451317",
-      "fecha": "2026-03-07",
-      "hora": "13:30",
-      "local": "C.F. Extramurs Valencia 'B'",
-      "visitante": "U.D. Aldaia C.F. 'B'",
-      "campo": "Campo Tramo III del Turia F-8(HA)",
-      "resultado": "2-12",
-      "es_local": true,
-      "victoria": false,
-      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
     }
   ],
   "clasificacion": [
     {
       "posicion": 1,
       "equipo": "INTER CHIVA C.F. 'A'",
-      "puntos": 31,
-      "pj": 12,
-      "pg": 10,
+      "puntos": 34,
+      "pj": 13,
+      "pg": 11,
       "pe": 1,
       "pp": 1
     },
@@ -103,7 +103,7 @@
     },
     {
       "posicion": 3,
-      "equipo": "U.D. Aldaia C.F. 'B'",
+      "equipo": "U.D. Fonteta 'A'",
       "puntos": 19,
       "pj": 12,
       "pg": 6,
@@ -112,21 +112,21 @@
     },
     {
       "posicion": 4,
-      "equipo": "Discóbolo-La Torre A.C. 'A'",
-      "puntos": 18,
+      "equipo": "U.D. Aldaia C.F. 'B'",
+      "puntos": 19,
       "pj": 12,
       "pg": 6,
-      "pe": 0,
-      "pp": 6
+      "pe": 1,
+      "pp": 5
     },
     {
       "posicion": 5,
-      "equipo": "U.D. Fonteta 'A'",
-      "puntos": 16,
-      "pj": 11,
-      "pg": 5,
-      "pe": 1,
-      "pp": 5
+      "equipo": "Discóbolo-La Torre A.C. 'A'",
+      "puntos": 18,
+      "pj": 13,
+      "pg": 6,
+      "pe": 0,
+      "pp": 7
     },
     {
       "posicion": 6,
@@ -159,10 +159,10 @@
       "posicion": 9,
       "equipo": "C.F. Extramurs Valencia 'B'",
       "puntos": 7,
-      "pj": 12,
+      "pj": 13,
       "pg": 2,
       "pe": 1,
-      "pp": 9
+      "pp": 10
     }
   ],
   "todos_partidos": [
@@ -339,13 +339,13 @@
       "jornada": 14,
       "id_partido": "26451340",
       "fecha": "2026-04-26",
-      "hora": "12:00",
+      "hora": "12:05",
       "local": "U.D. Fonteta 'A'",
       "visitante": "C.F. Extramurs Valencia 'B'",
       "campo": "Polideportivo Mpal. Quatre Carreres F-8 Campo 2(HA)",
-      "resultado": null,
+      "resultado": "10-3",
       "es_local": false,
-      "victoria": null,
+      "victoria": false,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20Quatre%20Carreres%20F-8%20Campo%202%28HA%29%2C%20Valencia%2C%20Espa%C3%B1a"
     },
     {
