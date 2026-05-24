@@ -20,7 +20,16 @@
       "Bash(grep -oE \"competiciones?_fetch\\\\.php\\\\?[^'\\\\\"\\\\` ]+\" \"/c/Users/wakko/AppData/Local/Temp/ffcv_inline8.js\")",
       "Read(//c/Users/wakko/AppData/Local/Temp/**)",
       "Bash(grep -nE \"ficha_partido_ajax\\\\.php\\\\?[^'\\\\\"\\\\`]+|cod_partido=|q2 =\" \"/c/Users/wakko/AppData/Local/Temp/ffcv_inline8.js\")",
-      "Bash(git checkout *)"
+      "Bash(git checkout *)",
+      "Bash(gh run *)",
+      "PowerShell(gh run *)",
+      "Bash(git fetch *)",
+      "Bash(netstat -ano)",
+      "Bash(tasklist /FI \"PID eq 16788\" /FI \"PID eq 57092\")",
+      "PowerShell(Get-Process *)",
+      "Bash(git check-ignore *)",
+      "Bash(cp -r Images/plantilla-a/* Images/plantilla-prebenjamin-a/)",
+      "Bash(cp -r Images/plantilla-b/* Images/plantilla-prebenjamin-b/)"
     ],
     "deny": [],
     "ask": []
