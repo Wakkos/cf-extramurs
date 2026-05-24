@@ -1,46 +1,81 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Script de debugging para inspeccionar la estructura HTML de FFCV
+Vuelca las respuestas JSON de la API FFCV para inspeccionar/depurar.
+
+Uso:
+    python debug_scraper.py [<slug-config>]
+
+Donde `<slug-config>` es el nombre (sin extensión) de un archivo dentro de
+configs/. Si se omite, se usa el primero por orden alfabético. Las respuestas
+se guardan en `debug_<endpoint>.json` en la raíz del repo.
 """
 
-import time
-from playwright.sync_api import sync_playwright
+import json
+import sys
+from pathlib import Path
 
-URL_CALENDARIO = "https://resultadosffcv.isquad.es/calendario.php?id_temp=21&id_modalidad=33345&id_competicion=29531322&id_torneo=904301187"
-URL_PARTIDOS = "https://resultadosffcv.isquad.es/total_partidos.php?id_temp=21&id_modalidad=33345&id_competicion=29531322&id_torneo=904301187"
+import yaml
 
-print("🔍 Debugging Scraper - Guardando HTML de las páginas...")
+from scraper import fetch_json, _cod_jornada_mas_reciente, FFCV_API_BASE  # noqa: E402
 
-with sync_playwright() as p:
-    browser = p.chromium.launch(headless=True)
-    page = browser.new_page()
+BASE_DIR = Path(__file__).parent
+CONFIGS_DIR = BASE_DIR / "configs"
 
-    # Página de calendario
-    print("\n1️⃣ Obteniendo página de calendario...")
-    page.goto(URL_CALENDARIO, timeout=30000, wait_until="networkidle")
-    page.wait_for_timeout(2000)
 
-    html_calendario = page.content()
-    with open("debug_calendario.html", "w", encoding="utf-8") as f:
-        f.write(html_calendario)
-    print("✓ Guardado en: debug_calendario.html")
+def cargar_config(slug: str | None) -> dict:
+    configs = sorted(CONFIGS_DIR.glob("*.yaml"))
+    if not configs:
+        raise SystemExit("❌ No hay configuraciones en configs/")
 
-    # Página de partidos
-    print("\n2️⃣ Obteniendo página de partidos/clasificación...")
-    time.sleep(2)
-    page.goto(URL_PARTIDOS, timeout=30000, wait_until="networkidle")
-    page.wait_for_timeout(2000)
+    if slug:
+        target = CONFIGS_DIR / f"{slug}.yaml"
+        if not target.exists():
+            raise SystemExit(f"❌ No existe configs/{slug}.yaml")
+    else:
+        target = configs[0]
 
-    html_partidos = page.content()
-    with open("debug_partidos.html", "w", encoding="utf-8") as f:
-        f.write(html_partidos)
-    print("✓ Guardado en: debug_partidos.html")
+    with open(target, "r", encoding="utf-8") as f:
+        return yaml.safe_load(f)
 
-    browser.close()
 
-print("\n✅ HTML guardado. Ahora puedes abrir los archivos y ver la estructura:")
-print("   - debug_calendario.html")
-print("   - debug_partidos.html")
-print("\n💡 Abre estos archivos en un navegador y usa 'Inspeccionar elemento' (F12)")
-print("   para ver cómo están estructurados los partidos y la clasificación.")
+def dump(path: Path, data) -> None:
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+    print(f"✓ {path}")
+
+
+def main() -> None:
+    slug = sys.argv[1] if len(sys.argv) > 1 else None
+    config = cargar_config(slug)
+    cod_grupo = str(config["ids_ffcv"]["torneo"])
+    cod_equipo = str(config["ids_ffcv"]["equipo"])
+
+    print(f"🔍 API: {FFCV_API_BASE}")
+    print(f"   cod_grupo = {cod_grupo}")
+    print(f"   codequipo = {cod_equipo}")
+
+    jornadas = fetch_json("filtros/jornadas_fetch.php", {"cod_grupo": cod_grupo})
+    dump(BASE_DIR / "debug_jornadas.json", jornadas)
+
+    cod_jornada = _cod_jornada_mas_reciente(cod_grupo)
+    print(f"   jornada más reciente = {cod_jornada}")
+
+    clasif = fetch_json(
+        "clasificaciones/clasificaciones_ajax.php",
+        {"cod_grupo": cod_grupo, "cod_jornada": cod_jornada},
+    )
+    dump(BASE_DIR / "debug_clasificacion.json", clasif)
+
+    partidos = fetch_json(
+        "partidos/resultados_por_grupo_jornada_data.php",
+        {"cod_grupo": cod_grupo, "cod_jornada": cod_jornada},
+    )
+    dump(BASE_DIR / "debug_partidos.json", partidos)
+
+    equipo = fetch_json("equipos/ver_equipo.php", {"codequipo": cod_equipo})
+    dump(BASE_DIR / "debug_equipo.json", equipo)
+
+
+if __name__ == "__main__":
+    main()

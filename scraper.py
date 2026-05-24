@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Extramurs Calendar Automation - Scraper
-Scrapea la web de FFCV para obtener partidos y clasificación del equipo
+Extramurs Calendar Automation - FFCV API client
+
+Consume la API JSON pública de ffcv.es/competiciones/ (heredera del antiguo
+portal resultadosffcv.isquad.es) para generar el calendario, clasificación y
+plantilla de cada equipo configurado.
 """
 
-import base64
 import json
 import logging
 import re
@@ -14,16 +16,34 @@ import yaml
 from datetime import datetime
 from pathlib import Path
 from typing import Dict, List, Optional
-from urllib.parse import quote, urlencode
+from urllib.parse import quote
 
-from bs4 import BeautifulSoup
-from dateutil import parser
 from ics import Calendar, Event
 from jinja2 import Environment, FileSystemLoader
-from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeout
-from PIL import Image
-import io
 import requests
+
+
+# Base de la API pública de la FFCV. Los IDs antiguos del portal isquad
+# (id_temp, id_modalidad, id_competicion, id_torneo, id_equipo) siguen siendo
+# válidos como cod_temporada, cod_competicion, cod_grupo y codequipo en la
+# nueva API JSON.
+FFCV_API_BASE = "https://ffcv.es/competiciones/api"
+
+# El servidor bloquea User-Agents con patrón de scraping (curl/python-requests/etc.)
+# y devuelve {"error":"blocked","reason_code":"UA_BLOCKED"}. Hace falta UA real.
+FFCV_HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    ),
+    "X-Requested-With": "XMLHttpRequest",
+    "Referer": "https://ffcv.es/competiciones/",
+    "Accept": "application/json, text/javascript, */*; q=0.01",
+}
+
+
+class FFCVAPIError(RuntimeError):
+    """Error devuelto por la API FFCV o respuesta inesperada."""
 
 # Configuración de logging
 logging.basicConfig(
@@ -88,22 +108,13 @@ def load_all_configs() -> List[Dict]:
     return configs
 
 
-def build_url(base_url: str, params: Dict) -> str:
-    """
-    Construye una URL con parámetros desde la configuración
-    """
-    query_string = urlencode(params)
-    return f"{base_url}?{query_string}"
-
-
 # NOTA: Variables globales - se inicializan dinámicamente por equipo en setup_globals()
 CONFIG = None
 TEAM_NAME = None
 TEAM_SHORT_NAME = None
 GRUPO = None
-URL_CALENDARIO = None
-URL_CLASIFICACION = None
-URL_PLANTILLA = None
+COD_GRUPO = None
+COD_EQUIPO = None
 PLANTILLA_IMAGES_DIR = None
 OUTPUT_ICS = None
 OUTPUT_JSON = None
@@ -115,14 +126,19 @@ def setup_globals(config: Dict):
     """
     Inicializa variables globales para un equipo específico
     """
-    global CONFIG, TEAM_NAME, TEAM_SHORT_NAME, GRUPO
-    global URL_CALENDARIO, URL_CLASIFICACION, URL_PLANTILLA
+    global CONFIG, TEAM_NAME, TEAM_SHORT_NAME, GRUPO, COD_GRUPO, COD_EQUIPO
     global PLANTILLA_IMAGES_DIR, OUTPUT_ICS, OUTPUT_JSON, OUTPUT_INDEX, OUTPUT_PLANTILLA
 
     CONFIG = config
     TEAM_NAME = config['equipo']['nombre']
     TEAM_SHORT_NAME = config['equipo']['nombre_corto']
     GRUPO = config['equipo']['grupo']
+
+    # Los antiguos id_torneo / id_equipo son los nuevos cod_grupo / codequipo
+    # de la API JSON. Mantenemos los nombres de campo del YAML para compat.
+    ids = config['ids_ffcv']
+    COD_GRUPO = str(ids['torneo'])
+    COD_EQUIPO = str(ids['equipo'])
 
     # Directorios de salida
     output_dir = BASE_DIR / config['sitio']['output_dir']
@@ -139,60 +155,109 @@ def setup_globals(config: Dict):
     OUTPUT_INDEX = output_dir / "index.html"
     OUTPUT_PLANTILLA = output_dir / "plantilla.html"
 
-    # Construir URLs dinámicamente desde config
-    ids = config['ids_ffcv']
-    params_base = {
-        'id_temp': ids['temporada'],
-        'id_modalidad': ids['modalidad'],
-        'id_competicion': ids['competicion'],
-        'id_torneo': ids['torneo']
-    }
 
-    URL_CALENDARIO = build_url(config['urls']['base_calendario'], params_base)
-    URL_CLASIFICACION = build_url(config['urls']['base_clasificacion'], params_base)
-
-    params_plantilla = {**params_base, 'id_equipo': ids['equipo'], 'torneo_equipo': ''}
-    URL_PLANTILLA = build_url(config['urls']['base_plantilla'], params_plantilla)
+_SESSION: Optional[requests.Session] = None
 
 
-def fetch_page_with_retry(url: str, max_retries: int = 3) -> str:
+def _get_session() -> requests.Session:
+    """requests.Session compartida, con headers FFCV preconfigurados."""
+    global _SESSION
+    if _SESSION is None:
+        _SESSION = requests.Session()
+        _SESSION.headers.update(FFCV_HEADERS)
+    return _SESSION
+
+
+def _es_respuesta_transitoria(data) -> Optional[str]:
     """
-    Obtiene el HTML de una página usando Playwright con reintentos
+    Detecta respuestas del proxy FFCV que indican un fallo transitorio del
+    backend isquad (sesión upstream caducada, caché en refresco, 503...).
+    Devuelve un string descriptivo o None si la respuesta es sana.
     """
+    if not isinstance(data, dict):
+        return None
+
+    # El proxy degrada respuestas vacías con esta marca explícita.
+    if data.get("_source") == "degraded_empty":
+        upstream = data.get("_upstream") or {}
+        return f"degraded_empty upstream={upstream.get('code')}"
+
+    # Errores de sesión del upstream que el proxy reenvía.
+    estado = data.get("estado")
+    if estado is not None and str(estado) == "0":
+        err = data.get("error") or ""
+        if "Sesión" in err or "sesión" in err or "sesion" in err.lower():
+            return f"sesion_invalida: {err}"
+
+    return None
+
+
+def fetch_json(path: str, params: Optional[Dict] = None, max_retries: int = 5) -> Dict:
+    """
+    Hace GET a un endpoint de la API FFCV y devuelve el JSON parseado.
+
+    Reintenta con backoff incremental si el proxy degrada la respuesta o si el
+    upstream isquad pierde la sesión — estos fallos son transitorios y suelen
+    resolverse en pocos segundos.
+
+    Args:
+        path: ruta relativa al endpoint (p.ej. "filtros/jornadas_fetch.php").
+              Si empieza por "http" se trata como URL absoluta.
+        params: parámetros de query string.
+        max_retries: número total de intentos.
+
+    Raises:
+        FFCVAPIError: si la API devuelve un error permanente, o tras agotar
+            los reintentos en errores transitorios.
+        requests.RequestException: errores de red persistentes.
+    """
+    url = path if path.startswith("http") else f"{FFCV_API_BASE}/{path.lstrip('/')}"
+    session = _get_session()
+
+    last_motivo: Optional[str] = None
+    last_exc: Optional[Exception] = None
+
     for attempt in range(1, max_retries + 1):
         try:
-            logger.info(f"Intentando obtener {url} (intento {attempt}/{max_retries})")
+            logger.debug(f"GET {url} params={params} (intento {attempt}/{max_retries})")
+            response = session.get(url, params=params, timeout=30)
+            response.raise_for_status()
+            data = response.json()
 
-            with sync_playwright() as p:
-                browser = p.chromium.launch(headless=True)
-                page = browser.new_page()
+            # Errores permanentes del backend: nombre raro, parámetro inválido, etc.
+            # Distinguir de errores transitorios (manejados aparte abajo).
+            if isinstance(data, dict) and data.get("error") and data.get("estado") != "0":
+                raise FFCVAPIError(f"API FFCV {url}: {data}")
 
-                # Navegar a la página
-                page.goto(url, timeout=30000, wait_until="networkidle")
+            motivo = _es_respuesta_transitoria(data)
+            if motivo:
+                last_motivo = motivo
+                backoff = min(2 ** attempt, 20)  # 2, 4, 8, 16, 20s
+                logger.warning(
+                    f"Respuesta transitoria en {url} ({motivo}); "
+                    f"reintento {attempt}/{max_retries} en {backoff}s"
+                )
+                if attempt < max_retries:
+                    time.sleep(backoff)
+                    continue
 
-                # Esperar un poco para asegurar que todo cargue
-                page.wait_for_timeout(2000)
+            return data
 
-                # Obtener el HTML
-                html = page.content()
-                browser.close()
-
-                logger.info(f"✓ Página obtenida exitosamente")
-                return html
-
-        except PlaywrightTimeout:
-            logger.warning(f"Timeout en intento {attempt}")
+        except FFCVAPIError:
+            raise
+        except (requests.RequestException, ValueError) as e:
+            last_exc = e
+            logger.warning(f"Error en intento {attempt}: {e}")
             if attempt < max_retries:
-                logger.info(f"Esperando 5 segundos antes de reintentar...")
                 time.sleep(5)
-            else:
-                raise Exception(f"No se pudo obtener la página después de {max_retries} intentos")
-        except Exception as e:
-            logger.error(f"Error en intento {attempt}: {str(e)}")
-            if attempt < max_retries:
-                time.sleep(5)
-            else:
-                raise
+
+    if last_motivo:
+        raise FFCVAPIError(
+            f"API FFCV agotó {max_retries} reintentos en {url}: {last_motivo}"
+        )
+    raise FFCVAPIError(
+        f"No se pudo obtener {url} tras {max_retries} intentos"
+    ) from last_exc
 
 
 def parse_spanish_date(date_str: str) -> Optional[datetime]:
@@ -252,544 +317,264 @@ def parse_spanish_date(date_str: str) -> Optional[datetime]:
         return None
 
 
-def scrape_calendario(html: str) -> List[Dict]:
+def _maps_url(campo: str) -> Optional[str]:
+    """Construye una URL de búsqueda en Google Maps para un campo."""
+    if not campo:
+        return None
+    search_query = f"{campo}, Valencia, España"
+    return f"https://www.google.com/maps/search/?api=1&query={quote(search_query)}"
+
+
+def _normalizar_resultado(resultado_raw: Optional[str]) -> Optional[str]:
+    """Normaliza '1 - 3' o '1-3' a '1-3'. Devuelve None si no hay marcador."""
+    if not resultado_raw:
+        return None
+    match = re.match(r"^\s*(\d+)\s*-\s*(\d+)\s*$", resultado_raw)
+    if not match:
+        return None
+    return f"{match.group(1)}-{match.group(2)}"
+
+
+def obtener_partidos_via_api(cod_grupo: str, cod_equipo: str) -> List[Dict]:
     """
-    Extrae los partidos del calendario
-    Estructura HTML:
-    <tr>
-        <td class="p-t-20" width="40%">Equipos (separados por &nbsp;-&nbsp;)</td>
-        <td class="centrado p-t-20" width="20%">Resultado (2 spans con números)</td>
-        <td style="font-size: 12px; width: 10%">
-            <div class="negrita">Fecha</div>
-            <div>Hora</div>
-        </td>
-        <td class="negrita p-t-20" width="20%">Campo</td>
-    </tr>
+    Devuelve todos los partidos del equipo en su grupo iterando jornadas.
+
+    Cada partido conserva el shape histórico usado por los templates y el
+    generador .ics:
+        {jornada, id_partido, fecha (YYYY-MM-DD), hora (HH:MM), local,
+         visitante, campo, resultado (str "G-G" o None), es_local, victoria,
+         maps_url}
     """
-    logger.info("Parseando calendario de partidos...")
-    soup = BeautifulSoup(html, 'html.parser')
-    partidos = []
+    logger.info(f"Obteniendo jornadas del grupo {cod_grupo}...")
+    jornadas_data = fetch_json("filtros/jornadas_fetch.php", {"cod_grupo": cod_grupo})
+    jornadas = jornadas_data.get("jornadas") or []
 
-    # Buscar todas las filas <tr> que contengan el nombre del equipo
-    all_rows = soup.find_all('tr')
+    if not jornadas:
+        raise FFCVAPIError(
+            f"La API no devolvió jornadas para cod_grupo={cod_grupo}"
+        )
 
-    for row in all_rows:
-        try:
-            texto_row = row.get_text()
+    logger.info(f"✓ {len(jornadas)} jornadas. Recorriendo partidos del equipo {cod_equipo}...")
 
-            # Verificar si esta fila contiene nuestro equipo
-            if TEAM_NAME not in texto_row and TEAM_SHORT_NAME not in texto_row:
-                continue
-
-            # Buscar las celdas específicas por su contenido y estructura
-            # 1. Celda de equipos: tiene width: 40% y contiene 2 enlaces con nombres de equipos
-            equipos_cell = None
-            jornada = None
-            id_partido = None
-
-            for cell in row.find_all('td'):
-                if cell.find_all('a') and len(cell.find_all('a')) >= 2:
-                    # Verificar que tiene ambos equipos como links
-                    links = cell.find_all('a')
-                    if len(links) >= 2:
-                        equipos_cell = cell
-
-                        # Extraer jornada e id_partido del href del primer link
-                        href = links[0].get('href', '')
-                        jornada_match = re.search(r'jornada=(\d+)', href)
-                        if jornada_match:
-                            jornada = int(jornada_match.group(1))
-
-                        # Extraer id_partido del href
-                        id_partido_match = re.search(r'id_partido=(\d+)', href)
-                        if id_partido_match:
-                            id_partido = id_partido_match.group(1)
-
-                        break
-
-            if not equipos_cell:
-                continue
-
-            equipos_links = equipos_cell.find_all('a')
-            local = equipos_links[0].get_text(strip=True)
-            visitante = equipos_links[1].get_text(strip=True)
-
-            # 2. Celda de resultado: tiene clase "centrado p-t-20" y contiene spans con números
-            resultado = None
-            resultado_cell = row.find('td', class_='centrado')
-            if resultado_cell:
-                resultado_spans = resultado_cell.find_all('span')
-                if len(resultado_spans) >= 2:
-                    goles_local = resultado_spans[0].get_text(strip=True)
-                    goles_visitante = resultado_spans[1].get_text(strip=True)
-
-                    # Si ambos tienen contenido numérico
-                    if goles_local and goles_visitante and goles_local.isdigit() and goles_visitante.isdigit():
-                        resultado = f"{goles_local}-{goles_visitante}"
-
-            # 3. Celda de fecha y hora: tiene style="font-size: 12px" y contiene 2 divs
-            fecha = None
-            hora = None
-            fecha_cell = row.find('td', style=lambda x: x and 'font-size: 12px' in x)
-            if fecha_cell:
-                fecha_divs = fecha_cell.find_all('div')
-                if len(fecha_divs) >= 2:
-                    fecha_str = fecha_divs[0].get_text(strip=True)
-                    hora_str = fecha_divs[1].get_text(strip=True)
-
-                    # Parsear fecha
-                    fecha_dt = parse_spanish_date(fecha_str)
-                    if fecha_dt:
-                        fecha = fecha_dt.strftime("%Y-%m-%d")
-
-                    hora = hora_str
-
-            # 4. Campo: última celda con clase "negrita p-t-20"
-            campo = ''
-            campo_cells = row.find_all('td', class_='negrita p-t-20')
-            if campo_cells:
-                # La última celda con esta clase suele ser el campo
-                campo_cell = campo_cells[-1]
-                campo = campo_cell.get_text(strip=True)
-
-            # Limpiar el texto del campo (quitar el ícono de glyphicon)
-            campo = re.sub(r'\s+', ' ', campo).strip()
-
-            # Generar URL de Google Maps
-            maps_url = None
-            if campo:
-                # Añadir ", Valencia, España" para mejor precisión
-                search_query = f"{campo}, Valencia, España"
-                maps_url = f"https://www.google.com/maps/search/?api=1&query={quote(search_query)}"
-
-            # Determinar si es local o visitante
-            es_local = TEAM_NAME in local or TEAM_SHORT_NAME in local
-
-            # Determinar victoria/empate/derrota si hay resultado
-            victoria = None
-            if resultado:
-                goles = resultado.split('-')
-                if len(goles) == 2:
-                    goles_favor = int(goles[0]) if es_local else int(goles[1])
-                    goles_contra = int(goles[1]) if es_local else int(goles[0])
-
-                    if goles_favor > goles_contra:
-                        victoria = True  # Victoria
-                    elif goles_favor == goles_contra:
-                        victoria = None  # Empate
-                    else:
-                        victoria = False  # Derrota
-
-            partido = {
-                'jornada': jornada,
-                'id_partido': id_partido,
-                'fecha': fecha,
-                'hora': hora,
-                'local': local,
-                'visitante': visitante,
-                'campo': campo,
-                'resultado': resultado,
-                'es_local': es_local,
-                'victoria': victoria,
-                'maps_url': maps_url
-            }
-
-            partidos.append(partido)
-            logger.debug(f"Partido extraído: {local} vs {visitante} - {fecha} {hora}")
-
-        except Exception as e:
-            logger.warning(f"Error parseando fila de partido: {str(e)}")
+    partidos: List[Dict] = []
+    for jornada_meta in jornadas:
+        codjornada = jornada_meta.get("codjornada")
+        if not codjornada:
             continue
 
-    logger.info(f"✓ Extraídos {len(partidos)} partidos")
+        jornada_data = fetch_json(
+            "partidos/resultados_por_grupo_jornada_data.php",
+            {"cod_grupo": cod_grupo, "cod_jornada": codjornada},
+        )
+
+        for raw in jornada_data.get("partidos") or []:
+            cod_local = str(raw.get("cod_equipo_local") or "")
+            cod_visit = str(raw.get("cod_equipo_visitante") or "")
+            if cod_equipo not in (cod_local, cod_visit):
+                continue
+
+            fecha = None
+            fecha_dt = parse_spanish_date(raw.get("fecha") or "")
+            if fecha_dt:
+                fecha = fecha_dt.strftime("%Y-%m-%d")
+
+            campo = (raw.get("campo") or "").strip()
+            resultado = _normalizar_resultado(raw.get("resultado"))
+            es_local = cod_local == cod_equipo
+
+            victoria: Optional[bool] = None
+            if resultado:
+                gl, gv = (int(x) for x in resultado.split("-"))
+                goles_favor = gl if es_local else gv
+                goles_contra = gv if es_local else gl
+                if goles_favor > goles_contra:
+                    victoria = True
+                elif goles_favor < goles_contra:
+                    victoria = False
+                # empate → victoria = None
+
+            try:
+                jornada_num: Optional[int] = int(codjornada)
+            except (TypeError, ValueError):
+                jornada_num = None
+
+            partidos.append({
+                "jornada": jornada_num,
+                "id_partido": raw.get("codacta"),
+                "fecha": fecha,
+                "hora": raw.get("hora") or None,
+                "local": raw.get("local"),
+                "visitante": raw.get("visitante"),
+                "campo": campo,
+                "resultado": resultado,
+                "es_local": es_local,
+                "victoria": victoria,
+                "maps_url": _maps_url(campo),
+            })
+
+        # Pequeño respeto al servidor; jornadas son ~18, total <2s.
+        time.sleep(0.1)
+
+    # Ordenar por jornada para que el resto del pipeline reciba los partidos
+    # en el mismo orden que el HTML antiguo (de menor a mayor jornada).
+    partidos.sort(key=lambda p: (p.get("jornada") or 0, p.get("fecha") or ""))
+
+    logger.info(f"✓ Extraídos {len(partidos)} partidos del equipo {cod_equipo}")
     return partidos
 
 
-def scrape_clasificacion(html: str) -> List[Dict]:
+def obtener_clasificacion_via_api(cod_grupo: str, cod_jornada: str) -> List[Dict]:
     """
-    Extrae la tabla de clasificación
-    Estructura HTML:
-    <table class="table clasificacion">
-      <tr>
-        <td class="bloque_collapse_flecha noprint">...</td>
-        <td class="celda_peque p-t-15">Posición</td>
-        <td class="p-t-15"><a class="equipo_tabla-clasi">Nombre</a></td>
-        <td class="centrado p-t-15"><span>PJ</span></td>
-        <td class="centrado p-t-15"><span>PG</span>...</td>
-        <td class="centrado p-t-15"><span>PE</span>...</td>
-        <td class="centrado p-t-15"><span>PP</span>...</td>
-        <td class="centrado p-t-15">GF...</td>
-        <td class="centrado p-t-15">GC...</td>
-        <td class="centrado p-t-15">DIF</td>
-        <td class="negrita centrado p-t-15">Puntos</td>
-      </tr>
-    </table>
+    Devuelve la tabla de clasificación del grupo en la jornada indicada.
+
+    Shape compatible con el código histórico:
+        {posicion, equipo, puntos, pj, pg, pe, pp}
+
+    Aprovecha además los campos adicionales que la API expone (gf, gc, racha
+    de los últimos 5 partidos, codequipo) para futuras vistas.
     """
-    logger.info("Parseando clasificación...")
-    soup = BeautifulSoup(html, 'html.parser')
-    clasificacion = []
+    logger.info(f"Obteniendo clasificación de cod_grupo={cod_grupo} jornada={cod_jornada}...")
 
-    # Buscar la tabla con clase "clasificacion"
-    table = soup.find('table', class_='clasificacion')
+    data = fetch_json(
+        "clasificaciones/clasificaciones_ajax.php",
+        {"cod_grupo": cod_grupo, "cod_jornada": cod_jornada},
+    )
 
-    if not table:
-        logger.warning("No se encontró la tabla de clasificación")
-        return clasificacion
-
-    # Buscar todas las filas del tbody
-    tbody = table.find('tbody')
-    if not tbody:
-        logger.warning("No se encontró tbody en la tabla de clasificación")
-        return clasificacion
-
-    rows = tbody.find_all('tr', style=lambda x: x and 'background: #fbfbfb' in x)
-
-    for row in rows:
+    raw = data.get("clasificacion") or []
+    clasificacion: List[Dict] = []
+    for item in raw:
         try:
-            # Buscar celdas específicas
-            cells = row.find_all('td')
-
-            if len(cells) < 10:
-                continue
-
-            # 1. Posición: celda con clase "celda_peque p-t-15"
-            pos_cell = row.find('td', class_='celda_peque p-t-15')
-            if not pos_cell:
-                continue
-
-            posicion = int(pos_cell.get_text(strip=True))
-
-            # 2. Nombre del equipo: link con clase "equipo_tabla-clasi"
-            equipo_link = row.find('a', class_='equipo_tabla-clasi')
-            if not equipo_link:
-                continue
-
-            equipo = equipo_link.get_text(strip=True)
-
-            # 3. Extraer datos de las celdas centradas
-            centrado_cells = row.find_all('td', class_='centrado p-t-15')
-
-            if len(centrado_cells) < 7:
-                continue
-
-            # PJ - Partidos Jugados (1ra celda centrada, tiene span)
-            pj_span = centrado_cells[0].find('span')
-            pj = int(pj_span.get_text(strip=True)) if pj_span else 0
-
-            # PG - Partidos Ganados (2da celda centrada, tiene span)
-            pg_span = centrado_cells[1].find('span')
-            pg = int(pg_span.get_text(strip=True)) if pg_span else 0
-
-            # PE - Partidos Empatados (3ra celda centrada, tiene span)
-            pe_span = centrado_cells[2].find('span')
-            pe = int(pe_span.get_text(strip=True)) if pe_span else 0
-
-            # PP - Partidos Perdidos (4ta celda centrada, tiene span)
-            pp_span = centrado_cells[3].find('span')
-            pp = int(pp_span.get_text(strip=True)) if pp_span else 0
-
-            # 4. Puntos: última celda con clase "negrita centrado p-t-15"
-            puntos_cell = row.find('td', class_='negrita centrado p-t-15')
-            if not puntos_cell:
-                continue
-
-            puntos = int(puntos_cell.get_text(strip=True))
-
-            equipo_data = {
-                'posicion': posicion,
-                'equipo': equipo,
-                'puntos': puntos,
-                'pj': pj,
-                'pg': pg,
-                'pe': pe,
-                'pp': pp
-            }
-
-            clasificacion.append(equipo_data)
-            logger.debug(f"Equipo extraído: {posicion}º {equipo} - {puntos} pts")
-
-        except (ValueError, AttributeError) as e:
-            logger.warning(f"Error parseando fila de clasificación: {str(e)}")
+            posicion = int(item.get("posicion") or 0)
+            puntos = int(item.get("puntos") or 0)
+            pj = int(item.get("jugados") or 0)
+            pg = int(item.get("ganados") or 0)
+            pe = int(item.get("empatados") or 0)
+            pp = int(item.get("perdidos") or 0)
+        except (TypeError, ValueError) as e:
+            logger.warning(f"Fila de clasificación con datos no numéricos: {item} ({e})")
             continue
 
-    logger.info(f"✓ Extraídos {len(clasificacion)} equipos de la clasificación")
+        nombre = item.get("nombre") or ""
+        clasificacion.append({
+            "posicion": posicion,
+            "equipo": nombre,
+            "puntos": puntos,
+            "pj": pj,
+            "pg": pg,
+            "pe": pe,
+            "pp": pp,
+            # Extras útiles para futuras vistas; ignorados por templates actuales.
+            "codequipo": item.get("codequipo"),
+            "gf": _try_int(item.get("goles_a_favor")),
+            "gc": _try_int(item.get("goles_en_contra")),
+            "racha": [r.get("tipo") for r in (item.get("racha_partidos") or [])],
+        })
+
+    logger.info(f"✓ {len(clasificacion)} equipos en la clasificación")
     return clasificacion
 
 
-def process_player_image(img_data: bytes, jugador_nombre: str) -> bytes:
-    """
-    Procesa la imagen del jugador: quita fondo y hace upscaling
-
-    Args:
-        img_data: Bytes de la imagen original
-        jugador_nombre: Nombre del jugador (para logs)
-
-    Returns:
-        Bytes de la imagen procesada
-    """
+def _try_int(value) -> Optional[int]:
+    """Convierte a int sin lanzar; devuelve None si no es convertible."""
     try:
-        # Verificar si el procesamiento está habilitado
-        if not CONFIG.get('image_processing', {}).get('enabled', False):
-            return img_data
-
-        logger.debug(f"Procesando imagen de {jugador_nombre}...")
-
-        # Cargar imagen original
-        img = Image.open(io.BytesIO(img_data))
-        original_size = img.size
-        logger.debug(f"  Tamaño original: {original_size}")
-
-        # 1. BACKGROUND REMOVAL usando remove.bg API
-        if CONFIG['image_processing'].get('remove_background', False):
-            api_key = CONFIG['image_processing'].get('removebg_api_key')
-            if api_key:
-                logger.debug(f"  Quitando fondo con remove.bg API...")
-                try:
-                    # Convertir imagen a base64 para la API
-                    img_b64 = base64.b64encode(img_data).decode('utf-8')
-
-                    # Llamar a remove.bg API
-                    response = requests.post(
-                        'https://api.remove.bg/v1.0/removebg',
-                        headers={'X-Api-Key': api_key},
-                        data={
-                            'image_file_b64': img_b64,
-                            'size': 'auto'
-                        },
-                        timeout=30
-                    )
-
-                    if response.status_code == 200:
-                        # Cargar imagen sin fondo
-                        img = Image.open(io.BytesIO(response.content))
-                        logger.debug(f"  ✓ Fondo removido con remove.bg")
-                    else:
-                        logger.warning(f"  ⚠️  Error en remove.bg API: {response.status_code} - {response.text[:100]}")
-
-                except Exception as e:
-                    logger.warning(f"  ⚠️  Error llamando remove.bg API: {str(e)}")
-            else:
-                logger.debug(f"  ⊘ Background removal solicitado pero no hay API key configurada")
-
-        # 2. UPSCALING
-        if CONFIG['image_processing'].get('upscale', False):
-            upscale_factor = CONFIG['image_processing'].get('upscale_factor', 2)
-            new_size = (
-                int(img.width * upscale_factor),
-                int(img.height * upscale_factor)
-            )
-            logger.debug(f"  Upscaling {upscale_factor}x: {img.size} → {new_size}")
-            # Usar LANCZOS para mejor calidad
-            img = img.resize(new_size, Image.Resampling.LANCZOS)
-            logger.debug(f"  ✓ Upscaling completado")
-
-        # 3. GUARDAR A BYTES
-        output_format = CONFIG['image_processing'].get('output_format', 'PNG')
-        output = io.BytesIO()
-        img.save(output, format=output_format)
-        processed_data = output.getvalue()
-
-        size_before = len(img_data) / 1024
-        size_after = len(processed_data) / 1024
-        logger.debug(f"  Tamaño: {size_before:.1f}KB → {size_after:.1f}KB")
-        logger.info(f"✓ Imagen procesada: {jugador_nombre}")
-
-        return processed_data
-
-    except Exception as e:
-        logger.warning(f"Error procesando imagen de {jugador_nombre}: {str(e)}")
-        logger.warning(f"Usando imagen original sin procesar")
-        return img_data
+        return int(value)
+    except (TypeError, ValueError):
+        return None
 
 
-def scrape_plantilla(html: str) -> List[Dict]:
+def obtener_plantilla_via_api(cod_equipo: str) -> List[Dict]:
     """
-    Extrae la plantilla del equipo con fotos
+    Devuelve la plantilla del equipo desde la API.
+
+    Mantiene fotos ya descargadas en `PLANTILLA_IMAGES_DIR` con el nombre
+    `jugador_<cod>.png`. No fuerza la descarga de fotos nuevas — los procesos
+    de imagen (remove.bg, upscaling) seguían orientados a base64 en el HTML
+    antiguo y queda fuera del alcance de la migración inicial.
     """
-    logger.info("Procesando plantilla del equipo...")
-    soup = BeautifulSoup(html, 'html.parser')
+    logger.info(f"Obteniendo plantilla del equipo {cod_equipo}...")
+    data = fetch_json("equipos/ver_equipo.php", {"codequipo": cod_equipo})
 
-    plantilla = []
-
-    # Buscar todos los jugadores
-    jugadores_cards = soup.find_all('a', class_='card_jugador')
-
-    # Crear directorio para imágenes si no existe
     PLANTILLA_IMAGES_DIR.mkdir(parents=True, exist_ok=True)
+    images_relative_path = f"../{CONFIG['sitio']['images_dir']}"
 
-    for card in jugadores_cards:
-        try:
-            # Nombre del jugador
-            nombre_tag = card.find('h4')
-            if not nombre_tag:
-                continue
-
-            nombre = nombre_tag.get_text(strip=True).replace('<br>', ' ')
-
-            # ID del jugador
-            href = card.get('href', '')
-            id_match = re.search(r'id_jugador=(\d+)', href)
-            if not id_match:
-                continue
-
-            jugador_id = id_match.group(1)
-
-            # Foto en base64
-            img_tag = card.find('img', class_='card_imagen_jugador')
-            foto_filename = f"jugador_{jugador_id}.png"
-            foto_path = PLANTILLA_IMAGES_DIR / foto_filename
-
-            # Verificar si la imagen ya existe (ya procesada con remove.bg)
-            if foto_path.exists():
-                logger.debug(f"✓ Imagen ya existe (sin re-procesar): {foto_filename}")
-            elif img_tag and img_tag.get('src'):
-                src = img_tag['src']
-                if src.startswith('data:image'):
-                    # Extraer el base64
-                    try:
-                        # Formato: data:image/png;base64,XXXXXX
-                        header, encoded = src.split(',', 1)
-                        img_data = base64.b64decode(encoded)
-
-                        # Procesar imagen (remove background + upscale)
-                        processed_data = process_player_image(img_data, nombre)
-
-                        # Guardar imagen (PNG para transparencia)
-                        with open(foto_path, 'wb') as f:
-                            f.write(processed_data)
-
-                        logger.debug(f"Foto guardada: {foto_filename}")
-
-                    except Exception as e:
-                        logger.warning(f"Error guardando foto de {nombre}: {str(e)}")
-                        foto_filename = None
-            else:
-                foto_filename = None
-
-            # Construir path relativo desde output_dir hacia images_dir
-            # Ejemplo: equipo-a/plantilla.html -> ../Images/plantilla-a/
-            images_relative_path = f"../{CONFIG['sitio']['images_dir']}"
-
-            jugador_data = {
-                'id': jugador_id,
-                'nombre': nombre,
-                'foto': f"{images_relative_path}/{foto_filename}" if foto_filename else None
-            }
-
-            plantilla.append(jugador_data)
-            logger.debug(f"Jugador extraído: {nombre}")
-
-        except Exception as e:
-            logger.warning(f"Error parseando jugador: {str(e)}")
+    plantilla: List[Dict] = []
+    for j in data.get("jugadores_equipo") or []:
+        jugador_id = str(j.get("cod_jugador") or "").strip()
+        nombre = (j.get("nombre") or "").strip()
+        if not jugador_id or not nombre:
             continue
 
-    logger.info(f"✓ Extraídos {len(plantilla)} jugadores de la plantilla")
+        foto_filename = f"jugador_{jugador_id}.png"
+        foto_existe = (PLANTILLA_IMAGES_DIR / foto_filename).exists()
+
+        plantilla.append({
+            "id": jugador_id,
+            "nombre": nombre,
+            "foto": f"{images_relative_path}/{foto_filename}" if foto_existe else None,
+        })
+
+    logger.info(f"✓ {len(plantilla)} jugadores en la plantilla")
     return plantilla
 
 
-def scrape_dorsales_partido(html: str) -> Dict[str, str]:
+def obtener_dorsales_via_api(partidos: List[Dict]) -> Dict[str, str]:
     """
-    Extrae los dorsales de los jugadores de una página de partido
-
-    Estructura HTML:
-    <span style="font-size: 16px; color: #ffa500;">10 </span>
-    APELLIDO, NOMBRE
+    Obtiene los dorsales de los últimos partidos jugados consultando
+    `api/partidos/ficha_partido_ajax.php?cod_partido=<codacta>`.
 
     Returns:
-        Dict con nombre completo del jugador como key y dorsal como value
+        Dict {nombre_jugador (tal como aparece en el acta) -> dorsal}.
+        Los nombres en el acta vienen "APELLIDOS, NOMBRE" igual que antes,
+        así que el mapeo a la plantilla (mapear_dorsales_a_plantilla) sigue
+        funcionando sin cambios.
     """
-    soup = BeautifulSoup(html, 'html.parser')
-    dorsales = {}
+    logger.info("Obteniendo dorsales de partidos jugados (API)...")
 
-    try:
-        # Buscar todos los spans naranjas que contienen dorsales
-        dorsal_spans = soup.find_all('span', style=lambda x: x and 'color: #ffa500' in x)
+    dorsales_acumulados: Dict[str, str] = {}
+    procesados = 0
+    max_partidos = 3  # últimos 3 partidos jugados, suficiente para cubrir la plantilla activa
 
-        for span in dorsal_spans:
-            dorsal_text = span.get_text(strip=True)
-
-            # Verificar que es un número (dorsal)
-            if dorsal_text.isdigit():
-                dorsal = dorsal_text
-
-                # El nombre del jugador viene después del span
-                # Buscar el siguiente texto después del span
-                siguiente = span.next_sibling
-                if siguiente and isinstance(siguiente, str):
-                    nombre = siguiente.strip()
-
-                    # Limpiar el nombre (viene como "APELLIDO, NOMBRE")
-                    if nombre:
-                        dorsales[nombre] = dorsal
-                        logger.debug(f"Dorsal encontrado: {nombre} -> {dorsal}")
-
-        logger.debug(f"Total dorsales extraídos: {len(dorsales)}")
-
-    except Exception as e:
-        logger.warning(f"Error extrayendo dorsales del partido: {str(e)}")
-
-    return dorsales
-
-
-def obtener_dorsales_de_partidos(partidos: List[Dict]) -> Dict[str, str]:
-    """
-    Obtiene dorsales scrapeando las páginas de partidos jugados
-
-    Returns:
-        Dict con nombre del jugador como key y dorsal como value
-    """
-    logger.info("Obteniendo dorsales de partidos jugados...")
-
-    dorsales_acumulados = {}
-    partidos_procesados = 0
-    max_partidos = 3  # Procesar solo los últimos 3 partidos para no sobrecargar
-
-    # Filtrar solo partidos jugados (con resultado)
-    partidos_con_resultado = [p for p in partidos if p.get('resultado') and p.get('id_partido')]
-
-    # Tomar los últimos partidos
+    partidos_con_resultado = [p for p in partidos if p.get("resultado") and p.get("id_partido")]
     partidos_a_procesar = partidos_con_resultado[-max_partidos:]
 
     for partido in partidos_a_procesar:
-        id_partido = partido.get('id_partido')
-        if not id_partido:
+        cod_partido = partido.get("id_partido")
+        if not cod_partido:
             continue
 
         try:
-            # Construir URL del partido
-            params_partido = {
-                **{k: v for k, v in zip(
-                    ['id_temp', 'id_modalidad', 'id_competicion', 'id_torneo'],
-                    [CONFIG['ids_ffcv']['temporada'], CONFIG['ids_ffcv']['modalidad'],
-                     CONFIG['ids_ffcv']['competicion'], CONFIG['ids_ffcv']['torneo']]
-                )},
-                'id_partido': id_partido,
-                'jornada': partido.get('jornada', '')
-            }
+            logger.info(
+                f"  Partido {partido.get('local')} vs {partido.get('visitante')} (codacta={cod_partido})"
+            )
+            data = fetch_json("partidos/ficha_partido_ajax.php", {"cod_partido": cod_partido})
 
-            url_partido = build_url(CONFIG['urls']['base_partido'], params_partido)
+            # Sólo nos interesa el equipo cuyo cod coincide con el nuestro.
+            for clave in ("jugadores_equipo_local", "jugadores_equipo_visitante"):
+                # Determinar si es nuestro equipo en este partido
+                if clave == "jugadores_equipo_local":
+                    es_nuestro = str(data.get("codigo_equipo_local") or "") == COD_EQUIPO
+                else:
+                    es_nuestro = str(data.get("codigo_equipo_visitante") or "") == COD_EQUIPO
+                if not es_nuestro:
+                    continue
 
-            logger.info(f"  Scrapeando partido {partido['local']} vs {partido['visitante']}...")
+                for jugador in data.get(clave) or []:
+                    nombre = (jugador.get("nombre_jugador") or "").strip()
+                    dorsal = str(jugador.get("dorsal") or "").strip()
+                    if nombre and dorsal:
+                        dorsales_acumulados[nombre] = dorsal
+                        logger.debug(f"Dorsal: {nombre} -> {dorsal}")
 
-            # Obtener HTML del partido
-            html_partido = fetch_page_with_retry(url_partido)
-
-            # Extraer dorsales
-            dorsales_partido = scrape_dorsales_partido(html_partido)
-
-            # Acumular dorsales (los más recientes sobrescriben los anteriores)
-            dorsales_acumulados.update(dorsales_partido)
-
-            partidos_procesados += 1
-
-            # Delay para no sobrecargar el servidor
-            time.sleep(2)
+            procesados += 1
+            time.sleep(0.5)
 
         except Exception as e:
-            logger.warning(f"Error obteniendo dorsales del partido {id_partido}: {str(e)}")
+            logger.warning(f"Error obteniendo dorsales de codacta={cod_partido}: {e}")
             continue
 
-    logger.info(f"✓ Dorsales obtenidos de {partidos_procesados} partidos: {len(dorsales_acumulados)} jugadores")
+    logger.info(
+        f"✓ Dorsales obtenidos de {procesados} partidos: {len(dorsales_acumulados)} jugadores"
+    )
     return dorsales_acumulados
 
 
@@ -977,39 +762,79 @@ def encontrar_proximo_partido(partidos: List[Dict]) -> Optional[Dict]:
     return None
 
 
+def _hay_datos_previos(path: Path) -> bool:
+    """Devuelve True si `path` existe y contiene partidos en `todos_partidos`."""
+    if not path.exists():
+        return False
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except (json.JSONDecodeError, OSError):
+        return False
+    return bool(data.get("todos_partidos"))
+
+
+def _cod_jornada_mas_reciente(cod_grupo: str) -> str:
+    """
+    Devuelve el `codjornada` con la `fecha_jornada` más reciente que no esté en
+    el futuro. Si todas las jornadas son futuras (temporada no empezada) usa la
+    primera; si todas son pasadas (temporada terminada) usa la última.
+    """
+    data = fetch_json("filtros/jornadas_fetch.php", {"cod_grupo": cod_grupo})
+    jornadas = data.get("jornadas") or []
+    if not jornadas:
+        raise FFCVAPIError(f"No hay jornadas para cod_grupo={cod_grupo}")
+
+    hoy = datetime.now().date()
+    seleccionada = None
+    for j in jornadas:
+        fecha_dt = parse_spanish_date(j.get("fecha_jornada") or "")
+        if not fecha_dt:
+            continue
+        if fecha_dt.date() <= hoy:
+            seleccionada = j  # la más reciente que cumple la condición
+    if seleccionada is None:
+        seleccionada = jornadas[0]
+    return str(seleccionada.get("codjornada"))
+
+
 def process_team():
     """
     Procesa un equipo individual (usa variables globales inicializadas por setup_globals)
     """
 
     try:
-        # 1. Obtener HTML de las páginas
-        logger.info("\n[1/7] Obteniendo páginas de FFCV...")
-        html_calendario = fetch_page_with_retry(URL_CALENDARIO)
-        time.sleep(2)  # Delay entre requests
-        html_clasificacion = fetch_page_with_retry(URL_CLASIFICACION)
-        time.sleep(2)  # Delay entre requests
-        html_plantilla = fetch_page_with_retry(URL_PLANTILLA)
+        # 1. Calendario y partidos del equipo (itera jornadas del grupo).
+        logger.info("\n[1/6] Obteniendo calendario vía API...")
+        partidos = obtener_partidos_via_api(COD_GRUPO, COD_EQUIPO)
 
-        # 2. Scrapear datos
-        logger.info("\n[2/7] Scrapeando calendario...")
-        partidos = scrape_calendario(html_calendario)
+        # Circuit breaker: si la API devuelve cero partidos pero ya tenemos
+        # datos previos válidos, abortar SIN sobrescribir. Esto evita repetir
+        # el bug de mayo 2026, en el que el scraper antiguo silenciosamente
+        # vació los JSON cuando el portal cambió de estructura.
+        if not partidos and _hay_datos_previos(OUTPUT_JSON):
+            raise FFCVAPIError(
+                f"La API no devolvió partidos para cod_equipo={COD_EQUIPO} en "
+                f"cod_grupo={COD_GRUPO}, pero {OUTPUT_JSON.name} existente contiene "
+                f"datos. Abortando para no perder información."
+            )
 
-        logger.info("\n[3/7] Scrapeando clasificación...")
-        clasificacion = scrape_clasificacion(html_clasificacion)
+        # 2. Clasificación a fecha de la última jornada del grupo.
+        cod_jornada_actual = _cod_jornada_mas_reciente(COD_GRUPO)
+        logger.info(f"\n[2/6] Obteniendo clasificación (jornada {cod_jornada_actual})...")
+        clasificacion = obtener_clasificacion_via_api(COD_GRUPO, cod_jornada_actual)
 
-        logger.info("\n[4/7] Scrapeando plantilla...")
-        plantilla = scrape_plantilla(html_plantilla)
+        # 3. Plantilla (sólo nombres + foto cacheada si existe).
+        logger.info("\n[3/6] Obteniendo plantilla vía API...")
+        plantilla = obtener_plantilla_via_api(COD_EQUIPO)
 
-        # Obtener dorsales de partidos jugados
-        logger.info("\n[4.5/7] Obteniendo dorsales de partidos...")
-        dorsales = obtener_dorsales_de_partidos(partidos)
-
-        # Mapear dorsales a plantilla
+        # 4. Dorsales desde las actas de los últimos partidos.
+        logger.info("\n[3.5/6] Obteniendo dorsales de partidos...")
+        dorsales = obtener_dorsales_via_api(partidos)
         plantilla = mapear_dorsales_a_plantilla(plantilla, dorsales)
 
-        # 3. Preparar datos
-        logger.info("\n[5/7] Procesando datos...")
+        # 5. Preparar datos derivados.
+        logger.info("\n[4/6] Procesando datos...")
 
         # Encontrar próximo partido
         proximo_partido = encontrar_proximo_partido(partidos)
@@ -1070,8 +895,8 @@ def process_team():
             "todos_partidos": partidos
         }
 
-        # 4. Generar archivos
-        logger.info("\n[6/7] Generando archivos de salida...")
+        # 6. Generar archivos.
+        logger.info("\n[5/6] Generando archivos de salida...")
 
         # JSON
         generar_json(data)
@@ -1127,8 +952,8 @@ def process_team():
         # Página de plantilla
         generar_html_desde_template('plantilla_template.html', OUTPUT_PLANTILLA, context)
 
-        # 5. Resumen final
-        logger.info("\n[7/7] Proceso completado exitosamente!")
+        # 7. Resumen final.
+        logger.info("\n[6/6] Proceso completado exitosamente!")
         logger.info("=" * 60)
         logger.info(f"✓ Partidos scrapeados: {len(partidos)}")
         logger.info(f"✓ Partidos jugados: {len(partidos_jugados)}")

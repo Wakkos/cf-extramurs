@@ -6,7 +6,21 @@
       "Bash(dir /S /B)",
       "Bash(python debug_scraper.py:*)",
       "Bash(python scraper.py:*)",
-      "Bash(dir:*)"
+      "Bash(dir:*)",
+      "Bash(curl *)",
+      "Bash(grep -oE '<table[^>]*>|<div class=\"[^\"]{1,60}\"|<tr class=\"[^\"]{1,60}\"' /tmp/ffcv_test.html)",
+      "Bash(grep -oE 'data-[a-z-]+=\"[^\"]{1,50}\"' /tmp/ffcv_test.html)",
+      "Bash(grep -oE \"fetch\\\\\\([^\\)]{1,200}\\\\\\)\" /tmp/ffcv_custom.js)",
+      "Bash(grep -nE \"XMLHttpRequest|\\\\\\\\.open\\\\\\\\\\(|\\\\\\\\.send\\\\\\\\\\(\" /tmp/ffcv_custom.js)",
+      "Bash(grep -oE '[Ee]xtramurs[^<]{0,80}' /tmp/ffcv_test.html)",
+      "Bash(grep -oE '<script[^>]{0,200}>' /tmp/ffcv_test.html)",
+      "Bash(python3 -c ' *)",
+      "Bash(python *)",
+      "Bash(grep -oE \"fetch\\\\\\([^\\)]{0,250}\\\\\\)\" \"/c/Users/wakko/AppData/Local/Temp/ffcv_inline8.js\")",
+      "Bash(grep -oE \"competiciones?_fetch\\\\.php\\\\?[^'\\\\\"\\\\` ]+\" \"/c/Users/wakko/AppData/Local/Temp/ffcv_inline8.js\")",
+      "Read(//c/Users/wakko/AppData/Local/Temp/**)",
+      "Bash(grep -nE \"ficha_partido_ajax\\\\.php\\\\?[^'\\\\\"\\\\`]+|cod_partido=|q2 =\" \"/c/Users/wakko/AppData/Local/Temp/ffcv_inline8.js\")",
+      "Bash(git checkout *)"
     ],
     "deny": [],
     "ask": []
