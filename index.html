@@ -3,158 +3,1885 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C.F. Extramurs Valencia</title>
-    <meta name="description" content="Club de Fútbol Extramurs Valencia - Equipos Prebenjamín">
+    <title>C.F. Extramurs Valencia — Calendarios y resultados 2025-2026</title>
+    <meta name="description" content="Calendarios, resultados y clasificaciones de todos los equipos del C.F. Extramurs Valencia. Temporada 2025-2026. Actualización diaria automática.">
 
-    <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>⚽</text></svg>">
 
-    <!-- OpenGraph / Social Media -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="C.F. Extramurs Valencia">
-    <meta property="og:description" content="Club de Fútbol Extramurs Valencia - Equipos Prebenjamín">
+    <meta property="og:title" content="C.F. Extramurs Valencia — Calendarios y resultados">
+    <meta property="og:description" content="Calendarios, resultados y clasificaciones de los equipos del club. Suscríbete a las actualizaciones automáticas.">
 
-    <!-- PWA -->
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#001838">
+    <meta name="theme-color" content="#1d4ed8">
+
+    <!-- Leaflet + OpenStreetMap -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin=""/>
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      *,
+      *::before,
+      *::after { box-sizing: border-box; }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem;
-        }
+      :root {
+        --bg: #f6f7fb;
+        --card: #ffffff;
+        --text: #0f172a;
+        --muted: #64748b;
+        --line: #e2e8f0;
+        --primary: #1d4ed8;
+        --primary-soft: #dbeafe;
+        --win: #16a34a;
+        --loss: #dc2626;
+        --draw: #f59e0b;
+        --radius: 14px;
+        --shadow: 0 2px 12px rgba(15, 23, 42, 0.06);
+      }
 
-        .container {
-            background: white;
-            border-radius: 1rem;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            max-width: 500px;
-            width: 100%;
-            padding: 3rem 2rem;
-            text-align: center;
-        }
+      html, body { margin: 0; padding: 0; }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.5;
+      }
 
-        .logo-container {
-            margin-bottom: 2rem;
-        }
+      a { color: inherit; text-decoration: none; }
 
-        .logo {
-            width: 150px;
-            height: 150px;
-            object-fit: contain;
-            margin: 0 auto;
-            display: block;
-            border-radius: 50%;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 16px;
+      }
 
-        h1 {
-            color: #333;
-            margin-bottom: 0.5rem;
-            font-size: 1.8rem;
-        }
+      /* Hero */
+      .hero {
+        background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
+        color: white;
+        padding: 48px 16px 32px;
+        text-align: center;
+      }
+      .hero h1 {
+        margin: 0 0 8px;
+        font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+      .hero p {
+        margin: 0;
+        opacity: 0.9;
+        font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+      }
+      .hero .meta {
+        margin-top: 12px;
+        font-size: 0.85rem;
+        opacity: 0.75;
+      }
 
-        .subtitle {
-            color: #666;
-            margin-bottom: 2.5rem;
-            font-size: 0.95rem;
-        }
+      /* Section headings */
+      section { margin: 40px 0; }
+      section h2 {
+        font-size: 1.3rem;
+        margin: 0 0 16px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      section h2 .badge {
+        display: inline-block;
+        background: var(--primary-soft);
+        color: var(--primary);
+        font-size: 0.75rem;
+        padding: 2px 8px;
+        border-radius: 999px;
+        font-weight: 600;
+      }
+      section p.lead {
+        color: var(--muted);
+        margin-top: -8px;
+        margin-bottom: 16px;
+        font-size: 0.95rem;
+      }
 
-        .teams-grid {
-            display: grid;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
+      /* Grid de tarjetas de equipos */
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 14px;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 14px;
+        box-shadow: var(--shadow);
+        position: relative;
+        transition: transform 0.12s ease, box-shadow 0.12s ease;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .card:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 16px rgba(15, 23, 42, 0.10);
+      }
+      .card a.card-link {
+        position: absolute;
+        inset: 0;
+        border-radius: var(--radius);
+        z-index: 1;
+      }
+      .card-head {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .card-head img {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        object-fit: cover;
+        flex: 0 0 36px;
+        background: #f1f5f9;
+      }
+      .card-title {
+        font-weight: 700;
+        font-size: 0.98rem;
+        line-height: 1.25;
+        flex: 1;
+        min-width: 0;
+      }
+      .card-cat {
+        color: var(--muted);
+        font-size: 0.78rem;
+        margin-top: 2px;
+      }
+      .star {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: transparent;
+        border: 0;
+        font-size: 1.1rem;
+        line-height: 1;
+        cursor: pointer;
+        color: #cbd5e1;
+        padding: 4px;
+        z-index: 2;
+        transition: color 0.12s ease, transform 0.12s ease;
+      }
+      .star:hover { transform: scale(1.15); }
+      .star.is-fav { color: #f59e0b; }
+      .star[disabled] {
+        cursor: not-allowed;
+        opacity: 0.5;
+      }
 
-        .team-link {
-            display: block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-decoration: none;
-            padding: 1.5rem;
-            border-radius: 0.75rem;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 6px rgba(102, 126, 234, 0.3);
-        }
+      .row {
+        display: flex;
+        align-items: flex-start;
+        gap: 6px;
+        font-size: 0.85rem;
+      }
+      .row .label {
+        color: var(--muted);
+        flex: 0 0 64px;
+      }
+      .row .value { flex: 1; min-width: 0; }
+      .row .value.empty { color: #94a3b8; font-style: italic; }
 
-        .team-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(102, 126, 234, 0.4);
-        }
+      .result-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        padding: 2px 8px;
+        border-radius: 999px;
+        font-weight: 600;
+        font-size: 0.78rem;
+      }
+      .result-pill.win  { background: rgba(22,163,74,0.12); color: var(--win); }
+      .result-pill.loss { background: rgba(220,38,38,0.12); color: var(--loss); }
+      .result-pill.draw { background: rgba(245,158,11,0.15); color: var(--draw); }
 
-        .team-link:active {
-            transform: translateY(0);
-        }
+      .streak {
+        display: flex;
+        gap: 3px;
+      }
+      .streak span {
+        width: 16px;
+        height: 16px;
+        border-radius: 4px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+      }
+      .streak span.W { background: var(--win); }
+      .streak span.L { background: var(--loss); }
+      .streak span.D { background: var(--draw); }
 
-        .team-name {
-            font-size: 1.3rem;
-            margin-bottom: 0.25rem;
-        }
+      /* Resultados del finde */
+      table.matches {
+        width: 100%;
+        border-collapse: collapse;
+        background: var(--card);
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        font-size: 0.9rem;
+      }
+      table.matches th {
+        text-align: left;
+        font-weight: 600;
+        background: #f8fafc;
+        padding: 10px 12px;
+        color: var(--muted);
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        border-bottom: 1px solid var(--line);
+      }
+      table.matches td {
+        padding: 10px 12px;
+        border-bottom: 1px solid var(--line);
+        vertical-align: middle;
+      }
+      table.matches tr:last-child td { border-bottom: 0; }
+      table.matches .equipo-link {
+        color: var(--primary);
+        font-weight: 600;
+      }
+      table.matches .equipo-link:hover { text-decoration: underline; }
 
-        .team-category {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
+      /* Mapa */
+      #map {
+        height: 420px;
+        width: 100%;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        border: 1px solid var(--line);
+      }
+      .map-leaflet-popup {
+        font-size: 0.85rem;
+      }
+      .map-leaflet-popup b { display: block; margin-bottom: 4px; }
 
-        .footer {
-            color: #999;
-            font-size: 0.85rem;
-            margin-top: 2rem;
-        }
+      .empty-state {
+        background: var(--card);
+        border: 1px dashed var(--line);
+        border-radius: var(--radius);
+        padding: 24px;
+        text-align: center;
+        color: var(--muted);
+      }
 
-        @media (max-width: 480px) {
-            .container {
-                padding: 2rem 1.5rem;
-            }
+      footer {
+        text-align: center;
+        color: var(--muted);
+        padding: 32px 16px;
+        font-size: 0.82rem;
+      }
 
-            h1 {
-                font-size: 1.5rem;
-            }
-
-            .logo {
-                width: 120px;
-                height: 120px;
-            }
-        }
+      @media (max-width: 480px) {
+        .grid { grid-template-columns: 1fr; }
+        section { margin: 28px 0; }
+      }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="logo-container">
-            <img src="Images/extramurs.jpg" alt="C.F. Extramurs Valencia" class="logo">
+
+<header class="hero">
+  <h1>C.F. Extramurs Valencia</h1>
+  <p>Calendarios, resultados y clasificaciones · Temporada 2025-2026</p>
+  <div class="meta">Actualización: 25/05/2026 - 01:00</div>
+</header>
+
+<main class="container">
+
+  <section id="equipos">
+    <h2>
+      Equipos
+      <span class="badge">17</span>
+    </h2>
+    <p class="lead">Toca una tarjeta para ver el calendario, los resultados y la clasificación de ese equipo. La estrella ⭐ fija un equipo al inicio (máximo 3).</p>
+
+    <div class="grid" id="grid">
+      
+      <article class="card" data-slug="infantil-a" data-cat="infantil">
+        <button class="star" type="button"
+                data-slug="infantil-a"
+                aria-label="Marcar como favorito"
+                aria-pressed="false">★</button>
+        <a class="card-link" href="infantil-a/" aria-label="Abrir 2ª Regional Infantil A"></a>
+
+        <div class="card-head">
+          
+            <img src="https://ffcv.es/pnfg/pimg/Clubes/00100_0074480004_IMG_20221228_WA0010.jpg" alt="" loading="lazy" onerror="this.style.visibility='hidden'">
+          
+          <div style="flex:1; min-width:0;">
+            <div class="card-title">2ª Regional Infantil A</div>
+            <div class="card-cat">grup - 9 </div>
+          </div>
         </div>
 
-        <h1>C.F. Extramurs Valencia</h1>
-        <p class="subtitle">Selecciona tu equipo</p>
-
-        <div class="teams-grid">
-            <a href="equipo-a/index.html" class="team-link">
-                <div class="team-name">Prebenjamín A</div>
-                <div class="team-category">Segona FFCV - Grup 5</div>
-            </a>
-
-            <a href="equipo-b/index.html" class="team-link">
-                <div class="team-name">Prebenjamín B</div>
-                <div class="team-category">Segona FFCV - Grup 12</div>
-            </a>
+        <div class="row">
+          <span class="label">Próximo</span>
+          
+            <span class="value empty">sin partidos próximos</span>
+          
         </div>
 
-        <div class="footer">
-            Temporada 2024-2025
+        <div class="row">
+          <span class="label">Último</span>
+          
+            
+            
+              
+            
+            <span class="value">
+              <span class="result-pill win">V · 11-0</span>
+              <br>
+              vs At. del Turia C.F. 'C'
+            </span>
+          
         </div>
+
+        <div class="row">
+          <span class="label">Racha</span>
+          <span class="value">
+            
+              <div class="streak">
+              <span class="W">W</span><span class="W">W</span><span class="W">W</span><span class="L">L</span><span class="W">W</span>
+              </div>
+            
+          </span>
+        </div>
+
+        
+        <div class="row">
+          <span class="label">Posición</span>
+          <span class="value">5º de 13</span>
+        </div>
+        
+      </article>
+      
+      <article class="card" data-slug="infantil-b" data-cat="infantil">
+        <button class="star" type="button"
+                data-slug="infantil-b"
+                aria-label="Marcar como favorito"
+                aria-pressed="false">★</button>
+        <a class="card-link" href="infantil-b/" aria-label="Abrir 2ª Regional Infantil B"></a>
+
+        <div class="card-head">
+          
+            <img src="https://ffcv.es/pnfg/pimg/Clubes/00100_0074480004_IMG_20221228_WA0010.jpg" alt="" loading="lazy" onerror="this.style.visibility='hidden'">
+          
+          <div style="flex:1; min-width:0;">
+            <div class="card-title">2ª Regional Infantil B</div>
+            <div class="card-cat">Grup - 16</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <span class="label">Próximo</span>
+          
+            <span class="value empty">sin partidos próximos</span>
+          
+        </div>
+
+        <div class="row">
+          <span class="label">Último</span>
+          
+            
+            
+              
+            
+            <span class="value">
+              <span class="result-pill win">V · 1-2</span>
+              <br>
+              @ F.B.U.E. Atlètic Amistat 'C'
+            </span>
+          
+        </div>
+
+        <div class="row">
+          <span class="label">Racha</span>
+          <span class="value">
+            
+              <div class="streak">
+              <span class="W">W</span><span class="L">L</span><span class="W">W</span><span class="W">W</span><span class="W">W</span>
+              </div>
+            
+          </span>
+        </div>
+
+        
+        <div class="row">
+          <span class="label">Posición</span>
+          <span class="value">5º de 13</span>
+        </div>
+        
+      </article>
+      
+      <article class="card" data-slug="infantil-c" data-cat="infantil">
+        <button class="star" type="button"
+                data-slug="infantil-c"
+                aria-label="Marcar como favorito"
+                aria-pressed="false">★</button>
+        <a class="card-link" href="infantil-c/" aria-label="Abrir 2ª Regional Infantil C"></a>
+
+        <div class="card-head">
+          
+            <img src="https://ffcv.es/pnfg/pimg/Clubes/00100_0074480004_IMG_20221228_WA0010.jpg" alt="" loading="lazy" onerror="this.style.visibility='hidden'">
+          
+          <div style="flex:1; min-width:0;">
+            <div class="card-title">2ª Regional Infantil C</div>
+            <div class="card-cat">Grup - 5</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <span class="label">Próximo</span>
+          
+            <span class="value empty">sin partidos próximos</span>
+          
+        </div>
+
+        <div class="row">
+          <span class="label">Último</span>
+          
+            
+            
+              
+            
+            <span class="value">
+              <span class="result-pill win">V · 4-2</span>
+              <br>
+              vs U.D. Paterna 'E'
+            </span>
+          
+        </div>
+
+        <div class="row">
+          <span class="label">Racha</span>
+          <span class="value">
+            
+              <div class="streak">
+              <span class="L">L</span><span class="W">W</span><span class="W">W</span><span class="W">W</span><span class="W">W</span>
+              </div>
+            
+          </span>
+        </div>
+
+        
+        <div class="row">
+          <span class="label">Posición</span>
+          <span class="value">3º de 14</span>
+        </div>
+        
+      </article>
+      
+      <article class="card" data-slug="alevin-a" data-cat="alevin">
+        <button class="star" type="button"
+                data-slug="alevin-a"
+                aria-label="Marcar como favorito"
+                aria-pressed="false">★</button>
+        <a class="card-link" href="alevin-a/" aria-label="Abrir Alevín 2º. Año A"></a>
+
+        <div class="card-head">
+          
+            <img src="https://ffcv.es/pnfg/pimg/Clubes/00100_0074480004_IMG_20221228_WA0010.jpg" alt="" loading="lazy" onerror="this.style.visibility='hidden'">
+          
+          <div style="flex:1; min-width:0;">
+            <div class="card-title">Alevín 2º. Año A</div>
+            <div class="card-cat">Lliga Regular Grup 13</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <span class="label">Próximo</span>
+          
+            <span class="value">2026-05-30 · 09:00<br>
+              
+                @ C.F. Històrics de València 'B'
+              
+            </span>
+          
+        </div>
+
+        <div class="row">
+          <span class="label">Último</span>
+          
+            
+            
+              
+            
+            <span class="value">
+              <span class="result-pill win">V · 8-0</span>
+              <br>
+              vs C.D.J. Collvert 'B'
+            </span>
+          
+        </div>
+
+        <div class="row">
+          <span class="label">Racha</span>
+          <span class="value">
+            
+              <div class="streak">
+              <span class="W">W</span><span class="L">L</span><span class="W">W</span><span class="W">W</span><span class="W">W</span>
+              </div>
+            
+          </span>
+        </div>
+
+        
+        <div class="row">
+          <span class="label">Posición</span>
+          <span class="value">3º de 10</span>
+        </div>
+        
+      </article>
+      
+      <article class="card" data-slug="alevin-b" data-cat="alevin">
+        <button class="star" type="button"
+                data-slug="alevin-b"
+                aria-label="Marcar como favorito"
+                aria-pressed="false">★</button>
+        <a class="card-link" href="alevin-b/" aria-label="Abrir Alevín 2º. Año B"></a>
+
+        <div class="card-head">
+          
+            <img src="https://ffcv.es/pnfg/pimg/Clubes/00100_0074480004_IMG_20221228_WA0010.jpg" alt="" loading="lazy" onerror="this.style.visibility='hidden'">
+          
+          <div style="flex:1; min-width:0;">
+            <div class="card-title">Alevín 2º. Año B</div>
+            <div class="card-cat">Lliga Regular Grup 14</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <span class="label">Próximo</span>
+          
+            <span class="value">2026-05-30 · 11:15<br>
+              
+                vs U.D. Fonteta 'C'
+              
+            </span>
+          
+        </div>
+
+        <div class="row">
+          <span class="label">Último</span>
+          
+            
+            
+              
+            
+            <span class="value">
+              <span class="result-pill win">V · 1-4</span>
+              <br>
+              @ Mislata C.F. 'F'
+            </span>
+          
+        </div>
+
+        <div class="row">
+          <span class="label">Racha</span>
+          <span class="value">
+            
+              <div class="streak">
+              <span class="W">W</span><span class="L">L</span><span class="L">L</span><span class="L">L</span><span class="W">W</span>
+              </div>
+            
+          </span>
+        </div>
+
+        
+        <div class="row">
+          <span class="label">Posición</span>
+          <span class="value">5º de 9</span>
+        </div>
+        
+      </article>
+      
+      <article class="card" data-slug="alevin-c" data-cat="alevin">
+        <button class="star" type="button"
+                data-slug="alevin-c"
+                aria-label="Marcar como favorito"
+                aria-pressed="false">★</button>
+        <a class="card-link" href="alevin-c/" aria-label="Abrir Alevín 1er. Año C"></a>
+
+        <div class="card-head">
+          
+            <img src="https://ffcv.es/pnfg/pimg/Clubes/00100_0074480004_IMG_20221228_WA0010.jpg" alt="" loading="lazy" onerror="this.style.visibility='hidden'">
+          
+          <div style="flex:1; min-width:0;">
+            <div class="card-title">Alevín 1er. Año C</div>
+            <div class="card-cat">Lliga Regular Grup 5</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <span class="label">Próximo</span>
+          
+            <span class="value">2026-05-30 · 10:00<br>
+              
+                @ Godella C.F. 'F'
+              
+            </span>
+          
+        </div>
+
+        <div class="row">
+          <span class="label">Último</span>
+          
+            
+            
+              
+            
+            <span class="value">
+              <span class="result-pill win">V · 10-0</span>
+              <br>
+              vs Llíria U.D. 'C'
+            </span>
+          
+        </div>
+
+        <div class="row">
+          <span class="label">Racha</span>
+          <span class="value">
+            
+              <div class="streak">
+              <span class="W">W</span><span class="W">W</span><span class="D">D</span><span class="W">W</span><span class="W">W</span>
+              </div>
+            
+          </span>
+        </div>
+
+        
+        <div class="row">
+          <span class="label">Posición</span>
+          <span class="value">1º de 10</span>
+        </div>
+        
+      </article>
+      
+      <article class="card" data-slug="alevin-d" data-cat="alevin">
+        <button class="star" type="button"
+                data-slug="alevin-d"
+                aria-label="Marcar como favorito"
+                aria-pressed="false">★</button>
+        <a class="card-link" href="alevin-d/" aria-label="Abrir Alevín 1er. Año D"></a>
+
+        <div class="card-head">
+          
+            <img src="https://ffcv.es/pnfg/pimg/Clubes/00100_0074480004_IMG_20221228_WA0010.jpg" alt="" loading="lazy" onerror="this.style.visibility='hidden'">
+          
+          <div style="flex:1; min-width:0;">
+            <div class="card-title">Alevín 1er. Año D</div>
+            <div class="card-cat">Lliga Regular Grup 12</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <span class="label">Próximo</span>
+          
+            <span class="value">2026-05-30 · 11:00<br>
+              
+                @ Paterna C.F. 'E'
+              
+            </span>
+          
+        </div>
+
+        <div class="row">
+          <span class="label">Último</span>
+          
+            
+            
+              
+            
+            <span class="value">
+              <span class="result-pill win">V · 7-3</span>
+              <br>
+              vs Manises C.F. 'E'
+            </span>
+          
+        </div>
+
+        <div class="row">
+          <span class="label">Racha</span>
+          <span class="value">
+            
+              <div class="streak">
+              <span class="W">W</span><span class="W">W</span><span class="W">W</span><span class="W">W</span><span class="W">W</span>
+              </div>
+            
+          </span>
+        </div>
+
+        
+        <div class="row">
+          <span class="label">Posición</span>
+          <span class="value">1º de 9</span>
+        </div>
+        
+      </article>
+      
+      <article class="card" data-slug="alevin-e" data-cat="alevin">
+        <button class="star" type="button"
+                data-slug="alevin-e"
+                aria-label="Marcar como favorito"
+                aria-pressed="false">★</button>
+        <a class="card-link" href="alevin-e/" aria-label="Abrir Alevín 1er. Año E"></a>
+
+        <div class="card-head">
+          
+            <img src="https://ffcv.es/pnfg/pimg/Clubes/00100_0074480004_IMG_20221228_WA0010.jpg" alt="" loading="lazy" onerror="this.style.visibility='hidden'">
+          
+          <div style="flex:1; min-width:0;">
+            <div class="card-title">Alevín 1er. Año E</div>
+            <div class="card-cat">Lliga Regular Grup 8</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <span class="label">Próximo</span>
+          
+            <span class="value">2026-05-31 · 10:15<br>
+              
+                vs Godella C.F. 'B'
+              
+            </span>
+          
+        </div>
+
+        <div class="row">
+          <span class="label">Último</span>
+          
+            
+            
+              
+            
+            <span class="value">
+              <span class="result-pill win">V · 1-3</span>
+              <br>
+              @ C.F. Malvarrosa 'B'
+            </span>
+          
+        </div>
+
+        <div class="row">
+          <span class="label">Racha</span>
+          <span class="value">
+            
+              <div class="streak">
+              <span class="W">W</span><span class="W">W</span><span class="L">L</span><span class="W">W</span><span class="W">W</span>
+              </div>
+            
+          </span>
+        </div>
+
+        
+        <div class="row">
+          <span class="label">Posición</span>
+          <span class="value">3º de 9</span>
+        </div>
+        
+      </article>
+      
+      <article class="card" data-slug="benjamin-a" data-cat="benjamin">
+        <button class="star" type="button"
+                data-slug="benjamin-a"
+                aria-label="Marcar como favorito"
+                aria-pressed="false">★</button>
+        <a class="card-link" href="benjamin-a/" aria-label="Abrir Benjamín 2º. Año A"></a>
+
+        <div class="card-head">
+          
+            <img src="https://ffcv.es/pnfg/pimg/Clubes/00100_0074480004_IMG_20221228_WA0010.jpg" alt="" loading="lazy" onerror="this.style.visibility='hidden'">
+          
+          <div style="flex:1; min-width:0;">
+            <div class="card-title">Benjamín 2º. Año A</div>
+            <div class="card-cat">Lliga Regular Grup 9</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <span class="label">Próximo</span>
+          
+            <span class="value">2026-05-31 · 10:15<br>
+              
+                vs EAF Valencia C.F. 'A'
+              
+            </span>
+          
+        </div>
+
+        <div class="row">
+          <span class="label">Último</span>
+          
+            
+            
+              
+            
+            <span class="value">
+              <span class="result-pill draw">E · 2-2</span>
+              <br>
+              @ C.F. Sporting Xirivella 'D'
+            </span>
+          
+        </div>
+
+        <div class="row">
+          <span class="label">Racha</span>
+          <span class="value">
+            
+              <div class="streak">
+              <span class="W">W</span><span class="W">W</span><span class="W">W</span><span class="W">W</span><span class="D">D</span>
+              </div>
+            
+          </span>
+        </div>
+
+        
+        <div class="row">
+          <span class="label">Posición</span>
+          <span class="value">2º de 10</span>
+        </div>
+        
+      </article>
+      
+      <article class="card" data-slug="benjamin-b" data-cat="benjamin">
+        <button class="star" type="button"
+                data-slug="benjamin-b"
+                aria-label="Marcar como favorito"
+                aria-pressed="false">★</button>
+        <a class="card-link" href="benjamin-b/" aria-label="Abrir Benjamín 2º. Año B"></a>
+
+        <div class="card-head">
+          
+            <img src="https://ffcv.es/pnfg/pimg/Clubes/00100_0074480004_IMG_20221228_WA0010.jpg" alt="" loading="lazy" onerror="this.style.visibility='hidden'">
+          
+          <div style="flex:1; min-width:0;">
+            <div class="card-title">Benjamín 2º. Año B</div>
+            <div class="card-cat">Lliga Regular Grup 15</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <span class="label">Próximo</span>
+          
+            <span class="value">2026-05-30 · 11:30<br>
+              
+                @ C.F. Torre Levante 'C'
+              
+            </span>
+          
+        </div>
+
+        <div class="row">
+          <span class="label">Último</span>
+          
+            
+            
+              
+            
+            <span class="value">
+              <span class="result-pill win">V · 4-1</span>
+              <br>
+              vs C.F. At. Bº La Luz - Xirivella 'B'
+            </span>
+          
+        </div>
+
+        <div class="row">
+          <span class="label">Racha</span>
+          <span class="value">
+            
+              <div class="streak">
+              <span class="W">W</span><span class="W">W</span><span class="L">L</span><span class="W">W</span><span class="W">W</span>
+              </div>
+            
+          </span>
+        </div>
+
+        
+        <div class="row">
+          <span class="label">Posición</span>
+          <span class="value">1º de 9</span>
+        </div>
+        
+      </article>
+      
+      <article class="card" data-slug="benjamin-c" data-cat="benjamin">
+        <button class="star" type="button"
+                data-slug="benjamin-c"
+                aria-label="Marcar como favorito"
+                aria-pressed="false">★</button>
+        <a class="card-link" href="benjamin-c/" aria-label="Abrir Benjamín 2º. Año C"></a>
+
+        <div class="card-head">
+          
+            <img src="https://ffcv.es/pnfg/pimg/Clubes/00100_0074480004_IMG_20221228_WA0010.jpg" alt="" loading="lazy" onerror="this.style.visibility='hidden'">
+          
+          <div style="flex:1; min-width:0;">
+            <div class="card-title">Benjamín 2º. Año C</div>
+            <div class="card-cat">Lliga Regular Grup 14</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <span class="label">Próximo</span>
+          
+            <span class="value">2026-05-31 · 11:30<br>
+              
+                vs C.D.J. Collvert 'B'
+              
+            </span>
+          
+        </div>
+
+        <div class="row">
+          <span class="label">Último</span>
+          
+            
+            
+              
+            
+            <span class="value">
+              <span class="result-pill loss">D · 4-0</span>
+              <br>
+              @ C.D. Jesuitas Valencia-S. Fútbol 'B'
+            </span>
+          
+        </div>
+
+        <div class="row">
+          <span class="label">Racha</span>
+          <span class="value">
+            
+              <div class="streak">
+              <span class="W">W</span><span class="W">W</span><span class="L">L</span><span class="L">L</span><span class="L">L</span>
+              </div>
+            
+          </span>
+        </div>
+
+        
+        <div class="row">
+          <span class="label">Posición</span>
+          <span class="value">8º de 10</span>
+        </div>
+        
+      </article>
+      
+      <article class="card" data-slug="benjamin-d" data-cat="benjamin">
+        <button class="star" type="button"
+                data-slug="benjamin-d"
+                aria-label="Marcar como favorito"
+                aria-pressed="false">★</button>
+        <a class="card-link" href="benjamin-d/" aria-label="Abrir Benjamín 1er. Año D"></a>
+
+        <div class="card-head">
+          
+            <img src="https://ffcv.es/pnfg/pimg/Clubes/00100_0074480004_IMG_20221228_WA0010.jpg" alt="" loading="lazy" onerror="this.style.visibility='hidden'">
+          
+          <div style="flex:1; min-width:0;">
+            <div class="card-title">Benjamín 1er. Año D</div>
+            <div class="card-cat">Lliga Regular Grup 2</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <span class="label">Próximo</span>
+          
+            <span class="value">2026-05-30 · 12:30<br>
+              
+                vs Rafelbunyol C.F. 'B'
+              
+            </span>
+          
+        </div>
+
+        <div class="row">
+          <span class="label">Último</span>
+          
+            
+            
+              
+            
+            <span class="value">
+              <span class="result-pill loss">D · 5-1</span>
+              <br>
+              @ C.F.B. Ciutat de València 'D'
+            </span>
+          
+        </div>
+
+        <div class="row">
+          <span class="label">Racha</span>
+          <span class="value">
+            
+              <div class="streak">
+              <span class="D">D</span><span class="W">W</span><span class="L">L</span><span class="W">W</span><span class="L">L</span>
+              </div>
+            
+          </span>
+        </div>
+
+        
+        <div class="row">
+          <span class="label">Posición</span>
+          <span class="value">8º de 10</span>
+        </div>
+        
+      </article>
+      
+      <article class="card" data-slug="prebenjamin-a" data-cat="prebenjamin">
+        <button class="star" type="button"
+                data-slug="prebenjamin-a"
+                aria-label="Marcar como favorito"
+                aria-pressed="false">★</button>
+        <a class="card-link" href="prebenjamin-a/" aria-label="Abrir Prebenjamín 2º. Año A"></a>
+
+        <div class="card-head">
+          
+            <img src="https://ffcv.es/pnfg/pimg/Clubes/00100_0074480004_IMG_20221228_WA0010.jpg" alt="" loading="lazy" onerror="this.style.visibility='hidden'">
+          
+          <div style="flex:1; min-width:0;">
+            <div class="card-title">Prebenjamín 2º. Año A</div>
+            <div class="card-cat">Lliga Regular Grup 6</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <span class="label">Próximo</span>
+          
+            <span class="value">2026-05-27 · 18:30<br>
+              
+                vs C.F. Inter San José Valencia 'C'
+              
+            </span>
+          
+        </div>
+
+        <div class="row">
+          <span class="label">Último</span>
+          
+            
+            
+              
+            
+            <span class="value">
+              <span class="result-pill loss">D · 0-3</span>
+              <br>
+              vs C.F. Torre Levante 'A'
+            </span>
+          
+        </div>
+
+        <div class="row">
+          <span class="label">Racha</span>
+          <span class="value">
+            
+              <div class="streak">
+              <span class="L">L</span><span class="D">D</span><span class="D">D</span><span class="W">W</span><span class="L">L</span>
+              </div>
+            
+          </span>
+        </div>
+
+        
+        <div class="row">
+          <span class="label">Posición</span>
+          <span class="value">4º de 10</span>
+        </div>
+        
+      </article>
+      
+      <article class="card" data-slug="prebenjamin-b" data-cat="prebenjamin">
+        <button class="star" type="button"
+                data-slug="prebenjamin-b"
+                aria-label="Marcar como favorito"
+                aria-pressed="false">★</button>
+        <a class="card-link" href="prebenjamin-b/" aria-label="Abrir Prebenjamín 2º. Año B"></a>
+
+        <div class="card-head">
+          
+            <img src="https://ffcv.es/pnfg/pimg/Clubes/00100_0074480004_IMG_20221228_WA0010.jpg" alt="" loading="lazy" onerror="this.style.visibility='hidden'">
+          
+          <div style="flex:1; min-width:0;">
+            <div class="card-title">Prebenjamín 2º. Año B</div>
+            <div class="card-cat">Lliga Regular Grup 12</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <span class="label">Próximo</span>
+          
+            <span class="value">2026-05-30 · 15:00<br>
+              
+                @ U.D. Aldaia C.F. 'B'
+              
+            </span>
+          
+        </div>
+
+        <div class="row">
+          <span class="label">Último</span>
+          
+            
+            
+              
+            
+            <span class="value">
+              <span class="result-pill loss">D · 4-7</span>
+              <br>
+              vs Evangélico C.F. 'A'
+            </span>
+          
+        </div>
+
+        <div class="row">
+          <span class="label">Racha</span>
+          <span class="value">
+            
+              <div class="streak">
+              <span class="L">L</span><span class="L">L</span><span class="L">L</span><span class="L">L</span><span class="L">L</span>
+              </div>
+            
+          </span>
+        </div>
+
+        
+        <div class="row">
+          <span class="label">Posición</span>
+          <span class="value">9º de 9</span>
+        </div>
+        
+      </article>
+      
+      <article class="card" data-slug="prebenjamin-c" data-cat="prebenjamin">
+        <button class="star" type="button"
+                data-slug="prebenjamin-c"
+                aria-label="Marcar como favorito"
+                aria-pressed="false">★</button>
+        <a class="card-link" href="prebenjamin-c/" aria-label="Abrir Prebenjamín 1er. Año C"></a>
+
+        <div class="card-head">
+          
+            <img src="https://ffcv.es/pnfg/pimg/Clubes/00100_0074480004_IMG_20221228_WA0010.jpg" alt="" loading="lazy" onerror="this.style.visibility='hidden'">
+          
+          <div style="flex:1; min-width:0;">
+            <div class="card-title">Prebenjamín 1er. Año C</div>
+            <div class="card-cat">Lliga Regular Grup 6</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <span class="label">Próximo</span>
+          
+            <span class="value">2026-05-31 · 12:45<br>
+              
+                vs C.F. At. Bº La Luz - Xirivella 'B'
+              
+            </span>
+          
+        </div>
+
+        <div class="row">
+          <span class="label">Último</span>
+          
+            
+            
+              
+            
+            <span class="value">
+              <span class="result-pill draw">E · 1-1</span>
+              <br>
+              @ C.D. Malilla 'C'
+            </span>
+          
+        </div>
+
+        <div class="row">
+          <span class="label">Racha</span>
+          <span class="value">
+            
+              <div class="streak">
+              <span class="W">W</span><span class="W">W</span><span class="L">L</span><span class="L">L</span><span class="D">D</span>
+              </div>
+            
+          </span>
+        </div>
+
+        
+        <div class="row">
+          <span class="label">Posición</span>
+          <span class="value">4º de 10</span>
+        </div>
+        
+      </article>
+      
+      <article class="card" data-slug="querubines-a" data-cat="querubines">
+        <button class="star" type="button"
+                data-slug="querubines-a"
+                aria-label="Marcar como favorito"
+                aria-pressed="false">★</button>
+        <a class="card-link" href="querubines-a/" aria-label="Abrir Querubines A"></a>
+
+        <div class="card-head">
+          
+            <img src="https://ffcv.es/pnfg/pimg/Clubes/00100_0074480004_IMG_20221228_WA0010.jpg" alt="" loading="lazy" onerror="this.style.visibility='hidden'">
+          
+          <div style="flex:1; min-width:0;">
+            <div class="card-title">Querubines A</div>
+            <div class="card-cat">Grup - 1</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <span class="label">Próximo</span>
+          
+            <span class="value">2026-05-31 · 10:00<br>
+              
+                @ U.D. Juventud - Bº Cristo 'A'
+              
+            </span>
+          
+        </div>
+
+        <div class="row">
+          <span class="label">Último</span>
+          
+            
+            
+              
+            
+            <span class="value">
+              <span class="result-pill loss">D · 1-3</span>
+              <br>
+              vs C.F. Inter San José Valencia 'A'
+            </span>
+          
+        </div>
+
+        <div class="row">
+          <span class="label">Racha</span>
+          <span class="value">
+            
+              <div class="streak">
+              <span class="D">D</span><span class="W">W</span><span class="D">D</span><span class="L">L</span><span class="L">L</span>
+              </div>
+            
+          </span>
+        </div>
+
+        
+        <div class="row">
+          <span class="label">Posición</span>
+          <span class="value">9º de 10</span>
+        </div>
+        
+      </article>
+      
+      <article class="card" data-slug="querubines-b" data-cat="querubines">
+        <button class="star" type="button"
+                data-slug="querubines-b"
+                aria-label="Marcar como favorito"
+                aria-pressed="false">★</button>
+        <a class="card-link" href="querubines-b/" aria-label="Abrir Querubines B"></a>
+
+        <div class="card-head">
+          
+            <img src="https://ffcv.es/pnfg/pimg/Clubes/00100_0074480004_IMG_20221228_WA0010.jpg" alt="" loading="lazy" onerror="this.style.visibility='hidden'">
+          
+          <div style="flex:1; min-width:0;">
+            <div class="card-title">Querubines B</div>
+            <div class="card-cat">Grup - 3</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <span class="label">Próximo</span>
+          
+            <span class="value">2026-05-31 · 13:00<br>
+              
+                vs C.F. Rovella Mislata 'A'
+              
+            </span>
+          
+        </div>
+
+        <div class="row">
+          <span class="label">Último</span>
+          
+            
+            
+              
+            
+            <span class="value">
+              <span class="result-pill loss">D · 3-1</span>
+              <br>
+              @ Alboraya U.D. 'B'
+            </span>
+          
+        </div>
+
+        <div class="row">
+          <span class="label">Racha</span>
+          <span class="value">
+            
+              <div class="streak">
+              <span class="L">L</span><span class="L">L</span><span class="L">L</span><span class="L">L</span><span class="L">L</span>
+              </div>
+            
+          </span>
+        </div>
+
+        
+        <div class="row">
+          <span class="label">Posición</span>
+          <span class="value">9º de 10</span>
+        </div>
+        
+      </article>
+      
     </div>
+  </section>
+
+  <section id="resultados">
+    <h2>
+      Resultados del finde
+      <span class="badge">15</span>
+    </h2>
+    <p class="lead">Partidos de la última semana de todos los equipos del club.</p>
+
+    
+    <table class="matches">
+      <thead>
+        <tr>
+          <th>Día</th>
+          <th>Equipo</th>
+          <th>Partido</th>
+          <th>Resultado</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          <td>2026-05-24 12:45</td>
+          <td><a class="equipo-link" href="alevin-e/">Alevín 1er. Año E</a></td>
+          <td>C.F. Malvarrosa 'B' <strong>1-3</strong> C.F. Extramurs Valencia 'E'</td>
+          <td>
+            
+              <span class="result-pill win">V</span>
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td>2026-05-24 12:45</td>
+          <td><a class="equipo-link" href="benjamin-b/">Benjamín 2º. Año B</a></td>
+          <td>C.F. Extramurs Valencia 'B' <strong>4-1</strong> C.F. At. Bº La Luz - Xirivella 'B'</td>
+          <td>
+            
+              <span class="result-pill win">V</span>
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td>2026-05-24 12:00</td>
+          <td><a class="equipo-link" href="prebenjamin-c/">Prebenjamín 1er. Año C</a></td>
+          <td>C.D. Malilla 'C' <strong>1-1</strong> C.F. Extramurs Valencia 'C'</td>
+          <td>
+            
+              <span class="result-pill draw">E</span>
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td>2026-05-24 11:30</td>
+          <td><a class="equipo-link" href="alevin-d/">Alevín 1er. Año D</a></td>
+          <td>C.F. Extramurs Valencia 'D' <strong>7-3</strong> Manises C.F. 'E'</td>
+          <td>
+            
+              <span class="result-pill win">V</span>
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td>2026-05-24 10:15</td>
+          <td><a class="equipo-link" href="alevin-a/">Alevín 2º. Año A</a></td>
+          <td>C.F. Extramurs Valencia 'A' <strong>8-0</strong> C.D.J. Collvert 'B'</td>
+          <td>
+            
+              <span class="result-pill win">V</span>
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td>2026-05-24 09:00</td>
+          <td><a class="equipo-link" href="alevin-c/">Alevín 1er. Año C</a></td>
+          <td>C.F. Extramurs Valencia 'C' <strong>10-0</strong> Llíria U.D. 'C'</td>
+          <td>
+            
+              <span class="result-pill win">V</span>
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td>2026-05-24 09:00</td>
+          <td><a class="equipo-link" href="benjamin-d/">Benjamín 1er. Año D</a></td>
+          <td>C.F.B. Ciutat de València 'D' <strong>5-1</strong> C.F. Extramurs Valencia 'D'</td>
+          <td>
+            
+              <span class="result-pill loss">D</span>
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td>2026-05-23 13:50</td>
+          <td><a class="equipo-link" href="querubines-a/">Querubines A</a></td>
+          <td>C.F. Extramurs Valencia 'A' <strong>1-3</strong> C.F. Inter San José Valencia 'A'</td>
+          <td>
+            
+              <span class="result-pill loss">D</span>
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td>2026-05-23 13:30</td>
+          <td><a class="equipo-link" href="alevin-b/">Alevín 2º. Año B</a></td>
+          <td>Mislata C.F. 'F' <strong>1-4</strong> C.F. Extramurs Valencia 'B'</td>
+          <td>
+            
+              <span class="result-pill win">V</span>
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td>2026-05-23 12:40</td>
+          <td><a class="equipo-link" href="prebenjamin-b/">Prebenjamín 2º. Año B</a></td>
+          <td>C.F. Extramurs Valencia 'B' <strong>4-7</strong> Evangélico C.F. 'A'</td>
+          <td>
+            
+              <span class="result-pill loss">D</span>
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td>2026-05-23 11:15</td>
+          <td><a class="equipo-link" href="prebenjamin-a/">Prebenjamín 2º. Año A</a></td>
+          <td>C.F. Extramurs Valencia 'A' <strong>0-3</strong> C.F. Torre Levante 'A'</td>
+          <td>
+            
+              <span class="result-pill loss">D</span>
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td>2026-05-23 10:45</td>
+          <td><a class="equipo-link" href="querubines-b/">Querubines B</a></td>
+          <td>Alboraya U.D. 'B' <strong>3-1</strong> C.F. Extramurs Valencia 'B'</td>
+          <td>
+            
+              <span class="result-pill loss">D</span>
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td>2026-05-23 10:15</td>
+          <td><a class="equipo-link" href="benjamin-c/">Benjamín 2º. Año C</a></td>
+          <td>C.D. Jesuitas Valencia-S. Fútbol 'B' <strong>4-0</strong> C.F. Extramurs Valencia 'C'</td>
+          <td>
+            
+              <span class="result-pill loss">D</span>
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td>2026-05-22 19:30</td>
+          <td><a class="equipo-link" href="benjamin-a/">Benjamín 2º. Año A</a></td>
+          <td>C.F. Sporting Xirivella 'D' <strong>2-2</strong> C.F. Extramurs Valencia 'A'</td>
+          <td>
+            
+              <span class="result-pill draw">E</span>
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td>2026-05-21 18:25</td>
+          <td><a class="equipo-link" href="benjamin-a/">Benjamín 2º. Año A</a></td>
+          <td>C.F. Extramurs Valencia 'A' <strong>2-0</strong> C.D. Teresianas-Torrent 'A'</td>
+          <td>
+            
+              <span class="result-pill win">V</span>
+            
+          </td>
+        </tr>
+        
+      </tbody>
+    </table>
+    
+  </section>
+
+  <section id="proximos">
+    <h2>
+      Próximos partidos
+      <span class="badge">15</span>
+    </h2>
+    <p class="lead">Lo que toca esta semana, con todos los campos en el mapa.</p>
+
+    
+    <table class="matches" style="margin-bottom: 16px;">
+      <thead>
+        <tr>
+          <th>Día</th>
+          <th>Equipo</th>
+          <th>Partido</th>
+          <th>Campo</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          <td>2026-05-27 18:30</td>
+          <td><a class="equipo-link" href="prebenjamin-a/">Prebenjamín 2º. Año A</a></td>
+          <td>C.F. Extramurs Valencia 'A' <strong>vs</strong> C.F. Inter San José Valencia 'C'</td>
+          <td>
+            
+              <a href="https://www.openstreetmap.org/?mlat=39.4763386&mlon=-0.3949908#map=18/39.4763386/-0.3949908" target="_blank" rel="noopener">Campo Tramo III del Turia F-8</a>
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td>2026-05-29 19:00</td>
+          <td><a class="equipo-link" href="prebenjamin-a/">Prebenjamín 2º. Año A</a></td>
+          <td>Paterna C.F. 'A' <strong>vs</strong> C.F. Extramurs Valencia 'A'</td>
+          <td>
+            
+              <a href="https://www.openstreetmap.org/?mlat=39.4993914&mlon=-0.4478641#map=18/39.4993914/-0.4478641" target="_blank" rel="noopener">Estadio Gerardo Salvador F-8 Campo 1 Paterna</a>
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td>2026-05-30 09:00</td>
+          <td><a class="equipo-link" href="alevin-a/">Alevín 2º. Año A</a></td>
+          <td>C.F. Històrics de València 'B' <strong>vs</strong> C.F. Extramurs Valencia 'A'</td>
+          <td>
+            
+              <a href="https://www.openstreetmap.org/?mlat=39.4893154&mlon=-0.3789835#map=18/39.4893154/-0.3789835" target="_blank" rel="noopener">Poliesportiu Mpal. Marxalenes-Saïdia F-8 Campo 1</a>
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td>2026-05-30 10:00</td>
+          <td><a class="equipo-link" href="alevin-c/">Alevín 1er. Año C</a></td>
+          <td>Godella C.F. 'F' <strong>vs</strong> C.F. Extramurs Valencia 'C'</td>
+          <td>
+            
+              <a href="https://www.openstreetmap.org/?mlat=39.5211959&mlon=-0.4201775#map=18/39.5211959/-0.4201775" target="_blank" rel="noopener">Campo Mpal. de Godella F-8 Campo 2</a>
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td>2026-05-30 11:00</td>
+          <td><a class="equipo-link" href="alevin-d/">Alevín 1er. Año D</a></td>
+          <td>Paterna C.F. 'E' <strong>vs</strong> C.F. Extramurs Valencia 'D'</td>
+          <td>
+            
+              <a href="https://www.openstreetmap.org/?mlat=39.5001664&mlon=-0.4472313000000001#map=18/39.5001664/-0.4472313000000001" target="_blank" rel="noopener">Estadio Gerardo Salvador F-8 Anexo Paterna</a>
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td>2026-05-30 11:15</td>
+          <td><a class="equipo-link" href="alevin-b/">Alevín 2º. Año B</a></td>
+          <td>C.F. Extramurs Valencia 'B' <strong>vs</strong> U.D. Fonteta 'C'</td>
+          <td>
+            
+              <a href="https://www.openstreetmap.org/?mlat=39.4763386&mlon=-0.3949908#map=18/39.4763386/-0.3949908" target="_blank" rel="noopener">Campo Tramo III del Turia F-8</a>
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td>2026-05-30 11:30</td>
+          <td><a class="equipo-link" href="benjamin-b/">Benjamín 2º. Año B</a></td>
+          <td>C.F. Torre Levante 'C' <strong>vs</strong> C.F. Extramurs Valencia 'B'</td>
+          <td>
+            
+              <a href="https://www.openstreetmap.org/?mlat=39.4908658&mlon=-0.3641885#map=18/39.4908658/-0.3641885" target="_blank" rel="noopener">Campo Torre Levante-Orriols F-8 Campo 1</a>
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td>2026-05-30 12:30</td>
+          <td><a class="equipo-link" href="benjamin-d/">Benjamín 1er. Año D</a></td>
+          <td>C.F. Extramurs Valencia 'D' <strong>vs</strong> Rafelbunyol C.F. 'B'</td>
+          <td>
+            
+              <a href="https://www.openstreetmap.org/?mlat=39.4763386&mlon=-0.3949908#map=18/39.4763386/-0.3949908" target="_blank" rel="noopener">Campo Tramo III del Turia F-8</a>
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td>2026-05-30 15:00</td>
+          <td><a class="equipo-link" href="prebenjamin-b/">Prebenjamín 2º. Año B</a></td>
+          <td>U.D. Aldaia C.F. 'B' <strong>vs</strong> C.F. Extramurs Valencia 'B'</td>
+          <td>
+            
+              Polideportivo Mpal. de Aldaia F-8 Campo 2
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td>2026-05-31 10:00</td>
+          <td><a class="equipo-link" href="querubines-a/">Querubines A</a></td>
+          <td>U.D. Juventud - Bº Cristo 'A' <strong>vs</strong> C.F. Extramurs Valencia 'A'</td>
+          <td>
+            
+              <a href="https://www.openstreetmap.org/?mlat=39.4745485&mlon=-0.4671728#map=18/39.4745485/-0.4671728" target="_blank" rel="noopener">Campo Mpal. El Perdiguer F-5</a>
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td>2026-05-31 10:15</td>
+          <td><a class="equipo-link" href="alevin-e/">Alevín 1er. Año E</a></td>
+          <td>C.F. Extramurs Valencia 'E' <strong>vs</strong> Godella C.F. 'B'</td>
+          <td>
+            
+              <a href="https://www.openstreetmap.org/?mlat=39.4763386&mlon=-0.3949908#map=18/39.4763386/-0.3949908" target="_blank" rel="noopener">Campo Tramo III del Turia F-8</a>
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td>2026-05-31 10:15</td>
+          <td><a class="equipo-link" href="benjamin-a/">Benjamín 2º. Año A</a></td>
+          <td>C.F. Extramurs Valencia 'A' <strong>vs</strong> EAF Valencia C.F. 'A'</td>
+          <td>
+            
+              <a href="https://www.openstreetmap.org/?mlat=39.4763386&mlon=-0.3949908#map=18/39.4763386/-0.3949908" target="_blank" rel="noopener">Campo Tramo III del Turia F-8</a>
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td>2026-05-31 11:30</td>
+          <td><a class="equipo-link" href="benjamin-c/">Benjamín 2º. Año C</a></td>
+          <td>C.F. Extramurs Valencia 'C' <strong>vs</strong> C.D.J. Collvert 'B'</td>
+          <td>
+            
+              <a href="https://www.openstreetmap.org/?mlat=39.4763386&mlon=-0.3949908#map=18/39.4763386/-0.3949908" target="_blank" rel="noopener">Campo Tramo III del Turia F-8</a>
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td>2026-05-31 12:45</td>
+          <td><a class="equipo-link" href="prebenjamin-c/">Prebenjamín 1er. Año C</a></td>
+          <td>C.F. Extramurs Valencia 'C' <strong>vs</strong> C.F. At. Bº La Luz - Xirivella 'B'</td>
+          <td>
+            
+              <a href="https://www.openstreetmap.org/?mlat=39.4763386&mlon=-0.3949908#map=18/39.4763386/-0.3949908" target="_blank" rel="noopener">Campo Tramo III del Turia F-8</a>
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td>2026-05-31 13:00</td>
+          <td><a class="equipo-link" href="querubines-b/">Querubines B</a></td>
+          <td>C.F. Extramurs Valencia 'B' <strong>vs</strong> C.F. Rovella Mislata 'A'</td>
+          <td>
+            
+              <a href="https://www.openstreetmap.org/?mlat=39.4763386&mlon=-0.3949908#map=18/39.4763386/-0.3949908" target="_blank" rel="noopener">Campo Tramo III del Turia F-5</a>
+            
+          </td>
+        </tr>
+        
+      </tbody>
+    </table>
+    
+
+    
+      <div id="map" role="img" aria-label="Mapa con los campos de los próximos partidos"></div>
+    
+  </section>
+
+</main>
+
+<footer>
+  Actualización automática diaria a las 7:00 (Madrid) · Datos públicos FFCV
+</footer>
+
+<!-- Datos para personalización client-side y mapa -->
+<script id="ffcv-markers" type="application/json">[{"campo": "Campo Tramo III del Turia F-8", "lat": 39.4763386, "lon": -0.3949908, "partidos": [{"categoria": "Prebenjam\u00edn 2\u00ba. A\u00f1o", "fecha": "2026-05-27", "hora": "18:30", "letra": "A", "local": "C.F. Extramurs Valencia \u0027A\u0027", "slug": "prebenjamin-a", "visitante": "C.F. Inter San Jos\u00e9 Valencia \u0027C\u0027"}, {"categoria": "Alev\u00edn 2\u00ba. A\u00f1o", "fecha": "2026-05-30", "hora": "11:15", "letra": "B", "local": "C.F. Extramurs Valencia \u0027B\u0027", "slug": "alevin-b", "visitante": "U.D. Fonteta \u0027C\u0027"}, {"categoria": "Benjam\u00edn 1er. A\u00f1o", "fecha": "2026-05-30", "hora": "12:30", "letra": "D", "local": "C.F. Extramurs Valencia \u0027D\u0027", "slug": "benjamin-d", "visitante": "Rafelbunyol C.F. \u0027B\u0027"}, {"categoria": "Alev\u00edn 1er. A\u00f1o", "fecha": "2026-05-31", "hora": "10:15", "letra": "E", "local": "C.F. Extramurs Valencia \u0027E\u0027", "slug": "alevin-e", "visitante": "Godella C.F. \u0027B\u0027"}, {"categoria": "Benjam\u00edn 2\u00ba. A\u00f1o", "fecha": "2026-05-31", "hora": "10:15", "letra": "A", "local": "C.F. Extramurs Valencia \u0027A\u0027", "slug": "benjamin-a", "visitante": "EAF Valencia C.F. \u0027A\u0027"}, {"categoria": "Benjam\u00edn 2\u00ba. A\u00f1o", "fecha": "2026-05-31", "hora": "11:30", "letra": "C", "local": "C.F. Extramurs Valencia \u0027C\u0027", "slug": "benjamin-c", "visitante": "C.D.J. Collvert \u0027B\u0027"}, {"categoria": "Prebenjam\u00edn 1er. A\u00f1o", "fecha": "2026-05-31", "hora": "12:45", "letra": "C", "local": "C.F. Extramurs Valencia \u0027C\u0027", "slug": "prebenjamin-c", "visitante": "C.F. At. B\u00ba La Luz - Xirivella \u0027B\u0027"}, {"categoria": "Querubines", "fecha": "2026-05-31", "hora": "13:00", "letra": "B", "local": "C.F. Extramurs Valencia \u0027B\u0027", "slug": "querubines-b", "visitante": "C.F. Rovella Mislata \u0027A\u0027"}]}, {"campo": "Estadio Gerardo Salvador F-8 Campo 1 Paterna", "lat": 39.4993914, "lon": -0.4478641, "partidos": [{"categoria": "Prebenjam\u00edn 2\u00ba. A\u00f1o", "fecha": "2026-05-29", "hora": "19:00", "letra": "A", "local": "Paterna C.F. \u0027A\u0027", "slug": "prebenjamin-a", "visitante": "C.F. Extramurs Valencia \u0027A\u0027"}]}, {"campo": "Poliesportiu Mpal. Marxalenes-Sa\u00efdia F-8 Campo 1", "lat": 39.4893154, "lon": -0.3789835, "partidos": [{"categoria": "Alev\u00edn 2\u00ba. A\u00f1o", "fecha": "2026-05-30", "hora": "09:00", "letra": "A", "local": "C.F. Hist\u00f2rics de Val\u00e8ncia \u0027B\u0027", "slug": "alevin-a", "visitante": "C.F. Extramurs Valencia \u0027A\u0027"}]}, {"campo": "Campo Mpal. de Godella F-8 Campo 2", "lat": 39.5211959, "lon": -0.4201775, "partidos": [{"categoria": "Alev\u00edn 1er. A\u00f1o", "fecha": "2026-05-30", "hora": "10:00", "letra": "C", "local": "Godella C.F. \u0027F\u0027", "slug": "alevin-c", "visitante": "C.F. Extramurs Valencia \u0027C\u0027"}]}, {"campo": "Estadio Gerardo Salvador F-8 Anexo Paterna", "lat": 39.5001664, "lon": -0.4472313000000001, "partidos": [{"categoria": "Alev\u00edn 1er. A\u00f1o", "fecha": "2026-05-30", "hora": "11:00", "letra": "D", "local": "Paterna C.F. \u0027E\u0027", "slug": "alevin-d", "visitante": "C.F. Extramurs Valencia \u0027D\u0027"}]}, {"campo": "Campo Torre Levante-Orriols F-8 Campo 1", "lat": 39.4908658, "lon": -0.3641885, "partidos": [{"categoria": "Benjam\u00edn 2\u00ba. A\u00f1o", "fecha": "2026-05-30", "hora": "11:30", "letra": "B", "local": "C.F. Torre Levante \u0027C\u0027", "slug": "benjamin-b", "visitante": "C.F. Extramurs Valencia \u0027B\u0027"}]}, {"campo": "Campo Mpal. El Perdiguer F-5", "lat": 39.4745485, "lon": -0.4671728, "partidos": [{"categoria": "Querubines", "fecha": "2026-05-31", "hora": "10:00", "letra": "A", "local": "U.D. Juventud - B\u00ba Cristo \u0027A\u0027", "slug": "querubines-a", "visitante": "C.F. Extramurs Valencia \u0027A\u0027"}]}]</script>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""></script>
+
+<script>
+  // ----- Personalización: favoritos (max 3) + recencia (localStorage) -----
+  (function () {
+    var FAV_KEY = 'ffcv-extramurs:favorites';
+    var RECENCY_KEY = 'ffcv-extramurs:recency';
+    var MAX_FAVS = 3;
+    var MAX_RECENT = 8;
+
+    function readArr(key) {
+      try {
+        var v = JSON.parse(localStorage.getItem(key) || '[]');
+        return Array.isArray(v) ? v : [];
+      } catch (e) { return []; }
+    }
+    function writeArr(key, arr) {
+      try { localStorage.setItem(key, JSON.stringify(arr)); } catch (e) {}
+    }
+
+    var favs = readArr(FAV_KEY);
+    var recencia = readArr(RECENCY_KEY);
+    var grid = document.getElementById('grid');
+    if (!grid) return;
+
+    function reorderGrid() {
+      // Orden: [favs en orden de FAV_KEY] + [recencia en orden DESC] + [resto en orden DOM original]
+      var cards = Array.from(grid.querySelectorAll('.card'));
+      var bySlug = {};
+      var ordenOriginal = [];
+      cards.forEach(function (c, i) {
+        var s = c.getAttribute('data-slug');
+        bySlug[s] = c;
+        ordenOriginal.push(s);
+      });
+
+      var seleccion = [];
+      function push(s) {
+        if (s && bySlug[s] && seleccion.indexOf(s) === -1) seleccion.push(s);
+      }
+      favs.forEach(push);
+      recencia.forEach(push);
+      ordenOriginal.forEach(push);
+
+      seleccion.forEach(function (s) {
+        grid.appendChild(bySlug[s]);
+      });
+    }
+
+    function syncStarsUI() {
+      var stars = grid.querySelectorAll('.star');
+      stars.forEach(function (btn) {
+        var s = btn.getAttribute('data-slug');
+        var esFav = favs.indexOf(s) !== -1;
+        btn.classList.toggle('is-fav', esFav);
+        btn.setAttribute('aria-pressed', esFav ? 'true' : 'false');
+        // Si ya hay MAX_FAVS y este no está, deshabilita el botón para evitar confusión
+        if (!esFav && favs.length >= MAX_FAVS) {
+          btn.setAttribute('disabled', '');
+        } else {
+          btn.removeAttribute('disabled');
+        }
+      });
+    }
+
+    grid.addEventListener('click', function (ev) {
+      var btn = ev.target.closest('.star');
+      if (btn) {
+        ev.preventDefault();
+        ev.stopPropagation();
+        var slug = btn.getAttribute('data-slug');
+        var idx = favs.indexOf(slug);
+        if (idx !== -1) {
+          favs.splice(idx, 1);
+        } else if (favs.length < MAX_FAVS) {
+          favs.push(slug);
+        } else {
+          return;
+        }
+        writeArr(FAV_KEY, favs);
+        syncStarsUI();
+        reorderGrid();
+        return;
+      }
+      var link = ev.target.closest('a.card-link');
+      if (link) {
+        var card = link.closest('.card');
+        var slug = card && card.getAttribute('data-slug');
+        if (slug) {
+          var i = recencia.indexOf(slug);
+          if (i !== -1) recencia.splice(i, 1);
+          recencia.unshift(slug);
+          recencia = recencia.slice(0, MAX_RECENT);
+          writeArr(RECENCY_KEY, recencia);
+        }
+      }
+    });
+
+    syncStarsUI();
+    reorderGrid();
+  })();
+
+  // ----- Mapa Leaflet + OSM -----
+  (function () {
+    var mapDiv = document.getElementById('map');
+    if (!mapDiv || typeof L === 'undefined') return;
+
+    var raw = document.getElementById('ffcv-markers');
+    var marcadores = [];
+    try { marcadores = JSON.parse(raw.textContent || '[]'); } catch (e) {}
+    if (!marcadores.length) return;
+
+    var map = L.map('map');
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    var grupo = L.featureGroup();
+    marcadores.forEach(function (m) {
+      var marker = L.marker([m.lat, m.lon]);
+      var lista = m.partidos.map(function (p) {
+        return '<div>' + p.fecha + ' ' + (p.hora || '') + ' — <a href="' + p.slug + '/">'
+             + (p.categoria || '') + ' ' + (p.letra || '') + '</a>: '
+             + p.local + ' vs ' + p.visitante + '</div>';
+      }).join('');
+      marker.bindPopup('<div class="map-leaflet-popup"><b>' + m.campo + '</b>' + lista + '</div>');
+      marker.addTo(grupo);
+    });
+    grupo.addTo(map);
+    map.fitBounds(grupo.getBounds().pad(0.18));
+  })();
+</script>
+
 </body>
 </html>

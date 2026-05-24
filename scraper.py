@@ -13,7 +13,7 @@ import logging
 import re
 import time
 import yaml
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Dict, List, Optional
 from urllib.parse import quote
@@ -65,47 +65,18 @@ OUTPUT_DASHBOARD = BASE_DIR / "dashboard.html"
 OUTPUT_PLANTILLA = BASE_DIR / "plantilla.html"
 
 
-def load_config(config_path: Path) -> Dict:
+def load_club_config() -> Optional[Dict]:
     """
-    Carga la configuración desde un archivo YAML
+    Carga `configs/_club.yaml` si existe. Si no, devuelve None (modo legacy:
+    sólo se procesan los equipos definidos en configs/equipo*.yaml).
     """
-    if not config_path.exists():
-        raise FileNotFoundError(
-            f"❌ No se encontró el archivo de configuración: {config_path}"
-        )
-
-    with open(config_path, 'r', encoding='utf-8') as f:
+    path = BASE_DIR / "configs" / "_club.yaml"
+    if not path.exists():
+        return None
+    with open(path, "r", encoding="utf-8") as f:
         config = yaml.safe_load(f)
-
-    logger.info(f"✓ Configuración cargada para: {config['equipo']['nombre']}")
+    logger.info(f"✓ Configuración de club cargada: {config['club']['nombre']}")
     return config
-
-
-def load_all_configs() -> List[Dict]:
-    """
-    Carga todas las configuraciones desde el directorio configs/
-    """
-    configs_dir = BASE_DIR / "configs"
-
-    if not configs_dir.exists():
-        # Fallback a config.yaml si no existe configs/
-        logger.warning("⚠️  Directorio configs/ no encontrado, usando config.yaml")
-        return [load_config(BASE_DIR / "config.yaml")]
-
-    configs = []
-    config_files = sorted(configs_dir.glob("*.yaml"))
-
-    if not config_files:
-        raise FileNotFoundError(
-            f"❌ No se encontraron archivos de configuración en {configs_dir}"
-        )
-
-    for config_file in config_files:
-        logger.info(f"📄 Cargando configuración: {config_file.name}")
-        config = load_config(config_file)
-        configs.append(config)
-
-    return configs
 
 
 # NOTA: Variables globales - se inicializan dinámicamente por equipo en setup_globals()
@@ -245,6 +216,19 @@ def fetch_json(path: str, params: Optional[Dict] = None, max_retries: int = 5) -
 
         except FFCVAPIError:
             raise
+        except requests.HTTPError as e:
+            last_exc = e
+            status = getattr(e.response, "status_code", None)
+            # 429 = rate limit: backoff agresivo (30s+).
+            if status == 429:
+                espera = min(30 * attempt, 120)
+                logger.warning(f"429 Too Many Requests; durmiendo {espera}s antes de reintentar")
+                if attempt < max_retries:
+                    time.sleep(espera)
+                    continue
+            logger.warning(f"Error HTTP {status} en intento {attempt}: {e}")
+            if attempt < max_retries:
+                time.sleep(5)
         except (requests.RequestException, ValueError) as e:
             last_exc = e
             logger.warning(f"Error en intento {attempt}: {e}")
@@ -258,6 +242,520 @@ def fetch_json(path: str, params: Optional[Dict] = None, max_retries: int = 5) -
     raise FFCVAPIError(
         f"No se pudo obtener {url} tras {max_retries} intentos"
     ) from last_exc
+
+
+# ---------------------------------------------------------------------------
+# Descubrimiento de equipos del club
+# ---------------------------------------------------------------------------
+
+# Mapeo de "codigo_categoria" → raíz del slug. Para categorías que no estén
+# aquí caemos a una versión normalizada del nombre.
+_CATEGORIA_SLUG_RAIZ = {
+    "Prebenjamín": "prebenjamin",
+    "Benjamín": "benjamin",
+    "Alevín": "alevin",
+    # Infantiles del club se llaman "2ª Regional Infantil"; el sufijo "Regional"
+    # no aporta a nivel de URL así que nos quedamos con la base.
+    "Infantil": "infantil",
+    "Querubines": "querubines",
+}
+
+
+def _slugify(texto: str) -> str:
+    """Lower-case, sin tildes y con guiones."""
+    import unicodedata
+    norm = unicodedata.normalize("NFD", texto)
+    norm = "".join(c for c in norm if unicodedata.category(c) != "Mn")
+    norm = re.sub(r"[^a-zA-Z0-9]+", "-", norm).strip("-").lower()
+    return norm
+
+
+def _categoria_raiz(nombre_categoria: str) -> str:
+    """Devuelve la raíz canónica para el slug a partir del nombre de categoría."""
+    for clave, raiz in _CATEGORIA_SLUG_RAIZ.items():
+        if clave.lower() in nombre_categoria.lower():
+            return raiz
+    return _slugify(nombre_categoria)
+
+
+def _letra_equipo(nombre_equipo: str) -> str:
+    """
+    Extrae la letra del equipo: 'C.F. Extramurs Valencia 'A'' → 'a'.
+    Si no hay letra entre comillas, devuelve '' y el llamador genera un
+    sufijo alternativo.
+    """
+    match = re.search(r"'([A-Z])'\s*$", nombre_equipo)
+    if match:
+        return match.group(1).lower()
+    return ""
+
+
+def generar_slug(equipo_api: Dict) -> str:
+    """
+    Genera un slug determinístico a partir de la respuesta de
+    ajax_club_equipos.php para un equipo (`categoria` + letra).
+
+    Ejemplos:
+        Prebenjamín 2º. Año 'A' → "prebenjamin-a"
+        Alevín 1er. Año 'D'    → "alevin-d"
+        Querubines 'B'         → "querubines-b"
+    """
+    categoria = equipo_api.get("categoria") or ""
+    nombre_equipo = equipo_api.get("nombre_equipo") or ""
+    raiz = _categoria_raiz(categoria)
+    letra = _letra_equipo(nombre_equipo)
+    if letra:
+        return f"{raiz}-{letra}"
+    # Sin letra reconocible: usar codequipo como sufijo para garantizar unicidad
+    return f"{raiz}-{equipo_api.get('codequipo')}"
+
+
+def _anyo_categoria(nombre_categoria: str) -> Optional[int]:
+    """Devuelve 1 o 2 según el año dentro de la categoría, o None si no aplica."""
+    txt = nombre_categoria.lower()
+    if "2º" in txt or "2o." in txt or "2.º" in txt or "2do" in txt:
+        return 2
+    if "1er" in txt or "1º" in txt or "1.º" in txt or "primer" in txt:
+        return 1
+    return None
+
+
+def descubrir_equipos_del_club(clave_acceso: str, cod_temporada: str) -> List[Dict]:
+    """
+    Lista los equipos en competición del club para la temporada indicada.
+    Devuelve la lista cruda tal como la entrega la API.
+    """
+    logger.info(
+        f"Descubriendo equipos del club (clave={clave_acceso}, temporada={cod_temporada})..."
+    )
+    data = fetch_json(
+        "clubes/ajax_club_equipos.php",
+        {"clave": clave_acceso, "cod_temporada": cod_temporada},
+    )
+    equipos = data.get("equipos") or []
+    if not equipos:
+        raise FFCVAPIError(
+            f"ajax_club_equipos.php devolvió 0 equipos (clave={clave_acceso})"
+        )
+    logger.info(f"✓ {len(equipos)} equipos descubiertos")
+    return equipos
+
+
+def _competicion_relevante_para_provincia(nombre_comp: str) -> bool:
+    """
+    Heurística para descartar competiciones de provincias ajenas. Para el
+    club Extramurs (Valencia) excluimos Alacant y Castelló; nos quedamos con
+    las "València" y las multi-provinciales (Copa, Lliga Comunitat).
+    """
+    n = (nombre_comp or "").lower()
+    if "alacant" in n or "alicante" in n:
+        return False
+    if "castell" in n:
+        return False
+    return True
+
+
+def _es_competicion_liga(nombre_comp: str) -> bool:
+    """
+    True si parece una liga regular (vs copa/torneo/fase final). Las ligas
+    tienen muchas más jornadas y son las que queremos como "competición
+    principal" del equipo.
+    """
+    n = (nombre_comp or "").lower()
+    palabras_cup = ("copa", "fase final", "torneo", "tornem", "playoff", "play-off")
+    return not any(w in n for w in palabras_cup)
+
+
+def _resolver_competiciones_por_categoria(cod_temporada: str) -> Dict[str, List[Dict]]:
+    """
+    Mapea codigo_categoria → lista de competiciones (con codigo y nombre) que
+    pertenecen a esa categoría en la temporada indicada.
+    """
+    logger.info("Cargando competiciones de la temporada...")
+    data = fetch_json("filtros/competiciones_fetch.php", {"cod_temporada": cod_temporada})
+    competiciones = data.get("competiciones") or []
+    if not competiciones:
+        raise FFCVAPIError(
+            f"competiciones_fetch.php devolvió 0 competiciones (temporada={cod_temporada})"
+        )
+
+    out: Dict[str, List[Dict]] = {}
+    for comp in competiciones:
+        cat = comp.get("CodigoCategoria")
+        cod = comp.get("codigo")
+        if cat and cod:
+            out.setdefault(str(cat), []).append({
+                "codigo": str(cod),
+                "nombre": comp.get("nombre") or "",
+            })
+    logger.info(f"✓ {len(competiciones)} competiciones, {len(out)} categorías indexadas")
+    return out
+
+
+def _equipo_esta_en_grupo(codequipo: str, cod_grupo: str) -> bool:
+    """
+    Comprueba si un equipo está en un grupo usando clasificaciones_ajax.php
+    (~10 equipos por grupo en respuestas pequeñas). Devuelve False también si
+    el endpoint falla — el llamador puede seguir con otro grupo.
+    """
+    try:
+        data = fetch_json(
+            "clasificaciones/clasificaciones_ajax.php",
+            {"cod_grupo": cod_grupo, "cod_jornada": "1"},
+        )
+    except FFCVAPIError:
+        return False
+    for fila in data.get("clasificacion") or []:
+        if str(fila.get("codequipo")) == str(codequipo):
+            return True
+    return False
+
+
+def _resolver_grupos_de_categoria(
+    cod_categoria: str,
+    codequipos_pendientes: set,
+    competiciones_por_categoria: Dict[str, List[Dict]],
+) -> Dict[str, Dict]:
+    """
+    Para una categoría dada y un conjunto de codequipos del club que pertenecen
+    a esa categoría, descubre el `cod_grupo` de cada uno usando el endpoint de
+    clasificaciones (10 equipos por grupo, respuesta pequeña).
+
+    Itera las competiciones de la categoría (filtradas por provincia) y, dentro
+    de cada competición, recorre los grupos. Sale cuanto se han resuelto todos
+    los equipos pendientes para esa categoría.
+
+    Devuelve {codequipo: {cod_competicion, cod_grupo, nombre_grupo, total_jornadas}}.
+    """
+    resueltos: Dict[str, Dict] = {}
+    posibles = competiciones_por_categoria.get(str(cod_categoria), [])
+    if not posibles:
+        return resueltos
+
+    # Estrategia de orden:
+    #   1) Provincia local + es liga regular (Lliga/Preferent/Primera/Segona/...)
+    #   2) Liga regular sin filtro de provincia (Lliga Comunitat, etc.)
+    #   3) Provincia local + copa/torneo
+    #   4) Resto (otras provincias, copa nacional...)
+    # Así cogemos primero la categoría principal (más jornadas) y no la copa.
+    cubos: Dict[int, List[Dict]] = {0: [], 1: [], 2: [], 3: []}
+    for c in posibles:
+        es_local = _competicion_relevante_para_provincia(c["nombre"])
+        es_liga = _es_competicion_liga(c["nombre"])
+        if es_local and es_liga:
+            cubos[0].append(c)
+        elif es_liga:
+            cubos[1].append(c)
+        elif es_local:
+            cubos[2].append(c)
+        else:
+            cubos[3].append(c)
+    orden = cubos[0] + cubos[1] + cubos[2] + cubos[3]
+
+    for comp in orden:
+        if not codequipos_pendientes:
+            break
+        try:
+            grupos_data = fetch_json(
+                "filtros/grupos_fetch.php", {"cod_competicion": comp["codigo"]}
+            )
+        except FFCVAPIError as e:
+            logger.warning(f"Saltando competición {comp['codigo']} ({comp['nombre']}): {e}")
+            continue
+
+        for grupo in grupos_data.get("grupos") or []:
+            if not codequipos_pendientes:
+                break
+            cod_grupo = str(grupo.get("codigo") or "")
+            if not cod_grupo:
+                continue
+
+            try:
+                clasif_data = fetch_json(
+                    "clasificaciones/clasificaciones_ajax.php",
+                    {"cod_grupo": cod_grupo, "cod_jornada": "1"},
+                )
+            except FFCVAPIError as e:
+                logger.warning(f"Saltando grupo {cod_grupo}: {e}")
+                continue
+
+            for fila in clasif_data.get("clasificacion") or []:
+                codeq = str(fila.get("codequipo") or "")
+                if codeq in codequipos_pendientes:
+                    resueltos[codeq] = {
+                        "cod_competicion": comp["codigo"],
+                        "cod_grupo": cod_grupo,
+                        "nombre_grupo": grupo.get("nombre"),
+                        "total_jornadas": _try_int(grupo.get("total_jornadas")),
+                    }
+                    codequipos_pendientes.discard(codeq)
+                    logger.info(
+                        f"  ✓ resuelto codequipo={codeq} → cod_grupo={cod_grupo} "
+                        f"({grupo.get('nombre')})"
+                    )
+
+            # Pequeño respiro para no agitar al rate limiter
+            time.sleep(0.1)
+
+    return resueltos
+
+
+def cargar_o_descubrir_club_map(
+    clave_acceso: str,
+    cod_temporada: str,
+    cache_path: Path,
+) -> Dict:
+    """
+    Carga el club_map de caché. Si no existe o la temporada cambió, lo
+    regenera desde la API. Si existe, sólo resuelve `cod_grupo` para equipos
+    que hayan aparecido nuevos desde la última actualización.
+
+    El club_map tiene esta forma:
+        {
+          "cod_temporada": "21",
+          "clave_acceso_club": "4189",
+          "ultima_actualizacion": "2026-05-24T...",
+          "equipos": [
+            {codequipo, slug, letra, categoria, codigo_categoria,
+             cod_grupo_categoria, nombre_grupo_categoria, anyo_categoria,
+             cod_competicion, cod_grupo, nombre_grupo, total_jornadas,
+             nombre_equipo, escudo, campo_juego, jugar_dia, jugar_horario,
+             codigo_campo},
+            ...
+          ]
+        }
+    """
+    cache: Dict = {"equipos": []}
+    if cache_path.exists():
+        try:
+            with open(cache_path, "r", encoding="utf-8") as f:
+                cache = json.load(f)
+        except (json.JSONDecodeError, OSError) as e:
+            logger.warning(f"Cache club_map inválida ({e}); regenerando")
+            cache = {"equipos": []}
+
+    # Si cambió la temporada, invalidamos
+    if str(cache.get("cod_temporada") or "") != str(cod_temporada):
+        cache = {"equipos": []}
+
+    # Estado actual del club según la API
+    equipos_actuales = descubrir_equipos_del_club(clave_acceso, cod_temporada)
+    actuales_codequipos = {str(e["codequipo"]) for e in equipos_actuales}
+
+    # Eliminar de la caché los equipos que ya no están en competición
+    cache["equipos"] = [
+        e for e in cache["equipos"] if str(e.get("codequipo")) in actuales_codequipos
+    ]
+    cacheados_codequipos = {str(e["codequipo"]) for e in cache["equipos"]}
+
+    # Refrescar campos volátiles (campo, horario, escudo, slug) de los que ya tenemos
+    actuales_por_code = {str(e["codequipo"]): e for e in equipos_actuales}
+    for entrada in cache["equipos"]:
+        api_entry = actuales_por_code.get(str(entrada["codequipo"]))
+        if api_entry:
+            entrada.update(_extraer_campos_volatiles(api_entry))
+
+    # Equipos nuevos: resolver cod_grupo y añadir
+    nuevos = [
+        e for e in equipos_actuales
+        if str(e["codequipo"]) not in cacheados_codequipos
+    ]
+
+    if nuevos:
+        logger.info(f"Resolviendo cod_grupo para {len(nuevos)} equipo(s) nuevo(s)...")
+        comp_index = _resolver_competiciones_por_categoria(cod_temporada)
+
+        # Agrupar los pendientes por categoría para resolver en bulk: con un
+        # único barrido de los grupos de la categoría cubrimos a todos los
+        # equipos del club que comparten esa categoría.
+        por_categoria: Dict[str, List[Dict]] = {}
+        for equipo_api in nuevos:
+            cod_cat = str(equipo_api.get("codigo_categoria") or "")
+            por_categoria.setdefault(cod_cat, []).append(equipo_api)
+
+        for cod_categoria, equipos_de_cat in por_categoria.items():
+            codequipos_pendientes = {str(e["codequipo"]) for e in equipos_de_cat}
+            logger.info(
+                f"Categoría {cod_categoria} ({equipos_de_cat[0].get('categoria')}): "
+                f"{len(codequipos_pendientes)} equipo(s) a resolver"
+            )
+            resoluciones = _resolver_grupos_de_categoria(
+                cod_categoria, codequipos_pendientes, comp_index
+            )
+
+            for equipo_api in equipos_de_cat:
+                codequipo = str(equipo_api["codequipo"])
+                resolucion = resoluciones.get(codequipo)
+                if resolucion is None:
+                    logger.warning(
+                        f"No se pudo resolver grupo para {equipo_api.get('nombre_equipo')} "
+                        f"(codequipo={codequipo}, categoria={equipo_api.get('categoria')})"
+                    )
+                    continue
+
+                entrada = {
+                    "codequipo": codequipo,
+                    "slug": generar_slug(equipo_api),
+                    "letra": _letra_equipo(equipo_api.get("nombre_equipo") or ""),
+                    "anyo_categoria": _anyo_categoria(equipo_api.get("categoria") or ""),
+                    "codigo_categoria": cod_categoria,
+                    "cod_grupo_categoria": str(equipo_api.get("cod_grupo_categoria") or ""),
+                    "nombre_grupo_categoria": equipo_api.get("nombre_grupo_categoria"),
+                    **resolucion,
+                    **_extraer_campos_volatiles(equipo_api),
+                }
+                cache["equipos"].append(entrada)
+
+    # Detectar colisiones de slug
+    slugs_vistos: Dict[str, str] = {}
+    for entrada in cache["equipos"]:
+        slug = entrada.get("slug")
+        if not slug:
+            continue
+        if slug in slugs_vistos and slugs_vistos[slug] != entrada["codequipo"]:
+            logger.warning(
+                f"⚠️  Colisión de slug '{slug}' entre codequipo={slugs_vistos[slug]} "
+                f"y codequipo={entrada['codequipo']}"
+            )
+        slugs_vistos[slug] = entrada["codequipo"]
+
+    # Orden estable para que el JSON cacheado no oscile entre runs
+    cache["equipos"].sort(key=lambda e: e.get("slug") or "")
+
+    cache["cod_temporada"] = str(cod_temporada)
+    cache["clave_acceso_club"] = str(clave_acceso)
+    cache["ultima_actualizacion"] = datetime.now().isoformat()
+
+    cache_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(cache_path, "w", encoding="utf-8") as f:
+        json.dump(cache, f, ensure_ascii=False, indent=2)
+
+    logger.info(f"✓ club_map.json escrito con {len(cache['equipos'])} equipos")
+    return cache
+
+
+# ---------------------------------------------------------------------------
+# Coordenadas de campos (vía API FFCV + caché en disco)
+# ---------------------------------------------------------------------------
+#
+# La API FFCV expone `api/instalaciones/datos_campo.php?codcampo=...` con
+# `latitud`/`longitud` ya calculadas. Para llegar al `codigo_campo` partiendo
+# de un partido usamos `api/partidos/ficha_partido_ajax.php?cod_partido=<codacta>`
+# que devuelve también esa referencia.
+
+def _cargar_cache_campos(path: Path) -> Dict:
+    if not path.exists():
+        return {}
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except (json.JSONDecodeError, OSError):
+        return {}
+
+
+def _guardar_cache_campos(path: Path, cache: Dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(cache, f, ensure_ascii=False, indent=2, sort_keys=True)
+
+
+def _resolver_codcampo(codacta: str) -> Optional[str]:
+    """Llama a ficha_partido_ajax.php y devuelve `codigo_campo` o None."""
+    try:
+        ficha = fetch_json(
+            "partidos/ficha_partido_ajax.php", {"cod_partido": codacta}
+        )
+    except FFCVAPIError as e:
+        logger.warning(f"ficha_partido_ajax codacta={codacta}: {e}")
+        return None
+    cod = ficha.get("codigo_campo")
+    return str(cod) if cod else None
+
+
+def _coords_de_campo_ffcv(cod_campo: str) -> Optional[Dict]:
+    """Llama a datos_campo.php y devuelve {lat, lon, direccion, localidad}."""
+    try:
+        data = fetch_json(
+            "instalaciones/datos_campo.php", {"codcampo": cod_campo}
+        )
+    except FFCVAPIError as e:
+        logger.warning(f"datos_campo codcampo={cod_campo}: {e}")
+        return None
+    try:
+        return {
+            "lat": float(data["latitud"]),
+            "lon": float(data["longitud"]),
+            "direccion": data.get("direccion") or "",
+            "localidad": data.get("localidad") or "",
+            "codigo_campo_ffcv": str(cod_campo),
+        }
+    except (KeyError, TypeError, ValueError):
+        return None
+
+
+def resolver_coordenadas_campos(
+    partidos: List[Dict],
+    cache_path: Path,
+) -> Dict[str, Dict]:
+    """
+    Para cada partido cuyo `campo` aún no esté cacheado, sigue la cadena
+    codacta → codigo_campo → lat/lon y guarda el resultado. Los campos ya
+    cacheados se reutilizan tal cual; basta con borrar `data/campos.json`
+    para forzar resolución de nuevo.
+    """
+    cache = _cargar_cache_campos(cache_path)
+    pendientes: List[Dict] = []
+    vistos: set = set()
+
+    for p in partidos:
+        nombre = p.get("campo") or ""
+        if not nombre or nombre in cache or nombre in vistos:
+            continue
+        vistos.add(nombre)
+        pendientes.append(p)
+
+    if not pendientes:
+        return cache
+
+    logger.info(f"Resolviendo coordenadas de {len(pendientes)} campo(s) nuevo(s) vía API FFCV...")
+    for idx, partido in enumerate(pendientes, 1):
+        nombre = partido["campo"]
+        codacta = partido.get("id_partido")
+        if not codacta:
+            cache[nombre] = {"lat": None, "lon": None, "motivo": "sin_codacta"}
+            logger.warning(f"  ⚠ [{idx}/{len(pendientes)}] {nombre} → sin codacta del partido")
+            continue
+        cod_campo = _resolver_codcampo(str(codacta))
+        if not cod_campo:
+            cache[nombre] = {"lat": None, "lon": None, "motivo": "sin_codcampo"}
+            logger.warning(f"  ⚠ [{idx}/{len(pendientes)}] {nombre} → sin codcampo")
+            continue
+        coords = _coords_de_campo_ffcv(cod_campo)
+        if not coords:
+            cache[nombre] = {"lat": None, "lon": None, "motivo": "sin_coords", "codigo_campo_ffcv": cod_campo}
+            logger.warning(f"  ⚠ [{idx}/{len(pendientes)}] {nombre} → sin coords en datos_campo")
+            continue
+        cache[nombre] = coords
+        logger.info(
+            f"  ✓ [{idx}/{len(pendientes)}] {nombre} → ({coords['lat']:.5f}, {coords['lon']:.5f})"
+        )
+
+    _guardar_cache_campos(cache_path, cache)
+    return cache
+
+
+def _extraer_campos_volatiles(equipo_api: Dict) -> Dict:
+    """Campos del equipo que pueden cambiar entre temporadas o renovaciones."""
+    return {
+        "nombre_equipo": equipo_api.get("nombre_equipo"),
+        "categoria": equipo_api.get("categoria"),
+        "escudo": equipo_api.get("escudo"),
+        "campo_juego": equipo_api.get("campo_juego"),
+        "codigo_campo": equipo_api.get("codigo_campo"),
+        "jugar_dia": _try_int(equipo_api.get("jugar_dia")),
+        "jugar_horario": equipo_api.get("jugar_horario"),
+        "total_jugadores": _try_int(equipo_api.get("total_jugadores")),
+    }
 
 
 def parse_spanish_date(date_str: str) -> Optional[datetime]:
@@ -798,9 +1296,15 @@ def _cod_jornada_mas_reciente(cod_grupo: str) -> str:
     return str(seleccionada.get("codjornada"))
 
 
-def process_team():
+def process_team(solo_json: bool = False):
     """
-    Procesa un equipo individual (usa variables globales inicializadas por setup_globals)
+    Procesa un equipo individual usando las variables globales que `setup_globals`
+    haya inicializado.
+
+    Args:
+        solo_json: si es True, sólo escribe `data/<slug>.json` y omite ICS y
+            las plantillas HTML. Es el modo usado por el bucle de discovery
+            (Fase 2): los 15 equipos nuevos aún no tienen UI propia.
     """
 
     try:
@@ -898,8 +1402,15 @@ def process_team():
         # 6. Generar archivos.
         logger.info("\n[5/6] Generando archivos de salida...")
 
-        # JSON
+        # JSON: siempre.
         generar_json(data)
+
+        if solo_json:
+            # Modo discovery (Fase 2): los equipos sin UI propia se quedan aquí.
+            logger.info(
+                f"✓ JSON-only: omitido ICS/HTML para slug={CONFIG['equipo']['nombre_corto']}"
+            )
+            return
 
         # Calendario ICS
         generar_calendario_ics(partidos)
@@ -971,6 +1482,297 @@ def process_team():
         raise
 
 
+def build_config_descubrimiento(equipo: Dict, club_config: Dict) -> Dict:
+    """
+    Construye un config sintético compatible con setup_globals/process_team a
+    partir de una entrada de `club_map.json` y la configuración del club.
+
+    Estos configs sintéticos son los que usa el bucle de discovery: los
+    equipos descubiertos generan tanto `data/<slug>.json` como su directorio
+    `<slug>/` con index.html + partidos.ics + plantilla.html.
+    """
+    slug = equipo["slug"]
+    nombre_equipo = equipo.get("nombre_equipo") or f"Equipo {slug}"
+
+    # Categoría legible para el título de página, combinada con la letra cuando
+    # haya varios equipos del club en la misma categoría.
+    titulo_pagina = (
+        f"{nombre_equipo} ({equipo.get('categoria') or slug})"
+        if equipo.get("categoria") else nombre_equipo
+    )
+
+    # Background por convención: si existe Images/bg-<slug>.jpg en el repo,
+    # se usa. Si no, sin fondo (el template ya hace `{% if background %}`).
+    background_relativo = f"Images/bg-{slug}.jpg"
+    background = (
+        background_relativo
+        if (BASE_DIR / background_relativo).exists()
+        else ""
+    )
+
+    return {
+        "equipo": {
+            "nombre": titulo_pagina,
+            # nombre_corto se usa como nombre de fichero JSON; para discovery
+            # queremos slug directamente (alevin-a.json, etc.).
+            "nombre_corto": slug,
+            "grupo": equipo.get("nombre_grupo") or "",
+            # Por defecto usa el logo del club; configs/<slug>.yaml puede
+            # sobreescribirlo cuando un equipo quiera escudo propio.
+            "logo": "Images/extramurs.jpg",
+            "background": background,
+        },
+        "ids_ffcv": {
+            "temporada": club_config["temporada"]["codigo"],
+            "torneo": equipo["cod_grupo"],
+            "equipo": equipo["codequipo"],
+        },
+        "sitio": {
+            "url_base": club_config["sitio"]["url_base"],
+            "temporada": club_config["temporada"]["nombre"],
+            "output_dir": slug,
+            "images_dir": f"Images/plantilla-{slug}",
+        },
+    }
+
+
+def procesar_club(club_config: Dict) -> List[Dict]:
+    """
+    Bucle Fase 2: descubre los equipos del club y genera `data/<slug>.json`
+    para cada uno. Devuelve la lista de equipos del club_map para que el
+    llamador pueda usar la info en pasos posteriores (Fase 3+).
+    """
+    club_map = cargar_o_descubrir_club_map(
+        clave_acceso=str(club_config["club"]["clave_acceso"]),
+        cod_temporada=str(club_config["temporada"]["codigo"]),
+        cache_path=DATA_DIR / "club_map.json",
+    )
+
+    equipos = club_map.get("equipos") or []
+    logger.info(f"\n🔭 Procesando {len(equipos)} equipos del club via discovery...\n")
+
+    for idx, equipo in enumerate(equipos, 1):
+        slug = equipo["slug"]
+        logger.info("-" * 60)
+        logger.info(
+            f"[{idx}/{len(equipos)}] {slug:25s} ({equipo.get('categoria')})"
+        )
+        logger.info("-" * 60)
+        try:
+            cfg = build_config_descubrimiento(equipo, club_config)
+            setup_globals(cfg)
+            process_team()
+        except FFCVAPIError as e:
+            logger.warning(f"Saltando {slug} por error de API: {e}")
+        except Exception as e:
+            logger.error(f"Error procesando {slug}: {e}", exc_info=True)
+
+    return equipos
+
+
+# ---------------------------------------------------------------------------
+# Home del club (Fase 4): agregación y renderizado
+# ---------------------------------------------------------------------------
+
+# Orden canónico para presentar las categorías en la home antes de cualquier
+# personalización client-side. Categorías mayores arriba.
+_ORDEN_CATEGORIAS = [
+    "infantil", "alevin", "benjamin", "prebenjamin", "querubines",
+]
+
+
+def _orden_default_equipos(equipos: List[Dict]) -> List[Dict]:
+    """Ordena por raíz de categoría según _ORDEN_CATEGORIAS, luego por letra."""
+    def key(e: Dict):
+        slug = e.get("slug") or ""
+        raiz = slug.split("-")[0]
+        try:
+            idx = _ORDEN_CATEGORIAS.index(raiz)
+        except ValueError:
+            idx = len(_ORDEN_CATEGORIAS)
+        return (idx, slug)
+    return sorted(equipos, key=key)
+
+
+def _parse_partido_dt(partido: Dict) -> Optional[datetime]:
+    fecha = partido.get("fecha")
+    hora = partido.get("hora") or "00:00"
+    if not fecha:
+        return None
+    try:
+        return datetime.strptime(f"{fecha} {hora}", "%Y-%m-%d %H:%M")
+    except ValueError:
+        try:
+            return datetime.strptime(fecha, "%Y-%m-%d")
+        except ValueError:
+            return None
+
+
+def _load_team_data(slug: str) -> Optional[Dict]:
+    path = DATA_DIR / f"{slug}.json"
+    if not path.exists():
+        return None
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except (json.JSONDecodeError, OSError):
+        return None
+
+
+def construir_context_home(club_config: Dict, club_map: Dict) -> Dict:
+    """
+    Lee club_map.json y los `data/<slug>.json` y construye el contexto para
+    `home_template.html`: lista de tarjetas + resultados del último finde +
+    próximos partidos con coordenadas para el mapa.
+    """
+    hoy = datetime.now().date()
+    inicio_ventana_pasada = hoy - timedelta(days=7)
+    fin_ventana_futura = hoy + timedelta(days=7)
+
+    tarjetas: List[Dict] = []
+    todos_partidos_pasados: List[Dict] = []
+    todos_partidos_futuros: List[Dict] = []
+
+    equipos = _orden_default_equipos(club_map.get("equipos") or [])
+
+    for equipo in equipos:
+        slug = equipo["slug"]
+        data = _load_team_data(slug)
+        if data is None:
+            logger.warning(f"Home: no encuentro data/{slug}.json — salto tarjeta")
+            continue
+
+        partidos = data.get("todos_partidos") or []
+        prox = data.get("proximo_partido")
+        ultimos = data.get("ultimos_resultados") or []
+        clasif = data.get("clasificacion") or []
+
+        # Racha de los últimos 5 (W/L/D), del más antiguo al más reciente
+        racha = []
+        for p in sorted(ultimos, key=lambda x: (x.get("fecha") or "", x.get("hora") or "")):
+            if p.get("victoria") is True:
+                racha.append("W")
+            elif p.get("victoria") is False:
+                racha.append("L")
+            else:
+                racha.append("D")
+
+        # Posición del equipo en la clasificación
+        posicion = None
+        total_equipos_grupo = len(clasif)
+        for fila in clasif:
+            if "Extramurs" in (fila.get("equipo") or ""):
+                posicion = fila.get("posicion")
+                break
+
+        tarjetas.append({
+            "slug": slug,
+            "letra": (equipo.get("letra") or "").upper(),
+            "categoria": equipo.get("categoria") or "",
+            "categoria_raiz": slug.split("-")[0],
+            "nombre_grupo": equipo.get("nombre_grupo") or "",
+            "anyo_categoria": equipo.get("anyo_categoria"),
+            "modalidad": equipo.get("nombre_grupo_categoria") or "",
+            "escudo": equipo.get("escudo") or "",
+            "campo_juego": equipo.get("campo_juego") or "",
+            "jugar_dia": equipo.get("jugar_dia"),
+            "jugar_horario": equipo.get("jugar_horario") or "",
+            "proximo_partido": prox,
+            "ultimo_resultado": ultimos[0] if ultimos else None,
+            "racha": racha,
+            "posicion": posicion,
+            "total_equipos_grupo": total_equipos_grupo,
+            "total_partidos": len(partidos),
+            "total_jugados": sum(1 for p in partidos if p.get("resultado")),
+        })
+
+        # Partidos para las secciones globales
+        for partido in partidos:
+            dt = _parse_partido_dt(partido)
+            if not dt:
+                continue
+            fecha_d = dt.date()
+            registro = {
+                **partido,
+                "slug_equipo": slug,
+                "letra_equipo": (equipo.get("letra") or "").upper(),
+                "categoria_equipo": equipo.get("categoria") or "",
+                "fecha_dt": dt.isoformat(),
+            }
+            if inicio_ventana_pasada <= fecha_d <= hoy and partido.get("resultado"):
+                todos_partidos_pasados.append(registro)
+            elif hoy <= fecha_d <= fin_ventana_futura and not partido.get("resultado"):
+                todos_partidos_futuros.append(registro)
+
+    # Ordenar las secciones
+    todos_partidos_pasados.sort(key=lambda p: p["fecha_dt"], reverse=True)
+    todos_partidos_futuros.sort(key=lambda p: p["fecha_dt"])
+
+    # Resolver coordenadas de campos vía API FFCV (con caché en disco)
+    coords_campos = resolver_coordenadas_campos(
+        todos_partidos_futuros, DATA_DIR / "campos.json"
+    )
+
+    # Enriquecer próximos con coords; agrupar por campo para los marcadores
+    marcadores_mapa: Dict[str, Dict] = {}
+    for p in todos_partidos_futuros:
+        campo = p.get("campo") or ""
+        coord = coords_campos.get(campo) or {}
+        p["lat"] = coord.get("lat")
+        p["lon"] = coord.get("lon")
+        if coord.get("lat") and coord.get("lon"):
+            clave = f"{coord['lat']:.5f},{coord['lon']:.5f}"
+            if clave not in marcadores_mapa:
+                marcadores_mapa[clave] = {
+                    "lat": coord["lat"],
+                    "lon": coord["lon"],
+                    "campo": campo,
+                    "partidos": [],
+                }
+            marcadores_mapa[clave]["partidos"].append({
+                "slug": p["slug_equipo"],
+                "letra": p.get("letra_equipo") or "",
+                "categoria": p.get("categoria_equipo") or "",
+                "fecha": p.get("fecha"),
+                "hora": p.get("hora"),
+                "local": p.get("local"),
+                "visitante": p.get("visitante"),
+            })
+
+    return {
+        "club_nombre": club_config["club"]["nombre"],
+        "temporada": club_config["temporada"]["nombre"],
+        "url_base": club_config["sitio"]["url_base"],
+        "ultima_actualizacion": datetime.now().strftime("%d/%m/%Y - %H:%M"),
+        "tarjetas": tarjetas,
+        "resultados_finde": todos_partidos_pasados,
+        "proximos_partidos": todos_partidos_futuros,
+        "marcadores_mapa": list(marcadores_mapa.values()),
+    }
+
+
+def generar_home(club_config: Dict, club_map: Dict) -> None:
+    """Renderiza `index.html` raíz con el grid de equipos, resultados y mapa."""
+    logger.info("\n🏠 Generando home global del club...")
+    context = construir_context_home(club_config, club_map)
+
+    env = Environment(loader=FileSystemLoader(TEMPLATES_DIR))
+    template = env.get_template("home_template.html")
+    html = template.render(**context)
+
+    out_path = BASE_DIR / "index.html"
+    with open(out_path, "w", encoding="utf-8") as f:
+        f.write(html)
+
+    logger.info(
+        f"✓ Home generado: {out_path} "
+        f"({len(context['tarjetas'])} tarjetas, "
+        f"{len(context['resultados_finde'])} resultados, "
+        f"{len(context['proximos_partidos'])} próximos, "
+        f"{len(context['marcadores_mapa'])} marcadores)"
+    )
+
+
 def main():
     """
     Función principal - procesa todos los equipos configurados
@@ -980,25 +1782,24 @@ def main():
     logger.info("=" * 60)
 
     try:
-        # Cargar todas las configuraciones
-        configs = load_all_configs()
-        logger.info(f"\n📋 {len(configs)} equipo(s) configurado(s)\n")
+        club_config = load_club_config()
+        if not club_config:
+            raise RuntimeError(
+                "Falta configs/_club.yaml: define {club: {clave_acceso, ...}, "
+                "temporada: {codigo}, sitio: {url_base}} para arrancar el discovery."
+            )
 
-        # Procesar cada equipo
-        for idx, config in enumerate(configs, 1):
-            equipo_nombre = config['equipo']['nombre']
-            logger.info("=" * 60)
-            logger.info(f"⚽ Procesando {idx}/{len(configs)}: {equipo_nombre}")
-            logger.info("=" * 60)
+        procesar_club(club_config)
 
-            # Inicializar variables globales para este equipo
-            setup_globals(config)
-
-            # Procesar el equipo
-            process_team()
+        # Releer el club_map ya escrito para alimentar la home (en caso de que
+        # algún equipo haya quedado sin resolver y se haya saltado durante el
+        # procesado, evitamos referenciarlo en las tarjetas).
+        with open(DATA_DIR / "club_map.json", "r", encoding="utf-8") as f:
+            club_map = json.load(f)
+        generar_home(club_config, club_map)
 
         logger.info("\n" + "=" * 60)
-        logger.info(f"✅ Todos los equipos procesados exitosamente ({len(configs)} equipos)")
+        logger.info("✅ Procesamiento completado")
         logger.info("=" * 60)
 
     except Exception as e:

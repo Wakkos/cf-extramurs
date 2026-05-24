@@ -1,0 +1,24 @@
+# Configuración del Club
+# =======================
+# Este archivo describe el club al que pertenecen todos los equipos que el
+# scraper procesa por descubrimiento automático. El prefijo "_" indica al
+# loader que NO es la configuración de un equipo concreto.
+#
+# La clave_acceso es el id que la FFCV asigna a cada club como parte de su
+# URL pública (?clave=XXXX). Aparece también dentro de la respuesta de
+# `api/equipos/ver_equipo.php` para cualquier equipo del club, como
+# "clave_acceso".
+
+club:
+  nombre: "C.F. Extramurs Valencia"
+  codigo_club: 4740
+  clave_acceso: 4189
+
+temporada:
+  codigo: 21
+  nombre: "2025-2026"
+
+sitio:
+  # URL pública del sitio desplegado; usada para construir las URLs ICS
+  # absolutas que necesitan los botones de suscripción.
+  url_base: "https://wakkos.github.io/cf-extramurs"
