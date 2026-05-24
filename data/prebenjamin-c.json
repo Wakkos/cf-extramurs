@@ -1,7 +1,7 @@
 {
   "equipo": "C.F. Extramurs Valencia 'C' (Prebenjamín 1er. Año)",
   "grupo": "Lliga Regular Grup 6",
-  "ultima_actualizacion": "2026-05-25T00:59:42.873392",
+  "ultima_actualizacion": "2026-05-24T23:23:23.819465",
   "proximo_partido": {
     "jornada": 18,
     "id_partido": "26452531",
@@ -16,19 +16,6 @@
     "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a"
   },
   "ultimos_resultados": [
-    {
-      "jornada": 17,
-      "id_partido": "26452527",
-      "fecha": "2026-05-24",
-      "hora": "12:00",
-      "local": "C.D. Malilla 'C'",
-      "visitante": "C.F. Extramurs Valencia 'C'",
-      "campo": "Campo de Futbol Mpal. Malilla F-8 Campo nº 3 Anexo",
-      "resultado": "1-1",
-      "es_local": false,
-      "victoria": null,
-      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20de%20Futbol%20Mpal.%20Malilla%20F-8%20Campo%20n%C2%BA%203%20Anexo%2C%20Valencia%2C%20Espa%C3%B1a"
-    },
     {
       "jornada": 16,
       "id_partido": "26452522",
@@ -80,6 +67,19 @@
       "es_local": true,
       "victoria": true,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a"
+    },
+    {
+      "jornada": 12,
+      "id_partido": "26452502",
+      "fecha": "2026-04-11",
+      "hora": "12:00",
+      "local": "C.D. Juventud Manisense 'C'",
+      "visitante": "C.F. Extramurs Valencia 'C'",
+      "campo": "Ciudad del Ocio y del Deporte de Manises F-8 Campo C",
+      "resultado": "0-3",
+      "es_local": false,
+      "victoria": true,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Ciudad%20del%20Ocio%20y%20del%20Deporte%20de%20Manises%20F-8%20Campo%20C%2C%20Valencia%2C%20Espa%C3%B1a"
     }
   ],
   "clasificacion": [
