@@ -32,7 +32,8 @@
       "Bash(cp -r Images/plantilla-b/* Images/plantilla-prebenjamin-b/)",
       "Bash(git rm *)",
       "Bash(git add *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(git ls-tree *)"
     ],
     "deny": [],
     "ask": []
