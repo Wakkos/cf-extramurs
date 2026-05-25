@@ -1,7 +1,7 @@
 {
   "equipo": "C.F. Extramurs Valencia 'C' (Alevín 1er. Año)",
   "grupo": "Lliga Regular Grup 5",
-  "ultima_actualizacion": "2026-05-24T23:20:36.679781",
+  "ultima_actualizacion": "2026-05-25T08:35:39.075957",
   "proximo_partido": {
     "jornada": 18,
     "id_partido": "26444916",
@@ -16,6 +16,19 @@
     "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Mpal.%20de%20Godella%20F-8%20Campo%202%2C%20Valencia%2C%20Espa%C3%B1a"
   },
   "ultimos_resultados": [
+    {
+      "jornada": 17,
+      "id_partido": "26444911",
+      "fecha": "2026-05-24",
+      "hora": "09:00",
+      "local": "C.F. Extramurs Valencia 'C'",
+      "visitante": "Llíria U.D. 'C'",
+      "campo": "Campo Tramo III del Turia F-8",
+      "resultado": "10-0",
+      "es_local": true,
+      "victoria": true,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a"
+    },
     {
       "jornada": 16,
       "id_partido": "26444905",
@@ -67,19 +80,6 @@
       "es_local": false,
       "victoria": true,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20de%20F%C3%BAtbol%20Colegio%20Aleman%20F-8%2C%20Valencia%2C%20Espa%C3%B1a"
-    },
-    {
-      "jornada": 13,
-      "id_partido": "26444889",
-      "fecha": "2026-04-18",
-      "hora": "11:15",
-      "local": "C.F. Extramurs Valencia 'C'",
-      "visitante": "Godella C.F. 'C'",
-      "campo": "Campo Tramo III del Turia F-8",
-      "resultado": "8-2",
-      "es_local": true,
-      "victoria": true,
-      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a"
     }
   ],
   "clasificacion": [

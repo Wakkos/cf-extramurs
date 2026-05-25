@@ -1,12 +1,12 @@
 {
   "equipo": "C.F. Extramurs Valencia 'D' (Benjamín 1er. Año)",
   "grupo": "Lliga Regular Grup 2",
-  "ultima_actualizacion": "2026-05-24T23:21:54.056484",
+  "ultima_actualizacion": "2026-05-25T08:36:46.684533",
   "proximo_partido": {
     "jornada": 18,
     "id_partido": "26448874",
-    "fecha": "2026-05-30",
-    "hora": "12:30",
+    "fecha": "2026-05-31",
+    "hora": "11:30",
     "local": "C.F. Extramurs Valencia 'D'",
     "visitante": "Rafelbunyol C.F. 'B'",
     "campo": "Campo Tramo III del Turia F-8",
@@ -16,6 +16,19 @@
     "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a"
   },
   "ultimos_resultados": [
+    {
+      "jornada": 17,
+      "id_partido": "26448870",
+      "fecha": "2026-05-24",
+      "hora": "09:00",
+      "local": "C.F.B. Ciutat de València 'D'",
+      "visitante": "C.F. Extramurs Valencia 'D'",
+      "campo": "Campo Mpal. La Exposicion F-8 Campo 1",
+      "resultado": "5-1",
+      "es_local": false,
+      "victoria": false,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Mpal.%20La%20Exposicion%20F-8%20Campo%201%2C%20Valencia%2C%20Espa%C3%B1a"
+    },
     {
       "jornada": 16,
       "id_partido": "26448865",
@@ -67,19 +80,6 @@
       "es_local": false,
       "victoria": null,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20La%20Pedrera%20I%20F-8%20Campo%201%20El%20Puig%2C%20Valencia%2C%20Espa%C3%B1a"
-    },
-    {
-      "jornada": 12,
-      "id_partido": "26448847",
-      "fecha": "2026-04-11",
-      "hora": "11:30",
-      "local": "C.F. Extramurs Valencia 'D'",
-      "visitante": "Tavernes Blanques C.F. 'B'",
-      "campo": "Campo Tramo III del Turia F-8",
-      "resultado": "2-4",
-      "es_local": true,
-      "victoria": false,
-      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a"
     }
   ],
   "clasificacion": [
@@ -499,8 +499,8 @@
     {
       "jornada": 18,
       "id_partido": "26448874",
-      "fecha": "2026-05-30",
-      "hora": "12:30",
+      "fecha": "2026-05-31",
+      "hora": "11:30",
       "local": "C.F. Extramurs Valencia 'D'",
       "visitante": "Rafelbunyol C.F. 'B'",
       "campo": "Campo Tramo III del Turia F-8",
