@@ -8,6 +8,7 @@ portal resultadosffcv.isquad.es) para generar el calendario, clasificación y
 plantilla de cada equipo configurado.
 """
 
+import base64
 import json
 import logging
 import re
@@ -1015,9 +1016,42 @@ def obtener_plantilla_via_api(cod_equipo: str) -> List[Dict]:
     return plantilla
 
 
+def _guardar_foto_jugador(codjugador: str, data_uri: str) -> bool:
+    """
+    Decodifica una foto en formato `data:image/...;base64,...` y la guarda en
+    `PLANTILLA_IMAGES_DIR / jugador_<cod>.png`. Idempotente: si el fichero ya
+    existe no hace nada. Devuelve True si se guardó algo nuevo.
+    """
+    if not codjugador or not data_uri:
+        return False
+    if not data_uri.startswith("data:image"):
+        return False
+
+    foto_path = PLANTILLA_IMAGES_DIR / f"jugador_{codjugador}.png"
+    if foto_path.exists():
+        return False
+
+    try:
+        _, encoded = data_uri.split(",", 1)
+        img_bytes = base64.b64decode(encoded)
+    except (ValueError, TypeError) as e:
+        logger.warning(f"Foto {codjugador} con base64 inválido: {e}")
+        return False
+
+    foto_path.parent.mkdir(parents=True, exist_ok=True)
+    try:
+        with open(foto_path, "wb") as f:
+            f.write(img_bytes)
+    except OSError as e:
+        logger.warning(f"No se pudo escribir foto {codjugador}: {e}")
+        return False
+    return True
+
+
 def obtener_dorsales_via_api(partidos: List[Dict]) -> Dict[str, str]:
     """
-    Obtiene los dorsales de los últimos partidos jugados consultando
+    Obtiene los dorsales y cosecha las fotos de los jugadores del equipo a
+    partir de las actas de los últimos partidos jugados consultando
     `api/partidos/ficha_partido_ajax.php?cod_partido=<codacta>`.
 
     Returns:
@@ -1025,10 +1059,16 @@ def obtener_dorsales_via_api(partidos: List[Dict]) -> Dict[str, str]:
         Los nombres en el acta vienen "APELLIDOS, NOMBRE" igual que antes,
         así que el mapeo a la plantilla (mapear_dorsales_a_plantilla) sigue
         funcionando sin cambios.
+
+    Side effects:
+        Guarda las fotos base64 que vengan en cada acta en
+        `PLANTILLA_IMAGES_DIR / jugador_<codjugador>.png` (skip si existe).
+        Sin remove.bg, sin upscale: foto cruda tal como la entrega la FFCV.
     """
-    logger.info("Obteniendo dorsales de partidos jugados (API)...")
+    logger.info("Obteniendo dorsales y cosechando fotos (API)...")
 
     dorsales_acumulados: Dict[str, str] = {}
+    fotos_guardadas = 0
     procesados = 0
     max_partidos = 3  # últimos 3 partidos jugados, suficiente para cubrir la plantilla activa
 
@@ -1048,7 +1088,6 @@ def obtener_dorsales_via_api(partidos: List[Dict]) -> Dict[str, str]:
 
             # Sólo nos interesa el equipo cuyo cod coincide con el nuestro.
             for clave in ("jugadores_equipo_local", "jugadores_equipo_visitante"):
-                # Determinar si es nuestro equipo en este partido
                 if clave == "jugadores_equipo_local":
                     es_nuestro = str(data.get("codigo_equipo_local") or "") == COD_EQUIPO
                 else:
@@ -1061,17 +1100,21 @@ def obtener_dorsales_via_api(partidos: List[Dict]) -> Dict[str, str]:
                     dorsal = str(jugador.get("dorsal") or "").strip()
                     if nombre and dorsal:
                         dorsales_acumulados[nombre] = dorsal
-                        logger.debug(f"Dorsal: {nombre} -> {dorsal}")
+
+                    codj = str(jugador.get("codjugador") or "").strip()
+                    if _guardar_foto_jugador(codj, jugador.get("foto") or ""):
+                        fotos_guardadas += 1
 
             procesados += 1
             time.sleep(0.5)
 
         except Exception as e:
-            logger.warning(f"Error obteniendo dorsales de codacta={cod_partido}: {e}")
+            logger.warning(f"Error procesando acta codacta={cod_partido}: {e}")
             continue
 
     logger.info(
-        f"✓ Dorsales obtenidos de {procesados} partidos: {len(dorsales_acumulados)} jugadores"
+        f"✓ Dorsales obtenidos de {procesados} partidos: "
+        f"{len(dorsales_acumulados)} jugadores, {fotos_guardadas} foto(s) nueva(s)"
     )
     return dorsales_acumulados
 
@@ -1328,13 +1371,15 @@ def process_team(solo_json: bool = False):
         logger.info(f"\n[2/6] Obteniendo clasificación (jornada {cod_jornada_actual})...")
         clasificacion = obtener_clasificacion_via_api(COD_GRUPO, cod_jornada_actual)
 
-        # 3. Plantilla (sólo nombres + foto cacheada si existe).
-        logger.info("\n[3/6] Obteniendo plantilla vía API...")
-        plantilla = obtener_plantilla_via_api(COD_EQUIPO)
-
-        # 4. Dorsales desde las actas de los últimos partidos.
-        logger.info("\n[3.5/6] Obteniendo dorsales de partidos...")
+        # 3. Cosechar dorsales + fotos desde las actas de los últimos partidos.
+        # Va antes de obtener_plantilla_via_api para que la plantilla recoja
+        # las fotos recién guardadas en el mismo run.
+        logger.info("\n[3/6] Cosechando dorsales y fotos desde actas...")
         dorsales = obtener_dorsales_via_api(partidos)
+
+        # 4. Plantilla (nombres + fotos cacheadas en disco).
+        logger.info("\n[3.5/6] Obteniendo plantilla vía API...")
+        plantilla = obtener_plantilla_via_api(COD_EQUIPO)
         plantilla = mapear_dorsales_a_plantilla(plantilla, dorsales)
 
         # 5. Preparar datos derivados.

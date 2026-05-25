@@ -29,7 +29,10 @@
       "PowerShell(Get-Process *)",
       "Bash(git check-ignore *)",
       "Bash(cp -r Images/plantilla-a/* Images/plantilla-prebenjamin-a/)",
-      "Bash(cp -r Images/plantilla-b/* Images/plantilla-prebenjamin-b/)"
+      "Bash(cp -r Images/plantilla-b/* Images/plantilla-prebenjamin-b/)",
+      "Bash(git rm *)",
+      "Bash(git add *)",
+      "Bash(git commit *)"
     ],
     "deny": [],
     "ask": []
