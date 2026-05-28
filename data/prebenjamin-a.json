@@ -1,21 +1,34 @@
 {
   "equipo": "C.F. Extramurs Valencia 'A' (Prebenjamín 2º. Año)",
   "grupo": "Lliga Regular Grup 6",
-  "ultima_actualizacion": "2026-05-27T09:41:08.852709",
+  "ultima_actualizacion": "2026-05-28T09:56:53.221168",
   "proximo_partido": {
-    "jornada": 15,
-    "id_partido": "26464690",
-    "fecha": "2026-05-27",
-    "hora": "18:30",
-    "local": "C.F. Extramurs Valencia 'A'",
-    "visitante": "C.F. Inter San José Valencia 'C'",
-    "campo": "Campo Tramo III del Turia F-8",
+    "jornada": 18,
+    "id_partido": "26450822",
+    "fecha": "2026-05-30",
+    "hora": "12:45",
+    "local": "Paterna C.F. 'A'",
+    "visitante": "C.F. Extramurs Valencia 'A'",
+    "campo": "Estadio Gerardo Salvador F-8 Campo 1 Paterna",
     "resultado": null,
-    "es_local": true,
+    "es_local": false,
     "victoria": null,
-    "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a"
+    "maps_url": "https://www.google.com/maps/search/?api=1&query=Estadio%20Gerardo%20Salvador%20F-8%20Campo%201%20Paterna%2C%20Valencia%2C%20Espa%C3%B1a"
   },
   "ultimos_resultados": [
+    {
+      "jornada": 15,
+      "id_partido": "26464690",
+      "fecha": "2026-05-27",
+      "hora": "18:30",
+      "local": "C.F. Extramurs Valencia 'A'",
+      "visitante": "C.F. Inter San José Valencia 'C'",
+      "campo": "Campo Tramo III del Turia F-8",
+      "resultado": "5-3",
+      "es_local": true,
+      "victoria": true,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a"
+    },
     {
       "jornada": 17,
       "id_partido": "26450817",
@@ -67,19 +80,6 @@
       "es_local": true,
       "victoria": null,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a"
-    },
-    {
-      "jornada": 12,
-      "id_partido": "26450789",
-      "fecha": "2026-04-12",
-      "hora": "10:00",
-      "local": "C.F. Cracks 'B'",
-      "visitante": "C.F. Extramurs Valencia 'A'",
-      "campo": "Instalaciones Cracks F-8 Campo 4",
-      "resultado": "4-2",
-      "es_local": false,
-      "victoria": false,
-      "maps_url": "https://www.google.com/maps/search/?api=1&query=Instalaciones%20Cracks%20F-8%20Campo%204%2C%20Valencia%2C%20Espa%C3%B1a"
     }
   ],
   "clasificacion": [
@@ -104,20 +104,20 @@
     },
     {
       "posicion": 2,
-      "equipo": "C.F. Inter San José Valencia 'C'",
-      "puntos": 31,
-      "pj": 16,
+      "equipo": "C.F. Extramurs Valencia 'A'",
+      "puntos": 33,
+      "pj": 17,
       "pg": 10,
-      "pe": 1,
-      "pp": 5,
-      "codequipo": "14904",
-      "gf": 58,
-      "gc": 33,
+      "pe": 3,
+      "pp": 4,
+      "codequipo": "27293",
+      "gf": 65,
+      "gc": 39,
       "racha": [
-        "G",
-        "G",
-        "P",
         "E",
+        "E",
+        "G",
+        "G",
         "P"
       ]
     },
@@ -142,20 +142,20 @@
     },
     {
       "posicion": 4,
-      "equipo": "C.F. Extramurs Valencia 'A'",
-      "puntos": 30,
-      "pj": 16,
-      "pg": 9,
-      "pe": 3,
-      "pp": 4,
-      "codequipo": "27293",
-      "gf": 60,
-      "gc": 36,
+      "equipo": "C.F. Inter San José Valencia 'C'",
+      "puntos": 31,
+      "pj": 17,
+      "pg": 10,
+      "pe": 1,
+      "pp": 6,
+      "codequipo": "14904",
+      "gf": 61,
+      "gc": 38,
       "racha": [
+        "G",
+        "P",
         "P",
         "E",
-        "E",
-        "G",
         "P"
       ]
     },
@@ -465,9 +465,9 @@
       "local": "C.F. Extramurs Valencia 'A'",
       "visitante": "C.F. Inter San José Valencia 'C'",
       "campo": "Campo Tramo III del Turia F-8",
-      "resultado": null,
+      "resultado": "5-3",
       "es_local": true,
-      "victoria": null,
+      "victoria": true,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a"
     },
     {
