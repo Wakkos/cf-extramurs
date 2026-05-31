@@ -1,21 +1,22 @@
 {
   "equipo": "C.F. Extramurs Valencia 'B' (Benjamín 2º. Año)",
   "grupo": "Lliga Regular Grup 15",
-  "ultima_actualizacion": "2026-05-30T08:24:30.168046",
-  "proximo_partido": {
-    "jornada": 18,
-    "id_partido": "26447885",
-    "fecha": "2026-05-30",
-    "hora": "10:00",
-    "local": "C.F. Torre Levante 'C'",
-    "visitante": "C.F. Extramurs Valencia 'B'",
-    "campo": "Campo Torre Levante-Orriols F-8 Campo 1",
-    "resultado": null,
-    "es_local": false,
-    "victoria": null,
-    "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Torre%20Levante-Orriols%20F-8%20Campo%201%2C%20Valencia%2C%20Espa%C3%B1a"
-  },
+  "ultima_actualizacion": "2026-05-31T08:41:30.748003",
+  "proximo_partido": null,
   "ultimos_resultados": [
+    {
+      "jornada": 18,
+      "id_partido": "26447885",
+      "fecha": "2026-05-30",
+      "hora": "10:00",
+      "local": "C.F. Torre Levante 'C'",
+      "visitante": "C.F. Extramurs Valencia 'B'",
+      "campo": "Campo Torre Levante-Orriols F-8 Campo 1",
+      "resultado": "3-1",
+      "es_local": false,
+      "victoria": false,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Torre%20Levante-Orriols%20F-8%20Campo%201%2C%20Valencia%2C%20Espa%C3%B1a"
+    },
     {
       "jornada": 17,
       "id_partido": "26447880",
@@ -67,19 +68,6 @@
       "es_local": false,
       "victoria": true,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Polideportivo%20Escuelas%20San%20Jose%20F-8%20Campo%203%2C%20Valencia%2C%20Espa%C3%B1a"
-    },
-    {
-      "jornada": 12,
-      "id_partido": "26447853",
-      "fecha": "2026-04-12",
-      "hora": "12:15",
-      "local": "C.F. Extramurs Valencia 'B'",
-      "visitante": "C.D. Zafranar 'B'",
-      "campo": "Campo Tramo III del Turia F-8",
-      "resultado": "8-1",
-      "es_local": true,
-      "victoria": true,
-      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a"
     }
   ],
   "clasificacion": [
@@ -87,132 +75,132 @@
       "posicion": 1,
       "equipo": "C.F. Extramurs Valencia 'B'",
       "puntos": 42,
-      "pj": 15,
+      "pj": 16,
       "pg": 14,
       "pe": 0,
-      "pp": 1,
+      "pp": 2,
       "codequipo": "903551680",
-      "gf": 73,
-      "gc": 16,
+      "gf": 74,
+      "gc": 19,
       "racha": [
-        "G",
         "G",
         "P",
         "G",
-        "G"
+        "G",
+        "P"
       ]
     },
     {
       "posicion": 2,
-      "equipo": "Paterna C.F. 'A'",
+      "equipo": "C.D. Malilla 'A'",
       "puntos": 36,
-      "pj": 15,
+      "pj": 16,
       "pg": 12,
       "pe": 0,
-      "pp": 3,
-      "codequipo": "14821",
-      "gf": 53,
-      "gc": 25,
+      "pp": 4,
+      "codequipo": "15486",
+      "gf": 76,
+      "gc": 24,
       "racha": [
         "G",
         "G",
-        "G",
-        "G",
+        "P",
+        "P",
         "G"
       ]
     },
     {
       "posicion": 3,
-      "equipo": "C.D. Malilla 'A'",
-      "puntos": 33,
-      "pj": 15,
-      "pg": 11,
+      "equipo": "Paterna C.F. 'A'",
+      "puntos": 36,
+      "pj": 16,
+      "pg": 12,
       "pe": 0,
       "pp": 4,
-      "codequipo": "15486",
-      "gf": 73,
-      "gc": 23,
+      "codequipo": "14821",
+      "gf": 54,
+      "gc": 28,
       "racha": [
         "G",
         "G",
         "G",
-        "P",
+        "G",
         "P"
       ]
     },
     {
       "posicion": 4,
       "equipo": "C.D. Jesuitas Valencia-S. Fútbol 'C'",
-      "puntos": 28,
-      "pj": 15,
+      "puntos": 29,
+      "pj": 16,
       "pg": 9,
-      "pe": 1,
+      "pe": 2,
       "pp": 5,
       "codequipo": "22260207",
-      "gf": 49,
-      "gc": 38,
+      "gf": 51,
+      "gc": 40,
       "racha": [
-        "G",
         "E",
         "P",
         "P",
-        "G"
-      ]
-    },
-    {
-      "posicion": 5,
-      "equipo": "C.F. At. Bº La Luz - Xirivella 'B'",
-      "puntos": 25,
-      "pj": 15,
-      "pg": 8,
-      "pe": 1,
-      "pp": 6,
-      "codequipo": "30819133",
-      "gf": 28,
-      "gc": 26,
-      "racha": [
-        "G",
-        "G",
-        "G",
-        "G",
-        "P"
-      ]
-    },
-    {
-      "posicion": 6,
-      "equipo": "C.F. Torre Levante 'C'",
-      "puntos": 16,
-      "pj": 15,
-      "pg": 5,
-      "pe": 1,
-      "pp": 9,
-      "codequipo": "900988925",
-      "gf": 29,
-      "gc": 39,
-      "racha": [
-        "P",
-        "P",
-        "G",
         "G",
         "E"
       ]
     },
     {
+      "posicion": 5,
+      "equipo": "C.F. At. Bº La Luz - Xirivella 'B'",
+      "puntos": 26,
+      "pj": 16,
+      "pg": 8,
+      "pe": 2,
+      "pp": 6,
+      "codequipo": "30819133",
+      "gf": 30,
+      "gc": 28,
+      "racha": [
+        "G",
+        "G",
+        "G",
+        "P",
+        "E"
+      ]
+    },
+    {
+      "posicion": 6,
+      "equipo": "C.F. Torre Levante 'C'",
+      "puntos": 19,
+      "pj": 16,
+      "pg": 6,
+      "pe": 1,
+      "pp": 9,
+      "codequipo": "900988925",
+      "gf": 32,
+      "gc": 40,
+      "racha": [
+        "P",
+        "G",
+        "G",
+        "E",
+        "G"
+      ]
+    },
+    {
       "posicion": 7,
       "equipo": "C.D. Zafranar 'B'",
-      "puntos": 9,
-      "pj": 15,
+      "puntos": 10,
+      "pj": 16,
       "pg": 2,
-      "pe": 3,
+      "pe": 4,
       "pp": 10,
       "codequipo": "900817832",
-      "gf": 22,
-      "gc": 59,
+      "gf": 23,
+      "gc": 60,
       "racha": [
+        "P",
+        "P",
+        "P",
         "E",
-        "P",
-        "P",
-        "P",
         "E"
       ]
     },
@@ -238,20 +226,20 @@
     {
       "posicion": 9,
       "equipo": "Deportivo La Rambleta C.F. 'B'",
-      "puntos": 2,
-      "pj": 15,
+      "puntos": 3,
+      "pj": 16,
       "pg": 0,
-      "pe": 2,
+      "pe": 3,
       "pp": 13,
       "codequipo": "27639357",
-      "gf": 13,
-      "gc": 69,
+      "gf": 14,
+      "gc": 70,
       "racha": [
         "P",
         "P",
         "P",
         "P",
-        "P"
+        "E"
       ]
     }
   ],
@@ -485,9 +473,9 @@
       "local": "C.F. Torre Levante 'C'",
       "visitante": "C.F. Extramurs Valencia 'B'",
       "campo": "Campo Torre Levante-Orriols F-8 Campo 1",
-      "resultado": null,
+      "resultado": "3-1",
       "es_local": false,
-      "victoria": null,
+      "victoria": false,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Torre%20Levante-Orriols%20F-8%20Campo%201%2C%20Valencia%2C%20Espa%C3%B1a"
     }
   ]

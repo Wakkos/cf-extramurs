@@ -1,21 +1,22 @@
 {
   "equipo": "C.F. Extramurs Valencia 'B' (Alevín 2º. Año)",
   "grupo": "Lliga Regular Grup 14",
-  "ultima_actualizacion": "2026-05-30T08:23:35.169818",
-  "proximo_partido": {
-    "jornada": 18,
-    "id_partido": "26443384",
-    "fecha": "2026-05-30",
-    "hora": "11:15",
-    "local": "C.F. Extramurs Valencia 'B'",
-    "visitante": "U.D. Fonteta 'C'",
-    "campo": "Campo Tramo III del Turia F-8",
-    "resultado": null,
-    "es_local": true,
-    "victoria": null,
-    "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a"
-  },
+  "ultima_actualizacion": "2026-05-31T08:40:27.424231",
+  "proximo_partido": null,
   "ultimos_resultados": [
+    {
+      "jornada": 18,
+      "id_partido": "26443384",
+      "fecha": "2026-05-30",
+      "hora": "11:15",
+      "local": "C.F. Extramurs Valencia 'B'",
+      "visitante": "U.D. Fonteta 'C'",
+      "campo": "Campo Tramo III del Turia F-8",
+      "resultado": "9-3",
+      "es_local": true,
+      "victoria": true,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a"
+    },
     {
       "jornada": 17,
       "id_partido": "26443380",
@@ -67,33 +68,20 @@
       "es_local": true,
       "victoria": false,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a"
-    },
-    {
-      "jornada": 13,
-      "id_partido": "26443362",
-      "fecha": "2026-04-19",
-      "hora": "11:30",
-      "local": "Sp. Mislata U.F. 'F'",
-      "visitante": "C.F. Extramurs Valencia 'B'",
-      "campo": "Polideportivo Mpal. La Canaleta F-8 Campo 1A Mislata",
-      "resultado": "3-7",
-      "es_local": false,
-      "victoria": true,
-      "maps_url": "https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20La%20Canaleta%20F-8%20Campo%201A%20Mislata%2C%20Valencia%2C%20Espa%C3%B1a"
     }
   ],
   "clasificacion": [
     {
       "posicion": 1,
       "equipo": "C.D. Monte-Sión 'B'",
-      "puntos": 39,
-      "pj": 15,
-      "pg": 12,
+      "puntos": 42,
+      "pj": 16,
+      "pg": 13,
       "pe": 3,
       "pp": 0,
       "codequipo": "18436",
-      "gf": 88,
-      "gc": 20,
+      "gf": 95,
+      "gc": 24,
       "racha": [
         "G",
         "G",
@@ -106,19 +94,19 @@
       "posicion": 2,
       "equipo": "Xirivella C.F. 'B'",
       "puntos": 37,
-      "pj": 15,
+      "pj": 16,
       "pg": 12,
       "pe": 1,
-      "pp": 2,
+      "pp": 3,
       "codequipo": "27653692",
-      "gf": 58,
-      "gc": 23,
+      "gf": 60,
+      "gc": 27,
       "racha": [
-        "G",
         "G",
         "P",
         "G",
-        "G"
+        "G",
+        "P"
       ]
     },
     {
@@ -142,6 +130,25 @@
     },
     {
       "posicion": 4,
+      "equipo": "C.F. Extramurs Valencia 'B'",
+      "puntos": 25,
+      "pj": 16,
+      "pg": 8,
+      "pe": 1,
+      "pp": 7,
+      "codequipo": "900436321",
+      "gf": 52,
+      "gc": 49,
+      "racha": [
+        "P",
+        "P",
+        "P",
+        "G",
+        "G"
+      ]
+    },
+    {
+      "posicion": 5,
       "equipo": "Sp. Mislata U.F. 'F'",
       "puntos": 23,
       "pj": 15,
@@ -160,40 +167,21 @@
       ]
     },
     {
-      "posicion": 5,
-      "equipo": "C.F. Extramurs Valencia 'B'",
-      "puntos": 22,
-      "pj": 15,
-      "pg": 7,
-      "pe": 1,
-      "pp": 7,
-      "codequipo": "900436321",
-      "gf": 43,
-      "gc": 46,
-      "racha": [
-        "G",
-        "P",
-        "P",
-        "P",
-        "G"
-      ]
-    },
-    {
       "posicion": 6,
       "equipo": "U.D. Quart de Poblet 'B'",
       "puntos": 19,
-      "pj": 15,
+      "pj": 16,
       "pg": 6,
       "pe": 1,
-      "pp": 8,
+      "pp": 9,
       "codequipo": "15889",
-      "gf": 41,
-      "gc": 46,
+      "gf": 45,
+      "gc": 53,
       "racha": [
+        "G",
+        "G",
+        "G",
         "P",
-        "G",
-        "G",
-        "G",
         "P"
       ]
     },
@@ -201,19 +189,19 @@
       "posicion": 7,
       "equipo": "U.D. Fonteta 'C'",
       "puntos": 18,
-      "pj": 15,
+      "pj": 16,
       "pg": 6,
       "pe": 0,
-      "pp": 9,
+      "pp": 10,
       "codequipo": "903566270",
-      "gf": 39,
-      "gc": 46,
+      "gf": 42,
+      "gc": 55,
       "racha": [
-        "P",
         "P",
         "G",
         "P",
-        "G"
+        "G",
+        "P"
       ]
     },
     {
@@ -238,20 +226,20 @@
     {
       "posicion": 9,
       "equipo": "C.D. Juventud Manisense 'B'",
-      "puntos": 4,
-      "pj": 15,
-      "pg": 1,
+      "puntos": 7,
+      "pj": 16,
+      "pg": 2,
       "pe": 1,
       "pp": 13,
       "codequipo": "901402266",
-      "gf": 13,
-      "gc": 61,
+      "gf": 17,
+      "gc": 63,
       "racha": [
         "P",
         "P",
         "P",
         "P",
-        "P"
+        "G"
       ]
     }
   ],
@@ -485,9 +473,9 @@
       "local": "C.F. Extramurs Valencia 'B'",
       "visitante": "U.D. Fonteta 'C'",
       "campo": "Campo Tramo III del Turia F-8",
-      "resultado": null,
+      "resultado": "9-3",
       "es_local": true,
-      "victoria": null,
+      "victoria": true,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a"
     }
   ]

@@ -1,21 +1,22 @@
 {
   "equipo": "C.F. Extramurs Valencia 'C' (Prebenjamín 1er. Año)",
   "grupo": "Lliga Regular Grup 6",
-  "ultima_actualizacion": "2026-05-30T08:26:03.554563",
-  "proximo_partido": {
-    "jornada": 18,
-    "id_partido": "26452531",
-    "fecha": "2026-05-30",
-    "hora": "13:30",
-    "local": "C.F. Extramurs Valencia 'C'",
-    "visitante": "C.F. At. Bº La Luz - Xirivella 'B'",
-    "campo": "Campo Tramo III del Turia F-8",
-    "resultado": null,
-    "es_local": true,
-    "victoria": null,
-    "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a"
-  },
+  "ultima_actualizacion": "2026-05-31T08:43:23.410452",
+  "proximo_partido": null,
   "ultimos_resultados": [
+    {
+      "jornada": 18,
+      "id_partido": "26452531",
+      "fecha": "2026-05-30",
+      "hora": "13:30",
+      "local": "C.F. Extramurs Valencia 'C'",
+      "visitante": "C.F. At. Bº La Luz - Xirivella 'B'",
+      "campo": "Campo Tramo III del Turia F-8",
+      "resultado": "5-2",
+      "es_local": true,
+      "victoria": true,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a"
+    },
     {
       "jornada": 17,
       "id_partido": "26452527",
@@ -67,185 +68,153 @@
       "es_local": true,
       "victoria": true,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a"
-    },
-    {
-      "jornada": 13,
-      "id_partido": "26452508",
-      "fecha": "2026-04-19",
-      "hora": "11:30",
-      "local": "C.F. Extramurs Valencia 'C'",
-      "visitante": "C.D. Turís",
-      "campo": "Campo Tramo III del Turia F-8",
-      "resultado": "4-2",
-      "es_local": true,
-      "victoria": true,
-      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a"
     }
   ],
   "clasificacion": [
     {
       "posicion": 1,
       "equipo": "C.D. El Rumbo 'B'",
-      "puntos": 50,
-      "pj": 17,
+      "puntos": 51,
+      "pj": 18,
       "pg": 16,
       "pe": 1,
-      "pp": 0,
+      "pp": 1,
       "codequipo": "25899",
-      "gf": 75,
-      "gc": 14,
+      "gf": 78,
+      "gc": 22,
       "racha": [
         "G",
         "G",
         "G",
         "G",
-        "G"
+        "P"
       ]
     },
     {
       "posicion": 2,
       "equipo": "C.D. Malilla 'C'",
-      "puntos": 44,
-      "pj": 17,
+      "puntos": 46,
+      "pj": 18,
       "pg": 13,
-      "pe": 1,
+      "pe": 2,
       "pp": 3,
       "codequipo": "19727",
-      "gf": 73,
-      "gc": 30,
+      "gf": 75,
+      "gc": 32,
       "racha": [
-        "G",
         "P",
         "G",
         "G",
+        "E",
         "E"
       ]
     },
     {
       "posicion": 3,
       "equipo": "U.D. Burjassot La Concordia C.F.",
-      "puntos": 44,
-      "pj": 17,
+      "puntos": 46,
+      "pj": 18,
       "pg": 13,
-      "pe": 1,
+      "pe": 2,
       "pp": 3,
       "codequipo": "29624872",
-      "gf": 59,
-      "gc": 30,
+      "gf": 61,
+      "gc": 32,
       "racha": [
         "G",
         "G",
         "G",
-        "G",
-        "P"
-      ]
-    },
-    {
-      "posicion": 4,
-      "equipo": "C.F. Extramurs Valencia 'C'",
-      "puntos": 39,
-      "pj": 17,
-      "pg": 10,
-      "pe": 2,
-      "pp": 5,
-      "codequipo": "903573484",
-      "gf": 51,
-      "gc": 30,
-      "racha": [
-        "G",
-        "G",
-        "P",
         "P",
         "E"
       ]
     },
     {
+      "posicion": 4,
+      "equipo": "C.F. Extramurs Valencia 'C'",
+      "puntos": 42,
+      "pj": 18,
+      "pg": 11,
+      "pe": 2,
+      "pp": 5,
+      "codequipo": "903573484",
+      "gf": 56,
+      "gc": 32,
+      "racha": [
+        "G",
+        "P",
+        "P",
+        "E",
+        "G"
+      ]
+    },
+    {
       "posicion": 5,
       "equipo": "U.D. Quart de Poblet 'C'",
-      "puntos": 34,
-      "pj": 17,
-      "pg": 8,
+      "puntos": 37,
+      "pj": 18,
+      "pg": 9,
       "pe": 1,
       "pp": 8,
       "codequipo": "19956",
-      "gf": 55,
-      "gc": 35,
+      "gf": 63,
+      "gc": 38,
       "racha": [
-        "P",
         "G",
         "G",
         "E",
-        "P"
+        "P",
+        "G"
       ]
     },
     {
       "posicion": 6,
       "equipo": "Manises C.F. 'B'",
-      "puntos": 32,
-      "pj": 17,
-      "pg": 7,
+      "puntos": 35,
+      "pj": 18,
+      "pg": 8,
       "pe": 1,
       "pp": 9,
       "codequipo": "30864533",
-      "gf": 48,
+      "gf": 52,
       "gc": 59,
       "racha": [
-        "P",
         "G",
         "P",
         "E",
+        "G",
         "G"
       ]
     },
     {
       "posicion": 7,
       "equipo": "U.D. Paterna 'D'",
-      "puntos": 31,
-      "pj": 17,
-      "pg": 7,
+      "puntos": 34,
+      "pj": 18,
+      "pg": 8,
       "pe": 0,
       "pp": 10,
       "codequipo": "30472819",
-      "gf": 50,
-      "gc": 65,
+      "gf": 58,
+      "gc": 68,
       "racha": [
-        "G",
         "P",
         "G",
         "P",
+        "G",
         "G"
       ]
     },
     {
       "posicion": 8,
       "equipo": "C.F. At. Bº La Luz - Xirivella 'B'",
-      "puntos": 24,
-      "pj": 17,
+      "puntos": 25,
+      "pj": 18,
       "pg": 3,
       "pe": 1,
-      "pp": 13,
-      "codequipo": "297914",
-      "gf": 46,
-      "gc": 77,
-      "racha": [
-        "P",
-        "P",
-        "P",
-        "P",
-        "G"
-      ]
-    },
-    {
-      "posicion": 9,
-      "equipo": "C.D. Juventud Manisense 'C'",
-      "puntos": 23,
-      "pj": 17,
-      "pg": 3,
-      "pe": 0,
       "pp": 14,
-      "codequipo": "901402308",
-      "gf": 28,
-      "gc": 77,
+      "codequipo": "297914",
+      "gf": 48,
+      "gc": 82,
       "racha": [
         "P",
         "P",
@@ -255,16 +224,35 @@
       ]
     },
     {
+      "posicion": 9,
+      "equipo": "C.D. Juventud Manisense 'C'",
+      "puntos": 24,
+      "pj": 18,
+      "pg": 3,
+      "pe": 0,
+      "pp": 15,
+      "codequipo": "901402308",
+      "gf": 31,
+      "gc": 85,
+      "racha": [
+        "P",
+        "P",
+        "G",
+        "P",
+        "P"
+      ]
+    },
+    {
       "posicion": 10,
       "equipo": "C.D. Turís",
-      "puntos": 19,
-      "pj": 17,
+      "puntos": 20,
+      "pj": 18,
       "pg": 1,
       "pe": 0,
-      "pp": 16,
+      "pp": 17,
       "codequipo": "30204447",
       "gf": 26,
-      "gc": 94,
+      "gc": 98,
       "racha": [
         "P",
         "P",
@@ -504,9 +492,9 @@
       "local": "C.F. Extramurs Valencia 'C'",
       "visitante": "C.F. At. Bº La Luz - Xirivella 'B'",
       "campo": "Campo Tramo III del Turia F-8",
-      "resultado": null,
+      "resultado": "5-2",
       "es_local": true,
-      "victoria": null,
+      "victoria": true,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a"
     }
   ]
