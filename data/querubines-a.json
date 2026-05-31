@@ -1,21 +1,22 @@
 {
   "equipo": "C.F. Extramurs Valencia 'A' (Querubines)",
   "grupo": "Grup - 1",
-  "ultima_actualizacion": "2026-05-30T08:26:17.713205",
-  "proximo_partido": {
-    "jornada": 27,
-    "id_partido": "26420107",
-    "fecha": "2026-05-30",
-    "hora": "10:45",
-    "local": "U.D. Juventud - Bº Cristo 'A'",
-    "visitante": "C.F. Extramurs Valencia 'A'",
-    "campo": "Campo Mpal. El Perdiguer F-5",
-    "resultado": null,
-    "es_local": false,
-    "victoria": null,
-    "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Mpal.%20El%20Perdiguer%20F-5%2C%20Valencia%2C%20Espa%C3%B1a"
-  },
+  "ultima_actualizacion": "2026-05-31T08:43:39.811832",
+  "proximo_partido": null,
   "ultimos_resultados": [
+    {
+      "jornada": 27,
+      "id_partido": "26420107",
+      "fecha": "2026-05-30",
+      "hora": "10:45",
+      "local": "U.D. Juventud - Bº Cristo 'A'",
+      "visitante": "C.F. Extramurs Valencia 'A'",
+      "campo": "Campo Mpal. El Perdiguer F-5",
+      "resultado": "2-1",
+      "es_local": false,
+      "victoria": false,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Mpal.%20El%20Perdiguer%20F-5%2C%20Valencia%2C%20Espa%C3%B1a"
+    },
     {
       "jornada": 26,
       "id_partido": "26420103",
@@ -67,32 +68,19 @@
       "es_local": false,
       "victoria": true,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20de%20Futbol%20Mpal.%20Malilla%20F-5%20Campo%20n%C2%BA%201%20-%20A%2C%20Valencia%2C%20Espa%C3%B1a"
-    },
-    {
-      "jornada": 22,
-      "id_partido": "26420085",
-      "fecha": "2026-04-18",
-      "hora": "13:30",
-      "local": "C.F. Extramurs Valencia 'A'",
-      "visitante": "MANISES C.F. 'A'",
-      "campo": "Campo Tramo III del Turia F-5",
-      "resultado": "2-2",
-      "es_local": true,
-      "victoria": null,
-      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-5%2C%20Valencia%2C%20Espa%C3%B1a"
     }
   ],
   "clasificacion": [
     {
       "posicion": 1,
       "equipo": "Valencia C.F. 'A'",
-      "puntos": 78,
-      "pj": 26,
-      "pg": 26,
+      "puntos": 81,
+      "pj": 27,
+      "pg": 27,
       "pe": 0,
       "pp": 0,
       "codequipo": "21903662",
-      "gf": 77,
+      "gf": 80,
       "gc": 11,
       "racha": [
         "G",
@@ -143,113 +131,113 @@
     {
       "posicion": 4,
       "equipo": "C.F. At. Moncadense 'A'",
-      "puntos": 58,
-      "pj": 26,
-      "pg": 14,
+      "puntos": 61,
+      "pj": 27,
+      "pg": 15,
       "pe": 4,
       "pp": 8,
       "codequipo": "22289440",
-      "gf": 52,
+      "gf": 55,
       "gc": 35,
       "racha": [
-        "G",
         "P",
         "P",
         "G",
-        "P"
+        "P",
+        "G"
       ]
     },
     {
       "posicion": 5,
       "equipo": "Tavernes Blanques C.F. 'A'",
-      "puntos": 54,
-      "pj": 26,
+      "puntos": 55,
+      "pj": 27,
       "pg": 11,
       "pe": 6,
-      "pp": 9,
+      "pp": 10,
       "codequipo": "297950",
-      "gf": 55,
-      "gc": 49,
+      "gf": 57,
+      "gc": 52,
       "racha": [
+        "G",
+        "G",
+        "G",
         "P",
-        "G",
-        "G",
-        "G",
         "P"
       ]
     },
     {
       "posicion": 6,
       "equipo": "Alboraya U.D. 'A'",
-      "puntos": 48,
-      "pj": 26,
-      "pg": 9,
+      "puntos": 51,
+      "pj": 27,
+      "pg": 10,
       "pe": 4,
       "pp": 13,
       "codequipo": "28157413",
-      "gf": 44,
-      "gc": 55,
+      "gf": 47,
+      "gc": 57,
       "racha": [
-        "P",
         "G",
         "E",
         "P",
+        "G",
         "G"
       ]
     },
     {
       "posicion": 7,
       "equipo": "U.D. Aldaia C.F. 'A'",
-      "puntos": 46,
-      "pj": 26,
+      "puntos": 47,
+      "pj": 27,
       "pg": 8,
       "pe": 4,
-      "pp": 14,
+      "pp": 15,
       "codequipo": "28486",
       "gf": 36,
-      "gc": 61,
+      "gc": 64,
       "racha": [
-        "G",
         "P",
         "G",
         "P",
-        "E"
+        "E",
+        "P"
       ]
     },
     {
       "posicion": 8,
       "equipo": "U.D. Juventud - Bº Cristo 'A'",
-      "puntos": 43,
-      "pj": 26,
-      "pg": 7,
+      "puntos": 46,
+      "pj": 27,
+      "pg": 8,
       "pe": 3,
       "pp": 16,
       "codequipo": "901319186",
-      "gf": 39,
-      "gc": 60,
+      "gf": 41,
+      "gc": 61,
       "racha": [
         "P",
         "P",
         "P",
-        "P",
-        "E"
+        "E",
+        "G"
       ]
     },
     {
       "posicion": 9,
       "equipo": "C.F. Extramurs Valencia 'A'",
-      "puntos": 38,
-      "pj": 26,
+      "puntos": 39,
+      "pj": 27,
       "pg": 3,
       "pe": 6,
-      "pp": 17,
+      "pp": 18,
       "codequipo": "901052855",
-      "gf": 34,
-      "gc": 64,
+      "gf": 35,
+      "gc": 66,
       "racha": [
-        "E",
         "G",
         "E",
+        "P",
         "P",
         "P"
       ]
@@ -257,14 +245,14 @@
     {
       "posicion": 10,
       "equipo": "C.D. Malilla 'A'",
-      "puntos": 29,
-      "pj": 26,
+      "puntos": 30,
+      "pj": 27,
       "pg": 1,
       "pe": 1,
-      "pp": 24,
+      "pp": 25,
       "codequipo": "26721",
       "gf": 20,
-      "gc": 74,
+      "gc": 77,
       "racha": [
         "P",
         "P",
@@ -621,9 +609,9 @@
       "local": "U.D. Juventud - Bº Cristo 'A'",
       "visitante": "C.F. Extramurs Valencia 'A'",
       "campo": "Campo Mpal. El Perdiguer F-5",
-      "resultado": null,
+      "resultado": "2-1",
       "es_local": false,
-      "victoria": null,
+      "victoria": false,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Mpal.%20El%20Perdiguer%20F-5%2C%20Valencia%2C%20Espa%C3%B1a"
     }
   ]

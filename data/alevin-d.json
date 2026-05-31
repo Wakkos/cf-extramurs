@@ -1,21 +1,22 @@
 {
   "equipo": "C.F. Extramurs Valencia 'D' (Alevín 1er. Año)",
   "grupo": "Lliga Regular Grup 12",
-  "ultima_actualizacion": "2026-05-30T08:23:57.144272",
-  "proximo_partido": {
-    "jornada": 18,
-    "id_partido": "26445546",
-    "fecha": "2026-05-30",
-    "hora": "10:15",
-    "local": "Paterna C.F. 'E'",
-    "visitante": "C.F. Extramurs Valencia 'D'",
-    "campo": "Estadio Gerardo Salvador F-8 Anexo Paterna",
-    "resultado": null,
-    "es_local": false,
-    "victoria": null,
-    "maps_url": "https://www.google.com/maps/search/?api=1&query=Estadio%20Gerardo%20Salvador%20F-8%20Anexo%20Paterna%2C%20Valencia%2C%20Espa%C3%B1a"
-  },
+  "ultima_actualizacion": "2026-05-31T08:40:52.719835",
+  "proximo_partido": null,
   "ultimos_resultados": [
+    {
+      "jornada": 18,
+      "id_partido": "26445546",
+      "fecha": "2026-05-30",
+      "hora": "10:15",
+      "local": "Paterna C.F. 'E'",
+      "visitante": "C.F. Extramurs Valencia 'D'",
+      "campo": "Estadio Gerardo Salvador F-8 Anexo Paterna",
+      "resultado": "6-5",
+      "es_local": false,
+      "victoria": false,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Estadio%20Gerardo%20Salvador%20F-8%20Anexo%20Paterna%2C%20Valencia%2C%20Espa%C3%B1a"
+    },
     {
       "jornada": 17,
       "id_partido": "26445541",
@@ -67,19 +68,6 @@
       "es_local": false,
       "victoria": true,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Mpal.%20de%20Futbol%20Quart%20de%20Poblet%20F-8%20Campo%202%2C%20Valencia%2C%20Espa%C3%B1a"
-    },
-    {
-      "jornada": 13,
-      "id_partido": "26445519",
-      "fecha": "2026-04-18",
-      "hora": "12:20",
-      "local": "C.F. Extramurs Valencia 'D'",
-      "visitante": "Mislata C.F. 'I'",
-      "campo": "Campo Tramo III del Turia F-8",
-      "resultado": "6-4",
-      "es_local": true,
-      "victoria": true,
-      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a"
     }
   ],
   "clasificacion": [
@@ -87,75 +75,75 @@
       "posicion": 1,
       "equipo": "C.F. Extramurs Valencia 'D'",
       "puntos": 39,
-      "pj": 15,
+      "pj": 16,
       "pg": 13,
       "pe": 0,
-      "pp": 2,
+      "pp": 3,
       "codequipo": "903542487",
-      "gf": 97,
-      "gc": 31,
+      "gf": 102,
+      "gc": 37,
       "racha": [
         "G",
         "G",
         "G",
         "G",
-        "G"
+        "P"
       ]
     },
     {
       "posicion": 2,
       "equipo": "Paterna C.F. 'E'",
-      "puntos": 31,
-      "pj": 15,
-      "pg": 9,
+      "puntos": 34,
+      "pj": 16,
+      "pg": 10,
       "pe": 4,
       "pp": 2,
       "codequipo": "27564839",
-      "gf": 70,
-      "gc": 40,
+      "gf": 76,
+      "gc": 45,
       "racha": [
-        "E",
         "G",
         "G",
         "E",
+        "G",
         "G"
       ]
     },
     {
       "posicion": 3,
       "equipo": "Manises C.F. 'E'",
-      "puntos": 27,
-      "pj": 15,
-      "pg": 8,
+      "puntos": 30,
+      "pj": 16,
+      "pg": 9,
       "pe": 3,
       "pp": 4,
       "codequipo": "30592415",
-      "gf": 67,
-      "gc": 35,
+      "gf": 74,
+      "gc": 36,
       "racha": [
-        "G",
         "P",
         "E",
         "G",
-        "P"
+        "P",
+        "G"
       ]
     },
     {
       "posicion": 4,
       "equipo": "C.F. Rovella Mislata 'C'",
-      "puntos": 22,
-      "pj": 15,
-      "pg": 7,
+      "puntos": 25,
+      "pj": 16,
+      "pg": 8,
       "pe": 1,
       "pp": 7,
       "codequipo": "30120832",
-      "gf": 64,
-      "gc": 48,
+      "gf": 71,
+      "gc": 53,
       "racha": [
-        "G",
         "P",
         "E",
         "P",
+        "G",
         "G"
       ]
     },
@@ -181,37 +169,37 @@
     {
       "posicion": 6,
       "equipo": "U.D. Quart de Poblet 'D'",
-      "puntos": 17,
-      "pj": 15,
+      "puntos": 18,
+      "pj": 16,
       "pg": 5,
-      "pe": 2,
+      "pe": 3,
       "pp": 8,
       "codequipo": "901053007",
-      "gf": 39,
-      "gc": 48,
+      "gf": 43,
+      "gc": 52,
       "racha": [
-        "E",
         "G",
         "P",
         "G",
-        "G"
+        "G",
+        "E"
       ]
     },
     {
       "posicion": 7,
       "equipo": "Mislata C.F. 'I'",
       "puntos": 16,
-      "pj": 15,
+      "pj": 16,
       "pg": 5,
       "pe": 1,
-      "pp": 9,
+      "pp": 10,
       "codequipo": "30749531",
-      "gf": 67,
-      "gc": 61,
+      "gf": 72,
+      "gc": 68,
       "racha": [
         "P",
-        "P",
         "E",
+        "P",
         "P",
         "P"
       ]
@@ -220,38 +208,38 @@
       "posicion": 8,
       "equipo": "C.F.U.D. Benicalap 'C'",
       "puntos": 16,
-      "pj": 15,
+      "pj": 16,
       "pg": 5,
       "pe": 1,
-      "pp": 9,
+      "pp": 10,
       "codequipo": "29741372",
-      "gf": 58,
-      "gc": 84,
+      "gf": 59,
+      "gc": 91,
       "racha": [
-        "P",
         "E",
         "P",
         "G",
+        "P",
         "P"
       ]
     },
     {
       "posicion": 9,
       "equipo": "C.F. At. Bº La Luz - Xirivella 'C'",
-      "puntos": 6,
-      "pj": 15,
+      "puntos": 7,
+      "pj": 16,
       "pg": 2,
-      "pe": 0,
+      "pe": 1,
       "pp": 13,
       "codequipo": "30820076",
-      "gf": 26,
-      "gc": 155,
+      "gf": 30,
+      "gc": 159,
       "racha": [
         "P",
         "P",
         "P",
-        "P",
-        "G"
+        "G",
+        "E"
       ]
     }
   ],
@@ -485,9 +473,9 @@
       "local": "Paterna C.F. 'E'",
       "visitante": "C.F. Extramurs Valencia 'D'",
       "campo": "Estadio Gerardo Salvador F-8 Anexo Paterna",
-      "resultado": null,
+      "resultado": "6-5",
       "es_local": false,
-      "victoria": null,
+      "victoria": false,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Estadio%20Gerardo%20Salvador%20F-8%20Anexo%20Paterna%2C%20Valencia%2C%20Espa%C3%B1a"
     }
   ]

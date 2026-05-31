@@ -1,9 +1,22 @@
 {
   "equipo": "C.F. Extramurs Valencia 'C' (Alevín 1er. Año)",
   "grupo": "Lliga Regular Grup 5",
-  "ultima_actualizacion": "2026-05-30T08:23:45.997173",
+  "ultima_actualizacion": "2026-05-31T08:40:39.847096",
   "proximo_partido": null,
   "ultimos_resultados": [
+    {
+      "jornada": 18,
+      "id_partido": "26444916",
+      "fecha": "2026-05-30",
+      "hora": "09:00",
+      "local": "Godella C.F. 'F'",
+      "visitante": "C.F. Extramurs Valencia 'C'",
+      "campo": "Campo Mpal. de Godella F-8 Campo 2",
+      "resultado": "2-6",
+      "es_local": false,
+      "victoria": true,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Mpal.%20de%20Godella%20F-8%20Campo%202%2C%20Valencia%2C%20Espa%C3%B1a"
+    },
     {
       "jornada": 17,
       "id_partido": "26444911",
@@ -55,37 +68,24 @@
       "es_local": false,
       "victoria": true,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Complejo%20educativo%20Iale%20SPORT%20CENTER%20Campo%20de%20F8%2C%20Valencia%2C%20Espa%C3%B1a"
-    },
-    {
-      "jornada": 12,
-      "id_partido": "26444883",
-      "fecha": "2026-04-22",
-      "hora": "18:20",
-      "local": "Deutsche Schule Valencia F.C. 'B'",
-      "visitante": "C.F. Extramurs Valencia 'C'",
-      "campo": "Campo de Fútbol Colegio Aleman F-8",
-      "resultado": "1-5",
-      "es_local": false,
-      "victoria": true,
-      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20de%20F%C3%BAtbol%20Colegio%20Aleman%20F-8%2C%20Valencia%2C%20Espa%C3%B1a"
     }
   ],
   "clasificacion": [
     {
       "posicion": 1,
       "equipo": "C.F. Extramurs Valencia 'C'",
-      "puntos": 41,
-      "pj": 17,
-      "pg": 13,
+      "puntos": 44,
+      "pj": 18,
+      "pg": 14,
       "pe": 2,
       "pp": 2,
       "codequipo": "26169",
-      "gf": 86,
-      "gc": 21,
+      "gf": 92,
+      "gc": 23,
       "racha": [
         "G",
-        "G",
         "E",
+        "G",
         "G",
         "G"
       ]
@@ -93,37 +93,37 @@
     {
       "posicion": 2,
       "equipo": "C.F. Inter San José Valencia 'F'",
-      "puntos": 37,
-      "pj": 17,
-      "pg": 12,
+      "puntos": 40,
+      "pj": 18,
+      "pg": 13,
       "pe": 1,
       "pp": 4,
       "codequipo": "14897",
-      "gf": 88,
-      "gc": 39,
+      "gf": 93,
+      "gc": 41,
       "racha": [
         "G",
-        "G",
         "P",
         "P",
-        "P"
+        "P",
+        "G"
       ]
     },
     {
       "posicion": 3,
       "equipo": "S.F.A.C. San Antonio Benagéber 'C'",
-      "puntos": 36,
-      "pj": 17,
-      "pg": 11,
+      "puntos": 39,
+      "pj": 18,
+      "pg": 12,
       "pe": 3,
       "pp": 3,
       "codequipo": "27585",
-      "gf": 55,
+      "gf": 57,
       "gc": 34,
       "racha": [
-        "E",
         "P",
         "P",
+        "G",
         "G",
         "G"
       ]
@@ -131,20 +131,20 @@
     {
       "posicion": 4,
       "equipo": "Deutsche Schule Valencia F.C. 'B'",
-      "puntos": 30,
-      "pj": 17,
+      "puntos": 31,
+      "pj": 18,
       "pg": 9,
-      "pe": 3,
+      "pe": 4,
       "pp": 5,
       "codequipo": "900544625",
-      "gf": 68,
-      "gc": 60,
+      "gf": 71,
+      "gc": 63,
       "racha": [
-        "E",
         "P",
         "G",
         "P",
-        "G"
+        "G",
+        "E"
       ]
     },
     {
@@ -189,35 +189,35 @@
       "posicion": 7,
       "equipo": "C.D. Casinos",
       "puntos": 20,
-      "pj": 17,
+      "pj": 18,
       "pg": 6,
       "pe": 2,
-      "pp": 9,
+      "pp": 10,
       "codequipo": "25549",
       "gf": 47,
-      "gc": 63,
+      "gc": 65,
       "racha": [
-        "P",
         "P",
         "E",
         "G",
-        "G"
+        "G",
+        "P"
       ]
     },
     {
       "posicion": 8,
       "equipo": "Godella C.F. 'C'",
       "puntos": 19,
-      "pj": 17,
+      "pj": 18,
       "pg": 5,
       "pe": 4,
-      "pp": 8,
+      "pp": 9,
       "codequipo": "30396937",
-      "gf": 39,
-      "gc": 59,
+      "gf": 41,
+      "gc": 64,
       "racha": [
-        "P",
         "G",
+        "P",
         "P",
         "P",
         "P"
@@ -227,38 +227,38 @@
       "posicion": 9,
       "equipo": "Godella C.F. 'F'",
       "puntos": 9,
-      "pj": 17,
+      "pj": 18,
       "pg": 3,
       "pe": 0,
-      "pp": 14,
+      "pp": 15,
       "codequipo": "29993379",
-      "gf": 38,
-      "gc": 74,
+      "gf": 40,
+      "gc": 80,
       "racha": [
-        "G",
         "P",
         "G",
         "P",
-        "G"
+        "G",
+        "P"
       ]
     },
     {
       "posicion": 10,
       "equipo": "Llíria U.D. 'C'",
-      "puntos": 6,
-      "pj": 17,
+      "puntos": 7,
+      "pj": 18,
       "pg": 1,
-      "pe": 3,
+      "pe": 4,
       "pp": 13,
       "codequipo": "27435149",
-      "gf": 30,
-      "gc": 80,
+      "gf": 33,
+      "gc": 83,
       "racha": [
         "P",
         "P",
         "P",
         "P",
-        "P"
+        "E"
       ]
     }
   ],
