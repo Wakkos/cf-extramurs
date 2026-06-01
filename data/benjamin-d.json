@@ -1,21 +1,22 @@
 {
   "equipo": "C.F. Extramurs Valencia 'D' (Benjamín 1er. Año)",
   "grupo": "Lliga Regular Grup 2",
-  "ultima_actualizacion": "2026-05-31T08:41:55.597867",
-  "proximo_partido": {
-    "jornada": 18,
-    "id_partido": "26448874",
-    "fecha": "2026-05-31",
-    "hora": "11:30",
-    "local": "C.F. Extramurs Valencia 'D'",
-    "visitante": "Rafelbunyol C.F. 'B'",
-    "campo": "Campo Tramo III del Turia F-8",
-    "resultado": null,
-    "es_local": true,
-    "victoria": null,
-    "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a"
-  },
+  "ultima_actualizacion": "2026-06-01T11:25:49.029376",
+  "proximo_partido": null,
   "ultimos_resultados": [
+    {
+      "jornada": 18,
+      "id_partido": "26448874",
+      "fecha": "2026-05-31",
+      "hora": "11:30",
+      "local": "C.F. Extramurs Valencia 'D'",
+      "visitante": "Rafelbunyol C.F. 'B'",
+      "campo": "Campo Tramo III del Turia F-8",
+      "resultado": "2-3",
+      "es_local": true,
+      "victoria": false,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a"
+    },
     {
       "jornada": 17,
       "id_partido": "26448870",
@@ -67,19 +68,6 @@
       "es_local": true,
       "victoria": true,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a"
-    },
-    {
-      "jornada": 13,
-      "id_partido": "26448852",
-      "fecha": "2026-04-18",
-      "hora": "09:30",
-      "local": "El Puig C.E. 'B'",
-      "visitante": "C.F. Extramurs Valencia 'D'",
-      "campo": "Polideportivo Mpal. La Pedrera I F-8 Campo 1 El Puig",
-      "resultado": "2-2",
-      "es_local": false,
-      "victoria": null,
-      "maps_url": "https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20La%20Pedrera%20I%20F-8%20Campo%201%20El%20Puig%2C%20Valencia%2C%20Espa%C3%B1a"
     }
   ],
   "clasificacion": [
@@ -162,19 +150,19 @@
     {
       "posicion": 5,
       "equipo": "Rafelbunyol C.F. 'B'",
-      "puntos": 28,
-      "pj": 17,
-      "pg": 9,
+      "puntos": 31,
+      "pj": 18,
+      "pg": 10,
       "pe": 1,
       "pp": 7,
       "codequipo": "15207",
-      "gf": 57,
-      "gc": 49,
+      "gf": 60,
+      "gc": 51,
       "racha": [
-        "G",
         "E",
         "P",
         "P",
+        "G",
         "G"
       ]
     },
@@ -220,18 +208,18 @@
       "posicion": 8,
       "equipo": "C.F. Extramurs Valencia 'D'",
       "puntos": 18,
-      "pj": 17,
+      "pj": 18,
       "pg": 5,
       "pe": 3,
-      "pp": 9,
+      "pp": 10,
       "codequipo": "900436322",
-      "gf": 31,
-      "gc": 52,
+      "gf": 33,
+      "gc": 55,
       "racha": [
-        "E",
         "G",
         "P",
         "G",
+        "P",
         "P"
       ]
     },
@@ -504,9 +492,9 @@
       "local": "C.F. Extramurs Valencia 'D'",
       "visitante": "Rafelbunyol C.F. 'B'",
       "campo": "Campo Tramo III del Turia F-8",
-      "resultado": null,
+      "resultado": "2-3",
       "es_local": true,
-      "victoria": null,
+      "victoria": false,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a"
     }
   ]

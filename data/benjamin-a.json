@@ -1,9 +1,22 @@
 {
   "equipo": "C.F. Extramurs Valencia 'A' (Benjamín 2º. Año)",
   "grupo": "Lliga Regular Grup 9",
-  "ultima_actualizacion": "2026-05-31T08:41:18.095805",
+  "ultima_actualizacion": "2026-06-01T11:25:13.851162",
   "proximo_partido": null,
   "ultimos_resultados": [
+    {
+      "jornada": 18,
+      "id_partido": "26447344",
+      "fecha": "2026-05-31",
+      "hora": "09:00",
+      "local": "C.F. Extramurs Valencia 'A'",
+      "visitante": "EAF Valencia C.F. 'A'",
+      "campo": "Campo Tramo III del Turia F-8",
+      "resultado": "11-1",
+      "es_local": true,
+      "victoria": true,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a"
+    },
     {
       "jornada": 17,
       "id_partido": "26447340",
@@ -55,19 +68,6 @@
       "es_local": true,
       "victoria": true,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a"
-    },
-    {
-      "jornada": 13,
-      "id_partido": "26447322",
-      "fecha": "2026-04-18",
-      "hora": "12:30",
-      "local": "C.F.B. Ciutat de València 'E'",
-      "visitante": "C.F. Extramurs Valencia 'A'",
-      "campo": "Campo Mpal. La Exposicion F-8 Campo 1",
-      "resultado": "0-2",
-      "es_local": false,
-      "victoria": true,
-      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Mpal.%20La%20Exposicion%20F-8%20Campo%201%2C%20Valencia%2C%20Espa%C3%B1a"
     }
   ],
   "clasificacion": [
