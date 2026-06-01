@@ -1,9 +1,22 @@
 {
   "equipo": "C.F. Extramurs Valencia 'A' (Alevín 2º. Año)",
   "grupo": "Lliga Regular Grup 13",
-  "ultima_actualizacion": "2026-05-31T08:40:14.706848",
+  "ultima_actualizacion": "2026-06-01T11:24:14.625105",
   "proximo_partido": null,
   "ultimos_resultados": [
+    {
+      "jornada": 18,
+      "id_partido": "26443295",
+      "fecha": "2026-05-31",
+      "hora": "09:00",
+      "local": "C.F. Històrics de València 'B'",
+      "visitante": "C.F. Extramurs Valencia 'A'",
+      "campo": "Poliesportiu Mpal. Marxalenes-Saïdia F-8 Campo 1",
+      "resultado": "1-4",
+      "es_local": false,
+      "victoria": true,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Poliesportiu%20Mpal.%20Marxalenes-Sa%C3%AFdia%20F-8%20Campo%201%2C%20Valencia%2C%20Espa%C3%B1a"
+    },
     {
       "jornada": 17,
       "id_partido": "26443290",
@@ -55,19 +68,6 @@
       "es_local": false,
       "victoria": false,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20Ramon%20Saez%20F-8%20Campo%201%20Xirivella%2C%20Valencia%2C%20Espa%C3%B1a"
-    },
-    {
-      "jornada": 13,
-      "id_partido": "26443268",
-      "fecha": "2026-04-18",
-      "hora": "09:00",
-      "local": "C.D. Zafranar 'B'",
-      "visitante": "C.F. Extramurs Valencia 'A'",
-      "campo": "Camp de Futbol Mpal. Tres Creus F-8 Campo 2",
-      "resultado": "1-8",
-      "es_local": false,
-      "victoria": true,
-      "maps_url": "https://www.google.com/maps/search/?api=1&query=Camp%20de%20Futbol%20Mpal.%20Tres%20Creus%20F-8%20Campo%202%2C%20Valencia%2C%20Espa%C3%B1a"
     }
   ],
   "clasificacion": [
@@ -150,39 +150,39 @@
     {
       "posicion": 5,
       "equipo": "U.E. Vall Dels Alcalans 'A'",
-      "puntos": 24,
-      "pj": 17,
-      "pg": 7,
+      "puntos": 27,
+      "pj": 18,
+      "pg": 8,
       "pe": 3,
       "pp": 7,
       "codequipo": "24998",
-      "gf": 55,
-      "gc": 54,
+      "gf": 64,
+      "gc": 57,
       "racha": [
-        "E",
         "G",
         "P",
         "P",
-        "P"
+        "P",
+        "G"
       ]
     },
     {
       "posicion": 6,
       "equipo": "Sp. Mislata U.F. 'G'",
       "puntos": 18,
-      "pj": 17,
+      "pj": 18,
       "pg": 5,
       "pe": 3,
-      "pp": 9,
+      "pp": 10,
       "codequipo": "30821099",
-      "gf": 39,
-      "gc": 51,
+      "gf": 42,
+      "gc": 60,
       "racha": [
-        "G",
         "P",
         "P",
         "E",
-        "G"
+        "G",
+        "P"
       ]
     },
     {

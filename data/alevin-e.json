@@ -1,21 +1,22 @@
 {
   "equipo": "C.F. Extramurs Valencia 'E' (Alevín 1er. Año)",
   "grupo": "Lliga Regular Grup 8",
-  "ultima_actualizacion": "2026-05-31T08:41:05.301246",
-  "proximo_partido": {
-    "jornada": 18,
-    "id_partido": "26445184",
-    "fecha": "2026-05-31",
-    "hora": "10:15",
-    "local": "C.F. Extramurs Valencia 'E'",
-    "visitante": "Godella C.F. 'B'",
-    "campo": "Campo Tramo III del Turia F-8",
-    "resultado": null,
-    "es_local": true,
-    "victoria": null,
-    "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a"
-  },
+  "ultima_actualizacion": "2026-06-01T11:25:01.908493",
+  "proximo_partido": null,
   "ultimos_resultados": [
+    {
+      "jornada": 18,
+      "id_partido": "26445184",
+      "fecha": "2026-05-31",
+      "hora": "10:15",
+      "local": "C.F. Extramurs Valencia 'E'",
+      "visitante": "Godella C.F. 'B'",
+      "campo": "Campo Tramo III del Turia F-8",
+      "resultado": "2-0",
+      "es_local": true,
+      "victoria": true,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a"
+    },
     {
       "jornada": 17,
       "id_partido": "26445180",
@@ -67,35 +68,22 @@
       "es_local": true,
       "victoria": true,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a"
-    },
-    {
-      "jornada": 13,
-      "id_partido": "26445162",
-      "fecha": "2026-04-18",
-      "hora": "10:15",
-      "local": "F.C. Benaguasil 'C'",
-      "visitante": "C.F. Extramurs Valencia 'E'",
-      "campo": "Campo Mpal. El Barranquet F-8 Campo 3 Benaguasil",
-      "resultado": "1-10",
-      "es_local": false,
-      "victoria": true,
-      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Mpal.%20El%20Barranquet%20F-8%20Campo%203%20Benaguasil%2C%20Valencia%2C%20Espa%C3%B1a"
     }
   ],
   "clasificacion": [
     {
       "posicion": 1,
-      "equipo": "Godella C.F. 'B'",
-      "puntos": 35,
-      "pj": 15,
-      "pg": 11,
-      "pe": 2,
-      "pp": 2,
-      "codequipo": "29540842",
-      "gf": 78,
-      "gc": 31,
+      "equipo": "U.D. Paterna 'H'",
+      "puntos": 37,
+      "pj": 16,
+      "pg": 12,
+      "pe": 1,
+      "pp": 3,
+      "codequipo": "27570761",
+      "gf": 91,
+      "gc": 52,
       "racha": [
-        "P",
+        "G",
         "G",
         "G",
         "E",
@@ -104,38 +92,38 @@
     },
     {
       "posicion": 2,
-      "equipo": "U.D. Paterna 'H'",
-      "puntos": 34,
-      "pj": 15,
+      "equipo": "Godella C.F. 'B'",
+      "puntos": 35,
+      "pj": 16,
       "pg": 11,
-      "pe": 1,
+      "pe": 2,
       "pp": 3,
-      "codequipo": "27570761",
-      "gf": 84,
-      "gc": 49,
+      "codequipo": "29540842",
+      "gf": 78,
+      "gc": 33,
       "racha": [
-        "P",
         "G",
         "G",
+        "E",
         "G",
-        "E"
+        "P"
       ]
     },
     {
       "posicion": 3,
       "equipo": "C.F. Extramurs Valencia 'E'",
-      "puntos": 28,
-      "pj": 15,
-      "pg": 9,
+      "puntos": 31,
+      "pj": 16,
+      "pg": 10,
       "pe": 1,
       "pp": 5,
       "codequipo": "29513058",
-      "gf": 57,
+      "gf": 59,
       "gc": 36,
       "racha": [
         "G",
-        "G",
         "P",
+        "G",
         "G",
         "G"
       ]
@@ -201,18 +189,18 @@
       "posicion": 7,
       "equipo": "C.D. Racing Riba-Roja 'D'",
       "puntos": 19,
-      "pj": 15,
+      "pj": 16,
       "pg": 6,
       "pe": 1,
-      "pp": 8,
+      "pp": 9,
       "codequipo": "297299",
-      "gf": 49,
-      "gc": 63,
+      "gf": 52,
+      "gc": 70,
       "racha": [
-        "G",
         "P",
         "G",
         "G",
+        "P",
         "P"
       ]
     },
@@ -485,9 +473,9 @@
       "local": "C.F. Extramurs Valencia 'E'",
       "visitante": "Godella C.F. 'B'",
       "campo": "Campo Tramo III del Turia F-8",
-      "resultado": null,
+      "resultado": "2-0",
       "es_local": true,
-      "victoria": null,
+      "victoria": true,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a"
     }
   ]

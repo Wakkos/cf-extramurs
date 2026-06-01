@@ -1,21 +1,22 @@
 {
   "equipo": "C.F. Extramurs Valencia 'B' (Prebenjamín 2º. Año)",
   "grupo": "Lliga Regular Grup 12",
-  "ultima_actualizacion": "2026-05-31T08:43:10.921369",
-  "proximo_partido": {
-    "jornada": 18,
-    "id_partido": "26451362",
-    "fecha": "2026-05-31",
-    "hora": "12:15",
-    "local": "U.D. Aldaia C.F. 'B'",
-    "visitante": "C.F. Extramurs Valencia 'B'",
-    "campo": "Campo de Futbol Las Encrucijadas F-8 Campo 1 Aldaia",
-    "resultado": null,
-    "es_local": false,
-    "victoria": null,
-    "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20de%20Futbol%20Las%20Encrucijadas%20F-8%20Campo%201%20Aldaia%2C%20Valencia%2C%20Espa%C3%B1a"
-  },
+  "ultima_actualizacion": "2026-06-01T11:26:58.881325",
+  "proximo_partido": null,
   "ultimos_resultados": [
+    {
+      "jornada": 18,
+      "id_partido": "26451362",
+      "fecha": "2026-05-31",
+      "hora": "12:15",
+      "local": "U.D. Aldaia C.F. 'B'",
+      "visitante": "C.F. Extramurs Valencia 'B'",
+      "campo": "Campo de Futbol Las Encrucijadas F-8 Campo 1 Aldaia",
+      "resultado": "10-3",
+      "es_local": false,
+      "victoria": false,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20de%20Futbol%20Las%20Encrucijadas%20F-8%20Campo%201%20Aldaia%2C%20Valencia%2C%20Espa%C3%B1a"
+    },
     {
       "jornada": 17,
       "id_partido": "26451357",
@@ -67,19 +68,6 @@
       "es_local": true,
       "victoria": false,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a"
-    },
-    {
-      "jornada": 12,
-      "id_partido": "26451329",
-      "fecha": "2026-04-13",
-      "hora": "17:00",
-      "local": "Discóbolo-La Torre A.C. 'A'",
-      "visitante": "C.F. Extramurs Valencia 'B'",
-      "campo": "Campo Futbol Mpal. La Torre-Faitanar F-8 Campo 1 (Valencia )",
-      "resultado": "5-3",
-      "es_local": false,
-      "victoria": false,
-      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Futbol%20Mpal.%20La%20Torre-Faitanar%20F-8%20Campo%201%20%28Valencia%20%29%2C%20Valencia%2C%20Espa%C3%B1a"
     }
   ],
   "clasificacion": [
@@ -124,19 +112,19 @@
     {
       "posicion": 3,
       "equipo": "U.D. Aldaia C.F. 'B'",
-      "puntos": 25,
-      "pj": 15,
-      "pg": 8,
+      "puntos": 28,
+      "pj": 16,
+      "pg": 9,
       "pe": 1,
       "pp": 6,
       "codequipo": "21858",
-      "gf": 60,
-      "gc": 53,
+      "gf": 70,
+      "gc": 56,
       "racha": [
         "G",
         "G",
-        "G",
         "P",
+        "G",
         "G"
       ]
     },
@@ -239,13 +227,13 @@
       "posicion": 9,
       "equipo": "C.F. Extramurs Valencia 'B'",
       "puntos": 7,
-      "pj": 15,
+      "pj": 16,
       "pg": 2,
       "pe": 1,
-      "pp": 12,
+      "pp": 13,
       "codequipo": "900436323",
-      "gf": 39,
-      "gc": 103,
+      "gf": 42,
+      "gc": 113,
       "racha": [
         "P",
         "P",
@@ -485,9 +473,9 @@
       "local": "U.D. Aldaia C.F. 'B'",
       "visitante": "C.F. Extramurs Valencia 'B'",
       "campo": "Campo de Futbol Las Encrucijadas F-8 Campo 1 Aldaia",
-      "resultado": null,
+      "resultado": "10-3",
       "es_local": false,
-      "victoria": null,
+      "victoria": false,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20de%20Futbol%20Las%20Encrucijadas%20F-8%20Campo%201%20Aldaia%2C%20Valencia%2C%20Espa%C3%B1a"
     }
   ]

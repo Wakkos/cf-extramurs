@@ -1,21 +1,22 @@
 {
   "equipo": "C.F. Extramurs Valencia 'B' (Querubines)",
   "grupo": "Grup - 3",
-  "ultima_actualizacion": "2026-05-31T08:43:56.118089",
-  "proximo_partido": {
-    "jornada": 27,
-    "id_partido": "26420379",
-    "fecha": "2026-05-31",
-    "hora": "12:45",
-    "local": "C.F. Extramurs Valencia 'B'",
-    "visitante": "C.F. Rovella Mislata 'A'",
-    "campo": "Campo Tramo III del Turia F-5",
-    "resultado": null,
-    "es_local": true,
-    "victoria": null,
-    "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-5%2C%20Valencia%2C%20Espa%C3%B1a"
-  },
+  "ultima_actualizacion": "2026-06-01T11:27:38.522571",
+  "proximo_partido": null,
   "ultimos_resultados": [
+    {
+      "jornada": 27,
+      "id_partido": "26420379",
+      "fecha": "2026-05-31",
+      "hora": "12:45",
+      "local": "C.F. Extramurs Valencia 'B'",
+      "visitante": "C.F. Rovella Mislata 'A'",
+      "campo": "Campo Tramo III del Turia F-5",
+      "resultado": "2-3",
+      "es_local": true,
+      "victoria": false,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-5%2C%20Valencia%2C%20Espa%C3%B1a"
+    },
     {
       "jornada": 26,
       "id_partido": "26420374",
@@ -67,32 +68,19 @@
       "es_local": true,
       "victoria": false,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-5%2C%20Valencia%2C%20Espa%C3%B1a"
-    },
-    {
-      "jornada": 21,
-      "id_partido": "26420346",
-      "fecha": "2026-04-22",
-      "hora": "18:30",
-      "local": "C.F. Extramurs Valencia 'B'",
-      "visitante": "C.F. E1 Paiporta 'A'",
-      "campo": "Campo Tramo III del Turia F-5",
-      "resultado": "0-3",
-      "es_local": true,
-      "victoria": false,
-      "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-5%2C%20Valencia%2C%20Espa%C3%B1a"
     }
   ],
   "clasificacion": [
     {
       "posicion": 1,
       "equipo": "C.F. E1 Paiporta 'A'",
-      "puntos": 78,
-      "pj": 26,
-      "pg": 26,
+      "puntos": 81,
+      "pj": 27,
+      "pg": 27,
       "pe": 0,
       "pp": 0,
       "codequipo": "297213",
-      "gf": 76,
+      "gf": 79,
       "gc": 11,
       "racha": [
         "G",
@@ -162,20 +150,20 @@
     {
       "posicion": 5,
       "equipo": "Alboraya U.D. 'B'",
-      "puntos": 54,
-      "pj": 26,
+      "puntos": 55,
+      "pj": 27,
       "pg": 13,
       "pe": 2,
-      "pp": 11,
+      "pp": 12,
       "codequipo": "30775266",
       "gf": 54,
-      "gc": 40,
+      "gc": 43,
       "racha": [
-        "E",
         "G",
         "G",
         "P",
-        "G"
+        "G",
+        "P"
       ]
     },
     {
@@ -219,24 +207,43 @@
     {
       "posicion": 8,
       "equipo": "C.F. Rovella Mislata 'A'",
-      "puntos": 34,
-      "pj": 26,
-      "pg": 3,
+      "puntos": 37,
+      "pj": 27,
+      "pg": 4,
       "pe": 2,
       "pp": 21,
       "codequipo": "297884",
-      "gf": 23,
-      "gc": 63,
+      "gf": 26,
+      "gc": 65,
       "racha": [
         "P",
         "P",
-        "P",
         "E",
-        "P"
+        "P",
+        "G"
       ]
     },
     {
       "posicion": 9,
+      "equipo": "C.F. Extramurs Valencia 'B'",
+      "puntos": 31,
+      "pj": 27,
+      "pg": 2,
+      "pe": 0,
+      "pp": 25,
+      "codequipo": "901533714",
+      "gf": 17,
+      "gc": 77,
+      "racha": [
+        "P",
+        "P",
+        "P",
+        "P",
+        "P"
+      ]
+    },
+    {
+      "posicion": 10,
       "equipo": "C.D. EL RUMBO 'B'",
       "puntos": 31,
       "pj": 26,
@@ -250,25 +257,6 @@
         "P",
         "P",
         "E",
-        "P",
-        "P"
-      ]
-    },
-    {
-      "posicion": 10,
-      "equipo": "C.F. Extramurs Valencia 'B'",
-      "puntos": 30,
-      "pj": 26,
-      "pg": 2,
-      "pe": 0,
-      "pp": 24,
-      "codequipo": "901533714",
-      "gf": 15,
-      "gc": 74,
-      "racha": [
-        "P",
-        "P",
-        "P",
         "P",
         "P"
       ]
@@ -621,9 +609,9 @@
       "local": "C.F. Extramurs Valencia 'B'",
       "visitante": "C.F. Rovella Mislata 'A'",
       "campo": "Campo Tramo III del Turia F-5",
-      "resultado": null,
+      "resultado": "2-3",
       "es_local": true,
-      "victoria": null,
+      "victoria": false,
       "maps_url": "https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-5%2C%20Valencia%2C%20Espa%C3%B1a"
     }
   ]
