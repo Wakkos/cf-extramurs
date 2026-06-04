@@ -3,45 +3,13 @@ VERSION:2.0
 PRODID:Extramurs Calendar Bot
 X-WR-CALNAME:C.F. Extramurs Valencia 'D' (Alevín 1er. Año) - Lliga Regular Grup 12
 BEGIN:VEVENT
-DESCRIPTION:Jornada 6\nCampo: Campo Mpal. Barrio La Luz F-8 Campo 1
-DURATION:PT1H
-LOCATION:Campo Mpal. Barrio La Luz F-8 Campo 1
-DTSTART:20260215T090000Z
-SUMMARY:C.F. At. Bº La Luz - Xirivella 'C' 2-15 C.F. Extramurs Valencia 'D'
-UID:c47e1055-008f-496e-b600-b1ad7a105e7c@c47e.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Mpal.%20Barrio%20La%20Luz%20F-8%20Campo%201%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 7\nCampo: Campo Tramo III del Turia F-8
+DESCRIPTION:Jornada 17\nCampo: Campo Tramo III del Turia F-8
 DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-8
-DTSTART:20260221T164500Z
-SUMMARY:C.F. Extramurs Valencia 'D' 6-5 C.F. Rovella Mislata 'C'
-UID:664665d1-a79f-4a69-91d3-e1a8cd80dfe7@6646.org
+DTSTART:20260524T113000Z
+SUMMARY:C.F. Extramurs Valencia 'D' 7-3 Manises C.F. 'E'
+UID:6256f22f-051c-417e-8f40-21c35e3d7aea@6256.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 12\nCampo: Polideportivo Mpal. de Benicalap F-8 Campo 1
-DURATION:PT1H
-LOCATION:Polideportivo Mpal. de Benicalap F-8 Campo 1
-DTSTART:20260412T090000Z
-SUMMARY:C.F.U.D. Benicalap 'C' 0-12 C.F. Extramurs Valencia 'D'
-UID:c8875e3d-a86d-498c-b063-a51a3ccff20e@c887.org
-URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20de%20Benicalap%20F-8%20Campo%201%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 4\nCampo: Polideportivo Mpal. La Canaleta F-8 Campo 2A Mislata
-DURATION:PT1H
-LOCATION:Polideportivo Mpal. La Canaleta F-8 Campo 2A Mislata
-DTSTART:20260201T133000Z
-SUMMARY:Mislata C.F. 'I' 0-4 C.F. Extramurs Valencia 'D'
-UID:3c302d25-97d2-44d1-a8a5-fdd3c4202b82@3c30.org
-URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20La%20Canaleta%20F-8%20Campo%202A%20Mislata%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 11\nCampo: 
-SUMMARY:Descansa vs C.F. Extramurs Valencia 'D'
-UID:8096416f-e3ad-4ef8-a5b2-78eac49a914a@8096.org
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Jornada 2\nCampo: Campo Tramo III del Turia F-8
@@ -49,26 +17,26 @@ DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-8
 DTSTART:20260118T090000Z
 SUMMARY:C.F. Extramurs Valencia 'D' vs Descansa
-UID:f3cb22d5-ddc6-4ed7-9668-8a2e2d43c5ba@f3cb.org
+UID:c7691819-3921-4bf8-811f-10420ee5776f@c769.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
-DESCRIPTION:Jornada 10\nCampo: Campo Tramo III del Turia F-8
+DESCRIPTION:Jornada 7\nCampo: Campo Tramo III del Turia F-8
 DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-8
-DTSTART:20260322T101500Z
-SUMMARY:C.F. Extramurs Valencia 'D' 3-5 C.D. Mas Camarena 'B'
-UID:61be95a6-656d-4dad-a1d5-5f294f8d545e@61be.org
+DTSTART:20260221T164500Z
+SUMMARY:C.F. Extramurs Valencia 'D' 6-5 C.F. Rovella Mislata 'C'
+UID:afae5617-f45f-44a4-8c73-bc96ba89d068@afae.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
-DESCRIPTION:Jornada 14\nCampo: Campo Mpal. de Futbol Quart de Poblet F-8 Campo 2
+DESCRIPTION:Jornada 3\nCampo: Campo Tramo III del Turia F-8
 DURATION:PT1H
-LOCATION:Campo Mpal. de Futbol Quart de Poblet F-8 Campo 2
-DTSTART:20260425T120000Z
-SUMMARY:U.D. Quart de Poblet 'D' 1-4 C.F. Extramurs Valencia 'D'
-UID:c75405d9-a6f8-4c4e-847c-6719ef68dd14@c754.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Mpal.%20de%20Futbol%20Quart%20de%20Poblet%20F-8%20Campo%202%2C%20Valencia%2C%20Espa%C3%B1a
+LOCATION:Campo Tramo III del Turia F-8
+DTSTART:20260125T090000Z
+SUMMARY:C.F. Extramurs Valencia 'D' 4-5 C.F.U.D. Benicalap 'C'
+UID:a4037265-53ae-4735-bfcd-c113fed4ae85@a403.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Jornada 9\nCampo: Campo Tramo III del Turia F-8
@@ -76,25 +44,7 @@ DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-8
 DTSTART:20260308T101500Z
 SUMMARY:C.F. Extramurs Valencia 'D' 5-3 Paterna C.F. 'E'
-UID:f38c6b6d-c34b-4eca-a95f-4c773e2f8d74@f38c.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 5\nCampo: Campo Tramo III del Turia F-8
-DURATION:PT1H
-LOCATION:Campo Tramo III del Turia F-8
-DTSTART:20260208T101500Z
-SUMMARY:C.F. Extramurs Valencia 'D' 6-1 U.D. Quart de Poblet 'D'
-UID:5a8756d2-6a9e-4c41-82bf-57a920c3d699@5a87.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 15\nCampo: Campo Tramo III del Turia F-8
-DURATION:PT1H
-LOCATION:Campo Tramo III del Turia F-8
-DTSTART:20260510T101500Z
-SUMMARY:C.F. Extramurs Valencia 'D' 14-0 C.F. At. Bº La Luz - Xirivella 'C'
-UID:f31f7b0b-461a-40a2-8089-571ca13c4a3e@f31f.org
+UID:c3e6e6e7-dd09-41d8-aac2-aa1910d1cd1e@c3e6.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
@@ -103,25 +53,61 @@ DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-8
 DTSTART:20260418T122000Z
 SUMMARY:C.F. Extramurs Valencia 'D' 6-4 Mislata C.F. 'I'
-UID:2a76f27b-5ea0-4fad-a423-b168c811ba89@2a76.org
+UID:8007a9fc-9477-4812-804b-47f346c1fae0@8007.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
-DESCRIPTION:Jornada 16\nCampo: Polideportivo Mpal. La Canaleta F-8 Campo 2A Mislata
+DESCRIPTION:Jornada 14\nCampo: Campo Mpal. de Futbol Quart de Poblet F-8 Campo 2
 DURATION:PT1H
-LOCATION:Polideportivo Mpal. La Canaleta F-8 Campo 2A Mislata
-DTSTART:20260517T090000Z
-SUMMARY:C.F. Rovella Mislata 'C' 1-5 C.F. Extramurs Valencia 'D'
-UID:f80341a2-3de8-475f-be53-cb4c4f66f9bd@f803.org
-URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20La%20Canaleta%20F-8%20Campo%202A%20Mislata%2C%20Valencia%2C%20Espa%C3%B1a
+LOCATION:Campo Mpal. de Futbol Quart de Poblet F-8 Campo 2
+DTSTART:20260425T120000Z
+SUMMARY:U.D. Quart de Poblet 'D' 1-4 C.F. Extramurs Valencia 'D'
+UID:6dc7590f-4d6e-4dc9-bfcd-174164e6977e@6dc7.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Mpal.%20de%20Futbol%20Quart%20de%20Poblet%20F-8%20Campo%202%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
-DESCRIPTION:Jornada 17\nCampo: Campo Tramo III del Turia F-8
+DESCRIPTION:Jornada 18\nCampo: Estadio Gerardo Salvador F-8 Anexo Paterna
+DURATION:PT1H
+LOCATION:Estadio Gerardo Salvador F-8 Anexo Paterna
+DTSTART:20260530T101500Z
+SUMMARY:Paterna C.F. 'E' 6-5 C.F. Extramurs Valencia 'D'
+UID:8499bdfd-6da4-4820-a67f-68c76813dde7@8499.org
+URL:https://www.google.com/maps/search/?api=1&query=Estadio%20Gerardo%20Salvador%20F-8%20Anexo%20Paterna%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 6\nCampo: Campo Mpal. Barrio La Luz F-8 Campo 1
+DURATION:PT1H
+LOCATION:Campo Mpal. Barrio La Luz F-8 Campo 1
+DTSTART:20260215T090000Z
+SUMMARY:C.F. At. Bº La Luz - Xirivella 'C' 2-15 C.F. Extramurs Valencia 'D'
+UID:066c5322-9a42-4dd3-b9ed-30fe9cdc80bf@066c.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Mpal.%20Barrio%20La%20Luz%20F-8%20Campo%201%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 12\nCampo: Polideportivo Mpal. de Benicalap F-8 Campo 1
+DURATION:PT1H
+LOCATION:Polideportivo Mpal. de Benicalap F-8 Campo 1
+DTSTART:20260412T090000Z
+SUMMARY:C.F.U.D. Benicalap 'C' 0-12 C.F. Extramurs Valencia 'D'
+UID:1ff2bfd4-d001-4408-b059-5a72004801db@1ff2.org
+URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20de%20Benicalap%20F-8%20Campo%201%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 10\nCampo: Campo Tramo III del Turia F-8
 DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-8
-DTSTART:20260524T113000Z
-SUMMARY:C.F. Extramurs Valencia 'D' 7-3 Manises C.F. 'E'
-UID:a90b7440-6eec-4a8b-a5fa-8c529315f688@a90b.org
+DTSTART:20260322T101500Z
+SUMMARY:C.F. Extramurs Valencia 'D' 3-5 C.D. Mas Camarena 'B'
+UID:043a0710-aa8f-4304-854f-f48d13d49cc7@043a.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 5\nCampo: Campo Tramo III del Turia F-8
+DURATION:PT1H
+LOCATION:Campo Tramo III del Turia F-8
+DTSTART:20260208T101500Z
+SUMMARY:C.F. Extramurs Valencia 'D' 6-1 U.D. Quart de Poblet 'D'
+UID:731cbfa6-336a-462b-a19f-e15883f6cc71@731c.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
@@ -130,17 +116,8 @@ DURATION:PT1H
 LOCATION:Polideportivo Mpal. de Manises F-8 Campo C
 DTSTART:20260228T160000Z
 SUMMARY:Manises C.F. 'E' 0-2 C.F. Extramurs Valencia 'D'
-UID:f082c1fc-63af-4e8d-95cc-0fa2ac103602@f082.org
+UID:3cfc77be-5136-413c-9a0c-0ad2165b6eb1@3cfc.org
 URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20de%20Manises%20F-8%20Campo%20C%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 18\nCampo: Estadio Gerardo Salvador F-8 Anexo Paterna
-DURATION:PT1H
-LOCATION:Estadio Gerardo Salvador F-8 Anexo Paterna
-DTSTART:20260530T101500Z
-SUMMARY:Paterna C.F. 'E' 6-5 C.F. Extramurs Valencia 'D'
-UID:a51994b5-f379-4a1d-a8dc-bc7ce4c460f4@a519.org
-URL:https://www.google.com/maps/search/?api=1&query=Estadio%20Gerardo%20Salvador%20F-8%20Anexo%20Paterna%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Jornada 1\nCampo: Complejo Dptvo. Mas Camarena F-8 Campo 1 A
@@ -148,16 +125,39 @@ DURATION:PT1H
 LOCATION:Complejo Dptvo. Mas Camarena F-8 Campo 1 A
 DTSTART:20260109T183500Z
 SUMMARY:C.D. Mas Camarena 'B' 1-4 C.F. Extramurs Valencia 'D'
-UID:7d28fe9c-5555-469b-b022-d45d99146297@7d28.org
+UID:cb6eb4e8-f3f8-4747-9bbb-88f67bd664cb@cb6e.org
 URL:https://www.google.com/maps/search/?api=1&query=Complejo%20Dptvo.%20Mas%20Camarena%20F-8%20Campo%201%20A%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
-DESCRIPTION:Jornada 3\nCampo: Campo Tramo III del Turia F-8
+DESCRIPTION:Jornada 15\nCampo: Campo Tramo III del Turia F-8
 DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-8
-DTSTART:20260125T090000Z
-SUMMARY:C.F. Extramurs Valencia 'D' 4-5 C.F.U.D. Benicalap 'C'
-UID:096bec46-c0ce-4e01-b7fb-1eb8dc81736c@096b.org
+DTSTART:20260510T101500Z
+SUMMARY:C.F. Extramurs Valencia 'D' 14-0 C.F. At. Bº La Luz - Xirivella 'C'
+UID:c35dbe13-9b97-4594-bf80-29a9a3674a60@c35d.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 4\nCampo: Polideportivo Mpal. La Canaleta F-8 Campo 2A Mislata
+DURATION:PT1H
+LOCATION:Polideportivo Mpal. La Canaleta F-8 Campo 2A Mislata
+DTSTART:20260201T133000Z
+SUMMARY:Mislata C.F. 'I' 0-4 C.F. Extramurs Valencia 'D'
+UID:5aee3d8d-48d8-4545-8b48-dd5bfd63add8@5aee.org
+URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20La%20Canaleta%20F-8%20Campo%202A%20Mislata%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 16\nCampo: Polideportivo Mpal. La Canaleta F-8 Campo 2A Mislata
+DURATION:PT1H
+LOCATION:Polideportivo Mpal. La Canaleta F-8 Campo 2A Mislata
+DTSTART:20260517T090000Z
+SUMMARY:C.F. Rovella Mislata 'C' 1-5 C.F. Extramurs Valencia 'D'
+UID:b5a3016c-7ddc-481a-b4a2-b0bcadc86295@b5a3.org
+URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20La%20Canaleta%20F-8%20Campo%202A%20Mislata%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 11\nCampo: 
+SUMMARY:Descansa vs C.F. Extramurs Valencia 'D'
+UID:bb380918-7c95-4f71-9b06-0d4d032e34b1@bb38.org
 END:VEVENT
 END:VCALENDAR
