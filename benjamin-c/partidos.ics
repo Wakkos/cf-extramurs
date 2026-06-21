@@ -3,12 +3,39 @@ VERSION:2.0
 PRODID:Extramurs Calendar Bot
 X-WR-CALNAME:C.F. Extramurs Valencia 'C' (Benjamín 2º. Año) - Lliga Regular Grup 14
 BEGIN:VEVENT
+DESCRIPTION:Jornada 5\nCampo: Campo de Fútbol Colegio Aleman F-8
+DURATION:PT1H
+LOCATION:Campo de Fútbol Colegio Aleman F-8
+DTSTART:20260207T114500Z
+SUMMARY:Deutsche Schule Valencia F.C. 'A' 2-8 C.F. Extramurs Valencia 'C'
+UID:5a69ad11-3c5b-4f90-a887-b9d9090ac280@5a69.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20de%20F%C3%BAtbol%20Colegio%20Aleman%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 2\nCampo: Campo Mpal. La Exposicion F-8 Campo 1
+DURATION:PT1H
+LOCATION:Campo Mpal. La Exposicion F-8 Campo 1
+DTSTART:20260117T103000Z
+SUMMARY:C.F.B. Ciutat de València 'B' 7-0 C.F. Extramurs Valencia 'C'
+UID:37d69559-4c20-4ed1-a0c6-cc1bff618691@37d6.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Mpal.%20La%20Exposicion%20F-8%20Campo%201%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 16\nCampo: Campo Tramo III del Turia F-8
+DURATION:PT1H
+LOCATION:Campo Tramo III del Turia F-8
+DTSTART:20260516T111500Z
+SUMMARY:C.F. Extramurs Valencia 'C' 0-4 C.D. Apolo 'A'
+UID:232c7bdb-b5ab-4fd8-8b68-c02d7d636bfb@232c.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
 DESCRIPTION:Jornada 3\nCampo: Campo Tramo III del Turia F-8
 DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-8
 DTSTART:20260125T101500Z
 SUMMARY:C.F. Extramurs Valencia 'C' 2-2 C.D. At. Nazaret 'A'
-UID:ea39b95c-a8da-440a-b140-0a9f3d49632f@ea39.org
+UID:c67ac315-9e51-46b2-aba5-a57fb5e3a9e7@c67a.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
@@ -17,7 +44,7 @@ DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-8
 DTSTART:20260530T123000Z
 SUMMARY:C.F. Extramurs Valencia 'C' 4-3 C.D.J. Collvert 'B'
-UID:f7120d8e-6f78-43d5-b649-3b8368e2829a@f712.org
+UID:0c2dfc18-861f-45e8-9332-706194f5505b@0c2d.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
@@ -26,16 +53,7 @@ DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-8
 DTSTART:20260221T111500Z
 SUMMARY:C.F. Extramurs Valencia 'C' 2-4 C.F. Rovella Mislata 'A'
-UID:a649f029-e5b9-4bdc-9b91-26e86c2716a1@a649.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 11\nCampo: Campo Tramo III del Turia F-8
-DURATION:PT1H
-LOCATION:Campo Tramo III del Turia F-8
-DTSTART:20260329T124500Z
-SUMMARY:C.F. Extramurs Valencia 'C' 3-6 C.F.B. Ciutat de València 'B'
-UID:f5857938-23b5-4c24-a97c-43933d543d37@f585.org
+UID:7aa427f2-8fea-49dc-82e8-c0e120bce589@7aa4.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
@@ -44,70 +62,25 @@ DURATION:PT1H
 LOCATION:Polideportivo Mpal. La Canaleta F-8 Campo 1A Mislata
 DTSTART:20260509T090000Z
 SUMMARY:C.F. Rovella Mislata 'A' 11-2 C.F. Extramurs Valencia 'C'
-UID:f26d02d5-bf54-425d-a3ef-576f88ab806d@f26d.org
+UID:953762ae-eeb1-453d-8986-e141cc78728e@9537.org
 URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20La%20Canaleta%20F-8%20Campo%201A%20Mislata%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
-DESCRIPTION:Jornada 4\nCampo: Campo de Futbol Mpal. Malilla F-8 Campo nº 3 Anexo
-DURATION:PT1H
-LOCATION:Campo de Futbol Mpal. Malilla F-8 Campo nº 3 Anexo
-DTSTART:20260131T121500Z
-SUMMARY:C.D. Malilla 'B' 1-5 C.F. Extramurs Valencia 'C'
-UID:fbc8ade9-a1a4-4bae-87d2-f732ff9d756d@fbc8.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20de%20Futbol%20Mpal.%20Malilla%20F-8%20Campo%20n%C2%BA%203%20Anexo%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 7\nCampo: Campo de Futbol Mpal. de Pinedo F-8 Campo 2
-DURATION:PT1H
-LOCATION:Campo de Futbol Mpal. de Pinedo F-8 Campo 2
-DTSTART:20260220T190000Z
-SUMMARY:C.D. Apolo 'A' 3-2 C.F. Extramurs Valencia 'C'
-UID:b53815b0-5203-4e15-91b7-6627698a05b2@b538.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20de%20Futbol%20Mpal.%20de%20Pinedo%20F-8%20Campo%202%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 2\nCampo: Campo Mpal. La Exposicion F-8 Campo 1
-DURATION:PT1H
-LOCATION:Campo Mpal. La Exposicion F-8 Campo 1
-DTSTART:20260117T103000Z
-SUMMARY:C.F.B. Ciutat de València 'B' 7-0 C.F. Extramurs Valencia 'C'
-UID:f706f8da-bd25-4192-a5db-1309e4f5837f@f706.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Mpal.%20La%20Exposicion%20F-8%20Campo%201%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 13\nCampo: Campo Tramo III del Turia F-8
+DESCRIPTION:Jornada 11\nCampo: Campo Tramo III del Turia F-8
 DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-8
-DTSTART:20260419T124500Z
-SUMMARY:C.F. Extramurs Valencia 'C' 5-1 C.D. Malilla 'B'
-UID:c9fc8a7a-a509-4031-81ab-ff3f8f91870b@c9fc.org
+DTSTART:20260329T124500Z
+SUMMARY:C.F. Extramurs Valencia 'C' 3-6 C.F.B. Ciutat de València 'B'
+UID:75332e86-3e41-4b77-9036-7a1534ecae3d@7533.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
-DESCRIPTION:Jornada 5\nCampo: Campo de Fútbol Colegio Aleman F-8
-DURATION:PT1H
-LOCATION:Campo de Fútbol Colegio Aleman F-8
-DTSTART:20260207T114500Z
-SUMMARY:Deutsche Schule Valencia F.C. 'A' 2-8 C.F. Extramurs Valencia 'C'
-UID:a818a4d9-e649-4fc9-8d31-698de6b9abb7@a818.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20de%20F%C3%BAtbol%20Colegio%20Aleman%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 9\nCampo: Polideportivo Mpal. de Benimaclet F-8
-DURATION:PT1H
-LOCATION:Polideportivo Mpal. de Benimaclet F-8
-DTSTART:20260307T171500Z
-SUMMARY:C.D.J. Collvert 'B' 1-4 C.F. Extramurs Valencia 'C'
-UID:03f2046c-e743-442f-9d48-63b1663a8103@03f2.org
-URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20de%20Benimaclet%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 16\nCampo: Campo Tramo III del Turia F-8
+DESCRIPTION:Jornada 14\nCampo: Campo Tramo III del Turia F-8
 DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-8
-DTSTART:20260516T111500Z
-SUMMARY:C.F. Extramurs Valencia 'C' 0-4 C.D. Apolo 'A'
-UID:5d513483-b0d0-4f0e-a6fd-40041ab93c90@5d51.org
+DTSTART:20260426T090000Z
+SUMMARY:C.F. Extramurs Valencia 'C' 6-2 Deutsche Schule Valencia F.C. 'A'
+UID:f385efcf-185e-40b3-9b9b-99bdb971939e@f385.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
@@ -116,17 +89,8 @@ DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-8
 DTSTART:20260111T090000Z
 SUMMARY:C.F. Extramurs Valencia 'C' 2-1 C.F. Inter San José Valencia 'E'
-UID:580266bd-d93a-4f5a-9a88-7af483f4edf4@5802.org
+UID:4129bc56-fc56-4262-a76e-5b1eb9a0b636@4129.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 10\nCampo: Complejo Dptvo. Mas Camarena F-8 Campo 2 A
-DURATION:PT1H
-LOCATION:Complejo Dptvo. Mas Camarena F-8 Campo 2 A
-DTSTART:20260314T090000Z
-SUMMARY:C.F. Inter San José Valencia 'E' 4-2 C.F. Extramurs Valencia 'C'
-UID:924bb01c-0a10-4935-b81c-916bed18b461@924b.org
-URL:https://www.google.com/maps/search/?api=1&query=Complejo%20Dptvo.%20Mas%20Camarena%20F-8%20Campo%202%20A%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Jornada 12\nCampo: Polideportivo Mpal. de Nazaret F-8 Campo 4
@@ -134,8 +98,26 @@ DURATION:PT1H
 LOCATION:Polideportivo Mpal. de Nazaret F-8 Campo 4
 DTSTART:20260407T183000Z
 SUMMARY:C.D. At. Nazaret 'A' 5-3 C.F. Extramurs Valencia 'C'
-UID:f76407c9-0d03-49d3-a5f5-8dfd9061c502@f764.org
+UID:060ca3c3-b100-40a5-9565-b5d471ab6412@060c.org
 URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20de%20Nazaret%20F-8%20Campo%204%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 9\nCampo: Polideportivo Mpal. de Benimaclet F-8
+DURATION:PT1H
+LOCATION:Polideportivo Mpal. de Benimaclet F-8
+DTSTART:20260307T171500Z
+SUMMARY:C.D.J. Collvert 'B' 1-4 C.F. Extramurs Valencia 'C'
+UID:ec833601-6246-4b02-a129-716ae41a27f1@ec83.org
+URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20de%20Benimaclet%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 13\nCampo: Campo Tramo III del Turia F-8
+DURATION:PT1H
+LOCATION:Campo Tramo III del Turia F-8
+DTSTART:20260419T124500Z
+SUMMARY:C.F. Extramurs Valencia 'C' 5-1 C.D. Malilla 'B'
+UID:4cde2223-b023-41b6-90cc-34ceaa55ace0@4cde.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Jornada 17\nCampo: Polideportivo Escuelas San Jose F-8 Campo 1
@@ -143,17 +125,35 @@ DURATION:PT1H
 LOCATION:Polideportivo Escuelas San Jose F-8 Campo 1
 DTSTART:20260523T101500Z
 SUMMARY:C.D. Jesuitas Valencia-S. Fútbol 'B' 4-0 C.F. Extramurs Valencia 'C'
-UID:aefbb6d9-95f6-44a3-9328-6604f0c68f8d@aefb.org
+UID:31d0c77a-a27d-491d-9231-5059fe22fe3d@31d0.org
 URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Escuelas%20San%20Jose%20F-8%20Campo%201%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
-DESCRIPTION:Jornada 14\nCampo: Campo Tramo III del Turia F-8
+DESCRIPTION:Jornada 7\nCampo: Campo de Futbol Mpal. de Pinedo F-8 Campo 2
 DURATION:PT1H
-LOCATION:Campo Tramo III del Turia F-8
-DTSTART:20260426T090000Z
-SUMMARY:C.F. Extramurs Valencia 'C' 6-2 Deutsche Schule Valencia F.C. 'A'
-UID:a8ebd047-3732-415f-a8a2-ab4ec5ae0c5f@a8eb.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
+LOCATION:Campo de Futbol Mpal. de Pinedo F-8 Campo 2
+DTSTART:20260220T190000Z
+SUMMARY:C.D. Apolo 'A' 3-2 C.F. Extramurs Valencia 'C'
+UID:f933d708-f94a-4a66-87f3-97f61cfa1fbb@f933.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20de%20Futbol%20Mpal.%20de%20Pinedo%20F-8%20Campo%202%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 10\nCampo: Complejo Dptvo. Mas Camarena F-8 Campo 2 A
+DURATION:PT1H
+LOCATION:Complejo Dptvo. Mas Camarena F-8 Campo 2 A
+DTSTART:20260314T090000Z
+SUMMARY:C.F. Inter San José Valencia 'E' 4-2 C.F. Extramurs Valencia 'C'
+UID:63b7a6e3-e122-4752-ace7-752f73bf8554@63b7.org
+URL:https://www.google.com/maps/search/?api=1&query=Complejo%20Dptvo.%20Mas%20Camarena%20F-8%20Campo%202%20A%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 4\nCampo: Campo de Futbol Mpal. Malilla F-8 Campo nº 3 Anexo
+DURATION:PT1H
+LOCATION:Campo de Futbol Mpal. Malilla F-8 Campo nº 3 Anexo
+DTSTART:20260131T121500Z
+SUMMARY:C.D. Malilla 'B' 1-5 C.F. Extramurs Valencia 'C'
+UID:f9f9936d-d9ed-4fdd-b11b-5dd3fb8e833c@f9f9.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20de%20Futbol%20Mpal.%20Malilla%20F-8%20Campo%20n%C2%BA%203%20Anexo%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Jornada 8\nCampo: Campo Tramo III del Turia F-8
@@ -161,7 +161,7 @@ DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-8
 DTSTART:20260301T103000Z
 SUMMARY:C.F. Extramurs Valencia 'C' 2-2 C.D. Jesuitas Valencia-S. Fútbol 'B'
-UID:cab3b0b9-dd2a-48bc-ab17-c30605c0bb80@cab3.org
+UID:f71ecc8b-673b-4736-bec5-e2317d7e56f6@f71e.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 END:VCALENDAR
