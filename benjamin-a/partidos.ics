@@ -3,30 +3,12 @@ VERSION:2.0
 PRODID:Extramurs Calendar Bot
 X-WR-CALNAME:C.F. Extramurs Valencia 'A' (Benjamín 2º. Año) - Lliga Regular Grup 9
 BEGIN:VEVENT
-DESCRIPTION:Jornada 10\nCampo: Polideportivo Mpal. de Loriguilla F-8 Campo 2
-DURATION:PT1H
-LOCATION:Polideportivo Mpal. de Loriguilla F-8 Campo 2
-DTSTART:20260314T120000Z
-SUMMARY:Sp. Loriguilla C.F. 'A' 1-3 C.F. Extramurs Valencia 'A'
-UID:bd11a29e-ce45-47f0-973b-859cac72250f@bd11.org
-URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20de%20Loriguilla%20F-8%20Campo%202%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 13\nCampo: Campo Mpal. La Exposicion F-8 Campo 1
-DURATION:PT1H
-LOCATION:Campo Mpal. La Exposicion F-8 Campo 1
-DTSTART:20260418T123000Z
-SUMMARY:C.F.B. Ciutat de València 'E' 0-2 C.F. Extramurs Valencia 'A'
-UID:1b18702d-1e9a-49f0-8700-f54f3252a68d@1b18.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Mpal.%20La%20Exposicion%20F-8%20Campo%201%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 11\nCampo: Campo Tramo III del Turia F-8
+DESCRIPTION:Jornada 14\nCampo: Campo Tramo III del Turia F-8
 DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-8
-DTSTART:20260328T111500Z
-SUMMARY:C.F. Extramurs Valencia 'A' 7-1 C.D. Monte-Sión 'B'
-UID:1bd1a073-c4df-4b90-ae45-eeb2f99c2622@1bd1.org
+DTSTART:20260426T113000Z
+SUMMARY:C.F. Extramurs Valencia 'A' 5-0 Levante U.D. 'C'
+UID:de588272-c2b1-4f7c-9c96-03991fb4b43b@de58.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
@@ -35,116 +17,8 @@ DURATION:PT1H
 LOCATION:Campo Ciudad Jardin F-8 Campo 1 Paterna
 DTSTART:20260124T110000Z
 SUMMARY:U.D. Paterna 'C' 1-3 C.F. Extramurs Valencia 'A'
-UID:89e946b4-73bc-4992-8b14-4efa5c24f73e@89e9.org
+UID:492456d2-b949-437b-b66c-3dbfdfc3a9dc@4924.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Ciudad%20Jardin%20F-8%20Campo%201%20Paterna%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 14\nCampo: Campo Tramo III del Turia F-8
-DURATION:PT1H
-LOCATION:Campo Tramo III del Turia F-8
-DTSTART:20260426T113000Z
-SUMMARY:C.F. Extramurs Valencia 'A' 5-0 Levante U.D. 'C'
-UID:cced4610-95ba-4459-aafb-5b73de2813c5@cced.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 18\nCampo: Campo Tramo III del Turia F-8
-DURATION:PT1H
-LOCATION:Campo Tramo III del Turia F-8
-DTSTART:20260531T090000Z
-SUMMARY:C.F. Extramurs Valencia 'A' 11-1 EAF Valencia C.F. 'A'
-UID:add59ec3-56b6-4591-b535-a6b650301070@add5.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 17\nCampo: Polideportivo Mpal. Ramon Saez F-8 Campo 1 Xirivella
-DURATION:PT1H
-LOCATION:Polideportivo Mpal. Ramon Saez F-8 Campo 1 Xirivella
-DTSTART:20260522T193000Z
-SUMMARY:C.F. Sporting Xirivella 'D' 2-2 C.F. Extramurs Valencia 'A'
-UID:05958034-4f6c-4dc0-b310-07c3f8c4b5df@0595.org
-URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20Ramon%20Saez%20F-8%20Campo%201%20Xirivella%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 9\nCampo: Instalaciones Mpales. El Terç F-8 Campo 3 Alaquàs
-DURATION:PT1H
-LOCATION:Instalaciones Mpales. El Terç F-8 Campo 3 Alaquàs
-DTSTART:20260307T090000Z
-SUMMARY:EAF Valencia C.F. 'A' 3-4 C.F. Extramurs Valencia 'A'
-UID:cf9c670b-3652-499a-9370-9b3f1153532d@cf9c.org
-URL:https://www.google.com/maps/search/?api=1&query=Instalaciones%20Mpales.%20El%20Ter%C3%A7%20F-8%20Campo%203%20Alaqu%C3%A0s%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 16\nCampo: Campo Tramo III del Turia F-8
-DURATION:PT1H
-LOCATION:Campo Tramo III del Turia F-8
-DTSTART:20260521T182500Z
-SUMMARY:C.F. Extramurs Valencia 'A' 2-0 C.D. Teresianas-Torrent 'A'
-UID:ca29fdf1-d02a-4a01-8127-46dda575835d@ca29.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 7\nCampo: Campo de Futbol Mpal. San Gregorio F-8 Campo B2 Torrent
-DURATION:PT1H
-LOCATION:Campo de Futbol Mpal. San Gregorio F-8 Campo B2 Torrent
-DTSTART:20260221T090000Z
-SUMMARY:C.D. Teresianas-Torrent 'A' 2-4 C.F. Extramurs Valencia 'A'
-UID:102cd2e3-8f34-407d-b58c-517840fc4124@102c.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20de%20Futbol%20Mpal.%20San%20Gregorio%20F-8%20Campo%20B2%20Torrent%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 4\nCampo: Campo Tramo III del Turia F-8
-DURATION:PT1H
-LOCATION:Campo Tramo III del Turia F-8
-DTSTART:20260131T111500Z
-SUMMARY:C.F. Extramurs Valencia 'A' 5-2 C.F.B. Ciutat de València 'E'
-UID:c208ec6a-c3c5-4804-868b-9d91c487c892@c208.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 5\nCampo: Ciudad Dptva. del Levante U.D. F-8 Campo 2-A
-DURATION:PT1H
-LOCATION:Ciudad Dptva. del Levante U.D. F-8 Campo 2-A
-DTSTART:20260208T091500Z
-SUMMARY:Levante U.D. 'C' 1-5 C.F. Extramurs Valencia 'A'
-UID:7529e0cd-55bc-4915-8977-1dcb38497e36@7529.org
-URL:https://www.google.com/maps/search/?api=1&query=Ciudad%20Dptva.%20del%20Levante%20U.D.%20F-8%20Campo%202-A%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 8\nCampo: Campo Tramo III del Turia F-8
-DURATION:PT1H
-LOCATION:Campo Tramo III del Turia F-8
-DTSTART:20260228T133000Z
-SUMMARY:C.F. Extramurs Valencia 'A' 2-2 C.F. Sporting Xirivella 'D'
-UID:9242acc1-2a49-45b2-a9c7-f502b5523047@9242.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 2\nCampo: Ciutat de L`Esport Parc Central F-8 Campo 1B
-DURATION:PT1H
-LOCATION:Ciutat de L`Esport Parc Central F-8 Campo 1B
-DTSTART:20260117T110000Z
-SUMMARY:C.D. Monte-Sión 'B' 2-3 C.F. Extramurs Valencia 'A'
-UID:4fe58268-d2cf-4a31-837d-0dd370825168@4fe5.org
-URL:https://www.google.com/maps/search/?api=1&query=Ciutat%20de%20L%60Esport%20Parc%20Central%20F-8%20Campo%201B%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 12\nCampo: Campo Tramo III del Turia F-8
-DURATION:PT1H
-LOCATION:Campo Tramo III del Turia F-8
-DTSTART:20260412T093000Z
-SUMMARY:C.F. Extramurs Valencia 'A' 4-4 U.D. Paterna 'C'
-UID:485bc5f6-603f-4583-9973-1ae16f0fd82e@485b.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 1\nCampo: Campo Tramo III del Turia F-8
-DURATION:PT1H
-LOCATION:Campo Tramo III del Turia F-8
-DTSTART:20260111T101500Z
-SUMMARY:C.F. Extramurs Valencia 'A' 6-3 Sp. Loriguilla C.F. 'A'
-UID:c7d50fa1-67e8-4e62-8c9b-ab2f1155a274@c7d5.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Jornada 6\nCampo: Campo Tramo III del Turia F-8
@@ -152,7 +26,52 @@ DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-8
 DTSTART:20260222T124500Z
 SUMMARY:C.F. Extramurs Valencia 'A' 7-1 C.D. Buñol 'A'
-UID:1265a680-5089-47d9-b840-b4c3b0cb6a22@1265.org
+UID:27c1c3ac-a9ea-4c09-bd0a-ee470535771d@27c1.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 11\nCampo: Campo Tramo III del Turia F-8
+DURATION:PT1H
+LOCATION:Campo Tramo III del Turia F-8
+DTSTART:20260328T111500Z
+SUMMARY:C.F. Extramurs Valencia 'A' 7-1 C.D. Monte-Sión 'B'
+UID:d708e993-726b-44c7-8ff4-a47667583398@d708.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 16\nCampo: Campo Tramo III del Turia F-8
+DURATION:PT1H
+LOCATION:Campo Tramo III del Turia F-8
+DTSTART:20260521T182500Z
+SUMMARY:C.F. Extramurs Valencia 'A' 2-0 C.D. Teresianas-Torrent 'A'
+UID:da6806a8-3e44-49c3-aa4a-3db771c4024f@da68.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 13\nCampo: Campo Mpal. La Exposicion F-8 Campo 1
+DURATION:PT1H
+LOCATION:Campo Mpal. La Exposicion F-8 Campo 1
+DTSTART:20260418T123000Z
+SUMMARY:C.F.B. Ciutat de València 'E' 0-2 C.F. Extramurs Valencia 'A'
+UID:9c995608-6276-41a7-afaf-a31a96e452cf@9c99.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Mpal.%20La%20Exposicion%20F-8%20Campo%201%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 10\nCampo: Polideportivo Mpal. de Loriguilla F-8 Campo 2
+DURATION:PT1H
+LOCATION:Polideportivo Mpal. de Loriguilla F-8 Campo 2
+DTSTART:20260314T120000Z
+SUMMARY:Sp. Loriguilla C.F. 'A' 1-3 C.F. Extramurs Valencia 'A'
+UID:ea569922-26fb-4404-a6b4-416917c2328a@ea56.org
+URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20de%20Loriguilla%20F-8%20Campo%202%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 12\nCampo: Campo Tramo III del Turia F-8
+DURATION:PT1H
+LOCATION:Campo Tramo III del Turia F-8
+DTSTART:20260412T093000Z
+SUMMARY:C.F. Extramurs Valencia 'A' 4-4 U.D. Paterna 'C'
+UID:149635eb-9f76-4388-aa80-44920930159f@1496.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
@@ -161,7 +80,88 @@ DURATION:PT1H
 LOCATION:Campo Beltran Baguena F-8 Campo 1 Buñol
 DTSTART:20260509T090000Z
 SUMMARY:C.D. Buñol 'A' 0-3 C.F. Extramurs Valencia 'A'
-UID:e1e0ea63-da3e-449a-b963-c2bf861dfc49@e1e0.org
+UID:67e651de-3c06-4d8a-9cc1-5cb66f8669e0@67e6.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Beltran%20Baguena%20F-8%20Campo%201%20Bu%C3%B1ol%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 5\nCampo: Ciudad Dptva. del Levante U.D. F-8 Campo 2-A
+DURATION:PT1H
+LOCATION:Ciudad Dptva. del Levante U.D. F-8 Campo 2-A
+DTSTART:20260208T091500Z
+SUMMARY:Levante U.D. 'C' 1-5 C.F. Extramurs Valencia 'A'
+UID:d759bea3-039e-4cb2-99ba-1252332378e0@d759.org
+URL:https://www.google.com/maps/search/?api=1&query=Ciudad%20Dptva.%20del%20Levante%20U.D.%20F-8%20Campo%202-A%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 9\nCampo: Instalaciones Mpales. El Terç F-8 Campo 3 Alaquàs
+DURATION:PT1H
+LOCATION:Instalaciones Mpales. El Terç F-8 Campo 3 Alaquàs
+DTSTART:20260307T090000Z
+SUMMARY:EAF Valencia C.F. 'A' 3-4 C.F. Extramurs Valencia 'A'
+UID:61aef8cd-abad-4df3-b94e-018b3f88d265@61ae.org
+URL:https://www.google.com/maps/search/?api=1&query=Instalaciones%20Mpales.%20El%20Ter%C3%A7%20F-8%20Campo%203%20Alaqu%C3%A0s%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 2\nCampo: Ciutat de L`Esport Parc Central F-8 Campo 1B
+DURATION:PT1H
+LOCATION:Ciutat de L`Esport Parc Central F-8 Campo 1B
+DTSTART:20260117T110000Z
+SUMMARY:C.D. Monte-Sión 'B' 2-3 C.F. Extramurs Valencia 'A'
+UID:1072cef6-8210-4cd0-aa26-ec55c7dc0f13@1072.org
+URL:https://www.google.com/maps/search/?api=1&query=Ciutat%20de%20L%60Esport%20Parc%20Central%20F-8%20Campo%201B%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 8\nCampo: Campo Tramo III del Turia F-8
+DURATION:PT1H
+LOCATION:Campo Tramo III del Turia F-8
+DTSTART:20260228T133000Z
+SUMMARY:C.F. Extramurs Valencia 'A' 2-2 C.F. Sporting Xirivella 'D'
+UID:35f7120c-2da3-4b1c-89a7-0449a3f8da18@35f7.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 18\nCampo: Campo Tramo III del Turia F-8
+DURATION:PT1H
+LOCATION:Campo Tramo III del Turia F-8
+DTSTART:20260531T090000Z
+SUMMARY:C.F. Extramurs Valencia 'A' 11-1 EAF Valencia C.F. 'A'
+UID:90f26d47-e318-4f3a-ad63-c010e8126f2b@90f2.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 7\nCampo: Campo de Futbol Mpal. San Gregorio F-8 Campo B2 Torrent
+DURATION:PT1H
+LOCATION:Campo de Futbol Mpal. San Gregorio F-8 Campo B2 Torrent
+DTSTART:20260221T090000Z
+SUMMARY:C.D. Teresianas-Torrent 'A' 2-4 C.F. Extramurs Valencia 'A'
+UID:979f38d5-c0fd-4724-a466-eeb9dc954c24@979f.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20de%20Futbol%20Mpal.%20San%20Gregorio%20F-8%20Campo%20B2%20Torrent%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 1\nCampo: Campo Tramo III del Turia F-8
+DURATION:PT1H
+LOCATION:Campo Tramo III del Turia F-8
+DTSTART:20260111T101500Z
+SUMMARY:C.F. Extramurs Valencia 'A' 6-3 Sp. Loriguilla C.F. 'A'
+UID:2412394a-0190-4cca-8942-7c45ad18b77e@2412.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 17\nCampo: Polideportivo Mpal. Ramon Saez F-8 Campo 1 Xirivella
+DURATION:PT1H
+LOCATION:Polideportivo Mpal. Ramon Saez F-8 Campo 1 Xirivella
+DTSTART:20260522T193000Z
+SUMMARY:C.F. Sporting Xirivella 'D' 2-2 C.F. Extramurs Valencia 'A'
+UID:2b0fa3fa-2707-477c-a00d-5c9f573f3137@2b0f.org
+URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20Ramon%20Saez%20F-8%20Campo%201%20Xirivella%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 4\nCampo: Campo Tramo III del Turia F-8
+DURATION:PT1H
+LOCATION:Campo Tramo III del Turia F-8
+DTSTART:20260131T111500Z
+SUMMARY:C.F. Extramurs Valencia 'A' 5-2 C.F.B. Ciutat de València 'E'
+UID:4c824f86-da82-43f1-bbbb-16b32244aca2@4c82.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 END:VCALENDAR
