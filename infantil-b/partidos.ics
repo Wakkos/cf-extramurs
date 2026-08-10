@@ -3,12 +3,30 @@ VERSION:2.0
 PRODID:Extramurs Calendar Bot
 X-WR-CALNAME:C.F. Extramurs Valencia 'B' (2ª Regional Infantil) - Grup
 BEGIN:VEVENT
-DESCRIPTION:Jornada 22\nCampo: Polideportivo Mpal. de Benicalap F-11
+DESCRIPTION:Jornada 6\nCampo: Polideportivo Mpal. de Benicalap F-11
 DURATION:PT1H
 LOCATION:Polideportivo Mpal. de Benicalap F-11
-DTSTART:20260419T104500Z
-SUMMARY:C.F. Extramurs Valencia 'B' 4-2 U.D. Juventud - Bº Cristo 'A'
-UID:2de69c48-d5fe-4677-9022-445b700b5684@2de6.org
+DTSTART:20251123T104500Z
+SUMMARY:C.F. Extramurs Valencia 'B' 2-0 C.F. At. Bº La Luz - Xirivella 'B'
+UID:5a30ae43-1aa8-4319-819f-29579312d6bd@5a30.org
+URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20de%20Benicalap%20F-11%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 8\nCampo: Polideportivo Mpal. de Benicalap F-11
+DURATION:PT1H
+LOCATION:Polideportivo Mpal. de Benicalap F-11
+DTSTART:20251223T183000Z
+SUMMARY:C.F. Extramurs Valencia 'B' 7-1 U.D. Aldaia C.F. 'E'
+UID:7f253981-e2e2-4b53-a90b-56e96b49b5ea@7f25.org
+URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20de%20Benicalap%20F-11%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 2\nCampo: Polideportivo Mpal. de Benicalap F-11
+DURATION:PT1H
+LOCATION:Polideportivo Mpal. de Benicalap F-11
+DTSTART:20251026T104500Z
+SUMMARY:C.F. Extramurs Valencia 'B' 2-2 U.D. Fonteta 'B'
+UID:0f38cb74-44fa-4a27-8c8b-15dd47e07170@0f38.org
 URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20de%20Benicalap%20F-11%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
@@ -17,62 +35,17 @@ DURATION:PT1H
 LOCATION:Polideportivo Mpal. La Canaleta F-11 Campo A
 DTSTART:20251115T090000Z
 SUMMARY:Sp. Mislata U.F. 'E' 2-3 C.F. Extramurs Valencia 'B'
-UID:2f3eecd5-09d2-422e-995d-0a869c442b16@2f3e.org
+UID:d250ac84-8eed-45d9-86d1-59d6c9e2a232@d250.org
 URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20La%20Canaleta%20F-11%20Campo%20A%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
-DESCRIPTION:Jornada 1\nCampo: Polideportivo Mpal. La Canaleta F-11 Campo A
+DESCRIPTION:Jornada 19\nCampo: Campo Mpal. Barrio La Luz F-11 Valencia
 DURATION:PT1H
-LOCATION:Polideportivo Mpal. La Canaleta F-11 Campo A
-DTSTART:20251018T090000Z
-SUMMARY:Mislata C.F. 'F' 2-1 C.F. Extramurs Valencia 'B'
-UID:407d1128-4c75-42a7-8a1d-f1437e0bc1b3@407d.org
-URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20La%20Canaleta%20F-11%20Campo%20A%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 24\nCampo: Polideportivo Mpal. de Benicalap F-11
-DURATION:PT1H
-LOCATION:Polideportivo Mpal. de Benicalap F-11
-DTSTART:20260502T093000Z
-SUMMARY:C.F. Extramurs Valencia 'B' 4-1 C.D. Zafranar 'D'
-UID:6efde572-02e8-41d6-850f-600e9b62b7e2@6efd.org
-URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20de%20Benicalap%20F-11%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 20\nCampo: Polideportivo Mpal. de Benicalap F-11
-DURATION:PT1H
-LOCATION:Polideportivo Mpal. de Benicalap F-11
-DTSTART:20260329T104500Z
-SUMMARY:C.F. Extramurs Valencia 'B' 4-2 Manises C.F. 'D'
-UID:15493c0f-308d-43d3-af52-e2f0409de692@1549.org
-URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20de%20Benicalap%20F-11%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 11\nCampo: Camp de Futbol Mpal. Tres Creus F-11 Valencia
-DURATION:PT1H
-LOCATION:Camp de Futbol Mpal. Tres Creus F-11 Valencia
-DTSTART:20260117T113000Z
-SUMMARY:C.D. Zafranar 'D' 0-0 C.F. Extramurs Valencia 'B'
-UID:e2b9fa86-09ac-4755-a3b1-af25a49a4625@e2b9.org
-URL:https://www.google.com/maps/search/?api=1&query=Camp%20de%20Futbol%20Mpal.%20Tres%20Creus%20F-11%20Valencia%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 15\nCampo: Polideportivo Mpal. Quatre Carreres F-11
-DURATION:PT1H
-LOCATION:Polideportivo Mpal. Quatre Carreres F-11
-DTSTART:20260322T103000Z
-SUMMARY:U.D. Fonteta 'B' 1-0 C.F. Extramurs Valencia 'B'
-UID:135a4b56-6626-444f-9bfb-9ce86f7d057d@135a.org
-URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20Quatre%20Carreres%20F-11%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 8\nCampo: Polideportivo Mpal. de Benicalap F-11
-DURATION:PT1H
-LOCATION:Polideportivo Mpal. de Benicalap F-11
-DTSTART:20251223T183000Z
-SUMMARY:C.F. Extramurs Valencia 'B' 7-1 U.D. Aldaia C.F. 'E'
-UID:f5ca8860-a50f-4e12-9c6c-1080ad826e46@f5ca.org
-URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20de%20Benicalap%20F-11%2C%20Valencia%2C%20Espa%C3%B1a
+LOCATION:Campo Mpal. Barrio La Luz F-11 Valencia
+DTSTART:20260315T090000Z
+SUMMARY:C.F. At. Bº La Luz - Xirivella 'B' 0-3 C.F. Extramurs Valencia 'B'
+UID:75492cae-d474-414c-adcf-695914e93622@7549.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Mpal.%20Barrio%20La%20Luz%20F-11%20Valencia%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Jornada 21\nCampo: Campo de Futbol Las Encrucijadas F-11 Aldaia
@@ -80,103 +53,8 @@ DURATION:PT1H
 LOCATION:Campo de Futbol Las Encrucijadas F-11 Aldaia
 DTSTART:20260411T090000Z
 SUMMARY:U.D. Aldaia C.F. 'E' 0-9 C.F. Extramurs Valencia 'B'
-UID:e2db1d63-3df8-460b-b170-c48963f1f0f9@e2db.org
+UID:9fe63fd9-b14b-4fcf-a876-d0cdf8d567e5@9fe6.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20de%20Futbol%20Las%20Encrucijadas%20F-11%20Aldaia%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 10\nCampo: Polideportivo Mpal. de Benicalap F-11
-DURATION:PT1H
-LOCATION:Polideportivo Mpal. de Benicalap F-11
-DTSTART:20260111T104500Z
-SUMMARY:C.F. Extramurs Valencia 'B' 2-9 U.E. Vall Dels Alcalans 'A'
-UID:73617967-df1a-44cb-94d8-e61a5ce46ad9@7361.org
-URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20de%20Benicalap%20F-11%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 25\nCampo: Polideportivo Mpal. de Benicalap F-11
-DURATION:PT1H
-LOCATION:Polideportivo Mpal. de Benicalap F-11
-DTSTART:20260510T104500Z
-SUMMARY:C.F. Extramurs Valencia 'B' 7-0 Xirivella C.F. 'B'
-UID:573c75f6-3c2e-4597-b00f-6d8527a24866@573c.org
-URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20de%20Benicalap%20F-11%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 3\nCampo: Campo Mpal. de Fútbol Quart de Poblet F-11
-DURATION:PT1H
-LOCATION:Campo Mpal. de Fútbol Quart de Poblet F-11
-DTSTART:20251102T090000Z
-SUMMARY:U.D. Quart de Poblet 'C' 2-1 C.F. Extramurs Valencia 'B'
-UID:888d98cb-99f1-4271-b294-f25813909f34@888d.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Mpal.%20de%20F%C3%BAtbol%20Quart%20de%20Poblet%20F-11%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 13\nCampo: Polideportivo Mpal. de Benicalap F-11
-DURATION:PT1H
-LOCATION:Polideportivo Mpal. de Benicalap F-11
-DTSTART:20260201T104500Z
-SUMMARY:C.F. Extramurs Valencia 'B' 1-0 F.B.U.E. Atlètic Amistat 'C'
-UID:c7c071c2-5b5b-4516-9b12-b5ebfe8175a2@c7c0.org
-URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20de%20Benicalap%20F-11%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 23\nCampo: Poliesportiu Pep Cerveró Real F-11
-DURATION:PT1H
-LOCATION:Poliesportiu Pep Cerveró Real F-11
-DTSTART:20260425T120000Z
-SUMMARY:U.E. Vall Dels Alcalans 'A' 4-0 C.F. Extramurs Valencia 'B'
-UID:0d51135e-bfc3-46ca-b4b4-4d10c8947ca5@0d51.org
-URL:https://www.google.com/maps/search/?api=1&query=Poliesportiu%20Pep%20Cerver%C3%B3%20Real%20F-11%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 6\nCampo: Polideportivo Mpal. de Benicalap F-11
-DURATION:PT1H
-LOCATION:Polideportivo Mpal. de Benicalap F-11
-DTSTART:20251123T104500Z
-SUMMARY:C.F. Extramurs Valencia 'B' 2-0 C.F. At. Bº La Luz - Xirivella 'B'
-UID:0fe806eb-73aa-42ee-91d1-89cfa29e1b60@0fe8.org
-URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20de%20Benicalap%20F-11%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 17\nCampo: 
-SUMMARY:Descansa vs C.F. Extramurs Valencia 'B'
-UID:2a5b3917-cf83-4c3d-b2ec-cfd681da6839@2a5b.org
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 12\nCampo: Polideportivo Mpal. Ramón Sáez F-11 Xirivella
-DURATION:PT1H
-LOCATION:Polideportivo Mpal. Ramón Sáez F-11 Xirivella
-DTSTART:20260124T103000Z
-SUMMARY:Xirivella C.F. 'B' 0-3 C.F. Extramurs Valencia 'B'
-UID:af4ad075-125d-42db-a77e-0fb221f6734c@af4a.org
-URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20Ram%C3%B3n%20S%C3%A1ez%20F-11%20Xirivella%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 9\nCampo: Campo Mpal. El Perdiguer F-11 Aldaia
-DURATION:PT1H
-LOCATION:Campo Mpal. El Perdiguer F-11 Aldaia
-DTSTART:20251221T110000Z
-SUMMARY:U.D. Juventud - Bº Cristo 'A' 1-1 C.F. Extramurs Valencia 'B'
-UID:def7c206-19cf-44f0-9994-a310cb3d09ba@def7.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Mpal.%20El%20Perdiguer%20F-11%20Aldaia%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 2\nCampo: Polideportivo Mpal. de Benicalap F-11
-DURATION:PT1H
-LOCATION:Polideportivo Mpal. de Benicalap F-11
-DTSTART:20251026T104500Z
-SUMMARY:C.F. Extramurs Valencia 'B' 2-2 U.D. Fonteta 'B'
-UID:f6c6a341-5f1e-408d-9bf2-6c78051f724c@f6c6.org
-URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20de%20Benicalap%20F-11%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 26\nCampo: Polideportivo Mpal. Quatre Carreres F-11
-DURATION:PT1H
-LOCATION:Polideportivo Mpal. Quatre Carreres F-11
-DTSTART:20260516T104500Z
-SUMMARY:F.B.U.E. Atlètic Amistat 'C' 1-2 C.F. Extramurs Valencia 'B'
-UID:dce77181-b2f2-4dde-bbef-2752d17e893b@dce7.org
-URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20Quatre%20Carreres%20F-11%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Jornada 18\nCampo: Polideportivo Mpal. de Benicalap F-11
@@ -184,16 +62,97 @@ DURATION:PT1H
 LOCATION:Polideportivo Mpal. de Benicalap F-11
 DTSTART:20260308T104500Z
 SUMMARY:C.F. Extramurs Valencia 'B' 6-0 Sp. Mislata U.F. 'E'
-UID:c78ed7fc-5073-463a-94e8-00888bdcca66@c78e.org
+UID:56e05fe3-9267-4507-b365-efe7ec0d67dd@56e0.org
 URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20de%20Benicalap%20F-11%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
-DESCRIPTION:Jornada 14\nCampo: Polideportivo Mpal. de Benicalap F-11
+DESCRIPTION:Jornada 1\nCampo: Polideportivo Mpal. La Canaleta F-11 Campo A
+DURATION:PT1H
+LOCATION:Polideportivo Mpal. La Canaleta F-11 Campo A
+DTSTART:20251018T090000Z
+SUMMARY:Mislata C.F. 'F' 2-1 C.F. Extramurs Valencia 'B'
+UID:7af95671-6ce5-424d-8468-0294a0123513@7af9.org
+URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20La%20Canaleta%20F-11%20Campo%20A%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 26\nCampo: Polideportivo Mpal. Quatre Carreres F-11
+DURATION:PT1H
+LOCATION:Polideportivo Mpal. Quatre Carreres F-11
+DTSTART:20260516T104500Z
+SUMMARY:F.B.U.E. Atlètic Amistat 'C' 1-2 C.F. Extramurs Valencia 'B'
+UID:c547d5c6-ce66-428d-82d6-11b175b33da2@c547.org
+URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20Quatre%20Carreres%20F-11%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 3\nCampo: Campo Mpal. de Fútbol Quart de Poblet F-11
+DURATION:PT1H
+LOCATION:Campo Mpal. de Fútbol Quart de Poblet F-11
+DTSTART:20251102T090000Z
+SUMMARY:U.D. Quart de Poblet 'C' 2-1 C.F. Extramurs Valencia 'B'
+UID:b3c98bed-978b-4978-971a-3d2202ea1a92@b3c9.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Mpal.%20de%20F%C3%BAtbol%20Quart%20de%20Poblet%20F-11%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 20\nCampo: Polideportivo Mpal. de Benicalap F-11
 DURATION:PT1H
 LOCATION:Polideportivo Mpal. de Benicalap F-11
-DTSTART:20260208T104500Z
-SUMMARY:C.F. Extramurs Valencia 'B' 2-1 Mislata C.F. 'F'
-UID:5064cb0f-7b56-48a3-b17f-3191b4b36f69@5064.org
+DTSTART:20260329T104500Z
+SUMMARY:C.F. Extramurs Valencia 'B' 4-2 Manises C.F. 'D'
+UID:925c45a7-9cf5-41b8-8d75-74830b61a36f@925c.org
+URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20de%20Benicalap%20F-11%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 13\nCampo: Polideportivo Mpal. de Benicalap F-11
+DURATION:PT1H
+LOCATION:Polideportivo Mpal. de Benicalap F-11
+DTSTART:20260201T104500Z
+SUMMARY:C.F. Extramurs Valencia 'B' 1-0 F.B.U.E. Atlètic Amistat 'C'
+UID:9d12b95e-77e5-4003-9f60-8cbcbbf2d695@9d12.org
+URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20de%20Benicalap%20F-11%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 15\nCampo: Polideportivo Mpal. Quatre Carreres F-11
+DURATION:PT1H
+LOCATION:Polideportivo Mpal. Quatre Carreres F-11
+DTSTART:20260322T103000Z
+SUMMARY:U.D. Fonteta 'B' 1-0 C.F. Extramurs Valencia 'B'
+UID:0a16f641-b2ba-4e0e-b409-5377f8c6cc00@0a16.org
+URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20Quatre%20Carreres%20F-11%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 11\nCampo: Camp de Futbol Mpal. Tres Creus F-11 Valencia
+DURATION:PT1H
+LOCATION:Camp de Futbol Mpal. Tres Creus F-11 Valencia
+DTSTART:20260117T113000Z
+SUMMARY:C.D. Zafranar 'D' 0-0 C.F. Extramurs Valencia 'B'
+UID:6740a3af-02c4-4440-8252-ba0fcc9f26ef@6740.org
+URL:https://www.google.com/maps/search/?api=1&query=Camp%20de%20Futbol%20Mpal.%20Tres%20Creus%20F-11%20Valencia%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 16\nCampo: Polideportivo Mpal. de Benicalap F-11
+DURATION:PT1H
+LOCATION:Polideportivo Mpal. de Benicalap F-11
+DTSTART:20260222T104500Z
+SUMMARY:C.F. Extramurs Valencia 'B' 2-2 U.D. Quart de Poblet 'C'
+UID:4516bea8-82c8-440f-beba-fc59aa3d5aaa@4516.org
+URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20de%20Benicalap%20F-11%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 12\nCampo: Polideportivo Mpal. Ramón Sáez F-11 Xirivella
+DURATION:PT1H
+LOCATION:Polideportivo Mpal. Ramón Sáez F-11 Xirivella
+DTSTART:20260124T103000Z
+SUMMARY:Xirivella C.F. 'B' 0-3 C.F. Extramurs Valencia 'B'
+UID:1046b9dd-fb35-44a2-a493-bea99e9526b0@1046.org
+URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20Ram%C3%B3n%20S%C3%A1ez%20F-11%20Xirivella%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 22\nCampo: Polideportivo Mpal. de Benicalap F-11
+DURATION:PT1H
+LOCATION:Polideportivo Mpal. de Benicalap F-11
+DTSTART:20260419T104500Z
+SUMMARY:C.F. Extramurs Valencia 'B' 4-2 U.D. Juventud - Bº Cristo 'A'
+UID:b7291eb1-40d5-4e60-b02c-919b815da038@b729.org
 URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20de%20Benicalap%20F-11%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
@@ -202,8 +161,31 @@ DURATION:PT1H
 LOCATION:Polideportivo Mpal. de Manises F-11 Campo 2
 DTSTART:20251129T111500Z
 SUMMARY:Manises C.F. 'D' 0-12 C.F. Extramurs Valencia 'B'
-UID:e671aaee-b8f0-4216-859e-6f80e9ef4d90@e671.org
+UID:32167b19-6cc1-4539-8b5f-182faf3ad042@3216.org
 URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20de%20Manises%20F-11%20Campo%202%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 17\nCampo: 
+SUMMARY:Descansa vs C.F. Extramurs Valencia 'B'
+UID:98b26820-2225-4318-a252-5c2e71a04858@98b2.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 24\nCampo: Polideportivo Mpal. de Benicalap F-11
+DURATION:PT1H
+LOCATION:Polideportivo Mpal. de Benicalap F-11
+DTSTART:20260502T093000Z
+SUMMARY:C.F. Extramurs Valencia 'B' 4-1 C.D. Zafranar 'D'
+UID:07cf3a21-0aa0-4cad-a816-8eee2b634c83@07cf.org
+URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20de%20Benicalap%20F-11%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 25\nCampo: Polideportivo Mpal. de Benicalap F-11
+DURATION:PT1H
+LOCATION:Polideportivo Mpal. de Benicalap F-11
+DTSTART:20260510T104500Z
+SUMMARY:C.F. Extramurs Valencia 'B' 7-0 Xirivella C.F. 'B'
+UID:25988112-1246-49ff-8149-981593a24fa5@2598.org
+URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20de%20Benicalap%20F-11%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Jornada 4\nCampo: Polideportivo Mpal. de Benicalap F-11
@@ -211,25 +193,43 @@ DURATION:PT1H
 LOCATION:Polideportivo Mpal. de Benicalap F-11
 DTSTART:20251109T104500Z
 SUMMARY:C.F. Extramurs Valencia 'B' vs Descansa
-UID:3139d625-2b6f-4648-9381-585ffb5dacce@3139.org
+UID:8d1f519a-0984-41e9-ba83-2a6957077138@8d1f.org
 URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20de%20Benicalap%20F-11%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
-DESCRIPTION:Jornada 19\nCampo: Campo Mpal. Barrio La Luz F-11 Valencia
+DESCRIPTION:Jornada 9\nCampo: Campo Mpal. El Perdiguer F-11 Aldaia
 DURATION:PT1H
-LOCATION:Campo Mpal. Barrio La Luz F-11 Valencia
-DTSTART:20260315T090000Z
-SUMMARY:C.F. At. Bº La Luz - Xirivella 'B' 0-3 C.F. Extramurs Valencia 'B'
-UID:e1239f42-7a79-4667-9ba0-7f9dad1564c4@e123.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Mpal.%20Barrio%20La%20Luz%20F-11%20Valencia%2C%20Valencia%2C%20Espa%C3%B1a
+LOCATION:Campo Mpal. El Perdiguer F-11 Aldaia
+DTSTART:20251221T110000Z
+SUMMARY:U.D. Juventud - Bº Cristo 'A' 1-1 C.F. Extramurs Valencia 'B'
+UID:e14a9903-41f9-4ba0-a7ef-2b2a9039b5e2@e14a.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Mpal.%20El%20Perdiguer%20F-11%20Aldaia%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
-DESCRIPTION:Jornada 16\nCampo: Polideportivo Mpal. de Benicalap F-11
+DESCRIPTION:Jornada 23\nCampo: Poliesportiu Pep Cerveró Real F-11
+DURATION:PT1H
+LOCATION:Poliesportiu Pep Cerveró Real F-11
+DTSTART:20260425T120000Z
+SUMMARY:U.E. Vall Dels Alcalans 'A' 4-0 C.F. Extramurs Valencia 'B'
+UID:73b5b5c4-fb4d-4810-b813-3f8d243f363f@73b5.org
+URL:https://www.google.com/maps/search/?api=1&query=Poliesportiu%20Pep%20Cerver%C3%B3%20Real%20F-11%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 10\nCampo: Polideportivo Mpal. de Benicalap F-11
 DURATION:PT1H
 LOCATION:Polideportivo Mpal. de Benicalap F-11
-DTSTART:20260222T104500Z
-SUMMARY:C.F. Extramurs Valencia 'B' 2-2 U.D. Quart de Poblet 'C'
-UID:6257eaff-0ef4-4657-9970-919652cd04e0@6257.org
+DTSTART:20260111T104500Z
+SUMMARY:C.F. Extramurs Valencia 'B' 2-9 U.E. Vall Dels Alcalans 'A'
+UID:e22fc5b2-e5fa-4b61-b30d-0089fac1d336@e22f.org
+URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20de%20Benicalap%20F-11%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 14\nCampo: Polideportivo Mpal. de Benicalap F-11
+DURATION:PT1H
+LOCATION:Polideportivo Mpal. de Benicalap F-11
+DTSTART:20260208T104500Z
+SUMMARY:C.F. Extramurs Valencia 'B' 2-1 Mislata C.F. 'F'
+UID:f508e53d-345b-461c-b41f-c408ab02d10c@f508.org
 URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20de%20Benicalap%20F-11%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 END:VCALENDAR
