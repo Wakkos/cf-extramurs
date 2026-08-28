@@ -3,13 +3,31 @@ VERSION:2.0
 PRODID:Extramurs Calendar Bot
 X-WR-CALNAME:C.F. Extramurs Valencia 'B' (Querubines) - Grup
 BEGIN:VEVENT
-DESCRIPTION:Jornada 19\nCampo: Polideportivo Escuelas San Jose F-5 Campo 3 - A
+DESCRIPTION:Jornada 21\nCampo: Campo Tramo III del Turia F-5
 DURATION:PT1H
-LOCATION:Polideportivo Escuelas San Jose F-5 Campo 3 - A
-DTSTART:20260313T181500Z
-SUMMARY:C.D. Jesuitas Valencia-S. Fútbol 'A' 3-0 C.F. Extramurs Valencia 'B'
-UID:01abbfc3-c1da-4ba4-be3c-881a895e52fe@01ab.org
-URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Escuelas%20San%20Jose%20F-5%20Campo%203%20-%20A%2C%20Valencia%2C%20Espa%C3%B1a
+LOCATION:Campo Tramo III del Turia F-5
+DTSTART:20260422T183000Z
+SUMMARY:C.F. Extramurs Valencia 'B' 0-3 C.F. E1 Paiporta 'A'
+UID:3e72b9fd-798a-40c3-800d-4b4c8db8eeb3@3e72.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-5%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 13\nCampo: Campo Tramo III del Turia F-5
+DURATION:PT1H
+LOCATION:Campo Tramo III del Turia F-5
+DTSTART:20260201T124500Z
+SUMMARY:C.F. Extramurs Valencia 'B' 1-3 C.F. Inter San José Valencia 'B'
+UID:cc251539-3932-4ca4-a3f8-362779cf4529@cc25.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-5%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 18\nCampo: Polideportivo Mpal. La Canaleta F-5 Campo 1A - A
+DURATION:PT1H
+LOCATION:Polideportivo Mpal. La Canaleta F-5 Campo 1A - A
+DTSTART:20260308T113000Z
+SUMMARY:C.F. Rovella Mislata 'A' 3-0 C.F. Extramurs Valencia 'B'
+UID:d6d72cf3-ebcf-40d0-a8cd-93b6f81ea4c1@d6d7.org
+URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20La%20Canaleta%20F-5%20Campo%201A%20-%20A%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Jornada 11\nCampo: Campo Tramo II Parque del Turia F-5 Campo 1 A
@@ -17,25 +35,52 @@ DURATION:PT1H
 LOCATION:Campo Tramo II Parque del Turia F-5 Campo 1 A
 DTSTART:20260117T114500Z
 SUMMARY:C.D. EL RUMBO 'B' 2-3 C.F. Extramurs Valencia 'B'
-UID:a52a2e85-07df-4bd0-a14c-f956f72e5f09@a52a.org
+UID:906bc446-5818-4626-bff2-1011a029c6ca@906b.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20II%20Parque%20del%20Turia%20F-5%20Campo%201%20A%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
-DESCRIPTION:Jornada 21\nCampo: Campo Tramo III del Turia F-5
+DESCRIPTION:Jornada 20\nCampo: Campo Tramo III del Turia F-5
 DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-5
-DTSTART:20260422T183000Z
-SUMMARY:C.F. Extramurs Valencia 'B' 0-3 C.F. E1 Paiporta 'A'
-UID:df694d40-b758-4aed-b7e0-56d81d878a9d@df69.org
+DTSTART:20260328T133000Z
+SUMMARY:C.F. Extramurs Valencia 'B' 3-1 C.D. EL RUMBO 'B'
+UID:44197b54-b2e7-4622-a279-6a3f429ae024@4419.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-5%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
-DESCRIPTION:Jornada 23\nCampo: Campo Tramo III del Turia F-5
+DESCRIPTION:Jornada 26\nCampo: Estadio Mpal. Francisco Cardona F-5 Alboraya
+DURATION:PT1H
+LOCATION:Estadio Mpal. Francisco Cardona F-5 Alboraya
+DTSTART:20260523T104500Z
+SUMMARY:Alboraya U.D. 'B' 3-1 C.F. Extramurs Valencia 'B'
+UID:7f5a96e2-8546-4808-a422-8e0849e04b5a@7f5a.org
+URL:https://www.google.com/maps/search/?api=1&query=Estadio%20Mpal.%20Francisco%20Cardona%20F-5%20Alboraya%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 6\nCampo: Campo Tramo II Parque del Turia F-5 Campo 1 A
+DURATION:PT1H
+LOCATION:Campo Tramo II Parque del Turia F-5 Campo 1 A
+DTSTART:20251123T114500Z
+SUMMARY:C.D. El Rumbo 'A' 3-0 C.F. Extramurs Valencia 'B'
+UID:dffb9436-d602-400b-b7b2-d4158d2c2f1d@dffb.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20II%20Parque%20del%20Turia%20F-5%20Campo%201%20A%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 19\nCampo: Polideportivo Escuelas San Jose F-5 Campo 3 - A
+DURATION:PT1H
+LOCATION:Polideportivo Escuelas San Jose F-5 Campo 3 - A
+DTSTART:20260313T181500Z
+SUMMARY:C.D. Jesuitas Valencia-S. Fútbol 'A' 3-0 C.F. Extramurs Valencia 'B'
+UID:ba6a861d-2dd9-499b-b0b3-1ec656c5e818@ba6a.org
+URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Escuelas%20San%20Jose%20F-5%20Campo%203%20-%20A%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 15\nCampo: Campo Tramo III del Turia F-5
 DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-5
-DTSTART:20260425T133000Z
-SUMMARY:C.F. Extramurs Valencia 'B' 0-3 MANISES C.F. 'B'
-UID:2cd0d267-6fa7-4838-8425-e74e81e063b1@2cd0.org
+DTSTART:20260311T183000Z
+SUMMARY:C.F. Extramurs Valencia 'B' 1-3 C.D. El Rumbo 'A'
+UID:cd4b756f-fdd2-41d2-8855-a5dbdeafb558@cd4b.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-5%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
@@ -44,62 +89,8 @@ DURATION:PT1H
 LOCATION:Campo de Fútbol Mpal. de Beniferri F-5
 DTSTART:20251108T121500Z
 SUMMARY:C.F. Inter San José Valencia 'B' 3-0 C.F. Extramurs Valencia 'B'
-UID:87ef02c9-0a99-4c5e-9cb7-b9245a9aea0d@87ef.org
+UID:6417b687-4c16-45b0-b78d-75e656005b6f@6417.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20de%20F%C3%BAtbol%20Mpal.%20de%20Beniferri%20F-5%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 24\nCampo: Campo Tramo II Parque del Turia F-5 Campo 1 A
-DURATION:PT1H
-LOCATION:Campo Tramo II Parque del Turia F-5 Campo 1 A
-DTSTART:20260509T101000Z
-SUMMARY:C.D. El Rumbo 'A' 3-0 C.F. Extramurs Valencia 'B'
-UID:1fb57066-6844-42d6-9c76-6e76431d28c9@1fb5.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20II%20Parque%20del%20Turia%20F-5%20Campo%201%20A%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 18\nCampo: Polideportivo Mpal. La Canaleta F-5 Campo 1A - A
-DURATION:PT1H
-LOCATION:Polideportivo Mpal. La Canaleta F-5 Campo 1A - A
-DTSTART:20260308T113000Z
-SUMMARY:C.F. Rovella Mislata 'A' 3-0 C.F. Extramurs Valencia 'B'
-UID:4965f111-9481-4c1a-ac88-cd3955cb781c@4965.org
-URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20La%20Canaleta%20F-5%20Campo%201A%20-%20A%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 20\nCampo: Campo Tramo III del Turia F-5
-DURATION:PT1H
-LOCATION:Campo Tramo III del Turia F-5
-DTSTART:20260328T133000Z
-SUMMARY:C.F. Extramurs Valencia 'B' 3-1 C.D. EL RUMBO 'B'
-UID:f75e2cc5-576e-4024-893b-1d1dfe8564b5@f75e.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-5%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 6\nCampo: Campo Tramo II Parque del Turia F-5 Campo 1 A
-DURATION:PT1H
-LOCATION:Campo Tramo II Parque del Turia F-5 Campo 1 A
-DTSTART:20251123T114500Z
-SUMMARY:C.D. El Rumbo 'A' 3-0 C.F. Extramurs Valencia 'B'
-UID:080227e3-7fb3-4f34-8a51-171073780304@0802.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20II%20Parque%20del%20Turia%20F-5%20Campo%201%20A%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 10\nCampo: Campo Tramo III del Turia F-5
-DURATION:PT1H
-LOCATION:Campo Tramo III del Turia F-5
-DTSTART:20260111T124500Z
-SUMMARY:C.F. Extramurs Valencia 'B' 0-3 C.D. Jesuitas Valencia-S. Fútbol 'A'
-UID:350162d7-f639-4810-b65c-83ad18fd7498@3501.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-5%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 3\nCampo: Campo Tramo III del Turia F-5
-DURATION:PT1H
-LOCATION:Campo Tramo III del Turia F-5
-DTSTART:20251101T181500Z
-SUMMARY:C.F. Extramurs Valencia 'B' 0-3 C.F. E1 Paiporta 'A'
-UID:44cab389-3456-40f7-9bc3-47c7ed9e47cd@44ca.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-5%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Jornada 14\nCampo: Polideportivo Mpal. de Manises F-5 Campo 1
@@ -107,8 +98,26 @@ DURATION:PT1H
 LOCATION:Polideportivo Mpal. de Manises F-5 Campo 1
 DTSTART:20260208T120000Z
 SUMMARY:MANISES C.F. 'B' 2-1 C.F. Extramurs Valencia 'B'
-UID:4c3208dd-25d3-4645-8a6c-15ad99f4029c@4c32.org
+UID:3ff8470e-50d4-4a1e-af82-46dc50d6e24b@3ff8.org
 URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20de%20Manises%20F-5%20Campo%201%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 24\nCampo: Campo Tramo II Parque del Turia F-5 Campo 1 A
+DURATION:PT1H
+LOCATION:Campo Tramo II Parque del Turia F-5 Campo 1 A
+DTSTART:20260509T101000Z
+SUMMARY:C.D. El Rumbo 'A' 3-0 C.F. Extramurs Valencia 'B'
+UID:da3cebea-fe7d-45bd-b299-a11c3b1e9f87@da3c.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20II%20Parque%20del%20Turia%20F-5%20Campo%201%20A%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 23\nCampo: Campo Tramo III del Turia F-5
+DURATION:PT1H
+LOCATION:Campo Tramo III del Turia F-5
+DTSTART:20260425T133000Z
+SUMMARY:C.F. Extramurs Valencia 'B' 0-3 MANISES C.F. 'B'
+UID:18f93f2d-b5ee-4371-969c-77ce27190d71@18f9.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-5%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Jornada 25\nCampo: Campo Tramo III del Turia F-5
@@ -116,35 +125,8 @@ DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-5
 DTSTART:20260517T124500Z
 SUMMARY:C.F. Extramurs Valencia 'B' 1-3 C.D. SERRANOS VALENCIA 'A'
-UID:42eb9604-e8a6-43ff-b39f-90c8e460ac4f@42eb.org
+UID:de48abbc-580a-4829-8820-572d72cec1f6@de48.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-5%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 27\nCampo: Campo Tramo III del Turia F-5
-DURATION:PT1H
-LOCATION:Campo Tramo III del Turia F-5
-DTSTART:20260531T124500Z
-SUMMARY:C.F. Extramurs Valencia 'B' 2-3 C.F. Rovella Mislata 'A'
-UID:ca243ab1-467e-437f-9a9a-1f17d6b10d8d@ca24.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-5%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 15\nCampo: Campo Tramo III del Turia F-5
-DURATION:PT1H
-LOCATION:Campo Tramo III del Turia F-5
-DTSTART:20260311T183000Z
-SUMMARY:C.F. Extramurs Valencia 'B' 1-3 C.D. El Rumbo 'A'
-UID:7bd69a50-841f-4aa4-8f29-9d158e11153f@7bd6.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-5%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 16\nCampo: Instalaciones Mpales. Serranos F-5
-DURATION:PT1H
-LOCATION:Instalaciones Mpales. Serranos F-5
-DTSTART:20260221T114500Z
-SUMMARY:C.D. SERRANOS VALENCIA 'A' 3-1 C.F. Extramurs Valencia 'B'
-UID:d03a3d91-226a-483b-a997-52651bb78894@d03a.org
-URL:https://www.google.com/maps/search/?api=1&query=Instalaciones%20Mpales.%20Serranos%20F-5%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Jornada 5\nCampo: Campo Tramo III del Turia F-5
@@ -152,7 +134,7 @@ DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-5
 DTSTART:20251115T133000Z
 SUMMARY:C.F. Extramurs Valencia 'B' 0-3 MANISES C.F. 'B'
-UID:cf2d0df0-fcd1-45f2-b04e-a6eddd4596b4@cf2d.org
+UID:757687b5-b768-4972-8619-5392be4acaac@7576.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-5%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
@@ -161,7 +143,7 @@ DURATION:PT1H
 LOCATION:Estadio Mpal. Francisco Cardona F-5 Alboraya
 DTSTART:20251213T124500Z
 SUMMARY:Alboraya U.D. 'B' 3-0 C.F. Extramurs Valencia 'B'
-UID:3aedf052-f895-4b14-8518-b61cf17497ce@3aed.org
+UID:647c4a39-a6e8-4d83-8295-e7e54cb76836@647c.org
 URL:https://www.google.com/maps/search/?api=1&query=Estadio%20Mpal.%20Francisco%20Cardona%20F-5%20Alboraya%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
@@ -170,25 +152,43 @@ DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-5
 DTSTART:20251130T124500Z
 SUMMARY:C.F. Extramurs Valencia 'B' 0-3 C.D. SERRANOS VALENCIA 'A'
-UID:2dbd6202-afa4-4f02-a32e-58821018c71c@2dbd.org
+UID:d695db06-f9c1-4cce-b8b9-d86d113ac37d@d695.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-5%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
-DESCRIPTION:Jornada 12\nCampo: Campo de Fútbol Mpal. El Terrer F-5 Campo 1A
+DESCRIPTION:Jornada 1\nCampo: Polideportivo Escuelas San Jose F-5 Campo 3 - A
 DURATION:PT1H
-LOCATION:Campo de Fútbol Mpal. El Terrer F-5 Campo 1A
-DTSTART:20260218T182000Z
-SUMMARY:C.F. E1 Paiporta 'A' 3-0 C.F. Extramurs Valencia 'B'
-UID:61d8e59b-1e85-4a82-ac7d-a24d1a562389@61d8.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20de%20F%C3%BAtbol%20Mpal.%20El%20Terrer%20F-5%20Campo%201A%2C%20Valencia%2C%20Espa%C3%B1a
+LOCATION:Polideportivo Escuelas San Jose F-5 Campo 3 - A
+DTSTART:20251017T181500Z
+SUMMARY:C.D. Jesuitas Valencia-S. Fútbol 'A' 3-0 C.F. Extramurs Valencia 'B'
+UID:eb449a2e-5e1a-4dca-aa55-6ca4edf78fa2@eb44.org
+URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Escuelas%20San%20Jose%20F-5%20Campo%203%20-%20A%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
-DESCRIPTION:Jornada 13\nCampo: Campo Tramo III del Turia F-5
+DESCRIPTION:Jornada 9\nCampo: Campo Tramo III del Turia F-5
 DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-5
-DTSTART:20260201T124500Z
-SUMMARY:C.F. Extramurs Valencia 'B' 1-3 C.F. Inter San José Valencia 'B'
-UID:941de05e-e573-43eb-86ec-0708cad86d25@941d.org
+DTSTART:20251220T124500Z
+SUMMARY:C.F. Extramurs Valencia 'B' 1-3 C.F. Rovella Mislata 'A'
+UID:82591334-8493-42c3-a75b-e3c9643bbbb4@8259.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-5%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 16\nCampo: Instalaciones Mpales. Serranos F-5
+DURATION:PT1H
+LOCATION:Instalaciones Mpales. Serranos F-5
+DTSTART:20260221T114500Z
+SUMMARY:C.D. SERRANOS VALENCIA 'A' 3-1 C.F. Extramurs Valencia 'B'
+UID:6ae4433f-239f-4ba3-b63c-b0dba0186af5@6ae4.org
+URL:https://www.google.com/maps/search/?api=1&query=Instalaciones%20Mpales.%20Serranos%20F-5%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 3\nCampo: Campo Tramo III del Turia F-5
+DURATION:PT1H
+LOCATION:Campo Tramo III del Turia F-5
+DTSTART:20251101T181500Z
+SUMMARY:C.F. Extramurs Valencia 'B' 0-3 C.F. E1 Paiporta 'A'
+UID:78817ff5-0b49-46ff-a272-e3cc28c47342@7881.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-5%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
@@ -197,16 +197,43 @@ DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-5
 DTSTART:20260301T124500Z
 SUMMARY:C.F. Extramurs Valencia 'B' 0-3 Alboraya U.D. 'B'
-UID:22e22d33-3c7c-4223-9029-ec228ba2b9b1@22e2.org
+UID:2cb55faa-63aa-4c8c-8303-753febd69e9e@2cb5.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-5%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
-DESCRIPTION:Jornada 9\nCampo: Campo Tramo III del Turia F-5
+DESCRIPTION:Jornada 12\nCampo: Campo de Fútbol Mpal. El Terrer F-5 Campo 1A
+DURATION:PT1H
+LOCATION:Campo de Fútbol Mpal. El Terrer F-5 Campo 1A
+DTSTART:20260218T182000Z
+SUMMARY:C.F. E1 Paiporta 'A' 3-0 C.F. Extramurs Valencia 'B'
+UID:e064fedb-7e46-4d4e-965d-e3a696273d0a@e064.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20de%20F%C3%BAtbol%20Mpal.%20El%20Terrer%20F-5%20Campo%201A%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 22\nCampo: Campo de Fútbol Mpal. de Beniferri F-5
+DURATION:PT1H
+LOCATION:Campo de Fútbol Mpal. de Beniferri F-5
+DTSTART:20260419T111500Z
+SUMMARY:C.F. Inter San José Valencia 'B' 3-0 C.F. Extramurs Valencia 'B'
+UID:aa32b0c5-1781-4fae-af54-09621c2043e9@aa32.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20de%20F%C3%BAtbol%20Mpal.%20de%20Beniferri%20F-5%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 27\nCampo: Campo Tramo III del Turia F-5
 DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-5
-DTSTART:20251220T124500Z
-SUMMARY:C.F. Extramurs Valencia 'B' 1-3 C.F. Rovella Mislata 'A'
-UID:72c075cc-052c-44c1-b891-1f4f22e5f0cd@72c0.org
+DTSTART:20260531T124500Z
+SUMMARY:C.F. Extramurs Valencia 'B' 2-3 C.F. Rovella Mislata 'A'
+UID:abb34f4c-9488-4da6-bacd-be470820779f@abb3.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-5%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 10\nCampo: Campo Tramo III del Turia F-5
+DURATION:PT1H
+LOCATION:Campo Tramo III del Turia F-5
+DTSTART:20260111T124500Z
+SUMMARY:C.F. Extramurs Valencia 'B' 0-3 C.D. Jesuitas Valencia-S. Fútbol 'A'
+UID:a426b7fa-3f8d-4f50-8ee4-47eb8b591d2a@a426.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-5%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
@@ -215,34 +242,7 @@ DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-5
 DTSTART:20251203T183000Z
 SUMMARY:C.F. Extramurs Valencia 'B' 2-3 C.D. EL RUMBO 'B'
-UID:b8827221-f332-4b24-89f5-d7b0ce2cc6c2@b882.org
+UID:b9ea501d-9ac1-40ea-8b2d-61cbd7411e8e@b9ea.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-5%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 22\nCampo: Campo de Fútbol Mpal. de Beniferri F-5
-DURATION:PT1H
-LOCATION:Campo de Fútbol Mpal. de Beniferri F-5
-DTSTART:20260419T111500Z
-SUMMARY:C.F. Inter San José Valencia 'B' 3-0 C.F. Extramurs Valencia 'B'
-UID:572743d1-5247-4796-ad00-4592480d17b0@5727.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20de%20F%C3%BAtbol%20Mpal.%20de%20Beniferri%20F-5%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 26\nCampo: Estadio Mpal. Francisco Cardona F-5 Alboraya
-DURATION:PT1H
-LOCATION:Estadio Mpal. Francisco Cardona F-5 Alboraya
-DTSTART:20260523T104500Z
-SUMMARY:Alboraya U.D. 'B' 3-1 C.F. Extramurs Valencia 'B'
-UID:d18f10e2-5833-48d4-a906-521dc45a7530@d18f.org
-URL:https://www.google.com/maps/search/?api=1&query=Estadio%20Mpal.%20Francisco%20Cardona%20F-5%20Alboraya%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 1\nCampo: Polideportivo Escuelas San Jose F-5 Campo 3 - A
-DURATION:PT1H
-LOCATION:Polideportivo Escuelas San Jose F-5 Campo 3 - A
-DTSTART:20251017T181500Z
-SUMMARY:C.D. Jesuitas Valencia-S. Fútbol 'A' 3-0 C.F. Extramurs Valencia 'B'
-UID:54f84c36-788d-4d24-b019-45de20d6af26@54f8.org
-URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Escuelas%20San%20Jose%20F-5%20Campo%203%20-%20A%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 END:VCALENDAR
