@@ -3,22 +3,31 @@ VERSION:2.0
 PRODID:Extramurs Calendar Bot
 X-WR-CALNAME:C.F. Extramurs Valencia 'B' (Benjamín 1er. Año) - Lliga Regular Grup 2
 BEGIN:VEVENT
+DESCRIPTION:Jornada 12\nCampo: Campo Tramo III del Turia F-8
+DURATION:PT1H
+LOCATION:Campo Tramo III del Turia F-8
+DTSTART:20260411T113000Z
+SUMMARY:C.F. Extramurs Valencia 'D' 2-4 Tavernes Blanques C.F. 'B'
+UID:69df1a74-4667-433c-ac93-391f0814f0f0@69df.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
 DESCRIPTION:Jornada 18\nCampo: Campo Tramo III del Turia F-8
 DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-8
 DTSTART:20260531T113000Z
 SUMMARY:C.F. Extramurs Valencia 'D' 2-3 Rafelbunyol C.F. 'B'
-UID:e3f93081-4049-42b9-9395-ffc583b4fd19@e3f9.org
+UID:5ba65cf6-4b02-4bec-aae0-fccbff49c52e@5ba6.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
-DESCRIPTION:Jornada 3\nCampo: Campo Mpal. Carraixet F-8 Campo 1 Tavernes Blanques
+DESCRIPTION:Jornada 6\nCampo: Campo Tramo III del Turia F-8
 DURATION:PT1H
-LOCATION:Campo Mpal. Carraixet F-8 Campo 1 Tavernes Blanques
-DTSTART:20260124T090000Z
-SUMMARY:Tavernes Blanques C.F. 'B' 3-1 C.F. Extramurs Valencia 'D'
-UID:7ce81589-a435-48ab-9536-56b8a62fe75d@7ce8.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Mpal.%20Carraixet%20F-8%20Campo%201%20Tavernes%20Blanques%2C%20Valencia%2C%20Espa%C3%B1a
+LOCATION:Campo Tramo III del Turia F-8
+DTSTART:20260222T113000Z
+SUMMARY:C.F. Extramurs Valencia 'D' 3-3 Albalat C.F. 'B'
+UID:32d7fef0-5d59-4368-946f-0e816a14672a@32d7.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Jornada 2\nCampo: Estadio Mpal. San Ramon F-8 Campo 2 Albuixech
@@ -26,35 +35,8 @@ DURATION:PT1H
 LOCATION:Estadio Mpal. San Ramon F-8 Campo 2 Albuixech
 DTSTART:20260116T183000Z
 SUMMARY:C.F. Albuixech 'B' 3-1 C.F. Extramurs Valencia 'D'
-UID:1d958f26-0b4a-4b0b-80e5-49037f9248ba@1d95.org
+UID:09e5c4fa-05a8-4967-8dca-3e3ac05fa0b9@09e5.org
 URL:https://www.google.com/maps/search/?api=1&query=Estadio%20Mpal.%20San%20Ramon%20F-8%20Campo%202%20Albuixech%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 17\nCampo: Campo Mpal. La Exposicion F-8 Campo 1
-DURATION:PT1H
-LOCATION:Campo Mpal. La Exposicion F-8 Campo 1
-DTSTART:20260524T090000Z
-SUMMARY:C.F.B. Ciutat de València 'D' 5-1 C.F. Extramurs Valencia 'D'
-UID:ad552a8b-b516-470f-997c-eae7b71c8616@ad55.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Mpal.%20La%20Exposicion%20F-8%20Campo%201%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 12\nCampo: Campo Tramo III del Turia F-8
-DURATION:PT1H
-LOCATION:Campo Tramo III del Turia F-8
-DTSTART:20260411T113000Z
-SUMMARY:C.F. Extramurs Valencia 'D' 2-4 Tavernes Blanques C.F. 'B'
-UID:5742fadf-7474-491e-8f7c-04a35f58bc44@5742.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 5\nCampo: Estadio Mpal. Jose Claramunt F-8 Campo 2 Puçol
-DURATION:PT1H
-LOCATION:Estadio Mpal. Jose Claramunt F-8 Campo 2 Puçol
-DTSTART:20260207T090000Z
-SUMMARY:U.D. Puçol 'C' 3-1 C.F. Extramurs Valencia 'D'
-UID:d575361e-cf06-4da3-bc8f-0d1e50f4f722@d575.org
-URL:https://www.google.com/maps/search/?api=1&query=Estadio%20Mpal.%20Jose%20Claramunt%20F-8%20Campo%202%20Pu%C3%A7ol%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Jornada 13\nCampo: Polideportivo Mpal. La Pedrera I F-8 Campo 1 El Puig
@@ -62,26 +44,17 @@ DURATION:PT1H
 LOCATION:Polideportivo Mpal. La Pedrera I F-8 Campo 1 El Puig
 DTSTART:20260418T093000Z
 SUMMARY:El Puig C.E. 'B' 2-2 C.F. Extramurs Valencia 'D'
-UID:f1214c2d-c983-4b2b-8d12-51d579d3d160@f121.org
+UID:fb3e5016-f9b0-4da4-bab9-25a203649394@fb3e.org
 URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20La%20Pedrera%20I%20F-8%20Campo%201%20El%20Puig%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
-DESCRIPTION:Jornada 8\nCampo: Campo Tramo III del Turia F-8
+DESCRIPTION:Jornada 3\nCampo: Campo Mpal. Carraixet F-8 Campo 1 Tavernes Blanques
 DURATION:PT1H
-LOCATION:Campo Tramo III del Turia F-8
-DTSTART:20260228T122000Z
-SUMMARY:C.F. Extramurs Valencia 'D' 1-1 C.F.B. Ciutat de València 'D'
-UID:7fd33af5-ad14-4d39-83be-aced1eca2e92@7fd3.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 16\nCampo: Campo Tramo III del Turia F-8
-DURATION:PT1H
-LOCATION:Campo Tramo III del Turia F-8
-DTSTART:20260516T122000Z
-SUMMARY:C.F. Extramurs Valencia 'D' 2-1 C.F. At. Gilet 'B'
-UID:60f3dfa8-5cd6-4f38-8d7c-e58a9f300fba@60f3.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
+LOCATION:Campo Mpal. Carraixet F-8 Campo 1 Tavernes Blanques
+DTSTART:20260124T090000Z
+SUMMARY:Tavernes Blanques C.F. 'B' 3-1 C.F. Extramurs Valencia 'D'
+UID:625fa1f1-242c-4d43-89d6-6ee06bd3ef5a@625f.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Mpal.%20Carraixet%20F-8%20Campo%201%20Tavernes%20Blanques%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Jornada 9\nCampo: Poliesportiu Mpal. de Rafelbunyol F-8 Campo 1
@@ -89,7 +62,7 @@ DURATION:PT1H
 LOCATION:Poliesportiu Mpal. de Rafelbunyol F-8 Campo 1
 DTSTART:20260307T100000Z
 SUMMARY:Rafelbunyol C.F. 'B' 5-2 C.F. Extramurs Valencia 'D'
-UID:e52d601b-4b90-4342-b1cd-58cbade2f023@e52d.org
+UID:25436b97-508e-4108-b956-851ff8e958dc@2543.org
 URL:https://www.google.com/maps/search/?api=1&query=Poliesportiu%20Mpal.%20de%20Rafelbunyol%20F-8%20Campo%201%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
@@ -98,52 +71,16 @@ DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-8
 DTSTART:20260425T122000Z
 SUMMARY:C.F. Extramurs Valencia 'D' 2-1 U.D. Puçol 'C'
-UID:2e91c84f-46ba-4e93-8101-02ded264db82@2e91.org
+UID:57e42265-820f-4f07-af56-6ca2db3e16b7@57e4.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
-DESCRIPTION:Jornada 7\nCampo: Campo Mpal. La Malaitxa F-8 Campo 2 Gilet
-DURATION:PT1H
-LOCATION:Campo Mpal. La Malaitxa F-8 Campo 2 Gilet
-DTSTART:20260221T120000Z
-SUMMARY:C.F. At. Gilet 'B' 6-0 C.F. Extramurs Valencia 'D'
-UID:104e317d-77a3-4896-bdf8-dbe5f677b92d@104e.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Mpal.%20La%20Malaitxa%20F-8%20Campo%202%20Gilet%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 4\nCampo: Campo Tramo III del Turia F-8
+DESCRIPTION:Jornada 16\nCampo: Campo Tramo III del Turia F-8
 DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-8
-DTSTART:20260201T113000Z
-SUMMARY:C.F. Extramurs Valencia 'D' 2-0 El Puig C.E. 'B'
-UID:f8960a6e-0f08-470c-8100-0865d4ba636a@f896.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 1\nCampo: Campo Tramo III del Turia F-8
-DURATION:PT1H
-LOCATION:Campo Tramo III del Turia F-8
-DTSTART:20260111T113000Z
-SUMMARY:C.F. Extramurs Valencia 'D' 3-2 U.D. Marítimo - Cabanyal 'B'
-UID:34853ee4-f531-41e1-a2f4-f901711276db@3485.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 15\nCampo: Camp Manuel Aparisi F-8 Campo 1 Albalat dels Sorells
-DURATION:PT1H
-LOCATION:Camp Manuel Aparisi F-8 Campo 1 Albalat dels Sorells
-DTSTART:20260510T094500Z
-SUMMARY:Albalat C.F. 'B' 6-3 C.F. Extramurs Valencia 'D'
-UID:6e9aae3a-4cf4-4b63-832f-bfd8b5cbba43@6e9a.org
-URL:https://www.google.com/maps/search/?api=1&query=Camp%20Manuel%20Aparisi%20F-8%20Campo%201%20Albalat%20dels%20Sorells%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 6\nCampo: Campo Tramo III del Turia F-8
-DURATION:PT1H
-LOCATION:Campo Tramo III del Turia F-8
-DTSTART:20260222T113000Z
-SUMMARY:C.F. Extramurs Valencia 'D' 3-3 Albalat C.F. 'B'
-UID:ca2a2481-7d8d-4f3a-8cb9-dd0b02a9093f@ca2a.org
+DTSTART:20260516T122000Z
+SUMMARY:C.F. Extramurs Valencia 'D' 2-1 C.F. At. Gilet 'B'
+UID:e332788c-e968-47c5-b7a3-df8faa28a4f6@e332.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
@@ -152,8 +89,71 @@ DURATION:PT1H
 LOCATION:Campo Futbol Doctor Lluch F-8 Campo 2
 DTSTART:20260312T193000Z
 SUMMARY:U.D. Marítimo - Cabanyal 'B' 5-1 C.F. Extramurs Valencia 'D'
-UID:a4c545eb-4874-43ef-804a-25a384a2eb54@a4c5.org
+UID:831dac34-aa4b-4125-a27d-4df71dfdfde1@831d.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Futbol%20Doctor%20Lluch%20F-8%20Campo%202%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 5\nCampo: Estadio Mpal. Jose Claramunt F-8 Campo 2 Puçol
+DURATION:PT1H
+LOCATION:Estadio Mpal. Jose Claramunt F-8 Campo 2 Puçol
+DTSTART:20260207T090000Z
+SUMMARY:U.D. Puçol 'C' 3-1 C.F. Extramurs Valencia 'D'
+UID:4524bd74-39ad-4bde-b769-76d7d08439d2@4524.org
+URL:https://www.google.com/maps/search/?api=1&query=Estadio%20Mpal.%20Jose%20Claramunt%20F-8%20Campo%202%20Pu%C3%A7ol%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 1\nCampo: Campo Tramo III del Turia F-8
+DURATION:PT1H
+LOCATION:Campo Tramo III del Turia F-8
+DTSTART:20260111T113000Z
+SUMMARY:C.F. Extramurs Valencia 'D' 3-2 U.D. Marítimo - Cabanyal 'B'
+UID:89c7de3d-26aa-439e-aab7-d7f3b1deb9de@89c7.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 4\nCampo: Campo Tramo III del Turia F-8
+DURATION:PT1H
+LOCATION:Campo Tramo III del Turia F-8
+DTSTART:20260201T113000Z
+SUMMARY:C.F. Extramurs Valencia 'D' 2-0 El Puig C.E. 'B'
+UID:c388c9e9-dfd9-4949-a0d4-7a683ddd7c95@c388.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 7\nCampo: Campo Mpal. La Malaitxa F-8 Campo 2 Gilet
+DURATION:PT1H
+LOCATION:Campo Mpal. La Malaitxa F-8 Campo 2 Gilet
+DTSTART:20260221T120000Z
+SUMMARY:C.F. At. Gilet 'B' 6-0 C.F. Extramurs Valencia 'D'
+UID:e9ecf3a8-0307-4fb8-8477-ea99420ab90c@e9ec.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Mpal.%20La%20Malaitxa%20F-8%20Campo%202%20Gilet%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 17\nCampo: Campo Mpal. La Exposicion F-8 Campo 1
+DURATION:PT1H
+LOCATION:Campo Mpal. La Exposicion F-8 Campo 1
+DTSTART:20260524T090000Z
+SUMMARY:C.F.B. Ciutat de València 'D' 5-1 C.F. Extramurs Valencia 'D'
+UID:b004c49f-229b-48c6-b50b-39c5a519533a@b004.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Mpal.%20La%20Exposicion%20F-8%20Campo%201%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 8\nCampo: Campo Tramo III del Turia F-8
+DURATION:PT1H
+LOCATION:Campo Tramo III del Turia F-8
+DTSTART:20260228T122000Z
+SUMMARY:C.F. Extramurs Valencia 'D' 1-1 C.F.B. Ciutat de València 'D'
+UID:b7469be6-9eb2-4d43-9775-c46e64338047@b746.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 15\nCampo: Camp Manuel Aparisi F-8 Campo 1 Albalat dels Sorells
+DURATION:PT1H
+LOCATION:Camp Manuel Aparisi F-8 Campo 1 Albalat dels Sorells
+DTSTART:20260510T094500Z
+SUMMARY:Albalat C.F. 'B' 6-3 C.F. Extramurs Valencia 'D'
+UID:b5b7360d-9198-4bd3-a938-187e5c9a5f6b@b5b7.org
+URL:https://www.google.com/maps/search/?api=1&query=Camp%20Manuel%20Aparisi%20F-8%20Campo%201%20Albalat%20dels%20Sorells%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Jornada 11\nCampo: Campo Tramo III del Turia F-8
@@ -161,7 +161,7 @@ DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-8
 DTSTART:20260328T122000Z
 SUMMARY:C.F. Extramurs Valencia 'D' 4-2 C.F. Albuixech 'B'
-UID:f087a403-33de-4bb8-b365-4d2968c0ad2b@f087.org
+UID:3b8c165c-d657-41bb-9b8b-f92fcc5c532a@3b8c.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 END:VCALENDAR
