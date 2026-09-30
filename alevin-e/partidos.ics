@@ -3,40 +3,13 @@ VERSION:2.0
 PRODID:Extramurs Calendar Bot
 X-WR-CALNAME:C.F. Extramurs Valencia 'E' (Alevín 1er. Año) - Lliga Regular Grup 8
 BEGIN:VEVENT
-DESCRIPTION:Jornada 17\nCampo: Campo La Malvarrosa F-8 Campo 1
+DESCRIPTION:Jornada 15\nCampo: Polideportivo Mpal. de Betera F-8 Campo 3
 DURATION:PT1H
-LOCATION:Campo La Malvarrosa F-8 Campo 1
-DTSTART:20260524T124500Z
-SUMMARY:C.F. Malvarrosa 'B' 1-3 C.F. Extramurs Valencia 'E'
-UID:96c0cc19-9ad0-48e5-98c8-ce21185ab730@96c0.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20La%20Malvarrosa%20F-8%20Campo%201%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 18\nCampo: Campo Tramo III del Turia F-8
-DURATION:PT1H
-LOCATION:Campo Tramo III del Turia F-8
-DTSTART:20260531T101500Z
-SUMMARY:C.F. Extramurs Valencia 'E' 2-0 Godella C.F. 'B'
-UID:dcd9061a-a23a-48d2-a2f9-a27ddc961d3a@dcd9.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 14\nCampo: Campo Tramo III del Turia F-8
-DURATION:PT1H
-LOCATION:Campo Tramo III del Turia F-8
-DTSTART:20260425T111500Z
-SUMMARY:C.F. Extramurs Valencia 'E' 2-1 San Antonio de Benagéber C.F. 'C'
-UID:577eec93-fae8-43f1-bddf-57b99c40cd64@577e.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 6\nCampo: Campo Tramo III del Turia F-8
-DURATION:PT1H
-LOCATION:Campo Tramo III del Turia F-8
-DTSTART:20260303T181500Z
-SUMMARY:C.F. Extramurs Valencia 'E' 2-3 Bétera C.F. 'F'
-UID:12622fa8-2c1c-4cf0-9d88-e774f4c977b5@1262.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
+LOCATION:Polideportivo Mpal. de Betera F-8 Campo 3
+DTSTART:20260509T130500Z
+SUMMARY:Bétera C.F. 'F' 3-0 C.F. Extramurs Valencia 'E'
+UID:2d0e8248-721b-4bc6-9bc2-021f3587d6ca@2d0e.org
+URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20de%20Betera%20F-8%20Campo%203%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Jornada 11\nCampo: Campo Tramo III del Turia F-8
@@ -44,17 +17,8 @@ DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-8
 DTSTART:20260329T101500Z
 SUMMARY:C.F. Extramurs Valencia 'E' 8-1 C.D. Racing Riba-Roja 'D'
-UID:34c6d729-8ecb-4c49-84bd-3798909f15f2@34c6.org
+UID:d6868fc1-dec5-4f23-81e5-0c8ba9e71d43@d686.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 7\nCampo: Polidep. Mpal. David Casinos F-8 2-A Miguel Tendillo
-DURATION:PT1H
-LOCATION:Polidep. Mpal. David Casinos F-8 2-A Miguel Tendillo
-DTSTART:20260221T130000Z
-SUMMARY:C.F. At. Moncadense 'F' 1-3 C.F. Extramurs Valencia 'E'
-UID:7f629023-9682-4dea-af14-dfa18aaa22cb@7f62.org
-URL:https://www.google.com/maps/search/?api=1&query=Polidep.%20Mpal.%20David%20Casinos%20F-8%202-A%20Miguel%20Tendillo%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Jornada 10\nCampo: Campo Mpal. de Terramelar F-8
@@ -62,7 +26,7 @@ DURATION:PT1H
 LOCATION:Campo Mpal. de Terramelar F-8
 DTSTART:20260314T100000Z
 SUMMARY:U.D. Paterna 'H' 3-4 C.F. Extramurs Valencia 'E'
-UID:3d7880ce-824a-4d2b-97ba-d8f251ed6061@3d78.org
+UID:173fea33-0918-42c4-8811-2349f77127d2@173f.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Mpal.%20de%20Terramelar%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
@@ -71,70 +35,25 @@ DURATION:PT1H
 LOCATION:Campo Mpal. de Godella F-8 Campo 1
 DTSTART:20260307T130000Z
 SUMMARY:Godella C.F. 'B' 5-0 C.F. Extramurs Valencia 'E'
-UID:8a044c9c-2ef9-4a37-9863-001f36dd6ff5@8a04.org
+UID:8bd0b08f-2bba-443a-95a4-2bc51aba46ea@8bd0.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Mpal.%20de%20Godella%20F-8%20Campo%201%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
-DESCRIPTION:Jornada 15\nCampo: Polideportivo Mpal. de Betera F-8 Campo 3
-DURATION:PT1H
-LOCATION:Polideportivo Mpal. de Betera F-8 Campo 3
-DTSTART:20260509T130500Z
-SUMMARY:Bétera C.F. 'F' 3-0 C.F. Extramurs Valencia 'E'
-UID:2fb674df-5568-4d5a-955e-6dceb9953a26@2fb6.org
-URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20de%20Betera%20F-8%20Campo%203%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 8\nCampo: Campo Tramo III del Turia F-8
+DESCRIPTION:Jornada 14\nCampo: Campo Tramo III del Turia F-8
 DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-8
-DTSTART:20260228T111500Z
-SUMMARY:C.F. Extramurs Valencia 'E' 3-5 C.F. Malvarrosa 'B'
-UID:26745bd9-380b-4656-8d0b-3563d948f4fc@2674.org
+DTSTART:20260425T111500Z
+SUMMARY:C.F. Extramurs Valencia 'E' 2-1 San Antonio de Benagéber C.F. 'C'
+UID:04201a9c-1716-450b-b34a-db407d2a2763@0420.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
-DESCRIPTION:Jornada 13\nCampo: Campo Mpal. El Barranquet F-8 Campo 3 Benaguasil
-DURATION:PT1H
-LOCATION:Campo Mpal. El Barranquet F-8 Campo 3 Benaguasil
-DTSTART:20260418T101500Z
-SUMMARY:F.C. Benaguasil 'C' 1-10 C.F. Extramurs Valencia 'E'
-UID:83d49c65-2307-43ee-9c87-79aba33b4893@83d4.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Mpal.%20El%20Barranquet%20F-8%20Campo%203%20Benaguasil%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 16\nCampo: Campo Tramo III del Turia F-8
+DESCRIPTION:Jornada 18\nCampo: Campo Tramo III del Turia F-8
 DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-8
-DTSTART:20260517T101500Z
-SUMMARY:C.F. Extramurs Valencia 'E' 10-0 C.F. At. Moncadense 'F'
-UID:e512fad2-692f-498a-b79e-b255fa4af04e@e512.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 5\nCampo: Campo de Fútbol Mpal. San Ant. de Benageber I F-8 Campo 1
-DURATION:PT1H
-LOCATION:Campo de Fútbol Mpal. San Ant. de Benageber I F-8 Campo 1
-DTSTART:20260208T101500Z
-SUMMARY:San Antonio de Benagéber C.F. 'C' 0-0 C.F. Extramurs Valencia 'E'
-UID:92bb5195-3c18-427f-95e9-69ecdcd99986@92bb.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20de%20F%C3%BAtbol%20Mpal.%20San%20Ant.%20de%20Benageber%20I%20F-8%20Campo%201%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 12\nCampo: Campo Tramo III del Turia F-8
-DURATION:PT1H
-LOCATION:Campo Tramo III del Turia F-8
-DTSTART:20260412T101500Z
-SUMMARY:C.F. Extramurs Valencia 'E' vs Descansa
-UID:307ae681-0a7a-4115-a26b-e729e24b5c47@307a.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 4\nCampo: Campo Tramo III del Turia F-8
-DURATION:PT1H
-LOCATION:Campo Tramo III del Turia F-8
-DTSTART:20260201T101500Z
-SUMMARY:C.F. Extramurs Valencia 'E' 5-3 F.C. Benaguasil 'C'
-UID:c0de69b7-ede4-4ed7-be86-3ff75a857b5b@c0de.org
+DTSTART:20260531T101500Z
+SUMMARY:C.F. Extramurs Valencia 'E' 2-0 Godella C.F. 'B'
+UID:7e5c3550-99de-4e8f-a825-d831556ed3b6@7e5c.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
@@ -143,8 +62,22 @@ DURATION:PT1H
 LOCATION:Campo Futbol Mpal. Francisco Soriano Raga F-8 Campo 1 Riba-roja
 DTSTART:20260117T110000Z
 SUMMARY:C.D. Racing Riba-Roja 'D' 3-4 C.F. Extramurs Valencia 'E'
-UID:835052ff-53fa-4180-ac6d-61a430547d66@8350.org
+UID:2a6755cd-02e3-43f6-a973-94a3e3e293c6@2a67.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Futbol%20Mpal.%20Francisco%20Soriano%20Raga%20F-8%20Campo%201%20Riba-roja%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 3\nCampo: 
+SUMMARY:Descansa vs C.F. Extramurs Valencia 'E'
+UID:a8c0ddb0-eb9d-4a61-87a1-cab48319cbc3@a8c0.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 16\nCampo: Campo Tramo III del Turia F-8
+DURATION:PT1H
+LOCATION:Campo Tramo III del Turia F-8
+DTSTART:20260517T101500Z
+SUMMARY:C.F. Extramurs Valencia 'E' 10-0 C.F. At. Moncadense 'F'
+UID:4d20279a-cc2d-4792-84be-0a7cc808e4d8@4d20.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Jornada 1\nCampo: Campo Tramo III del Turia F-8
@@ -152,12 +85,79 @@ DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-8
 DTSTART:20260110T122000Z
 SUMMARY:C.F. Extramurs Valencia 'E' 3-6 U.D. Paterna 'H'
-UID:18826e04-3e0b-4e08-b659-6d4f5873ee0f@1882.org
+UID:ae82b6cd-e7b5-4b62-afd4-a33c63e43db3@ae82.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
-DESCRIPTION:Jornada 3\nCampo: 
-SUMMARY:Descansa vs C.F. Extramurs Valencia 'E'
-UID:6f9d0e46-03b6-4074-ac39-7f1c86cb70c0@6f9d.org
+DESCRIPTION:Jornada 5\nCampo: Campo de Fútbol Mpal. San Ant. de Benageber I F-8 Campo 1
+DURATION:PT1H
+LOCATION:Campo de Fútbol Mpal. San Ant. de Benageber I F-8 Campo 1
+DTSTART:20260208T101500Z
+SUMMARY:San Antonio de Benagéber C.F. 'C' 0-0 C.F. Extramurs Valencia 'E'
+UID:7a4a8c08-bf97-4d42-81bd-e0588cceca66@7a4a.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20de%20F%C3%BAtbol%20Mpal.%20San%20Ant.%20de%20Benageber%20I%20F-8%20Campo%201%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 7\nCampo: Polidep. Mpal. David Casinos F-8 2-A Miguel Tendillo
+DURATION:PT1H
+LOCATION:Polidep. Mpal. David Casinos F-8 2-A Miguel Tendillo
+DTSTART:20260221T130000Z
+SUMMARY:C.F. At. Moncadense 'F' 1-3 C.F. Extramurs Valencia 'E'
+UID:3015451a-2142-4f4e-9436-791a5728571f@3015.org
+URL:https://www.google.com/maps/search/?api=1&query=Polidep.%20Mpal.%20David%20Casinos%20F-8%202-A%20Miguel%20Tendillo%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 12\nCampo: Campo Tramo III del Turia F-8
+DURATION:PT1H
+LOCATION:Campo Tramo III del Turia F-8
+DTSTART:20260412T101500Z
+SUMMARY:C.F. Extramurs Valencia 'E' vs Descansa
+UID:6d47c32e-0ea5-4b04-8b12-9c5d0557533f@6d47.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 8\nCampo: Campo Tramo III del Turia F-8
+DURATION:PT1H
+LOCATION:Campo Tramo III del Turia F-8
+DTSTART:20260228T111500Z
+SUMMARY:C.F. Extramurs Valencia 'E' 3-5 C.F. Malvarrosa 'B'
+UID:5d87dfec-c402-4e5c-baa1-b1e926326944@5d87.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 17\nCampo: Campo La Malvarrosa F-8 Campo 1
+DURATION:PT1H
+LOCATION:Campo La Malvarrosa F-8 Campo 1
+DTSTART:20260524T124500Z
+SUMMARY:C.F. Malvarrosa 'B' 1-3 C.F. Extramurs Valencia 'E'
+UID:45dacca0-2a1e-4375-bbd8-7e703f9c2b4c@45da.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20La%20Malvarrosa%20F-8%20Campo%201%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 4\nCampo: Campo Tramo III del Turia F-8
+DURATION:PT1H
+LOCATION:Campo Tramo III del Turia F-8
+DTSTART:20260201T101500Z
+SUMMARY:C.F. Extramurs Valencia 'E' 5-3 F.C. Benaguasil 'C'
+UID:b13efbe4-646b-4de7-aa8b-041c3122d0eb@b13e.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 6\nCampo: Campo Tramo III del Turia F-8
+DURATION:PT1H
+LOCATION:Campo Tramo III del Turia F-8
+DTSTART:20260303T181500Z
+SUMMARY:C.F. Extramurs Valencia 'E' 2-3 Bétera C.F. 'F'
+UID:7cde6fd4-1a83-4238-beac-ec33524fc52e@7cde.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 13\nCampo: Campo Mpal. El Barranquet F-8 Campo 3 Benaguasil
+DURATION:PT1H
+LOCATION:Campo Mpal. El Barranquet F-8 Campo 3 Benaguasil
+DTSTART:20260418T101500Z
+SUMMARY:F.C. Benaguasil 'C' 1-10 C.F. Extramurs Valencia 'E'
+UID:e124542b-f37d-4e36-a52e-528f960fb9e3@e124.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Mpal.%20El%20Barranquet%20F-8%20Campo%203%20Benaguasil%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 END:VCALENDAR
