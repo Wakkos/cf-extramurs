@@ -3,48 +3,57 @@ VERSION:2.0
 PRODID:Extramurs Calendar Bot
 X-WR-CALNAME:C.F. Extramurs Valencia 'A' (Alevín 2º. Año) - Lliga Regular Grup 13
 BEGIN:VEVENT
-DESCRIPTION:Jornada 11\nCampo: Campo Tramo II Parque del Turia F-8 Campo 1
+DESCRIPTION:Jornada 13\nCampo: Camp de Futbol Mpal. Tres Creus F-8 Campo 2
 DURATION:PT1H
-LOCATION:Campo Tramo II Parque del Turia F-8 Campo 1
-DTSTART:20260329T101000Z
-SUMMARY:C.D. El Rumbo 'E' 0-7 C.F. Extramurs Valencia 'A'
-UID:bd6c8880-6442-40a8-ba57-c8384708e8dc@bd6c.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20II%20Parque%20del%20Turia%20F-8%20Campo%201%2C%20Valencia%2C%20Espa%C3%B1a
+LOCATION:Camp de Futbol Mpal. Tres Creus F-8 Campo 2
+DTSTART:20260418T090000Z
+SUMMARY:C.D. Zafranar 'B' 1-8 C.F. Extramurs Valencia 'A'
+UID:279efeed-0518-4a42-b791-a1dae1f7267f@279e.org
+URL:https://www.google.com/maps/search/?api=1&query=Camp%20de%20Futbol%20Mpal.%20Tres%20Creus%20F-8%20Campo%202%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
-DESCRIPTION:Jornada 7\nCampo: Poliesportiu Pep Cerveró F-8 Campo 1 Real
+DESCRIPTION:Jornada 6\nCampo: Polideportivo Mpal. La Canaleta F-8 Campo 1A Mislata
 DURATION:PT1H
-LOCATION:Poliesportiu Pep Cerveró F-8 Campo 1 Real
-DTSTART:20260221T111500Z
-SUMMARY:U.E. Vall Dels Alcalans 'A' 1-2 C.F. Extramurs Valencia 'A'
-UID:15b6ccb7-ec49-49fc-9582-ea49bc1eae06@15b6.org
-URL:https://www.google.com/maps/search/?api=1&query=Poliesportiu%20Pep%20Cerver%C3%B3%20F-8%20Campo%201%20Real%2C%20Valencia%2C%20Espa%C3%B1a
+LOCATION:Polideportivo Mpal. La Canaleta F-8 Campo 1A Mislata
+DTSTART:20260215T101500Z
+SUMMARY:Sp. Mislata U.F. 'G' 2-7 C.F. Extramurs Valencia 'A'
+UID:10fcf200-075f-4c88-b2cf-9c24654f53bb@10fc.org
+URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20La%20Canaleta%20F-8%20Campo%201A%20Mislata%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
-DESCRIPTION:Jornada 4\nCampo: Campo Tramo III del Turia F-8
+DESCRIPTION:Jornada 1\nCampo: Polideportivo Mpal. Ramon Saez F-8 Campo 1 Xirivella
+DURATION:PT1H
+LOCATION:Polideportivo Mpal. Ramon Saez F-8 Campo 1 Xirivella
+DTSTART:20260110T120000Z
+SUMMARY:C.F. Sporting Xirivella 'C' 2-2 C.F. Extramurs Valencia 'A'
+UID:74d8f90c-7a76-4617-816c-9c3e37a40bff@74d8.org
+URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20Ramon%20Saez%20F-8%20Campo%201%20Xirivella%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 17\nCampo: Campo Tramo III del Turia F-8
 DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-8
-DTSTART:20260131T123000Z
-SUMMARY:C.F. Extramurs Valencia 'A' 9-1 C.D. Zafranar 'B'
-UID:b650e1d6-c783-4762-9449-7ee713fa9cd1@b650.org
+DTSTART:20260524T101500Z
+SUMMARY:C.F. Extramurs Valencia 'A' 8-0 C.D.J. Collvert 'B'
+UID:54021b40-39f6-4e71-885e-8fe22f45c43d@5402.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
-DESCRIPTION:Jornada 16\nCampo: Campo Tramo III del Turia F-8
+DESCRIPTION:Jornada 18\nCampo: Poliesportiu Mpal. Marxalenes-Saïdia F-8 Campo 1
 DURATION:PT1H
-LOCATION:Campo Tramo III del Turia F-8
-DTSTART:20260516T134000Z
-SUMMARY:C.F. Extramurs Valencia 'A' 1-0 U.E. Vall Dels Alcalans 'A'
-UID:87d328ea-90d4-4501-b7ac-365eb620d0ad@87d3.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
+LOCATION:Poliesportiu Mpal. Marxalenes-Saïdia F-8 Campo 1
+DTSTART:20260531T090000Z
+SUMMARY:C.F. Històrics de València 'B' 1-4 C.F. Extramurs Valencia 'A'
+UID:20415786-f0e1-4e72-9175-4a435201e753@2041.org
+URL:https://www.google.com/maps/search/?api=1&query=Poliesportiu%20Mpal.%20Marxalenes-Sa%C3%AFdia%20F-8%20Campo%201%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
-DESCRIPTION:Jornada 2\nCampo: Campo Tramo III del Turia F-8
+DESCRIPTION:Jornada 12\nCampo: Campo Tramo III del Turia F-8
 DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-8
-DTSTART:20260117T111500Z
-SUMMARY:C.F. Extramurs Valencia 'A' 18-2 C.D. El Rumbo 'E'
-UID:c04938b4-13b2-4a93-9e3d-8cf81de1dd11@c049.org
+DTSTART:20260412T104500Z
+SUMMARY:C.F. Extramurs Valencia 'A' 2-3 C.D.J. Collvert 'A'
+UID:eb531f38-ba57-4124-a5a4-61e2212db67e@eb53.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
@@ -53,35 +62,44 @@ DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-8
 DTSTART:20260208T090000Z
 SUMMARY:C.F. Extramurs Valencia 'A' 1-3 C.F. Sporting Xirivella 'E'
-UID:a2237ae1-b5cc-4870-9912-5fd9f0a66674@a223.org
+UID:9b9b2ecd-dd31-401b-9c30-811b876a57a4@9b9b.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
-DESCRIPTION:Jornada 8\nCampo: Polideportivo Mpal. de Benimaclet F-8
-DURATION:PT1H
-LOCATION:Polideportivo Mpal. de Benimaclet F-8
-DTSTART:20260301T174500Z
-SUMMARY:C.D.J. Collvert 'B' 4-8 C.F. Extramurs Valencia 'A'
-UID:d85f2926-55e9-4577-a0e8-22dbf8595aec@d85f.org
-URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20de%20Benimaclet%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 10\nCampo: Campo Tramo III del Turia F-8
+DESCRIPTION:Jornada 16\nCampo: Campo Tramo III del Turia F-8
 DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-8
-DTSTART:20260314T122000Z
-SUMMARY:C.F. Extramurs Valencia 'A' 2-2 C.F. Sporting Xirivella 'C'
-UID:c8d7f9fc-626a-441c-9e38-dacaeef21a9f@c8d7.org
+DTSTART:20260516T134000Z
+SUMMARY:C.F. Extramurs Valencia 'A' 1-0 U.E. Vall Dels Alcalans 'A'
+UID:19f507c1-8e3e-4634-b918-2f3f550fb821@19f5.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
-DESCRIPTION:Jornada 6\nCampo: Polideportivo Mpal. La Canaleta F-8 Campo 1A Mislata
+DESCRIPTION:Jornada 2\nCampo: Campo Tramo III del Turia F-8
 DURATION:PT1H
-LOCATION:Polideportivo Mpal. La Canaleta F-8 Campo 1A Mislata
-DTSTART:20260215T101500Z
-SUMMARY:Sp. Mislata U.F. 'G' 2-7 C.F. Extramurs Valencia 'A'
-UID:20b719f8-80ea-4745-bd58-f73411edf5ba@20b7.org
-URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20La%20Canaleta%20F-8%20Campo%201A%20Mislata%2C%20Valencia%2C%20Espa%C3%B1a
+LOCATION:Campo Tramo III del Turia F-8
+DTSTART:20260117T111500Z
+SUMMARY:C.F. Extramurs Valencia 'A' 18-2 C.D. El Rumbo 'E'
+UID:e8f045cc-4266-410a-8f2d-e4fa53109d65@e8f0.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 11\nCampo: Campo Tramo II Parque del Turia F-8 Campo 1
+DURATION:PT1H
+LOCATION:Campo Tramo II Parque del Turia F-8 Campo 1
+DTSTART:20260329T101000Z
+SUMMARY:C.D. El Rumbo 'E' 0-7 C.F. Extramurs Valencia 'A'
+UID:c0a66ba6-d26a-4dfe-a3e4-156f50b72777@c0a6.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20II%20Parque%20del%20Turia%20F-8%20Campo%201%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 15\nCampo: Campo Tramo III del Turia F-8
+DURATION:PT1H
+LOCATION:Campo Tramo III del Turia F-8
+DTSTART:20260509T122000Z
+SUMMARY:C.F. Extramurs Valencia 'A' 3-1 Sp. Mislata U.F. 'G'
+UID:76133e75-d507-488d-be3f-c1f3fcec670e@7613.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Jornada 9\nCampo: Campo Tramo III del Turia F-8
@@ -89,16 +107,16 @@ DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-8
 DTSTART:20260308T090000Z
 SUMMARY:C.F. Extramurs Valencia 'A' 3-3 C.F. Històrics de València 'B'
-UID:baf9c5c9-0d54-422e-9e01-5b0ba7603eea@baf9.org
+UID:7575dade-ae7b-4a02-846b-ecf26f5e6eed@7575.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
-DESCRIPTION:Jornada 17\nCampo: Campo Tramo III del Turia F-8
+DESCRIPTION:Jornada 4\nCampo: Campo Tramo III del Turia F-8
 DURATION:PT1H
 LOCATION:Campo Tramo III del Turia F-8
-DTSTART:20260524T101500Z
-SUMMARY:C.F. Extramurs Valencia 'A' 8-0 C.D.J. Collvert 'B'
-UID:498e00b6-679b-49f0-9cdc-bc2eb38a0123@498e.org
+DTSTART:20260131T123000Z
+SUMMARY:C.F. Extramurs Valencia 'A' 9-1 C.D. Zafranar 'B'
+UID:cf92f7df-da39-4df9-8b03-bcdb061838a4@cf92.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
@@ -107,8 +125,35 @@ DURATION:PT1H
 LOCATION:Polideportivo Mpal. Ramon Saez F-8 Campo 1 Xirivella
 DTSTART:20260426T133000Z
 SUMMARY:C.F. Sporting Xirivella 'E' 4-0 C.F. Extramurs Valencia 'A'
-UID:d5928887-790b-45f0-bd5a-387954de24ad@d592.org
+UID:1b468f05-6544-4cd5-a38b-22b15c4da2a4@1b46.org
 URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20Ramon%20Saez%20F-8%20Campo%201%20Xirivella%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 8\nCampo: Polideportivo Mpal. de Benimaclet F-8
+DURATION:PT1H
+LOCATION:Polideportivo Mpal. de Benimaclet F-8
+DTSTART:20260301T174500Z
+SUMMARY:C.D.J. Collvert 'B' 4-8 C.F. Extramurs Valencia 'A'
+UID:b0f292f3-a369-4ee1-a8ac-ee906ff1f92e@b0f2.org
+URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20de%20Benimaclet%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 7\nCampo: Poliesportiu Pep Cerveró F-8 Campo 1 Real
+DURATION:PT1H
+LOCATION:Poliesportiu Pep Cerveró F-8 Campo 1 Real
+DTSTART:20260221T111500Z
+SUMMARY:U.E. Vall Dels Alcalans 'A' 1-2 C.F. Extramurs Valencia 'A'
+UID:d18ea324-bfc5-4d6c-a3e2-dc4453c71ab1@d18e.org
+URL:https://www.google.com/maps/search/?api=1&query=Poliesportiu%20Pep%20Cerver%C3%B3%20F-8%20Campo%201%20Real%2C%20Valencia%2C%20Espa%C3%B1a
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Jornada 10\nCampo: Campo Tramo III del Turia F-8
+DURATION:PT1H
+LOCATION:Campo Tramo III del Turia F-8
+DTSTART:20260314T122000Z
+SUMMARY:C.F. Extramurs Valencia 'A' 2-2 C.F. Sporting Xirivella 'C'
+UID:7d0aabf5-cd43-44e6-afab-451a794717f6@7d0a.org
+URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 BEGIN:VEVENT
 DESCRIPTION:Jornada 3\nCampo: Campo Mpal. Pont de Fusta F-8 Campo 1
@@ -116,52 +161,7 @@ DURATION:PT1H
 LOCATION:Campo Mpal. Pont de Fusta F-8 Campo 1
 DTSTART:20260125T090000Z
 SUMMARY:C.D.J. Collvert 'A' 1-2 C.F. Extramurs Valencia 'A'
-UID:e90b2be4-4850-4ccb-9c1a-ad7ae65ae64d@e90b.org
+UID:a7f25f74-bddf-4496-a963-74776c604828@a7f2.org
 URL:https://www.google.com/maps/search/?api=1&query=Campo%20Mpal.%20Pont%20de%20Fusta%20F-8%20Campo%201%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 18\nCampo: Poliesportiu Mpal. Marxalenes-Saïdia F-8 Campo 1
-DURATION:PT1H
-LOCATION:Poliesportiu Mpal. Marxalenes-Saïdia F-8 Campo 1
-DTSTART:20260531T090000Z
-SUMMARY:C.F. Històrics de València 'B' 1-4 C.F. Extramurs Valencia 'A'
-UID:1133e39e-7695-4ac5-97a7-e2397ad69b1c@1133.org
-URL:https://www.google.com/maps/search/?api=1&query=Poliesportiu%20Mpal.%20Marxalenes-Sa%C3%AFdia%20F-8%20Campo%201%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 13\nCampo: Camp de Futbol Mpal. Tres Creus F-8 Campo 2
-DURATION:PT1H
-LOCATION:Camp de Futbol Mpal. Tres Creus F-8 Campo 2
-DTSTART:20260418T090000Z
-SUMMARY:C.D. Zafranar 'B' 1-8 C.F. Extramurs Valencia 'A'
-UID:2420afa4-4b34-42b9-847a-d6b965cda12d@2420.org
-URL:https://www.google.com/maps/search/?api=1&query=Camp%20de%20Futbol%20Mpal.%20Tres%20Creus%20F-8%20Campo%202%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 1\nCampo: Polideportivo Mpal. Ramon Saez F-8 Campo 1 Xirivella
-DURATION:PT1H
-LOCATION:Polideportivo Mpal. Ramon Saez F-8 Campo 1 Xirivella
-DTSTART:20260110T120000Z
-SUMMARY:C.F. Sporting Xirivella 'C' 2-2 C.F. Extramurs Valencia 'A'
-UID:690c54d7-0031-4e0d-abd7-d57ac61add54@690c.org
-URL:https://www.google.com/maps/search/?api=1&query=Polideportivo%20Mpal.%20Ramon%20Saez%20F-8%20Campo%201%20Xirivella%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 15\nCampo: Campo Tramo III del Turia F-8
-DURATION:PT1H
-LOCATION:Campo Tramo III del Turia F-8
-DTSTART:20260509T122000Z
-SUMMARY:C.F. Extramurs Valencia 'A' 3-1 Sp. Mislata U.F. 'G'
-UID:e705aa5c-f3e6-4327-9188-2592aded0a5f@e705.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
-END:VEVENT
-BEGIN:VEVENT
-DESCRIPTION:Jornada 12\nCampo: Campo Tramo III del Turia F-8
-DURATION:PT1H
-LOCATION:Campo Tramo III del Turia F-8
-DTSTART:20260412T104500Z
-SUMMARY:C.F. Extramurs Valencia 'A' 2-3 C.D.J. Collvert 'A'
-UID:75a28cf5-2186-4258-94d6-a1be8e9e9672@75a2.org
-URL:https://www.google.com/maps/search/?api=1&query=Campo%20Tramo%20III%20del%20Turia%20F-8%2C%20Valencia%2C%20Espa%C3%B1a
 END:VEVENT
 END:VCALENDAR
